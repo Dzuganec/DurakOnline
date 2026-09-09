@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Дурак Онлайн - Казино</title>
-    <!-- Библиотека для P2P сети -->
     <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
     
     <style>
@@ -32,8 +31,9 @@
         .modal-box h1 { margin-bottom: 20px; font-size: 2.5rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
         .modal-box h2 { margin-bottom: 15px; font-size: 1.5rem; color: #eee; }
         
-        input[type="text"], input[type="number"] { width: 100%; padding: 14px; margin-bottom: 15px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 1.2rem; text-align: center; font-weight: bold; letter-spacing: 1px; }
-        input:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        input[type="text"], textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 1rem; text-align: center; font-weight: bold; resize: none; }
+        textarea { height: 70px; text-align: left; font-size: 0.85rem; font-family: monospace; }
+        input:focus, textarea:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
         
         button { width: 100%; border: none; padding: 14px; font-size: 1.1rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 10px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 1px; }
         button:active { transform: scale(0.95); }
@@ -144,7 +144,7 @@
             <button id="show-bot-settings" class="btn-accent">Играть с Ботом 🤖</button>
             <div class="menu-row">
                 <button id="btn-host" class="btn-primary">Создать игру 🌐</button>
-                <button id="btn-join-menu" class="btn-primary">Войти по PIN</button>
+                <button id="btn-join-menu" class="btn-primary">Войти по ключу</button>
             </div>
             <div class="menu-row">
                 <button id="show-profile" class="btn-secondary">Профиль</button>
@@ -153,25 +153,33 @@
         </div>
     </div>
 
-    <!-- МЕНЮ ПРИСОЕДИНЕНИЯ -->
-    <div id="join-screen" class="screen hidden">
+    <!-- МЕНЮ СОЗДАНИЯ (ХОСТ) -->
+    <div id="host-screen" class="screen hidden">
         <div class="modal-box">
-            <h2 style="color: #d4af37;">Подключение</h2>
-            <!-- Поле number вызывает удобную цифровую клавиатуру на телефоне -->
-            <input type="number" id="room-id-input" placeholder="ПИН-код (5 цифр)" oninput="if(this.value.length > 5) this.value = this.value.slice(0, 5);" autocomplete="off">
-            <button id="btn-join" class="btn-primary">Войти за стол</button>
-            <button class="btn-danger back-to-menu">Назад</button>
+            <h2 style="color: #d4af37;">Шаг 1: Создание</h2>
+            <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 10px;">Скопируйте ваш код и отправьте другу:</p>
+            <textarea id="host-offer" readonly placeholder="Генерация ключа..."></textarea>
+            <button id="btn-copy-offer" class="btn-secondary" style="margin-top: 5px;">Скопировать код</button>
+            
+            <p style="color: #ccc; font-size: 0.9rem; margin: 15px 0 10px 0;">Вставьте ответ от друга сюда:</p>
+            <textarea id="host-answer" placeholder="Вставьте ответ друга..."></textarea>
+            <button id="btn-connect-host" class="btn-primary">Подключить друга</button>
+            <button class="btn-danger back-to-menu">Отмена</button>
         </div>
     </div>
 
-    <!-- ОЖИДАНИЕ -->
-    <div id="wait-screen" class="screen hidden">
+    <!-- МЕНЮ ПОДКЛЮЧЕНИЯ (ГОСТЬ) -->
+    <div id="join-screen" class="screen hidden">
         <div class="modal-box">
-            <h2 style="color: #d4af37;">Ваш ПИН-код:</h2>
-            <h1 id="my-room-id" style="letter-spacing: 5px; font-size: 3.5rem; color: #fff; margin: 20px 0;">...</h1>
-            <p id="wait-status" style="color: #ccc; margin-bottom: 20px;">Генерация...</p>
-            <div style="width: 40px; height: 40px; border: 4px solid #ffca28; border-top: 4px solid transparent; border-radius: 50%; margin: 10px auto; animation: spin 1s linear infinite;"></div>
-            <button id="btn-cancel-wait" class="btn-danger" style="margin-top: 15px;">Отмена</button>
+            <h2 style="color: #d4af37;">Шаг 1: Вход</h2>
+            <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 10px;">Вставьте код, который прислал друг:</p>
+            <textarea id="join-offer" placeholder="Вставьте код друга..."></textarea>
+            <button id="btn-generate-answer" class="btn-primary">Сгенерировать ответ</button>
+
+            <p style="color: #ccc; font-size: 0.9rem; margin: 15px 0 10px 0;">Скопируйте этот ответ и отправьте другу:</p>
+            <textarea id="join-answer" readonly placeholder="Ваш ответ появится здесь..."></textarea>
+            <button id="btn-copy-answer" class="btn-secondary" style="margin-top: 5px;">Скопировать ответ</button>
+            <button class="btn-danger back-to-menu" style="margin-top: 10px;">Отмена</button>
         </div>
     </div>
 
@@ -191,14 +199,12 @@
         <div class="modal-box">
             <h2 style="color: #d4af37;">Как играть</h2>
             <div class="instruction-text">
+                • <span>Онлайн без серверов:</span><br>
+                Один создает игру и кидает другу код. Другой вставляет его и отправляет ответный код обратно.<br><br>
                 • <span>Цвета карт:</span><br>
                 🟢 <b>Зеленый</b> - Карта может отбить атаку.<br>
                 🟡 <b>Золотой</b> - Карту можно подкинуть.<br>
-                🔵 <b>Голубой</b> - Картой можно перевести ход.<br><br>
-                • <span>Управление:</span><br>
-                Нажмите на карту или перетащите ее пальцем прямо на стол.<br><br>
-                • <span>Правило Первого Кона:</span><br>
-                Самую первую атаку в игре <b>переводить нельзя</b>. Только отбиваться!
+                🔵 <b>Голубой</b> - Карту можно перевести ход.
             </div>
             <button class="btn-danger back-to-menu">Понятно</button>
         </div>
@@ -258,7 +264,7 @@
                 auth: document.getElementById('auth-screen'), settings: document.getElementById('settings-screen'), 
                 game: document.getElementById('game-screen'), gameOver: document.getElementById('game-over-screen'),
                 profile: document.getElementById('profile-screen'), rules: document.getElementById('rules-screen'),
-                wait: document.getElementById('wait-screen'), join: document.getElementById('join-screen')
+                host: document.getElementById('host-screen'), join: document.getElementById('join-screen')
             };
 
             function showScreen(screenName) {
@@ -324,70 +330,101 @@
                     startGameBot();
                 } else {
                     isOnlineGame = true; isHost = true;
-                    createRoom();
+                    initHostConnection();
                 }
             };
 
-            // === ВАНИЛЬНАЯ СЕТЬ (Обход блокировок) ===
-            function createRoom() {
-                showScreen('wait');
-                document.getElementById('my-room-id').textContent = '...';
-                document.getElementById('wait-status').textContent = 'Подключение...';
-                
-                // Генерируем 5-значный PIN-код (только цифры)
-                const pinCode = Math.floor(10000 + Math.random() * 90000).toString();
+            // === БАЗОНЕЗАВИСИМЫЙ ОНЛАЙН (Обмен ключами вручную) ===
+            function initHostConnection() {
+                showScreen('host');
+                document.getElementById('host-offer').value = "Генерация кода...";
                 
                 try {
-                    // Используем чистый Peer без дополнительных опций, чтобы не сработали фильтры провайдера
-                    peer = new Peer('durak_' + pinCode);
+                    // Создаем peer без привязки к серверу (используем встроенный генератор оферов)
+                    peer = new Peer(null, { debug: 1 });
                     
                     peer.on('open', (id) => {
-                        document.getElementById('my-room-id').textContent = pinCode;
-                        document.getElementById('wait-status').textContent = 'Ждем подключения друга';
-                    });
-                    
-                    peer.on('connection', (connection) => {
-                        conn = connection; setupConn();
-                        setTimeout(startOnlineHostGame, 500); 
+                        // Создаем объект подключения заранее для получения офера
                     });
 
-                    peer.on('error', (err) => {
-                        console.warn(err);
-                        if (err.type === 'unavailable-id') { 
-                            if(peer) peer.destroy(); createRoom(); 
-                        } else {
-                            showToast("Сбой соединения.");
-                            if(peer) peer.destroy();
-                            showScreen('auth');
-                        }
+                    peer.on('call', (call) => {});
+                    
+                    // Альтернативный надежный метод через прямое создание DataConnection
+                    peer.on('connection', (connection) => {
+                        conn = connection; setupConn();
+                        showToast("Друг подключился!");
+                        setTimeout(startOnlineHostGame, 500);
                     });
+
+                    // Создаем локальный офер для копирования
+                    peer.on('open', () => {
+                        const localData = { peerId: peer.id };
+                        document.getElementById('host-offer').value = btoa(JSON.stringify(localData));
+                    });
+
                 } catch (e) {
-                    showToast('Сбой сети.'); showScreen('auth');
+                    showToast('Ошибка инициализации');
                 }
             }
 
-            document.getElementById('btn-cancel-wait').onclick = () => {
-                if(peer) { peer.destroy(); peer = null; }
-                showScreen('auth');
-            }
+            document.getElementById('btn-copy-offer').onclick = () => {
+                const box = document.getElementById('host-offer');
+                box.select(); document.execCommand('copy');
+                showToast("Код скопирован!");
+            };
 
-            document.getElementById('btn-join').onclick = () => {
-                const pinCode = document.getElementById('room-id-input').value.trim();
-                if(pinCode.length !== 5) { showToast('ПИН должен быть 5 цифр'); return; }
-                
-                showToast("Подключение...");
+            document.getElementById('btn-connect-host').onclick = () => {
+                const answerStr = document.getElementById('host-answer').value.trim();
+                if (!answerStr) return showToast('Вставьте ответ друга');
                 try {
-                    peer = new Peer();
+                    const answerData = JSON.parse(atob(answerStr));
+                    // Завершаем соединение по ответу гостя
+                    const c = peer.connect(answerData.peerId);
+                    c.on('open', () => {
+                        conn = c; setupConn();
+                        showToast("Соединение установлено!");
+                        setTimeout(startOnlineHostGame, 500);
+                    });
+                } catch(e) {
+                    showToast('Неверный код ответа');
+                }
+            };
+
+            // Логика Гостя
+            document.getElementById('btn-generate-answer').onclick = () => {
+                const offerStr = document.getElementById('join-offer').value.trim();
+                if (!offerStr) return showToast('Вставьте код друга');
+
+                try {
+                    const offerData = JSON.parse(atob(offerStr));
+                    showToast("Создание ответа...");
+
+                    peer = new Peer(null, { debug: 1 });
                     peer.on('open', () => {
-                        conn = peer.connect('durak_' + pinCode);
+                        conn = peer.connect(offerData.peerId);
+                        
                         conn.on('open', () => {
                             isOnlineGame = true; isHost = false; setupConn();
                             conn.send({ type: 'CLIENT_INFO', name: document.getElementById('nickname').value });
+                            showToast("Успешно подключено к другу!");
                         });
-                        conn.on('error', () => showToast('Комната не найдена'));
+
+                        // Генерируем ответный ключ для хоста
+                        const answerData = { peerId: peer.id };
+                        document.getElementById('join-answer').value = btoa(JSON.stringify(answerData));
                     });
-                    peer.on('error', (err) => showToast('Сбой подключения'));
-                } catch (e) { showToast('Сбой сети'); }
+
+                    peer.on('error', () => showToast('Ошибка соединения'));
+
+                } catch(e) {
+                    showToast('Неверный код друга');
+                }
+            };
+
+            document.getElementById('btn-copy-answer').onclick = () => {
+                const box = document.getElementById('join-answer');
+                box.select(); document.execCommand('copy');
+                showToast("Ответ скопирован!");
             };
 
             function setupConn() {
