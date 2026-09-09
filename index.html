@@ -164,7 +164,7 @@
         <div class="modal-box">
             <h2 style="color: #d4af37;">Ваш ID комнаты:</h2>
             <h1 id="my-room-id" style="letter-spacing: 3px; font-size: 3rem; color: #fff;">Связь...</h1>
-            <p id="wait-status" style="color: #ccc; margin-bottom: 20px;">Поиск оптимального сервера</p>
+            <p id="wait-status" style="color: #ccc; margin-bottom: 20px;">Генерация безопасного ключа</p>
             <div style="width: 40px; height: 40px; border: 4px solid #ffca28; border-top: 4px solid transparent; border-radius: 50%; margin: 10px auto; animation: spin 1s linear infinite;"></div>
             <button id="btn-cancel-wait" class="btn-danger" style="margin-top: 15px;">Отмена</button>
         </div>
@@ -318,12 +318,12 @@
                 }
             };
 
-            // === ИСПРАВЛЕННЫЙ СЕТЕВОЙ МОДУЛЬ (ОБХОД БЛОКИРОВОК) ===
+            // === ИСПРАВЛЕННЫЙ СЕТЕВОЙ МОДУЛЬ С ЗАЩИТОЙ ОТ КОЛЛИЗИЙ ===
             const peerOptions = {
-                debug: 1, // Снижаем уровень логов
                 config: {
                     iceServers: [
                         { urls: 'stun:stun.l.google.com:19302' },
+                        { urls: 'stun:stun1.l.google.com:19302' },
                         { urls: 'stun:stun.yandex.ru:3478' }
                     ]
                 }
@@ -332,26 +332,27 @@
             function createRoom() {
                 showScreen('wait');
                 document.getElementById('my-room-id').textContent = 'Связь...';
-                document.getElementById('wait-status').textContent = 'Пробиваемся через провайдера...';
+                document.getElementById('wait-status').textContent = 'Поиск сервера...';
                 
-                const roomId = Math.random().toString(36).substring(2, 7).toUpperCase();
+                // Генерируем короткий ID для пользователя, но длинный уникальный для сервера
+                const shortId = Math.random().toString(36).substring(2, 7).toUpperCase();
+                const uniquePeerId = 'durakcasino_' + shortId;
                 
                 try {
-                    // Используем стандартный роутинг без жесткой привязки к хосту
-                    peer = new Peer(roomId, peerOptions);
+                    peer = new Peer(uniquePeerId, peerOptions);
                     
                     let timeoutCheck = setTimeout(() => {
                         if (document.getElementById('my-room-id').textContent === 'Связь...') {
-                            showToast("Сервер Яндекса/Google недоступен. Пробуем переподключиться...");
+                            showToast("Сервер не отвечает. Проверьте интернет.");
                             if(peer) peer.destroy();
-                            // Авто-ретрай
-                            setTimeout(createRoom, 1000);
+                            showScreen('auth');
                         }
-                    }, 8000); // Увеличен таймаут для 5G сетей
+                    }, 8000);
 
                     peer.on('open', (id) => {
                         clearTimeout(timeoutCheck);
-                        document.getElementById('my-room-id').textContent = id;
+                        // Показываем пользователю только короткий код
+                        document.getElementById('my-room-id').textContent = shortId;
                         document.getElementById('wait-status').textContent = 'Отправьте этот код другу';
                     });
                     
@@ -364,6 +365,10 @@
                         console.warn(err);
                         if (err.type === 'unavailable-id') { 
                             if(peer) peer.destroy(); createRoom(); 
+                        } else {
+                            showToast("Блокировка провайдером.");
+                            if(peer) peer.destroy();
+                            showScreen('auth');
                         }
                     });
                 } catch (e) {
@@ -378,21 +383,22 @@
             }
 
             document.getElementById('btn-join').onclick = () => {
-                const id = document.getElementById('room-id-input').value.toUpperCase().trim();
-                if(!id) return;
+                const shortId = document.getElementById('room-id-input').value.toUpperCase().trim();
+                if(!shortId) return;
                 
-                showToast("Ищем комнату...");
+                showToast("Подключение...");
                 try {
                     peer = new Peer(peerOptions);
                     peer.on('open', () => {
-                        conn = peer.connect(id);
+                        // Подключаемся к длинному уникальному ID хоста
+                        conn = peer.connect('durakcasino_' + shortId);
                         conn.on('open', () => {
                             isOnlineGame = true; isHost = false; setupConn();
                             conn.send({ type: 'CLIENT_INFO', name: document.getElementById('nickname').value });
                         });
-                        conn.on('error', () => { showToast('Не удалось подключиться. Проверьте ID.'); });
+                        conn.on('error', () => showToast('Не удалось подключиться'));
                     });
-                    peer.on('error', (err) => { showToast('Связь прервана провайдером.'); });
+                    peer.on('error', (err) => showToast('Ошибка сети'));
                 } catch (e) { showToast('Сбой сети'); }
             };
 
