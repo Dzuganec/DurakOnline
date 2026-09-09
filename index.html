@@ -265,12 +265,11 @@
                 screens[screenName].classList.remove('hidden');
             }
 
-            // Навигация
             document.querySelectorAll('.back-to-menu').forEach(btn => btn.onclick = () => showScreen('auth'));
             document.getElementById('show-rules').onclick = () => showScreen('rules');
             document.getElementById('return-main-menu').onclick = () => showScreen('auth');
             
-            // Статистика
+            // Локальное хранилище прогресса (работает на GitHub Pages без базы данных)
             let stats = { wins: 0, losses: 0 };
             function loadStats() {
                 const saved = localStorage.getItem('durak_stats');
@@ -329,8 +328,12 @@
                 }
             };
 
-            // === НАСТРОЙКИ СЕТИ WebRTC (СЕРВЕРЫ Google и Yandex для обхода мобильных сетей) ===
+            // === УЛУЧШЕННАЯ СЕТЬ WebRTC ===
+            // Подключаем защищенные STUN серверы Google для стабильной связи через 5G/LTE
             const peerOptions = {
+                secure: true,
+                host: '0.peerjs.com',
+                port: 443,
                 config: {
                     iceServers: [
                         { urls: 'stun:stun.l.google.com:19302' },
@@ -350,11 +353,11 @@
                     
                     let timeoutCheck = setTimeout(() => {
                         if (document.getElementById('my-room-id').textContent === '...') {
-                            alert("Сервер не отвечает. Проверьте интернет или включите VPN.");
+                            showToast("Сервер занят. Попробуйте еще раз.");
                             if(peer) peer.destroy();
                             showScreen('auth');
                         }
-                    }, 8000);
+                    }, 5000);
 
                     peer.on('open', (id) => {
                         clearTimeout(timeoutCheck);
@@ -367,17 +370,12 @@
                     });
 
                     peer.on('error', (err) => {
-                        console.error(err);
-                        if (err.type === 'unavailable-id') {
-                            peer.destroy(); createRoom(); 
-                        } else {
-                            alert('Ошибка соединения. Попробуйте другой Wi-Fi.');
-                            showScreen('auth');
-                        }
+                        console.warn(err);
+                        if (err.type === 'unavailable-id') { peer.destroy(); createRoom(); } 
+                        else { showToast('Сбой подключения к серверу'); showScreen('auth'); }
                     });
                 } catch (e) {
-                    alert('Сбой сети. Ваш браузер может не поддерживать WebRTC.');
-                    showScreen('auth');
+                    showToast('Сбой сети.'); showScreen('auth');
                 }
             }
 
@@ -390,6 +388,7 @@
                 const id = document.getElementById('room-id-input').value.toUpperCase().trim();
                 if(!id) return;
                 
+                showToast("Подключение...");
                 try {
                     peer = new Peer(peerOptions);
                     peer.on('open', () => {
@@ -398,10 +397,10 @@
                             isOnlineGame = true; isHost = false; setupConn();
                             conn.send({ type: 'CLIENT_INFO', name: document.getElementById('nickname').value });
                         });
-                        conn.on('error', () => { alert('Не удалось подключиться к комнате'); });
+                        conn.on('error', () => showToast('Не удалось подключиться'));
                     });
-                    peer.on('error', (err) => { alert('Ошибка сети: ' + err.message); });
-                } catch (e) { alert('Сбой сети.'); }
+                    peer.on('error', (err) => showToast('Ошибка сети'));
+                } catch (e) { showToast('Сбой сети'); }
             };
 
             function setupConn() {
@@ -438,13 +437,6 @@
             let isPlayerTurn = true, gameMode = 'podkidnoy', difficulty = 'easy';
             let isGameOver = false, tricksPlayed = 0;
             let botPassed = false, botTaking = false, opponentPassed = false, opponentTaking = false;
-
-            function showToast(message) {
-                const container = document.getElementById('toast-container');
-                const toast = document.createElement('div');
-                toast.className = 'toast'; toast.textContent = message;
-                container.appendChild(toast); setTimeout(() => toast.remove(), 2000);
-            }
 
             function startGameBot() {
                 deck = []; playerHand = []; botHand = []; tablePairs = []; 
@@ -541,7 +533,7 @@
                             if (!isDragging) {
                                 longPressTriggered = true;
                                 if (navigator.vibrate) navigator.vibrate(50);
-                                el.classList.remove('holding'); executeAction(card, true); 
+                                el.classList.remove('holding'); executeLocalAction(card, true); 
                             }
                         }, 500);
                     }
@@ -573,7 +565,7 @@
                     document.removeEventListener('mouseup', onEnd); document.removeEventListener('touchend', onEnd);
 
                     if (longPressTriggered) return;
-                    if (!isDragging) { executeAction(card, false); } 
+                    if (!isDragging) { executeLocalAction(card, false); } 
                     else { el.classList.remove('dragging'); checkDropZone(el, card); }
                 };
 
@@ -612,13 +604,13 @@
                         if (center.y < bfRect.bottom + 60) {
                             const canTranslate = tablePairs.some(p => p.attack.v === card.v);
                             if (gameMode === 'perevodnoy' && tricksPlayed > 0 && tablePairs.every(p => !p.defend) && canTranslate && (tablePairs.length + 1) <= botHand.length) {
-                                executeAction(card, true); success = true;
+                                executeLocalAction(card, true); success = true;
                             }
                         }
                     }
                 } else {
                     const bfRect = document.getElementById('battlefield').getBoundingClientRect();
-                    if (center.y < bfRect.bottom + 60) { executeAction(card, false); success = true; }
+                    if (center.y < bfRect.bottom + 60) { executeLocalAction(card, false); success = true; }
                 }
                 if (!success) renderHands(); 
             }
@@ -723,7 +715,7 @@
                 return vals;
             }
 
-            function executeAction(card, forceTranslate) {
+            function executeLocalAction(card, forceTranslate) {
                 const idx = playerHand.indexOf(card); if (idx === -1) return; 
                 if (isOnlineGame) conn.send({ type: 'MOVE', card, forceTranslate });
 
