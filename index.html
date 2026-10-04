@@ -526,7 +526,10 @@ function executeLocalAction(card,forceTranslate){
   playerHand.splice(idx,1);
   tablePairs.push({attack:card,defend:null});
   renderTable();renderHands();updateTurnState();
-  if(!isPlayerTurn)setTimeout(botDefend,900);
+  // После атаки игрока бот ОБЯЗАТЕЛЬНО должен начать отбиваться.
+  // Раньше здесь проверялось !isPlayerTurn, но isPlayerTurn в этот момент
+  // всё ещё true — из-за этого бот зависал после первой атаки.
+  if(isPlayerTurn)setTimeout(botDefend,900);
   return;
  }
 
