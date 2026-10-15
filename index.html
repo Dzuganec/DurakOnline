@@ -145,7 +145,7 @@
 <div id="auth-screen" class="screen">
     <div class="modal-box">
         <h1>Durak Casino</h1>
-        <input type="text" id="nickname" placeholder="Ваш никнейм" maxlength="12">
+        <input type="text" id="nickname" placeholder="Ваш никнейм (для сети)" maxlength="12">
 
         <button id="show-bot-settings" class="btn-accent">Играть с Ботом 🤖</button>
         <div class="menu-row">
@@ -265,7 +265,7 @@
 </div>
 
 <script>
-    // Код написан в стиле ES5 (var, function) — работает в Safari на iOS 9.
+    // Код написан в стиле ES5 (var, function) — работает в Safari на iOS 9 и полностью офлайн.
     document.addEventListener("DOMContentLoaded", function () {
 
         // ---------- Вспомогательное ----------
@@ -336,21 +336,41 @@
         $('show-profile').onclick = function () { loadStats(); showScreen('profile'); };
         loadStats();
 
-        // ---------- Меню ----------
+        // ---------- Меню и Офлайн-режим ----------
         var pendingGameType = 'bot';
         var isOnlineGame = false, isHost = false, peer = null, conn = null;
 
-        // Онлайн требует WebRTC (iOS 11+). На iOS 9 доступна только игра с ботом.
+        // Безопасная подгрузка PeerJS только при наличии интернета (для полной автономности офлайн)
         var webrtcOK = !!(window.RTCPeerConnection || window.webkitRTCPeerConnection);
-        if (webrtcOK) {
+        var peerScriptLoading = false;
+
+        function loadPeerJS() {
+            if (!webrtcOK || typeof Peer !== 'undefined' || peerScriptLoading) return;
+            if (typeof navigator.onLine === 'boolean' && !navigator.onLine) return;
+            peerScriptLoading = true;
             var s = document.createElement('script');
             s.src = 'https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js';
             s.async = true;
+            s.onload = function () { peerScriptLoading = false; };
+            s.onerror = function () { peerScriptLoading = false; };
             document.head.appendChild(s);
         }
+
+        loadPeerJS();
+        window.addEventListener('online', loadPeerJS, false);
+
         function onlineAvailable() {
-            if (!webrtcOK || typeof Peer === 'undefined') {
+            if (typeof navigator.onLine === 'boolean' && !navigator.onLine) {
+                showToast('Нет подключения к интернету');
+                return false;
+            }
+            if (!webrtcOK) {
                 showToast('Онлайн недоступен на этом устройстве');
+                return false;
+            }
+            if (typeof Peer === 'undefined') {
+                loadPeerJS();
+                showToast('Модуль сети загружается или нет интернета');
                 return false;
             }
             return true;
@@ -363,8 +383,10 @@
             return true;
         }
 
+        // Игра с ботом не требует ввода ника и интернета
         $('show-bot-settings').onclick = function () {
-            if (!checkNick()) return;
+            var n = $('nickname').value.trim();
+            $('display-nickname').textContent = n.length >= 2 ? n : 'Игрок';
             pendingGameType = 'bot';
             $('bot-diff-group').style.display = 'flex';
             showScreen('settings');
