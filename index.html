@@ -27,31 +27,31 @@
     body.felt-ocean { background-color: #0b2545; }
     body.felt-vip { background-color: #141414; }
 
-    .screen { width: 100vw; height: 100vh; height: 100dvh; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; transition: opacity 0.4s; position: absolute; top: 0; left: 0; }
+    .screen { width: 100vw; height: 100vh; height: 100dvh; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; transition: opacity 0.35s; position: absolute; top: 0; left: 0; }
     .hidden { opacity: 0; pointer-events: none; z-index: -1; }
 
     .modal-box {
         background: linear-gradient(135deg, rgba(20, 30, 20, 0.96), rgba(10, 15, 10, 0.96));
-        padding: 22px; border-radius: 20px; text-align: center;
+        padding: 20px; border-radius: 20px; text-align: center;
         box-shadow: 0 30px 60px rgba(0,0,0,0.85), 0 0 0 2px rgba(212, 175, 55, 0.35);
-        -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); width: 92%; max-width: 420px;
+        -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); width: 92%; max-width: 430px;
         max-height: 92vh; overflow-y: auto; -webkit-overflow-scrolling: touch;
     }
-    .modal-box h1 { margin-bottom: 12px; font-size: 2.2rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
-    .modal-box h2 { margin-bottom: 12px; font-size: 1.4rem; color: #eee; }
-    .section-label { font-size: 0.8rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 5px 0; font-weight: bold; }
+    .modal-box h1 { margin-bottom: 10px; font-size: 2.1rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
+    .modal-box h2 { margin-bottom: 10px; font-size: 1.35rem; color: #eee; }
+    .section-label { font-size: 0.78rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 5px 0; font-weight: bold; }
 
     .balance-badge {
         display: inline-block; background: rgba(0,0,0,0.65); border: 1px solid #d4af37;
         color: #ffd700; padding: 6px 16px; border-radius: 20px; font-weight: bold;
-        font-size: 1rem; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        font-size: 0.95rem; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
-    input[type="text"], textarea { -webkit-appearance: none; width: 100%; padding: 11px; margin-bottom: 12px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 1rem; text-align: center; font-weight: bold; resize: none; -webkit-user-select: text; user-select: text; }
-    textarea { height: 65px; text-align: left; font-size: 0.85rem; font-family: monospace; }
+    input[type="text"], textarea { -webkit-appearance: none; width: 100%; padding: 10px; margin-bottom: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 0.95rem; text-align: center; font-weight: bold; resize: none; -webkit-user-select: text; user-select: text; }
+    textarea { height: 56px; text-align: left; font-size: 0.8rem; font-family: monospace; }
     input:focus, textarea:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
 
-    button { -webkit-appearance: none; width: 100%; border: none; padding: 12px; font-size: 1rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 9px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 0.8px; }
+    button { -webkit-appearance: none; width: 100%; border: none; padding: 11px; font-size: 0.95rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 8px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 0.7px; }
     button:active { transform: scale(0.96); }
     button:disabled { opacity: 0.45; pointer-events: none; -webkit-filter: grayscale(1); filter: grayscale(1); }
 
@@ -60,6 +60,7 @@
     .btn-secondary { background: linear-gradient(135deg, #333, #555); color: #fff; border: 1px solid #777; }
     .btn-danger { background: linear-gradient(135deg, #111, #333); color: #d4af37; border: 1px solid #d4af37; }
     .btn-info { background: linear-gradient(135deg, #0072ff, #00c6ff); color: #fff; border: 1px solid #80e5ff; }
+    .btn-wifi { background: linear-gradient(135deg, #00b09b, #96c93d); color: #0a1f0a; box-shadow: 0 4px 15px rgba(0, 176, 155, 0.4); }
 
     .glowing { -webkit-animation: pulseBtn 1.5s infinite; animation: pulseBtn 1.5s infinite; box-shadow: 0 0 15px #d4af37; opacity: 1 !important; border-color: #ffe55c; color: #ffe55c; }
     @-webkit-keyframes pulseBtn {
@@ -73,23 +74,34 @@
         100% { transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
     }
 
-    .settings-group { display: -webkit-flex; display: flex; -webkit-justify-content: space-around; justify-content: space-around; -webkit-flex-wrap: wrap; flex-wrap: wrap; margin-bottom: 12px; background: rgba(0,0,0,0.4); padding: 6px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-    .settings-group label { font-size: 0.85rem; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin: 4px 6px; cursor: pointer; color: #ccc; }
+    .settings-group { display: -webkit-flex; display: flex; -webkit-justify-content: space-around; justify-content: space-around; -webkit-flex-wrap: wrap; flex-wrap: wrap; margin-bottom: 10px; background: rgba(0,0,0,0.4); padding: 6px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+    .settings-group label { font-size: 0.82rem; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin: 4px 6px; cursor: pointer; color: #ccc; }
     .settings-group label input { margin-bottom: 4px; }
 
-    .menu-row { display: -webkit-flex; display: flex; margin-bottom: 9px; }
-    .menu-row button { -webkit-flex: 1 1 0; flex: 1 1 0; width: auto; margin-bottom: 0; font-size: 0.85rem; padding: 11px 8px; }
+    .menu-row { display: -webkit-flex; display: flex; margin-bottom: 8px; }
+    .menu-row button { -webkit-flex: 1 1 0; flex: 1 1 0; width: auto; margin-bottom: 0; font-size: 0.82rem; padding: 10px 6px; }
     .menu-row button + button { margin-left: 8px; }
 
     .stat-line { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); font-size: 1rem; }
-    .instruction-text { text-align: left; font-size: 0.9rem; color: #ccc; line-height: 1.45; margin-bottom: 15px; }
+    .instruction-text { text-align: left; font-size: 0.88rem; color: #ccc; line-height: 1.45; margin-bottom: 14px; }
     .instruction-text span { color: #d4af37; font-weight: bold; }
 
     /* Магазин */
     .shop-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(0,0,0,0.45); padding: 8px 12px; border-radius: 10px; margin-bottom: 7px; border: 1px solid rgba(212,175,55,0.25); }
-    .shop-item-title { text-align: left; font-size: 0.9rem; font-weight: bold; color: #eee; }
-    .shop-item-sub { font-size: 0.75rem; color: #aaa; }
-    .shop-item button { width: auto; margin: 0; padding: 7px 14px; font-size: 0.8rem; }
+    .shop-item-title { text-align: left; font-size: 0.88rem; font-weight: bold; color: #eee; }
+    .shop-item-sub { font-size: 0.74rem; color: #aaa; }
+    .shop-item button { width: auto; margin: 0; padding: 7px 14px; font-size: 0.78rem; }
+
+    /* Wi-Fi & QR блок */
+    .qr-box { background: #fff; padding: 10px; border-radius: 14px; display: inline-block; margin: 6px auto 10px auto; box-shadow: 0 8px 25px rgba(0,0,0,0.7); border: 3px solid #d4af37; }
+    .qr-box canvas { display: block; width: 190px; height: 190px; image-rendering: pixelated; }
+    .radar-box { background: rgba(0,0,0,0.5); border: 1px dashed rgba(0, 255, 100, 0.5); border-radius: 12px; padding: 8px 10px; margin-bottom: 10px; text-align: left; }
+    .radar-title { font-size: 0.78rem; color: #00ff64; font-weight: bold; text-transform: uppercase; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: space-between; justify-content: space-between; }
+    .radar-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(255,255,255,0.08); padding: 6px 10px; border-radius: 8px; margin-top: 6px; font-size: 0.85rem; }
+    .radar-item button { width: auto; margin: 0; padding: 5px 12px; font-size: 0.75rem; }
+    .scanner-wrap { position: relative; width: 100%; max-width: 260px; height: 200px; margin: 0 auto 10px auto; border-radius: 14px; overflow: hidden; border: 2px solid #00ff64; background: #000; display: none; }
+    .scanner-wrap video { width: 100%; height: 100%; object-fit: cover; }
+    .scanner-laser { position: absolute; top: 50%; left: 8%; width: 84%; height: 2px; background: #ff0055; box-shadow: 0 0 10px 2px #ff0055; }
 
     #toast-container { position: absolute; top: 14%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 2000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; }
     .toast { background: linear-gradient(to right, rgba(15,15,15,0.95), rgba(35,35,35,0.95)); color: #d4af37; padding: 8px 20px; margin-bottom: 8px; border-radius: 20px; font-weight: bold; border: 1px solid #d4af37; box-shadow: 0 10px 20px rgba(0,0,0,0.6); text-align: center; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
@@ -227,20 +239,95 @@
         </div>
         <button id="btn-bailout" class="btn-accent hidden" style="padding: 8px; font-size: 0.85rem; margin-bottom: 10px;">🎁 Бонус от заведения (+250 🪙)</button>
 
-        <input type="text" id="nickname" placeholder="Ваш никнейм (для сети)" maxlength="12">
+        <input type="text" id="nickname" placeholder="Ваш никнейм (необязательно)" maxlength="12">
 
         <button id="show-bot-settings" class="btn-accent">Играть с Ботом 🤖</button>
-        <button id="show-local-settings" class="btn-info">Играть вдвоем (1 экран) 👥</button>
+        <button id="btn-wifi-lobby" class="btn-wifi">📡 Игра по Wi-Fi (Без интернета)</button>
+        <button id="show-local-settings" class="btn-info">👥 На двоих (1 устройство)</button>
 
         <div class="menu-row">
-            <button id="btn-host" class="btn-primary">Создать игру 🌐</button>
-            <button id="btn-join-menu" class="btn-primary">Войти по ключу</button>
+            <button id="btn-host" class="btn-primary">Онлайн: Создать 🌐</button>
+            <button id="btn-join-menu" class="btn-primary">Онлайн: Войти 🌐</button>
         </div>
         <div class="menu-row">
             <button id="show-shop" class="btn-secondary">🛒 Магазин</button>
             <button id="show-profile" class="btn-secondary">📊 Профиль</button>
             <button id="show-rules" class="btn-secondary">📖 Правила</button>
         </div>
+    </div>
+</div>
+
+<!-- ЛОББИ ИГРЫ ПО WI-FI / ТОЧКЕ ДОСТУПА (БЕЗ ИНТЕРНЕТА, С QR-КОДОМ) -->
+<div id="wifi-screen" class="screen hidden">
+    <div class="modal-box">
+        <h2 style="color: #96c93d;">📡 Wi-Fi / Точка доступа</h2>
+        <p style="color: #ccc; font-size: 0.8rem; margin-bottom: 8px;">
+            Работает в самолете и в лесу: один раздает Wi-Fi с телефона, второй подключается к нему.
+        </p>
+
+        <!-- Автопоиск столов в локальном канале -->
+        <div class="radar-box">
+            <div class="radar-title">
+                <span>🟢 Радар столов рядом:</span>
+                <span id="radar-status" style="font-size: 0.72rem; color: #aaa;">Поиск...</span>
+            </div>
+            <div id="radar-list">
+                <div style="font-size: 0.78rem; color: #888; margin-top: 4px;">Пока никого нет. Создайте стол или отсканируйте QR-код друга ниже!</div>
+            </div>
+        </div>
+
+        <div class="menu-row">
+            <button id="btn-wifi-tab-host" class="btn-accent">1. Создать стол (QR)</button>
+            <button id="btn-wifi-tab-join" class="btn-secondary">2. Войти по QR</button>
+        </div>
+
+        <!-- Вкладка ХОСТА Wi-Fi -->
+        <div id="wifi-host-panel">
+            <p id="wifi-host-step-title" style="color: #ffd700; font-size: 0.85rem; font-weight: bold; margin: 4px 0;">
+                Шаг 1: Покажите этот QR-код другу
+            </p>
+            <div class="qr-box">
+                <canvas id="wifi-host-qr" width="210" height="210"></canvas>
+            </div>
+            <div class="menu-row">
+                <button id="btn-wifi-scan-answer" class="btn-wifi">📷 Сканировать ответ друга</button>
+                <button id="btn-wifi-copy-offer" class="btn-secondary">📋 Копировать</button>
+            </div>
+            <textarea id="wifi-host-code" placeholder="Или вставьте сюда ответный код от друга..."></textarea>
+            <button id="btn-wifi-apply-answer" class="btn-primary">Подключить ответный код</button>
+        </div>
+
+        <!-- Вкладка ГОСТЯ Wi-Fi -->
+        <div id="wifi-join-panel" class="hidden">
+            <p id="wifi-join-step-title" style="color: #00c6ff; font-size: 0.85rem; font-weight: bold; margin: 4px 0;">
+                Шаг 1: Отсканируйте QR-код на экране Хоста
+            </p>
+            <div class="menu-row">
+                <button id="btn-wifi-scan-offer" class="btn-wifi">📷 Сканировать QR Хоста</button>
+                <button id="btn-wifi-paste-offer" class="btn-secondary">📋 Вставить код</button>
+            </div>
+            <textarea id="wifi-join-code" placeholder="Или вставьте сюда код стола от Хоста..."></textarea>
+            <button id="btn-wifi-make-answer" class="btn-primary">Создать ответный QR</button>
+
+            <div id="wifi-join-answer-wrap" class="hidden">
+                <p style="color: #ffd700; font-size: 0.85rem; font-weight: bold; margin: 6px 0;">
+                    Шаг 2: Покажите этот ответный QR-код Хосту!
+                </p>
+                <div class="qr-box">
+                    <canvas id="wifi-join-qr" width="210" height="210"></canvas>
+                </div>
+                <button id="btn-wifi-copy-answer" class="btn-secondary">📋 Скопировать ответный код</button>
+            </div>
+        </div>
+
+        <!-- Встроенный видео-сканер QR -->
+        <div id="qr-scanner-box" class="scanner-wrap">
+            <video id="qr-video" playsinline muted></video>
+            <div class="scanner-laser"></div>
+        </div>
+        <button id="btn-stop-scan" class="btn-secondary hidden">Закрыть камеру</button>
+
+        <button class="btn-danger back-to-menu" style="margin-top: 6px;">Назад в меню</button>
     </div>
 </div>
 
@@ -254,10 +341,10 @@
     </div>
 </div>
 
-<!-- МЕНЮ СОЗДАНИЯ (ХОСТ) -->
+<!-- МЕНЮ СОЗДАНИЯ (ИНТЕРНЕТ-ХОСТ) -->
 <div id="host-screen" class="screen hidden">
     <div class="modal-box">
-        <h2 style="color: #d4af37;">Шаг 1: Создание</h2>
+        <h2 style="color: #d4af37;">Онлайн через Интернет</h2>
         <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 10px;">Скопируйте ваш код и отправьте другу:</p>
         <textarea id="host-offer" readonly placeholder="Генерация ключа..."></textarea>
         <button id="btn-copy-offer" class="btn-secondary" style="margin-top: 5px;">Скопировать код</button>
@@ -269,10 +356,10 @@
     </div>
 </div>
 
-<!-- МЕНЮ ПОДКЛЮЧЕНИЯ (ГОСТЬ) -->
+<!-- МЕНЮ ПОДКЛЮЧЕНИЯ (ИНТЕРНЕТ-ГОСТЬ) -->
 <div id="join-screen" class="screen hidden">
     <div class="modal-box">
-        <h2 style="color: #d4af37;">Шаг 1: Вход</h2>
+        <h2 style="color: #d4af37;">Вход через Интернет</h2>
         <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 10px;">Вставьте код, который прислал друг:</p>
         <textarea id="join-offer" placeholder="Вставьте код друга..."></textarea>
         <button id="btn-generate-answer" class="btn-primary">Сгенерировать ответ</button>
@@ -302,14 +389,14 @@
     <div class="modal-box">
         <h2 style="color: #d4af37;">Как играть</h2>
         <div class="instruction-text">
+            • <span>Игра по Wi-Fi без интернета 📡:</span><br>
+            Один игрок включает точку доступа Wi-Fi на телефоне, второй подключается к ней. Хост открывает «Игра по Wi-Fi», Гость сканирует QR-код Хоста и показывает свой ответный QR-код.<br><br>
             • <span>Цвета карт:</span><br>
             🟢 <b>Зеленый</b> — Карта может отбить атаку.<br>
             🟡 <b>Золотой</b> — Карту можно подкинуть.<br>
             🔵 <b>Голубой</b> — Карту можно перевести (удерживайте карту 0.5 сек или перетащите в центр).<br><br>
-            • <span>Погоны 🎖️:</span><br>
-            Если вы побеждаете, и вашей последней атакующей картой стала <b>Шестерка (6)</b> — выплата по ставке удваивается!<br><br>
-            • <span>Проездной 🎫:</span><br>
-            В переводном режиме козырь того же номинала можно просто показать кнопкой «Проездной» — ход переведется, а карта останется у вас.
+            • <span>Погоны 🎖️ и Проездной 🎫:</span><br>
+            Победа с последней картой <b>Шестеркой (6)</b> удваивает выигрыш! В переводном режиме козырь того же номинала можно просто показать кнопкой «Проездной».
         </div>
         <button class="btn-danger back-to-menu">Понятно</button>
     </div>
@@ -351,14 +438,14 @@
         </div>
 
         <div id="local-mode-section" class="hidden">
-            <div class="section-label">Режим для 2 игроков</div>
+            <div class="section-label">Режим для 2 игроков на 1 экране</div>
             <div class="settings-group">
                 <label><input type="radio" name="local-view" value="curtain" checked> 🙈 Шторка (По очереди)</label>
                 <label><input type="radio" name="local-view" value="tabletop"> 🔄 Напротив (На столе)</label>
             </div>
         </div>
 
-        <button id="start-game-btn" class="btn-primary">Начать партию</button>
+        <button id="start-game-btn" class="btn-primary">Продолжить</button>
         <button class="btn-danger back-to-menu">Назад</button>
     </div>
 </div>
@@ -456,6 +543,8 @@
         function $(id) { return document.getElementById(id); }
         function each(list, fn) { Array.prototype.forEach.call(list, fn); }
         function cloneObj(o) { return JSON.parse(JSON.stringify(o)); }
+        function toBase64UTF8(str) { return btoa(unescape(encodeURIComponent(str))); }
+        function fromBase64UTF8(b64) { return decodeURIComponent(escape(atob(b64.trim()))); }
 
         var passiveSupported = false;
         try {
@@ -480,8 +569,228 @@
             t.className = 'toast';
             t.textContent = msg;
             c.appendChild(t);
-            setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 2000);
+            setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 2200);
         }
+
+        // ---------- Автономный генератор стандартных QR-кодов (ISO/IEC 18004, 0 КБ внешних библиотек) ----------
+        var QRGenerator = (function () {
+            // Таблица параметров для версий 1..14 (Уровень коррекции L): [totalDataBytes, ecBytesPerBlock, g1Blocks, g1DataBytes, g2Blocks, g2DataBytes]
+            var V_INFO = [
+                null,
+                [19, 7, 1, 19, 0, 0], [34, 10, 1, 34, 0, 0], [55, 15, 1, 55, 0, 0],
+                [80, 20, 1, 80, 0, 0], [108, 26, 1, 108, 0, 0], [136, 18, 2, 68, 0, 0],
+                [156, 20, 2, 78, 0, 0], [194, 24, 2, 97, 0, 0], [232, 30, 2, 116, 0, 0],
+                [274, 18, 2, 68, 2, 69], [324, 20, 4, 81, 0, 0], [370, 24, 2, 92, 2, 93],
+                [428, 26, 4, 107, 0, 0], [461, 30, 3, 115, 1, 116]
+            ];
+            var ALIGN_POS = [
+                null, [], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34],
+                [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50],
+                [6, 30, 54], [6, 32, 58], [6, 34, 62], [6, 26, 46, 66]
+            ];
+            var VER_BITS = [0,0,0,0,0,0,0, 0x07C94, 0x085BC, 0x09A99, 0x0A4D3, 0x0BBF6, 0x0C762, 0x0D847, 0x0E60D];
+
+            var EXP = new Array(256), LOG = new Array(256);
+            (function () {
+                var x = 1;
+                for (var i = 0; i < 255; i++) {
+                    EXP[i] = x; LOG[x] = i;
+                    x <<= 1; if (x & 0x100) x ^= 0x11D;
+                }
+                EXP[255] = EXP[0];
+            })();
+
+            function gfMul(a, b) { return (a === 0 || b === 0) ? 0 : EXP[(LOG[a] + LOG[b]) % 255]; }
+
+            function rsEncode(data, ecLen) {
+                var gen = [1];
+                for (var i = 0; i < ecLen; i++) {
+                    var next = new Array(gen.length + 1);
+                    for (var k = 0; k < next.length; k++) next[k] = 0;
+                    for (var j = 0; j < gen.length; j++) {
+                        next[j] ^= gen[j];
+                        next[j + 1] ^= gfMul(gen[j], EXP[i]);
+                    }
+                    gen = next;
+                }
+                var msg = data.slice();
+                for (var m = 0; m < ecLen; m++) msg.push(0);
+                for (var d = 0; d < data.length; d++) {
+                    var coef = msg[d];
+                    if (coef !== 0) {
+                        for (var g = 0; g < gen.length; g++) msg[d + g] ^= gfMul(gen[g], coef);
+                    }
+                }
+                return msg.slice(data.length);
+            }
+
+            function utf8Bytes(str) {
+                var out = [], s = unescape(encodeURIComponent(str));
+                for (var i = 0; i < s.length; i++) out.push(s.charCodeAt(i));
+                return out;
+            }
+
+            function drawToCanvas(text, canvas) {
+                if (!canvas) return;
+                var bytes = utf8Bytes(text);
+                var ver = 1;
+                while (ver <= 14) {
+                    var cap = V_INFO[ver][0] - (ver <= 9 ? 2 : 3);
+                    if (bytes.length <= cap) break;
+                    ver++;
+                }
+                if (ver > 14) return;
+                var vInfo = V_INFO[ver];
+                var totalData = vInfo[0], ecLen = vInfo[1];
+                var bits = [];
+                function pushBits(val, len) {
+                    for (var i = len - 1; i >= 0; i--) bits.push((val >> i) & 1);
+                }
+                pushBits(4, 4); // Byte mode
+                pushBits(bytes.length, ver <= 9 ? 8 : 16);
+                for (var b = 0; b < bytes.length; b++) pushBits(bytes[b], 8);
+                var maxBits = totalData * 8;
+                for (var t = 0; t < 4 && bits.length < maxBits; t++) bits.push(0);
+                while (bits.length % 8 !== 0) bits.push(0);
+
+                var codewords = [];
+                for (var c = 0; c < bits.length; c += 8) {
+                    var byteVal = 0;
+                    for (var bit = 0; bit < 8; bit++) byteVal = (byteVal << 1) | bits[c + bit];
+                    codewords.push(byteVal);
+                }
+                var padIdx = 0;
+                while (codewords.length < totalData) {
+                    codewords.push((padIdx % 2 === 0) ? 0xEC : 0x11);
+                    padIdx++;
+                }
+
+                var dBlocks = [], ecBlocks = [], offset = 0;
+                var g1Count = vInfo[2], g1Size = vInfo[3], g2Count = vInfo[4], g2Size = vInfo[5];
+                for (var i1 = 0; i1 < g1Count; i1++) {
+                    var blk1 = codewords.slice(offset, offset + g1Size); offset += g1Size;
+                    dBlocks.push(blk1); ecBlocks.push(rsEncode(blk1, ecLen));
+                }
+                for (var i2 = 0; i2 < g2Count; i2++) {
+                    var blk2 = codewords.slice(offset, offset + g2Size); offset += g2Size;
+                    dBlocks.push(blk2); ecBlocks.push(rsEncode(blk2, ecLen));
+                }
+
+                var finalBytes = [];
+                var maxD = Math.max(g1Size, g2Size);
+                for (var col = 0; col < maxD; col++) {
+                    for (var r = 0; r < dBlocks.length; r++) {
+                        if (col < dBlocks[r].length) finalBytes.push(dBlocks[r][col]);
+                    }
+                }
+                for (var ecol = 0; ecol < ecLen; ecol++) {
+                    for (var er = 0; er < ecBlocks.length; er++) finalBytes.push(ecBlocks[er][ecol]);
+                }
+
+                var size = ver * 4 + 17;
+                var mat = new Array(size), isFunc = new Array(size);
+                for (var y = 0; y < size; y++) {
+                    mat[y] = new Array(size); isFunc[y] = new Array(size);
+                }
+
+                function setFunc(rx, ry, val) {
+                    if (rx >= 0 && rx < size && ry >= 0 && ry < size) {
+                        mat[ry][rx] = val ? 1 : 0; isFunc[ry][rx] = true;
+                    }
+                }
+                function placeFinder(ox, oy) {
+                    for (var dy = -1; dy <= 7; dy++) {
+                        for (var dx = -1; dx <= 7; dx++) {
+                            var dark = (dx >= 0 && dx <= 6 && (dy === 0 || dy === 6)) ||
+                                       (dy >= 0 && dy <= 6 && (dx === 0 || dx === 6)) ||
+                                       (dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4);
+                            setFunc(ox + dx, oy + dy, dark);
+                        }
+                    }
+                }
+                placeFinder(0, 0); placeFinder(size - 7, 0); placeFinder(0, size - 7);
+
+                for (var ti = 8; ti < size - 8; ti++) {
+                    setFunc(ti, 6, ti % 2 === 0); setFunc(6, ti, ti % 2 === 0);
+                }
+
+                var ap = ALIGN_POS[ver];
+                for (var ay = 0; ay < ap.length; ay++) {
+                    for (var ax = 0; ax < ap.length; ax++) {
+                        var cx = ap[ax], cy = ap[ay];
+                        if ((cx < 9 && cy < 9) || (cx > size - 10 && cy < 9) || (cx < 9 && cy > size - 10)) continue;
+                        for (var ady = -2; ady <= 2; ady++) {
+                            for (var adx = -2; adx <= 2; adx++) {
+                                var aDark = Math.max(Math.abs(adx), Math.abs(ady)) !== 1;
+                                setFunc(cx + adx, cy + ady, aDark);
+                            }
+                        }
+                    }
+                }
+
+                for (var fi = 0; fi < 9; fi++) {
+                    if (fi !== 6) { setFunc(8, fi, false); setFunc(fi, 8, false); }
+                }
+                for (var fi2 = 0; fi2 < 8; fi2++) {
+                    setFunc(size - 1 - fi2, 8, false); setFunc(8, size - 1 - fi2, false);
+                }
+                setFunc(8, size - 8, true);
+
+                if (ver >= 7) {
+                    var vBits = VER_BITS[ver];
+                    for (var vb = 0; vb < 18; vb++) {
+                        var vBit = (vBits >> vb) & 1;
+                        var vx = Math.floor(vb / 3), vy = size - 11 + (vb % 3);
+                        setFunc(vx, vy, vBit); setFunc(vy, vx, vBit);
+                    }
+                }
+
+                var bitIdx = 0, totalFinalBits = finalBytes.length * 8;
+                var upward = true;
+                for (var right = size - 1; right >= 1; right -= 2) {
+                    if (right === 6) right = 5;
+                    for (var vert = 0; vert < size; vert++) {
+                        var ry = upward ? (size - 1 - vert) : vert;
+                        for (var lr = 0; lr < 2; lr++) {
+                            var rx = right - lr;
+                            if (!isFunc[ry][rx]) {
+                                var darkBit = 0;
+                                if (bitIdx < totalFinalBits) {
+                                    darkBit = (finalBytes[bitIdx >> 3] >> (7 - (bitIdx & 7))) & 1;
+                                    bitIdx++;
+                                }
+                                if ((ry + rx) % 2 === 0) darkBit ^= 1; // Mask 0
+                                mat[ry][rx] = darkBit;
+                            }
+                        }
+                    }
+                    upward = !upward;
+                }
+
+                // Format bits для Level L + Mask 0 = 0x77C4
+                var fmt = 0x77C4;
+                for (var fb = 0; fb <= 5; fb++) setFunc(8, fb, (fmt >> fb) & 1);
+                setFunc(8, 7, (fmt >> 6) & 1); setFunc(8, 8, (fmt >> 7) & 1); setFunc(7, 8, (fmt >> 8) & 1);
+                for (var fb2 = 9; fb2 < 15; fb2++) setFunc(14 - fb2, 8, (fmt >> fb2) & 1);
+                for (var fb3 = 0; fb3 < 8; fb3++) setFunc(size - 1 - fb3, 8, (fmt >> fb3) & 1);
+                for (var fb4 = 8; fb4 < 15; fb4++) setFunc(8, size - 15 + fb4, (fmt >> fb4) & 1);
+
+                var ctx = canvas.getContext('2d');
+                var pad = 2;
+                var scale = Math.floor(canvas.width / (size + pad * 2)) || 3;
+                canvas.width = (size + pad * 2) * scale;
+                canvas.height = (size + pad * 2) * scale;
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#000000';
+                for (var py = 0; py < size; py++) {
+                    for (var px = 0; px < size; px++) {
+                        if (mat[py][px]) ctx.fillRect((px + pad) * scale, (py + pad) * scale, scale, scale);
+                    }
+                }
+            }
+            return { draw: drawToCanvas };
+        })();
 
         // ---------- Звуковой синтезатор (Web Audio API, 0 КБ внешних файлов) ----------
         var soundEnabled = true;
@@ -542,16 +851,20 @@
             profile: $('profile-screen'), rules: $('rules-screen'),
             host: $('host-screen'), join: $('join-screen'),
             shop: $('shop-screen'), curtain: $('curtain-screen'),
-            discard: $('discard-screen'), pause: $('pause-screen')
+            discard: $('discard-screen'), pause: $('pause-screen'),
+            wifi: $('wifi-screen')
         };
 
         function showScreen(screenName) {
+            if (screenName !== 'wifi') stopQRScanner();
             Object.keys(screens).forEach(function (k) { screens[k].classList.add('hidden'); });
             screens[screenName].classList.remove('hidden');
             updateBalancesUI();
         }
 
-        each(document.querySelectorAll('.back-to-menu'), function (btn) { btn.onclick = function () { clearAllTimers(); showScreen('auth'); }; });
+        each(document.querySelectorAll('.back-to-menu'), function (btn) {
+            btn.onclick = function () { clearAllTimers(); stopQRScanner(); showScreen('auth'); };
+        });
         $('show-rules').onclick = function () { showScreen('rules'); };
         $('return-main-menu').onclick = function () { clearAllTimers(); showScreen('auth'); };
 
@@ -669,12 +982,13 @@
         $('show-profile').onclick = function () { loadStats(); showScreen('profile'); };
         loadStats();
 
-        // ---------- Меню и Офлайн-режим ----------
-        var pendingGameType = 'bot'; // 'bot', 'local', 'host'
+        // ---------- Меню и Сетевые режимы ----------
+        var pendingGameType = 'bot'; // 'bot', 'local', 'host', 'wifi'
         var isOnlineGame = false, isLocalTwoPlayer = false, localViewMode = 'curtain';
         var isHost = false, peer = null, conn = null;
 
-        var webrtcOK = !!(window.RTCPeerConnection || window.webkitRTCPeerConnection);
+        var RTCPeer = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+        var webrtcOK = !!RTCPeer;
         var peerScriptLoading = false;
 
         function loadPeerJS() {
@@ -694,15 +1008,22 @@
 
         function onlineAvailable() {
             if (typeof navigator.onLine === 'boolean' && !navigator.onLine) {
-                showToast('Нет подключения к интернету'); return false;
+                showToast('Нет интернета — используйте режим по Wi-Fi 📡'); return false;
             }
             if (!webrtcOK) {
-                showToast('Онлайн недоступен на этом устройстве'); return false;
+                showToast('Сеть недоступна на этом устройстве'); return false;
             }
             if (typeof Peer === 'undefined') {
-                loadPeerJS(); showToast('Модуль сети загружается или нет интернета'); return false;
+                loadPeerJS(); showToast('Модуль интернета загружается...'); return false;
             }
             return true;
+        }
+
+        function getPlayerNickname(fallback) {
+            var n = $('nickname').value.trim();
+            var finalNick = n.length >= 2 ? n : (fallback || 'Игрок');
+            $('display-nickname').textContent = finalNick;
+            return finalNick;
         }
 
         function checkNick() {
@@ -713,8 +1034,7 @@
         }
 
         $('show-bot-settings').onclick = function () {
-            var n = $('nickname').value.trim();
-            $('display-nickname').textContent = n.length >= 2 ? n : 'Игрок';
+            getPlayerNickname('Игрок');
             pendingGameType = 'bot';
             $('bot-diff-section').classList.remove('hidden');
             $('local-mode-section').classList.add('hidden');
@@ -722,11 +1042,19 @@
         };
 
         $('show-local-settings').onclick = function () {
-            var n = $('nickname').value.trim();
-            $('display-nickname').textContent = n.length >= 2 ? n : 'Игрок 1';
+            getPlayerNickname('Игрок 1');
             pendingGameType = 'local';
             $('bot-diff-section').classList.add('hidden');
             $('local-mode-section').classList.remove('hidden');
+            showScreen('settings');
+        };
+
+        $('btn-wifi-lobby').onclick = function () {
+            if (!webrtcOK) { showToast('WebRTC не поддерживается браузером'); return; }
+            getPlayerNickname('Игрок');
+            pendingGameType = 'wifi';
+            $('bot-diff-section').classList.add('hidden');
+            $('local-mode-section').classList.add('hidden');
             showScreen('settings');
         };
 
@@ -767,6 +1095,10 @@
                 currentBet = 0;
                 isOnlineGame = false; isLocalTwoPlayer = true;
                 startGameLocal();
+            } else if (pendingGameType === 'wifi') {
+                currentBet = 0;
+                isOnlineGame = true; isLocalTwoPlayer = false;
+                openWifiLobby();
             } else {
                 currentBet = 0;
                 isOnlineGame = true; isLocalTwoPlayer = false; isHost = true;
@@ -775,7 +1107,14 @@
         };
 
         $('btn-rematch').onclick = function () {
-            if (isOnlineGame) { showScreen('auth'); return; }
+            if (isOnlineGame) {
+                if (isHost && conn) {
+                    startOnlineHostGame();
+                } else {
+                    showToast('Ожидание перезапуска от Хоста...');
+                }
+                return;
+            }
             if (isLocalTwoPlayer) { startGameLocal(); return; }
             if (currentBet > stats.chips) currentBet = stats.chips;
             if (currentBet > 0) { stats.chips -= currentBet; saveStatsData(); playChipSound(); }
@@ -789,6 +1128,7 @@
             screens.pause.classList.add('hidden');
             if (isLocalTwoPlayer) startGameLocal();
             else if (!isOnlineGame) startGameBot();
+            else if (isHost && conn) startOnlineHostGame();
         };
         $('btn-quit-table').onclick = function () {
             clearAllTimers();
@@ -796,7 +1136,386 @@
             showScreen('auth');
         };
 
-        // ---------- Онлайн (обмен ключами вручную) ----------
+        // ---------- ИГРА ПО WI-FI / ТОЧКЕ ДОСТУПА (БЕЗ ИНТЕРНЕТА, QR + LAN РАДАР) ----------
+        var wifiPC = null, wifiDC = null;
+        var lanChannel = (typeof BroadcastChannel !== 'undefined') ? new BroadcastChannel('durak_wifi_lan_v1') : null;
+        var discoveredRooms = {};
+        var myRoomId = 'room_' + Math.floor(Math.random() * 900000 + 100000);
+        var currentHostOfferToken = '';
+
+        // Сжатие локального WebRTC SDP до ~110 символов для маленького и чёткого QR-кода
+        function packWifiToken(desc, nick) {
+            var sdp = desc.sdp || '';
+            var u = (sdp.match(/a=ice-ufrag:([^\r\n]+)/) || [,''])[1];
+            var p = (sdp.match(/a=ice-pwd:([^\r\n]+)/) || [,''])[1];
+            var fHex = (sdp.match(/a=fingerprint:sha-256\s+([^\r\n]+)/i) || [,''])[1].replace(/:/g, '');
+            var cands = [];
+            var lines = sdp.split(/\r?\n/);
+            for (var i = 0; i < lines.length; i++) {
+                if (lines[i].indexOf('a=candidate:') === 0 && lines[i].indexOf('typ host') !== -1) {
+                    var parts = lines[i].substring(12).split(' ');
+                    if (parts[2] && parts[2].toLowerCase() === 'udp' && parts[1] === '1' && parts[4] && parts[5]) {
+                        var addr = parts[4] + ':' + parts[5];
+                        if (cands.indexOf(addr) === -1) cands.push(addr);
+                    }
+                }
+            }
+            if (cands.length === 0) {
+                for (var j = 0; j < lines.length; j++) {
+                    if (lines[j].indexOf('a=candidate:') === 0) {
+                        var p2 = lines[j].substring(12).split(' ');
+                        if (p2[4] && p2[5]) cands.push(p2[4] + ':' + p2[5]);
+                    }
+                }
+            }
+            var compact = [
+                desc.type === 'offer' ? 'O' : 'A',
+                u, p, fHex,
+                cands.slice(0, 3).join(','),
+                (nick || 'Игрок').substring(0, 12)
+            ].join('|');
+            return toBase64UTF8(compact);
+        }
+
+        function unpackWifiToken(tokenB64) {
+            var raw = fromBase64UTF8(tokenB64);
+            var parts = raw.split('|');
+            if (parts.length < 5) throw new Error('Invalid token');
+            var type = parts[0] === 'O' ? 'offer' : 'answer';
+            var u = parts[1], p = parts[2], fHex = parts[3];
+            var cands = parts[4] ? parts[4].split(',') : [];
+            var nick = parts[5] || 'Игрок';
+            var fp = fHex.match(/.{1,2}/g).join(':');
+            var setup = type === 'offer' ? 'actpass' : 'active';
+            var sdpLines = [
+                'v=0',
+                'o=- 4611731400430051336 2 IN IP4 127.0.0.1',
+                's=-',
+                't=0 0',
+                'a=group:BUNDLE 0',
+                'a=msid-semantic: WMS',
+                'm=application 9 UDP/DTLS/SCTP webrtc-datachannel',
+                'c=IN IP4 0.0.0.0',
+                'a=ice-ufrag:' + u,
+                'a=ice-pwd:' + p,
+                'a=ice-options:trickle',
+                'a=fingerprint:sha-256 ' + fp,
+                'a=setup:' + setup,
+                'a=mid:0',
+                'a=sctp-port:5000',
+                'a=max-message-size:262144'
+            ];
+            for (var i = 0; i < cands.length; i++) {
+                var hp = cands[i].split(':');
+                if (hp.length >= 2) {
+                    var port = hp.pop();
+                    var ip = hp.join(':');
+                    var prio = 2122260223 - i * 100;
+                    sdpLines.push('a=candidate:' + (i + 1) + ' 1 udp ' + prio + ' ' + ip + ' ' + port + ' typ host generation 0');
+                }
+            }
+            sdpLines.push('a=end-of-candidates', '');
+            return { type: type, sdp: sdpLines.join('\r\n'), nick: nick };
+        }
+
+        function bindDataChannelToConn(dc) {
+            wifiDC = dc;
+            var listeners = {};
+            conn = {
+                send: function (obj) {
+                    if (wifiDC && wifiDC.readyState === 'open') {
+                        try { wifiDC.send(JSON.stringify(obj)); } catch (e) {}
+                    }
+                },
+                on: function (ev, cb) { listeners[ev] = cb; }
+            };
+            setupConn();
+            dc.onmessage = function (e) {
+                if (listeners.data) {
+                    try { listeners.data(JSON.parse(e.data)); } catch (err) {}
+                }
+            };
+            dc.onopen = function () {
+                stopQRScanner();
+                isOnlineGame = true; isLocalTwoPlayer = false;
+                if (isHost) {
+                    showToast('Wi-Fi соединение установлено! 📡');
+                    setTimeout(startOnlineHostGame, 400);
+                } else {
+                    conn.send({ type: 'CLIENT_INFO', name: getPlayerNickname('Гость') });
+                    showToast('Подключено к Wi-Fi столу! 📡');
+                }
+            };
+        }
+
+        function openWifiLobby() {
+            showScreen('wifi');
+            switchWifiTab('host');
+            createWifiHostOffer();
+            broadcastPresence();
+        }
+
+        function switchWifiTab(tab) {
+            stopQRScanner();
+            if (tab === 'host') {
+                $('btn-wifi-tab-host').className = 'btn-accent';
+                $('btn-wifi-tab-join').className = 'btn-secondary';
+                $('wifi-host-panel').classList.remove('hidden');
+                $('wifi-join-panel').classList.add('hidden');
+            } else {
+                $('btn-wifi-tab-host').className = 'btn-secondary';
+                $('btn-wifi-tab-join').className = 'btn-accent';
+                $('wifi-host-panel').classList.add('hidden');
+                $('wifi-join-panel').classList.remove('hidden');
+            }
+        }
+
+        $('btn-wifi-tab-host').onclick = function () { switchWifiTab('host'); };
+        $('btn-wifi-tab-join').onclick = function () { switchWifiTab('join'); };
+
+        function createWifiHostOffer() {
+            isHost = true;
+            if (wifiPC) { try { wifiPC.close(); } catch (e) {} }
+            wifiPC = new RTCPeer({ iceServers: [] });
+            var dc = wifiPC.createDataChannel('durak_wifi');
+            bindDataChannelToConn(dc);
+
+            var finalized = false;
+            function finalizeOffer() {
+                if (finalized || !wifiPC.localDescription) return;
+                finalized = true;
+                currentHostOfferToken = packWifiToken(wifiPC.localDescription, getPlayerNickname('Хост'));
+                QRGenerator.draw(currentHostOfferToken, $('wifi-host-qr'));
+                broadcastPresence();
+            }
+
+            wifiPC.onicecandidate = function (e) {
+                if (!e.candidate) finalizeOffer();
+            };
+            wifiPC.createOffer().then(function (offer) {
+                return wifiPC.setLocalDescription(offer);
+            }).then(function () {
+                setTimeout(finalizeOffer, 600);
+            }).catch(function () {
+                showToast('Не удалось создать Wi-Fi стол');
+            });
+        }
+
+        function applyWifiHostAnswer(answerToken) {
+            try {
+                var info = unpackWifiToken(answerToken);
+                $('opponent-name').textContent = info.nick;
+                var desc = new RTCSessionDescription({ type: 'answer', sdp: info.sdp });
+                wifiPC.setRemoteDescription(desc);
+                showToast('Соединение с ' + info.nick + '...');
+            } catch (e) {
+                showToast('Неверный формат ответного кода');
+            }
+        }
+
+        function generateWifiJoinAnswer(offerToken, autoBroadcastBack) {
+            try {
+                var info = unpackWifiToken(offerToken);
+                isHost = false;
+                $('opponent-name').textContent = info.nick;
+                if (wifiPC) { try { wifiPC.close(); } catch (e) {} }
+                wifiPC = new RTCPeer({ iceServers: [] });
+                wifiPC.ondatachannel = function (e) { bindDataChannelToConn(e.channel); };
+
+                var finalized = false;
+                function finalizeAnswer() {
+                    if (finalized || !wifiPC.localDescription) return;
+                    finalized = true;
+                    var ansToken = packWifiToken(wifiPC.localDescription, getPlayerNickname('Гость'));
+                    $('wifi-join-answer-wrap').classList.remove('hidden');
+                    QRGenerator.draw(ansToken, $('wifi-join-qr'));
+                    $('wifi-join-code').value = ansToken;
+                    showToast('Ответный QR готов — покажите его Хосту!');
+                    if (autoBroadcastBack && lanChannel) {
+                        lanChannel.postMessage({ type: 'WIFI_AUTO_ANSWER', answer: ansToken });
+                    }
+                }
+
+                wifiPC.onicecandidate = function (e) {
+                    if (!e.candidate) finalizeAnswer();
+                };
+
+                var remoteDesc = new RTCSessionDescription({ type: 'offer', sdp: info.sdp });
+                wifiPC.setRemoteDescription(remoteDesc).then(function () {
+                    return wifiPC.createAnswer();
+                }).then(function (ans) {
+                    return wifiPC.setLocalDescription(ans);
+                }).then(function () {
+                    setTimeout(finalizeAnswer, 600);
+                });
+            } catch (e) {
+                showToast('Неверный QR или код Хоста');
+            }
+        }
+
+        // Авторадар столов (BroadcastChannel для мгновенного обнаружения)
+        function broadcastPresence() {
+            if (!lanChannel || !currentHostOfferToken) return;
+            lanChannel.postMessage({
+                type: 'WIFI_ROOM_ANNOUNCE',
+                roomId: myRoomId,
+                hostName: getPlayerNickname('Хост'),
+                mode: gameMode === 'perevodnoy' ? 'Переводной' : 'Подкидной',
+                offer: currentHostOfferToken
+            });
+        }
+
+        if (lanChannel) {
+            lanChannel.onmessage = function (ev) {
+                var d = ev.data;
+                if (!d) return;
+                if (d.type === 'WIFI_ROOM_ANNOUNCE' && d.roomId !== myRoomId) {
+                    discoveredRooms[d.roomId] = d;
+                    renderRadarRooms();
+                } else if (d.type === 'WIFI_AUTO_ANSWER' && isHost && wifiPC) {
+                    applyWifiHostAnswer(d.answer);
+                }
+            };
+        }
+
+        function renderRadarRooms() {
+            var list = $('radar-list');
+            var keys = Object.keys(discoveredRooms);
+            if (keys.length === 0) return;
+            $('radar-status').textContent = 'Найдено: ' + keys.length;
+            list.innerHTML = '';
+            keys.forEach(function (k) {
+                var r = discoveredRooms[k];
+                var div = document.createElement('div');
+                div.className = 'radar-item';
+                div.innerHTML = '<span>👤 <b>' + r.hostName + '</b> (' + r.mode + ')</span>';
+                var btn = document.createElement('button');
+                btn.className = 'btn-wifi';
+                btn.textContent = 'Войти ⚡';
+                btn.onclick = function () {
+                    switchWifiTab('join');
+                    generateWifiJoinAnswer(r.offer, true);
+                };
+                div.appendChild(btn);
+                list.appendChild(div);
+            });
+        }
+
+        // Кнопки управления в Wi-Fi лобби
+        $('btn-wifi-copy-offer').onclick = function () {
+            if (!currentHostOfferToken) return;
+            $('wifi-host-code').value = currentHostOfferToken;
+            $('wifi-host-code').select();
+            try { document.execCommand('copy'); } catch (e) {}
+            showToast('Код стола скопирован!');
+        };
+
+        $('btn-wifi-apply-answer').onclick = function () {
+            var code = $('wifi-host-code').value.trim();
+            if (!code) { showToast('Вставьте ответный код друга'); return; }
+            applyWifiHostAnswer(code);
+        };
+
+        $('btn-wifi-paste-offer').onclick = function () {
+            if (navigator.clipboard && navigator.clipboard.readText) {
+                navigator.clipboard.readText().then(function (txt) {
+                    if (txt) {
+                        $('wifi-join-code').value = txt.trim();
+                        generateWifiJoinAnswer(txt.trim(), false);
+                    }
+                }).catch(function () {
+                    showToast('Вставьте код в текстовое поле вручную');
+                });
+            } else {
+                showToast('Вставьте код в поле ниже');
+            }
+        };
+
+        $('btn-wifi-make-answer').onclick = function () {
+            var code = $('wifi-join-code').value.trim();
+            if (!code) { showToast('Сначала вставьте код Хоста'); return; }
+            generateWifiJoinAnswer(code, false);
+        };
+
+        $('btn-wifi-copy-answer').onclick = function () {
+            $('wifi-join-code').select();
+            try { document.execCommand('copy'); } catch (e) {}
+            showToast('Ответный код скопирован!');
+        };
+
+        // ---------- Встроенный Камера-Сканер QR ----------
+        var scanStream = null, scanTimer = null;
+
+        function startQRScanner(onResultCallback) {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                showToast('Камера недоступна — используйте кнопку Копировать/Вставить');
+                return;
+            }
+            var box = $('qr-scanner-box');
+            var video = $('qr-video');
+            box.style.display = 'block';
+            $('btn-stop-scan').classList.remove('hidden');
+
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then(function (stream) {
+                scanStream = stream;
+                video.srcObject = stream;
+                video.play();
+
+                var detector = null;
+                if (typeof window.BarcodeDetector !== 'undefined') {
+                    try { detector = new BarcodeDetector({ formats: ['qr_code'] }); } catch (e) {}
+                }
+
+                scanTimer = setInterval(function () {
+                    if (video.readyState !== video.HAVE_ENOUGH_DATA) return;
+                    if (detector) {
+                        detector.detect(video).then(function (barcodes) {
+                            if (barcodes && barcodes.length > 0 && barcodes[0].rawValue) {
+                                var val = barcodes[0].rawValue.trim();
+                                stopQRScanner();
+                                playChipSound();
+                                onResultCallback(val);
+                            }
+                        }).catch(function () {});
+                    }
+                }, 250);
+
+                if (!detector) {
+                    showToast('Наведите стандартную камеру телефона или используйте кнопку Копировать');
+                }
+            }).catch(function () {
+                stopQRScanner();
+                showToast('Нет доступа к камере — скопируйте код вручную');
+            });
+        }
+
+        function stopQRScanner() {
+            if (scanTimer) { clearInterval(scanTimer); scanTimer = null; }
+            if (scanStream) {
+                scanStream.getTracks().forEach(function (t) { t.stop(); });
+                scanStream = null;
+            }
+            $('qr-scanner-box').style.display = 'none';
+            $('btn-stop-scan').classList.add('hidden');
+        }
+
+        $('btn-stop-scan').onclick = stopQRScanner;
+
+        $('btn-wifi-scan-offer').onclick = function () {
+            startQRScanner(function (scannedText) {
+                $('wifi-join-code').value = scannedText;
+                generateWifiJoinAnswer(scannedText, false);
+            });
+        };
+
+        $('btn-wifi-scan-answer').onclick = function () {
+            startQRScanner(function (scannedText) {
+                $('wifi-host-code').value = scannedText;
+                applyWifiHostAnswer(scannedText);
+            });
+        };
+
+        // ---------- Онлайн через Интернет (PeerJS) ----------
         function initHostConnection() {
             showScreen('host');
             $('host-offer').value = "Генерация кода...";
@@ -809,7 +1528,7 @@
                 });
                 peer.on('open', function () {
                     var localData = { peerId: peer.id };
-                    $('host-offer').value = btoa(JSON.stringify(localData));
+                    $('host-offer').value = toBase64UTF8(JSON.stringify(localData));
                 });
             } catch (e) { showToast('Ошибка инициализации'); }
         }
@@ -824,7 +1543,7 @@
             var answerStr = $('host-answer').value.trim();
             if (!answerStr) return showToast('Вставьте ответ друга');
             try {
-                var answerData = JSON.parse(atob(answerStr));
+                var answerData = JSON.parse(fromBase64UTF8(answerStr));
                 var c = peer.connect(answerData.peerId);
                 c.on('open', function () {
                     conn = c; setupConn();
@@ -838,18 +1557,18 @@
             var offerStr = $('join-offer').value.trim();
             if (!offerStr) return showToast('Вставьте код друга');
             try {
-                var offerData = JSON.parse(atob(offerStr));
+                var offerData = JSON.parse(fromBase64UTF8(offerStr));
                 showToast("Создание ответа...");
                 peer = new Peer(null, { debug: 1 });
                 peer.on('open', function () {
                     conn = peer.connect(offerData.peerId);
                     conn.on('open', function () {
                         isOnlineGame = true; isLocalTwoPlayer = false; isHost = false; setupConn();
-                        conn.send({ type: 'CLIENT_INFO', name: $('nickname').value });
+                        conn.send({ type: 'CLIENT_INFO', name: getPlayerNickname('Гость') });
                         showToast("Успешно подключено к другу!");
                     });
                     var answerData = { peerId: peer.id };
-                    $('join-answer').value = btoa(JSON.stringify(answerData));
+                    $('join-answer').value = toBase64UTF8(JSON.stringify(answerData));
                 });
                 peer.on('error', function () { showToast('Ошибка соединения'); });
             } catch (e) { showToast('Неверный код друга'); }
@@ -867,16 +1586,22 @@
                     if (isHost) $('opponent-name').textContent = data.name;
                 } else if (data.type === 'START') {
                     deck = data.deck; trumpSuit = data.trumpSuit; gameMode = data.gameMode;
+                    deckSize = data.deckSize || 36; blitzEnabled = !!data.blitzEnabled;
                     isPlayerTurn = !data.hostStarts;
                     $('opponent-name').textContent = data.hostName;
                     resetRoundVars();
                     setupTableUI(); dealCards(true); showScreen('game');
                 } else if (data.type === 'MOVE') {
                     remoteActionExecute(data.card, data.forceTranslate);
+                } else if (data.type === 'PROEZDNOY') {
+                    proezdnoyUsed = true; isPlayerTurn = false;
+                    playChipSound();
+                    showToast("Соперник показал Проездной! 🎫");
+                    renderHands(); updateTurnState(); resetBlitzTimer();
                 } else if (data.type === 'OPPONENT_SAYS_BITO') {
                     opponentPassed = true; showToast("Соперник сказал БИТО"); updateTurnState();
                 } else if (data.type === 'OPPONENT_TAKES') {
-                    opponentTaking = true; showToast("Соперник берет"); updateTurnState();
+                    opponentTaking = true; showToast("Соперник берет карты"); updateTurnState();
                 } else if (data.type === 'END_TURN') {
                     applyEndTurn(data.isBito, data.taker === 'local' ? 'opponent' : (data.taker === 'opponent' ? 'local' : null));
                 }
@@ -907,7 +1632,7 @@
 
         function scheduleBot(fn, delay) {
             if (botTimerId) clearTimeout(botTimerId);
-            botTimerId = setTimeout(function () { botTimerId = null; fn(); }, delay || 950);
+            botTimerId = setTimeout(function () { botTimerId = null; fn(); }, delay || 900);
         }
 
         function resetRoundVars() {
@@ -922,11 +1647,17 @@
             $('btn-undo').disabled = true;
         }
 
+        // Честное перемешивание колоды по алгоритму Фишера — Йетса
         function buildDeck() {
             deck = [];
             var vals = deckSize === 24 ? allValues24 : (deckSize === 52 ? allValues52 : allValues36);
             suits.forEach(function (s) { vals.forEach(function (v) { deck.push({ s: s, v: v, w: weights[v] }); }); });
-            deck.sort(function () { return Math.random() - 0.5; });
+            for (var i = deck.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = deck[i];
+                deck[i] = deck[j];
+                deck[j] = temp;
+            }
             trumpSuit = deck[0].s;
         }
 
@@ -949,9 +1680,21 @@
             resetRoundVars();
             buildDeck();
             var hostStarts = Math.random() > 0.5;
-            conn.send({ type: 'START', deck: deck, trumpSuit: trumpSuit, gameMode: gameMode, hostName: $('nickname').value, hostStarts: hostStarts });
+            var myName = getPlayerNickname('Хост');
+            conn.send({
+                type: 'START',
+                deck: deck,
+                trumpSuit: trumpSuit,
+                gameMode: gameMode,
+                deckSize: deckSize,
+                blitzEnabled: blitzEnabled,
+                hostName: myName,
+                hostStarts: hostStarts
+            });
             isPlayerTurn = hostStarts;
-            $('opponent-name').textContent = "Игрок";
+            if (!$('opponent-name').textContent || $('opponent-name').textContent === 'Ожидание...') {
+                $('opponent-name').textContent = "Соперник";
+            }
             setupTableUI(); dealCards(true); showScreen('game');
         }
 
@@ -965,7 +1708,6 @@
             $('blitz-wrap').style.display = blitzEnabled ? 'block' : 'none';
         }
 
-        // Реплики крупье
         var bubbleTimer = null;
         function sayBotBubble(text) {
             if (isOnlineGame || isLocalTwoPlayer) return;
@@ -976,7 +1718,6 @@
             bubbleTimer = setTimeout(function () { b.classList.remove('visible'); }, 2600);
         }
 
-        // Определение активного игрока в локальном режиме на двоих (1 = нижний, 2 = верхний)
         function getLocalActiveActor() {
             if (!isLocalTwoPlayer) return 1;
             var hasUndefended = tablePairs.some(function (p) { return !p.defend; });
@@ -1014,7 +1755,17 @@
             resetBlitzTimer();
         };
 
-        // Блиц-таймер (10 сек)
+        // Проверка: наш ли сейчас черёд действовать (для корректной работы Блиц-таймера)
+        function isLocalPlayerActionNeeded() {
+            if (isLocalTwoPlayer) return true;
+            var hasUndefended = tablePairs.some(function (p) { return !p.defend; });
+            if (isPlayerTurn) {
+                return !hasUndefended || botTaking || opponentTaking;
+            } else {
+                return (hasUndefended && !playerTaking) || botPassed || opponentPassed;
+            }
+        }
+
         function resetBlitzTimer() {
             if (!blitzEnabled || isGameOver) return;
             if (blitzInterval) clearInterval(blitzInterval);
@@ -1022,6 +1773,11 @@
             $('blitz-bar').style.width = '100%';
             blitzInterval = setInterval(function () {
                 if (!screens.curtain.classList.contains('hidden') || !screens.pause.classList.contains('hidden')) return;
+                if (!isLocalPlayerActionNeeded()) {
+                    blitzTimeLeft = 10;
+                    $('blitz-bar').style.width = '100%';
+                    return;
+                }
                 blitzTimeLeft -= 0.2;
                 var pct = Math.max(0, (blitzTimeLeft / 10) * 100);
                 $('blitz-bar').style.width = pct + '%';
@@ -1069,14 +1825,20 @@
             }
         }
 
+        // Исправлено отображение последней карты в колоде (открытого козыря)
         function updateDeckUI() {
-            var count = Math.max(0, deck.length - 1);
-            $('deck-count').textContent = count;
+            $('deck-count').textContent = deck.length;
             if (deck.length === 0) {
-                $('deck-top').style.display = 'none'; $('trump-card').style.display = 'none';
+                $('deck-top').style.display = 'none';
+                $('trump-card').style.display = 'none';
                 $('trump-indicator').style.display = 'flex';
+            } else if (deck.length === 1) {
+                $('deck-top').style.display = 'none';
+                $('trump-card').style.display = 'flex';
+                $('trump-indicator').style.display = 'none';
             } else {
-                $('deck-top').style.display = 'flex'; $('trump-card').style.display = 'flex';
+                $('deck-top').style.display = 'flex';
+                $('trump-card').style.display = 'flex';
                 $('trump-indicator').style.display = 'none';
             }
         }
@@ -1161,13 +1923,12 @@
                 showToast('Свободных ходов нет — жмите кнопку действия!');
                 return;
             }
-            // Выбираем самую младшую некозырную из доступных (так как рука уже отсортирована по возрастанию и козырям в конце)
             var bestEl = enabledEls[0];
             bestEl.classList.add('hint-glow');
             showToast('Рекомендуемый ход: ' + bestEl.getAttribute('data-value') + bestEl.getAttribute('data-suit'));
         };
 
-        // ---------- Перетаскивание карт ----------
+        // ---------- Перетаскивание карт (Drag & Drop с поддержкой обоих игроков) ----------
         var lastTouchTime = 0;
 
         function attachDragAndDropHandlers(el, card, ownerActor) {
@@ -1239,8 +2000,7 @@
                     else executeLocalAction(card, false);
                 } else {
                     el.classList.remove('dragging');
-                    if (ownerActor === 2) executePlayer2LocalAction(card, false);
-                    else checkDropZone(el, card);
+                    checkDropZone(el, card, ownerActor);
                 }
             }
 
@@ -1248,16 +2008,20 @@
             el.ontouchstart = function (e) { onStart(e); };
         }
 
-        function checkDropZone(el, card) {
-            var idx = playerHand.indexOf(card);
-            if (idx === -1) return;
+        function checkDropZone(el, card, ownerActor) {
+            var handArr = ownerActor === 2 ? botHand : playerHand;
+            var opponentArr = ownerActor === 2 ? playerHand : botHand;
+            var idx = handArr.indexOf(card);
+            if (idx === -1) { renderHands(); return; }
 
             var elRect = el.getBoundingClientRect();
             var center = { x: elRect.left + elRect.width / 2, y: elRect.top + elRect.height / 2 };
             var success = false;
-            var bfRect;
+            var bfRect = $('battlefield').getBoundingClientRect();
+            var isActorAttacking = (ownerActor === 1 && isPlayerTurn) || (ownerActor === 2 && !isPlayerTurn);
+            var inBattlefieldZone = (ownerActor === 2) ? (center.y > bfRect.top - 50) : (center.y < bfRect.bottom + 60);
 
-            if (!isPlayerTurn) {
+            if (!isActorAttacking) {
                 var droppedOnDefenseTarget = false;
                 var attackPairs = document.querySelectorAll('.attack-pair');
                 for (var i = 0; i < attackPairs.length; i++) {
@@ -1268,8 +2032,8 @@
                         var attackCard = tablePairs[i].attack;
                         if ((card.s === attackCard.s && card.w > attackCard.w) || (card.s === trumpSuit && attackCard.s !== trumpSuit)) {
                             saveUndoState();
-                            if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: false });
-                            playerHand.splice(idx, 1); tablePairs[i].defend = card; success = true;
+                            if (isOnlineGame && ownerActor === 1) conn.send({ type: 'MOVE', card: card, forceTranslate: false });
+                            handArr.splice(idx, 1); tablePairs[i].defend = card; success = true;
                             playCardSound();
                             renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
                             if (!isOnlineGame && !isLocalTwoPlayer && !tablePairs.some(function (p) { return !p.defend; })) scheduleBot(botAttack, 1000);
@@ -1278,18 +2042,20 @@
                         }
                     }
                 }
-                if (!droppedOnDefenseTarget) {
-                    bfRect = $('battlefield').getBoundingClientRect();
-                    if (center.y < bfRect.bottom + 60) {
-                        var canTranslate = tablePairs.some(function (p) { return p.attack.v === card.v; });
-                        if (gameMode === 'perevodnoy' && tricksPlayed > 0 && tablePairs.every(function (p) { return !p.defend; }) && canTranslate && (tablePairs.length + 1) <= botHand.length) {
-                            executeLocalAction(card, true); success = true;
-                        }
+                if (!droppedOnDefenseTarget && inBattlefieldZone) {
+                    var canTranslate = tablePairs.some(function (p) { return p.attack.v === card.v; });
+                    if (gameMode === 'perevodnoy' && tricksPlayed > 0 && tablePairs.every(function (p) { return !p.defend; }) && canTranslate && (tablePairs.length + 1) <= opponentArr.length) {
+                        if (ownerActor === 2) executePlayer2LocalAction(card, true);
+                        else executeLocalAction(card, true);
+                        success = true;
                     }
                 }
             } else {
-                bfRect = $('battlefield').getBoundingClientRect();
-                if (center.y < bfRect.bottom + 60) { executeLocalAction(card, false); success = true; }
+                if (inBattlefieldZone) {
+                    if (ownerActor === 2) executePlayer2LocalAction(card, false);
+                    else executeLocalAction(card, false);
+                    success = true;
+                }
             }
             if (!success) renderHands();
         }
@@ -1383,6 +2149,8 @@
             } else {
                 if (botPassed || opponentPassed) {
                     btn.textContent = "БИТО (Подтв.)"; btn.className = "btn-danger glowing"; btn.disabled = false;
+                } else if (playerTaking && isOnlineGame) {
+                    btn.textContent = "БЕРУ..."; btn.className = "btn-secondary"; btn.disabled = true;
                 } else {
                     btn.textContent = "ВЗЯТЬ"; btn.className = "btn-primary"; btn.disabled = tablePairs.length === 0;
                 }
@@ -1398,7 +2166,6 @@
             var activeActor = getLocalActiveActor();
             var maxPairs = (tricksPlayed === 0) ? 5 : 6;
 
-            // Проверка доступности «Проездного»
             var showProezdnoy = false;
             if (!isPlayerTurn && activeActor === 1 && gameMode === 'perevodnoy' && !proezdnoyUsed && tricksPlayed > 0 && tablePairs.length > 0 && noneDefended() && (tablePairs.length + 1) <= botHand.length) {
                 var attVal = tablePairs[0].attack.v;
@@ -1437,7 +2204,6 @@
                 } else { el.classList.add('disabled'); }
             });
 
-            // Валидация карт Игрока 2 в локальном режиме на двоих
             if (isLocalTwoPlayer) {
                 var bElements = $('opponent-hand').children;
                 botHand.forEach(function (card, j) {
@@ -1458,6 +2224,7 @@
                             }
                         }
                     }
+                    if (botTaking) canP2 = false;
                     bel.classList.remove('disabled'); bel.classList.remove('can-translate'); bel.classList.remove('can-toss'); bel.classList.remove('can-defend');
                     if (canP2) {
                         if (canTrans2) bel.classList.add('can-translate');
@@ -1468,17 +2235,19 @@
             }
         }
 
-        // Кнопка «Проездной»
+        // Кнопка «Проездной» (исправлена синхронизация по сети/Wi-Fi)
         $('proezdnoy-btn').onclick = function () {
             if (proezdnoyUsed || isPlayerTurn) return;
             proezdnoyUsed = true;
             isPlayerTurn = true;
+            if (isOnlineGame && conn) conn.send({ type: 'PROEZDNOY' });
             playChipSound();
             showToast('🎫 ПРОЕЗДНОЙ! Ход переведен без потери козыря!');
             sayBotBubble('Хитро! Проездной предъявил...');
             renderHands(); updateTurnState();
             if (!isOnlineGame && !isLocalTwoPlayer) scheduleBot(botDefend, 1000);
             checkCurtainTransition();
+            resetBlitzTimer();
         };
 
         function getTableValues() {
@@ -1487,14 +2256,14 @@
         }
 
         function executeLocalAction(card, forceTranslate) {
-            var idx = playerHand.indexOf(card); if (idx === -1) return;
+            var idx = playerHand.indexOf(card); if (idx === -1) { renderHands(); return; }
             saveUndoState();
-            if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: forceTranslate });
 
             if (isPlayerTurn) {
                 if (tablePairs.length === 0) lastPlayerAttackCards = [];
                 lastPlayerAttackCards.push(card);
                 if (card.s === trumpSuit && deck.length > 6) sayBotBubble('С козырей зашел? Смело...');
+                if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: false });
                 playerHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
                 playCardSound();
                 renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
@@ -1504,6 +2273,7 @@
                 if (forceTranslate && gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && (tablePairs.length + 1) <= botHand.length) {
                     var canTrans = tablePairs.some(function (p) { return p.attack.v === card.v; });
                     if (canTrans) {
+                        if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: true });
                         playerHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
                         isPlayerTurn = true; showToast("Вы перевели! ↪️");
                         sayBotBubble('Красиво перевел!');
@@ -1511,6 +2281,7 @@
                         renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
                         if (!isOnlineGame && !isLocalTwoPlayer) scheduleBot(botDefend, 1000);
                         checkCurtainTransition();
+                        resetBlitzTimer();
                         return;
                     }
                 }
@@ -1520,12 +2291,14 @@
                     if (!p.defend && ((card.s === p.attack.s && card.w > p.attack.w) || (card.s === trumpSuit && p.attack.s !== trumpSuit))) { targetPair = p; break; }
                 }
                 if (targetPair) {
+                    if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: false });
                     playerHand.splice(idx, 1); targetPair.defend = card;
                     playCardSound();
                     renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
                     if (!isOnlineGame && !isLocalTwoPlayer && !tablePairs.some(function (q) { return !q.defend; })) scheduleBot(botAttack, 1000);
                     checkCurtainTransition();
                 } else if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && tablePairs.some(function (q) { return q.attack.v === card.v; }) && (tablePairs.length + 1) <= botHand.length) {
+                    if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: true });
                     playerHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
                     isPlayerTurn = true; showToast("Вы перевели! ↪️");
                     sayBotBubble('Перевод принят!');
@@ -1533,14 +2306,15 @@
                     renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
                     if (!isOnlineGame && !isLocalTwoPlayer) scheduleBot(botDefend, 1000);
                     checkCurtainTransition();
+                } else {
+                    renderHands();
                 }
             }
             resetBlitzTimer();
         }
 
-        // Действие Игрока 2 в локальном режиме на одном устройстве
         function executePlayer2LocalAction(card, forceTranslate) {
-            var idx = botHand.indexOf(card); if (idx === -1) return;
+            var idx = botHand.indexOf(card); if (idx === -1) { renderHands(); return; }
             saveUndoState();
 
             if (!isPlayerTurn) {
@@ -1556,6 +2330,7 @@
                         playCardSound();
                         renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
                         checkCurtainTransition();
+                        resetBlitzTimer();
                         return;
                     }
                 }
@@ -1575,6 +2350,8 @@
                     playCardSound();
                     renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
                     checkCurtainTransition();
+                } else {
+                    renderHands();
                 }
             }
             resetBlitzTimer();
@@ -1599,6 +2376,7 @@
             }
             playCardSound();
             renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
+            resetBlitzTimer();
         }
 
         function makeCardEl(cls, c) {
@@ -1625,7 +2403,7 @@
             return a.w - b.w;
         }
 
-        function botSaysBito() { botPassed = true; showToast("Крупье говорит БИТО"); updateTurnState(); }
+        function botSaysBito() { botPassed = true; showToast("Крупье говорит БИТО"); updateTurnState(); resetBlitzTimer(); }
 
         function botAttack() {
             if (isLocalTwoPlayer || isOnlineGame) return;
@@ -1666,6 +2444,7 @@
                 if (tablePairs.length >= 3) sayBotBubble('Держи ещё подарочек! 🎁');
                 playCardSound();
                 renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
+                resetBlitzTimer();
             } else if (tablePairs.length > 0 && tablePairs.every(function (p) { return p.defend; })) { botSaysBito(); }
         }
 
@@ -1687,7 +2466,7 @@
                 var tcard = botHand.splice(defendIdx, 1)[0];
                 tablePairs.push({ attack: tcard, defend: null }); isPlayerTurn = false;
                 playCardSound();
-                renderTable(); renderHands(); validatePlayerHand(); updateTurnState(); return;
+                renderTable(); renderHands(); validatePlayerHand(); updateTurnState(); resetBlitzTimer(); return;
             }
 
             var validCards = botHand.filter(function (c) { return (c.s === attack.s && c.w > attack.w) || (c.s === trumpSuit && attack.s !== trumpSuit); });
@@ -1709,7 +2488,7 @@
                 scheduleBot(botDefend, 800);
             } else {
                 showToast("Крупье берет карты"); sayBotBubble('Пожалуй, приберегу козыри...');
-                botTaking = true; updateTurnState();
+                botTaking = true; updateTurnState(); resetBlitzTimer();
             }
         }
 
@@ -1738,8 +2517,8 @@
                     applyEndTurn(false, 'opponent');
                 } else {
                     showToast("БИТО");
-                    if (isOnlineGame) { conn.send({ type: 'OPPONENT_SAYS_BITO' }); opponentPassed = true; updateTurnState(); }
-                    else applyEndTurn(true, null);
+                    if (isOnlineGame) conn.send({ type: 'END_TURN', isBito: true, taker: null });
+                    applyEndTurn(true, null);
                 }
             } else {
                 if (botPassed || opponentPassed) {
@@ -1748,9 +2527,15 @@
                     applyEndTurn(true, null);
                 } else {
                     showToast("Вы берете карты");
-                    if (isOnlineGame) { conn.send({ type: 'OPPONENT_TAKES' }); opponentTaking = true; updateTurnState(); }
-                    else if (isLocalTwoPlayer) { playerTaking = true; updateTurnState(); checkCurtainTransition(); }
-                    else applyEndTurn(false, 'local');
+                    if (isOnlineGame) {
+                        playerTaking = true;
+                        conn.send({ type: 'OPPONENT_TAKES' });
+                        updateTurnState();
+                    } else if (isLocalTwoPlayer) {
+                        playerTaking = true; updateTurnState(); checkCurtainTransition();
+                    } else {
+                        applyEndTurn(false, 'local');
+                    }
                 }
             }
         });
@@ -1794,7 +2579,7 @@
                     }
                     gameOver("Ничья! 🤝", "Ставка возвращена", false);
                 } else if (playerHand.length === 0) {
-                    var isPogony = isPlayerTurn && lastPlayerAttackCards.length > 0 && lastPlayerAttackCards.every(function (c) { return c.v === '6'; });
+                    var isPogony = lastPlayerAttackCards.length > 0 && lastPlayerAttackCards.every(function (c) { return c.v === '6'; });
                     var mult = difficulty === 'expert' ? 3 : (difficulty === 'hard' ? 2 : 1.5);
                     var winAmount = Math.round(currentBet * mult * (isPogony ? 2 : 1));
                     if (!isOnlineGame && !isLocalTwoPlayer) {
@@ -1811,7 +2596,7 @@
                         stats.losses++; saveStatsData();
                     }
                     playLoseSound();
-                    var loseSub = isLocalTwoPlayer ? "Победил Игрок 2!" : (currentBet > 0 ? ("Проиграна ставка: " + currentBet + " 🪙") : "Крупье оказался сильнее");
+                    var loseSub = isLocalTwoPlayer ? "Победил Игрок 2!" : (currentBet > 0 ? ("Проиграна ставка: " + currentBet + " 🪙") : "Соперник оказался сильнее");
                     gameOver(isLocalTwoPlayer ? "Победа Игрока 2! 🏆" : "Поражение! 💀", loseSub, false);
                 }
             }
