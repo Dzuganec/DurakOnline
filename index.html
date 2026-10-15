@@ -11,81 +11,134 @@
     html, body { width: 100%; height: 100%; }
     body {
         background-color: #0b381a;
-        background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+        background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
         color: #ffffff; overflow: hidden;
         height: 100vh; height: 100dvh;
         touch-action: none;
         -webkit-user-select: none; user-select: none;
         -webkit-touch-callout: none;
         box-shadow: inset 0 0 40px 15px rgba(20, 10, 0, 0.8);
+        -webkit-transition: background-color 0.4s; transition: background-color 0.4s;
     }
 
-    .screen { width: 100vw; height: 100vh; height: 100dvh; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; transition: opacity 0.5s; position: absolute; top: 0; left: 0; }
+    /* Темы сукна стола */
+    body.felt-green { background-color: #0b381a; }
+    body.felt-ruby { background-color: #4a0e17; }
+    body.felt-ocean { background-color: #0b2545; }
+    body.felt-vip { background-color: #141414; }
+
+    .screen { width: 100vw; height: 100vh; height: 100dvh; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; transition: opacity 0.4s; position: absolute; top: 0; left: 0; }
     .hidden { opacity: 0; pointer-events: none; z-index: -1; }
 
     .modal-box {
-        background: linear-gradient(135deg, rgba(20, 30, 20, 0.95), rgba(10, 15, 10, 0.95));
-        padding: 30px; border-radius: 20px; text-align: center;
-        box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 0 2px rgba(212, 175, 55, 0.3);
-        -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); width: 90%; max-width: 400px;
-        max-height: 90vh; overflow-y: auto; -webkit-overflow-scrolling: touch;
+        background: linear-gradient(135deg, rgba(20, 30, 20, 0.96), rgba(10, 15, 10, 0.96));
+        padding: 22px; border-radius: 20px; text-align: center;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.85), 0 0 0 2px rgba(212, 175, 55, 0.35);
+        -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); width: 92%; max-width: 420px;
+        max-height: 92vh; overflow-y: auto; -webkit-overflow-scrolling: touch;
     }
-    .modal-box h1 { margin-bottom: 20px; font-size: 2.5rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
-    .modal-box h2 { margin-bottom: 15px; font-size: 1.5rem; color: #eee; }
+    .modal-box h1 { margin-bottom: 12px; font-size: 2.2rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
+    .modal-box h2 { margin-bottom: 12px; font-size: 1.4rem; color: #eee; }
+    .section-label { font-size: 0.8rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 5px 0; font-weight: bold; }
 
-    input[type="text"], textarea { -webkit-appearance: none; width: 100%; padding: 12px; margin-bottom: 15px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 1rem; text-align: center; font-weight: bold; resize: none; -webkit-user-select: text; user-select: text; }
-    textarea { height: 70px; text-align: left; font-size: 0.85rem; font-family: monospace; }
+    .balance-badge {
+        display: inline-block; background: rgba(0,0,0,0.65); border: 1px solid #d4af37;
+        color: #ffd700; padding: 6px 16px; border-radius: 20px; font-weight: bold;
+        font-size: 1rem; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    input[type="text"], textarea { -webkit-appearance: none; width: 100%; padding: 11px; margin-bottom: 12px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 1rem; text-align: center; font-weight: bold; resize: none; -webkit-user-select: text; user-select: text; }
+    textarea { height: 65px; text-align: left; font-size: 0.85rem; font-family: monospace; }
     input:focus, textarea:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
 
-    button { -webkit-appearance: none; width: 100%; border: none; padding: 14px; font-size: 1.1rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 10px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 1px; }
-    button:active { transform: scale(0.95); }
-    button:disabled { opacity: 0.5; pointer-events: none; -webkit-filter: grayscale(1); filter: grayscale(1); }
+    button { -webkit-appearance: none; width: 100%; border: none; padding: 12px; font-size: 1rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 9px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 0.8px; }
+    button:active { transform: scale(0.96); }
+    button:disabled { opacity: 0.45; pointer-events: none; -webkit-filter: grayscale(1); filter: grayscale(1); }
 
     .btn-accent { background: linear-gradient(135deg, #ffd700, #b8860b); color: #111; box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4); }
     .btn-primary { background: linear-gradient(135deg, #c62828, #8e0000); color: #fff; box-shadow: 0 4px 15px rgba(198, 40, 40, 0.5); border: 1px solid #ff5252; }
     .btn-secondary { background: linear-gradient(135deg, #333, #555); color: #fff; border: 1px solid #777; }
     .btn-danger { background: linear-gradient(135deg, #111, #333); color: #d4af37; border: 1px solid #d4af37; }
+    .btn-info { background: linear-gradient(135deg, #0072ff, #00c6ff); color: #fff; border: 1px solid #80e5ff; }
 
     .glowing { -webkit-animation: pulseBtn 1.5s infinite; animation: pulseBtn 1.5s infinite; box-shadow: 0 0 15px #d4af37; opacity: 1 !important; border-color: #ffe55c; color: #ffe55c; }
     @-webkit-keyframes pulseBtn {
         0% { -webkit-transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
-        50% { -webkit-transform: scale(1.05); box-shadow: 0 0 25px rgba(212,175,55,1); }
+        50% { -webkit-transform: scale(1.04); box-shadow: 0 0 25px rgba(212,175,55,1); }
         100% { -webkit-transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
     }
     @keyframes pulseBtn {
         0% { transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
-        50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(212,175,55,1); }
+        50% { transform: scale(1.04); box-shadow: 0 0 25px rgba(212,175,55,1); }
         100% { transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
     }
 
-    .settings-group { display: -webkit-flex; display: flex; -webkit-justify-content: space-around; justify-content: space-around; -webkit-flex-wrap: wrap; flex-wrap: wrap; margin-bottom: 20px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-    .settings-group label { font-size: 0.9rem; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin: 5px; cursor: pointer; color: #ccc; }
-    .settings-group label input { margin-bottom: 5px; }
+    .settings-group { display: -webkit-flex; display: flex; -webkit-justify-content: space-around; justify-content: space-around; -webkit-flex-wrap: wrap; flex-wrap: wrap; margin-bottom: 12px; background: rgba(0,0,0,0.4); padding: 6px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+    .settings-group label { font-size: 0.85rem; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin: 4px 6px; cursor: pointer; color: #ccc; }
+    .settings-group label input { margin-bottom: 4px; }
 
-    .menu-row { display: -webkit-flex; display: flex; margin-bottom: 10px; }
-    .menu-row button { -webkit-flex: 1 1 0; flex: 1 1 0; width: auto; margin-bottom: 0; font-size: 0.9rem; }
-    .menu-row button + button { margin-left: 10px; }
+    .menu-row { display: -webkit-flex; display: flex; margin-bottom: 9px; }
+    .menu-row button { -webkit-flex: 1 1 0; flex: 1 1 0; width: auto; margin-bottom: 0; font-size: 0.85rem; padding: 11px 8px; }
+    .menu-row button + button { margin-left: 8px; }
 
-    .stat-line { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; padding: 10px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); font-size: 1.1rem; }
-    .instruction-text { text-align: left; font-size: 0.95rem; color: #ccc; line-height: 1.5; margin-bottom: 20px; }
+    .stat-line { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); font-size: 1rem; }
+    .instruction-text { text-align: left; font-size: 0.9rem; color: #ccc; line-height: 1.45; margin-bottom: 15px; }
     .instruction-text span { color: #d4af37; font-weight: bold; }
 
-    #toast-container { position: absolute; top: 18%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 1000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; }
-    .toast { background: linear-gradient(to right, rgba(20,20,20,0.9), rgba(40,40,40,0.9)); color: #d4af37; padding: 10px 25px; margin-bottom: 10px; border-radius: 20px; font-weight: bold; border: 1px solid #d4af37; box-shadow: 0 10px 20px rgba(0,0,0,0.6); text-align: center; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
+    /* Магазин */
+    .shop-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(0,0,0,0.45); padding: 8px 12px; border-radius: 10px; margin-bottom: 7px; border: 1px solid rgba(212,175,55,0.25); }
+    .shop-item-title { text-align: left; font-size: 0.9rem; font-weight: bold; color: #eee; }
+    .shop-item-sub { font-size: 0.75rem; color: #aaa; }
+    .shop-item button { width: auto; margin: 0; padding: 7px 14px; font-size: 0.8rem; }
 
-    .game-table { width: 100%; height: 100%; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-justify-content: space-between; justify-content: space-between; padding: 15px 5px; }
-    .opponents { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin-top: 15px; z-index: 5; }
-    .avatar { background: rgba(0, 0, 0, 0.8); padding: 5px 20px; border-radius: 20px; font-weight: 600; border: 1px solid #d4af37; margin-bottom: -15px; z-index: 2; color: #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+    #toast-container { position: absolute; top: 14%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 2000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; }
+    .toast { background: linear-gradient(to right, rgba(15,15,15,0.95), rgba(35,35,35,0.95)); color: #d4af37; padding: 8px 20px; margin-bottom: 8px; border-radius: 20px; font-weight: bold; border: 1px solid #d4af37; box-shadow: 0 10px 20px rgba(0,0,0,0.6); text-align: center; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
 
-    .opponent-hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 80px; width: 100%; max-width: 90vw; }
-    .hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 120px; width: 100%; max-width: 95vw; }
+    /* Верхняя панель стола */
+    .top-hud { width: 100%; display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; padding: 4px 10px; z-index: 30; }
+    .hud-group { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
+    .hud-btn { width: auto; margin: 0 3px; padding: 6px 10px; font-size: 0.8rem; border-radius: 10px; background: rgba(0,0,0,0.75); color: #d4af37; border: 1px solid rgba(212,175,55,0.5); text-transform: none; }
+    .hud-chips { background: rgba(0,0,0,0.8); color: #ffd700; padding: 5px 10px; border-radius: 10px; font-size: 0.8rem; font-weight: bold; border: 1px solid #d4af37; margin-left: 4px; }
+
+    /* Полоса Блиц-таймера */
+    .blitz-bar-wrap { width: 100%; height: 4px; background: rgba(0,0,0,0.4); position: absolute; top: 0; left: 0; z-index: 40; display: none; }
+    .blitz-bar { height: 100%; width: 100%; background: linear-gradient(90deg, #ff5252, #ffd700, #00ff64); -webkit-transition: width 0.2s linear; transition: width 0.2s linear; }
+
+    .game-table { width: 100%; height: 100%; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-justify-content: space-between; justify-content: space-between; padding: 6px 5px 15px 5px; position: relative; }
+    .opponents { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin-top: 2px; z-index: 15; position: relative; }
+    .avatar { background: rgba(0, 0, 0, 0.85); padding: 4px 18px; border-radius: 20px; font-weight: 600; border: 1px solid #d4af37; margin-bottom: -12px; z-index: 2; color: #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.5); font-size: 0.9rem; }
+
+    /* Реплики крупье */
+    .bot-bubble {
+        position: absolute; top: 28px; background: #fff; color: #111; padding: 5px 12px;
+        border-radius: 12px; font-size: 0.8rem; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+        z-index: 25; pointer-events: none; opacity: 0; -webkit-transition: opacity 0.3s; transition: opacity 0.3s;
+        border: 2px solid #d4af37; white-space: nowrap;
+    }
+    .bot-bubble.visible { opacity: 1; }
+
+    .opponent-hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 85px; width: 100%; max-width: 92vw; }
+    .hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 118px; width: 100%; max-width: 96vw; }
 
     .middle-section { -webkit-flex-grow: 1; flex-grow: 1; position: relative; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; width: 100%; }
     .deck-area { position: absolute; left: 10px; top: 50%; -webkit-transform: translateY(-50%) scale(0.75); transform: translateY(-50%) scale(0.75); display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
 
+    /* Стили рубашек карт */
     .card-back, .deck-back {
         background: repeating-linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3) 10px, rgba(0,0,0,0.5) 10px, rgba(0,0,0,0.5) 20px), #600000 !important;
         border: 3px solid #d4af37 !important; box-shadow: 2px 4px 10px rgba(0,0,0,0.7); color: transparent !important;
+    }
+    body.back-gold .card-back, body.back-gold .deck-back {
+        background: repeating-linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.2) 8px, rgba(0,0,0,0.15) 8px, rgba(0,0,0,0.15) 16px), linear-gradient(135deg, #ffd700, #996515) !important;
+        border: 3px solid #fff5b8 !important;
+    }
+    body.back-cyber .card-back, body.back-cyber .deck-back {
+        background: repeating-linear-gradient(45deg, rgba(0,198,255,0.25), rgba(0,198,255,0.25) 8px, rgba(10,10,30,0.9) 8px, rgba(10,10,30,0.9) 16px), #05051a !important;
+        border: 3px solid #00c6ff !important;
+    }
+    body.back-carbon .card-back, body.back-carbon .deck-back {
+        background: repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 6px, #2b2b2b 6px, #2b2b2b 12px) !important;
+        border: 3px solid #888 !important;
     }
     .card-back::before, .card-back::after, .deck-back::before, .deck-back::after { content: none !important; }
 
@@ -101,16 +154,18 @@
     }
     .trump-indicator span { font-size: 2.8rem; margin-top: 5px; }
 
-    .battlefield { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; -webkit-flex-wrap: wrap; flex-wrap: wrap; width: 100%; max-width: 70%; margin-left: 20%; min-height: 120px; padding: 10px; }
+    .battlefield { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; -webkit-flex-wrap: wrap; flex-wrap: wrap; width: 100%; max-width: 72%; margin-left: 18%; min-height: 120px; padding: 10px; }
 
     .attack-pair { position: relative; width: 75px; height: 110px; margin: 7px; }
     .attack-pair .card { position: absolute; left: 0; top: 0; margin: 0 !important; }
     .attack-pair .defend-card { top: 15px; left: 15px; z-index: 2; box-shadow: -5px 5px 15px rgba(0,0,0,0.8); }
 
-    .player-area { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; z-index: 10; padding-bottom: 25px; }
-    .controls { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; width: 100%; max-width: 400px; margin-bottom: 5px; padding: 0 15px; -webkit-align-items: center; align-items: center; }
-    .player-name { font-weight: 600; background: rgba(0,0,0,0.8); padding: 5px 15px; border-radius: 12px; border: 1px solid #d4af37; color: #d4af37; }
-    #action-btn { width: auto; padding: 10px 20px; margin: 0; min-width: 140px; }
+    .player-area { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; z-index: 10; padding-bottom: 12px; }
+    .controls { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; width: 100%; max-width: 440px; margin-bottom: 5px; padding: 0 12px; -webkit-align-items: center; align-items: center; }
+    .player-name { font-weight: 600; background: rgba(0,0,0,0.8); padding: 5px 14px; border-radius: 12px; border: 1px solid #d4af37; color: #d4af37; font-size: 0.9rem; }
+    .action-btns-wrap { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
+    #action-btn { width: auto; padding: 9px 18px; margin: 0; min-width: 125px; font-size: 0.95rem; }
+    #proezdnoy-btn { width: auto; padding: 9px 12px; margin: 0 6px 0 0; font-size: 0.85rem; }
 
     .card {
         width: 75px; height: 110px;
@@ -123,39 +178,79 @@
         transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), left 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), margin 0.3s, box-shadow 0.2s;
         -webkit-user-select: none; user-select: none; border: 1px solid #ccc; -webkit-flex-shrink: 0; flex-shrink: 0;
     }
+
+    /* Темы лицевой стороны карт */
+    body.face-dark .card:not(.card-back):not(.deck-back) {
+        background: linear-gradient(135deg, #2b2b2b, #1a1a1a); border-color: #555;
+    }
+    body.face-dark .card[data-suit="♠"], body.face-dark .card[data-suit="♣"] { color: #eaeaea; }
+    body.face-dark .card[data-suit="♥"], body.face-dark .card[data-suit="♦"] { color: #ff5252; }
+
+    body.face-imperial .card:not(.card-back):not(.deck-back) {
+        background: linear-gradient(135deg, #fff8dc, #e6c670); border: 1px solid #b8860b;
+    }
+
     .card[data-suit="♥"], .card[data-suit="♦"] { color: #d32f2f; }
     .card[data-suit="♠"], .card[data-suit="♣"] { color: #1a1a1a; }
     .card::before { content: attr(data-value) "\A" attr(data-suit); white-space: pre; position: absolute; top: 4px; left: 6px; font-size: 0.9rem; line-height: 0.9; }
     .card::after { content: attr(data-value) "\A" attr(data-suit); white-space: pre; position: absolute; bottom: 4px; right: 6px; font-size: 0.9rem; line-height: 0.9; -webkit-transform: rotate(180deg); transform: rotate(180deg); }
 
+    .card.rotated-180 { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
     .card.disabled { -webkit-filter: brightness(0.4) grayscale(0.6); filter: brightness(0.4) grayscale(0.6); pointer-events: none; }
 
     .card.can-translate { box-shadow: 0 0 20px 5px rgba(0, 198, 255, 0.8), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #00c6ff; }
     .card.can-toss { box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.8), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #ffd700; }
     .card.can-defend { box-shadow: 0 0 20px 5px rgba(0, 255, 100, 0.7), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #00ff64; }
+    .card.hint-glow { box-shadow: 0 0 28px 10px #ff00ff !important; border: 2px solid #ff80ff !important; -webkit-transform: translateY(-14px) scale(1.06); transform: translateY(-14px) scale(1.06); z-index: 90 !important; }
 
     .holding { -webkit-transform: scale(1.1) translateY(-15px); transform: scale(1.1) translateY(-15px); box-shadow: 0 15px 30px rgba(0,0,0,0.8); z-index: 50 !important; }
     .dragging { opacity: 0.95; cursor: grabbing; box-shadow: 0 20px 40px rgba(0,0,0,0.9) !important; -webkit-transition: none !important; transition: none !important; z-index: 9999 !important; -webkit-transform: scale(1.05); transform: scale(1.05); }
+
+    .pogony-badge {
+        display: none; background: linear-gradient(135deg, #ffd700, #b8860b); color: #111;
+        padding: 10px 16px; border-radius: 14px; font-weight: 900; font-size: 1.05rem;
+        margin-bottom: 14px; box-shadow: 0 0 25px rgba(255,215,0,0.8);
+    }
+    .discard-grid { display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: center; justify-content: center; margin: 10px 0; max-height: 45vh; overflow-y: auto; }
+    .discard-mini { padding: 4px 8px; margin: 3px; border-radius: 6px; background: #fff; font-weight: bold; font-size: 0.9rem; }
 </style>
 </head>
-<body>
+<body class="felt-green back-classic face-light">
     <div id="toast-container"></div>
 
 <!-- ГЛАВНОЕ МЕНЮ -->
 <div id="auth-screen" class="screen">
     <div class="modal-box">
         <h1>Durak Casino</h1>
+        <div>
+            <span class="balance-badge">Баланс: <span id="menu-chips">1000</span> 🪙</span>
+        </div>
+        <button id="btn-bailout" class="btn-accent hidden" style="padding: 8px; font-size: 0.85rem; margin-bottom: 10px;">🎁 Бонус от заведения (+250 🪙)</button>
+
         <input type="text" id="nickname" placeholder="Ваш никнейм (для сети)" maxlength="12">
 
         <button id="show-bot-settings" class="btn-accent">Играть с Ботом 🤖</button>
+        <button id="show-local-settings" class="btn-info">Играть вдвоем (1 экран) 👥</button>
+
         <div class="menu-row">
             <button id="btn-host" class="btn-primary">Создать игру 🌐</button>
             <button id="btn-join-menu" class="btn-primary">Войти по ключу</button>
         </div>
         <div class="menu-row">
-            <button id="show-profile" class="btn-secondary">Профиль</button>
-            <button id="show-rules" class="btn-secondary">Правила</button>
+            <button id="show-shop" class="btn-secondary">🛒 Магазин</button>
+            <button id="show-profile" class="btn-secondary">📊 Профиль</button>
+            <button id="show-rules" class="btn-secondary">📖 Правила</button>
         </div>
+    </div>
+</div>
+
+<!-- МАГАЗИН КАСТОМИЗАЦИИ -->
+<div id="shop-screen" class="screen hidden">
+    <div class="modal-box">
+        <h2 style="color: #d4af37;">Магазин Казино</h2>
+        <div class="balance-badge">Баланс: <span id="shop-chips">1000</span> 🪙</div>
+        <div id="shop-list"></div>
+        <button class="btn-danger back-to-menu" style="margin-top: 10px;">Назад</button>
     </div>
 </div>
 
@@ -193,10 +288,12 @@
 <div id="profile-screen" class="screen hidden">
     <div class="modal-box">
         <h2 style="color: #d4af37;">Статистика</h2>
+        <div class="stat-line"><span>Фишки:</span><span id="stat-chips" style="color: #ffd700;">1000 🪙</span></div>
         <div class="stat-line"><span>Победы:</span><span id="stat-wins" style="color: #00ff64;">0</span></div>
         <div class="stat-line"><span>Поражения:</span><span id="stat-losses" style="color: #ff5252;">0</span></div>
+        <div class="stat-line"><span>Повешено погон:</span><span id="stat-pogony" style="color: #00c6ff;">0 🎖️</span></div>
         <div class="stat-line" style="border: none;"><span>Винрейт:</span><span id="stat-rate" style="color: #ffd700;">0%</span></div>
-        <button class="btn-danger back-to-menu" style="margin-top: 20px;">Назад</button>
+        <button class="btn-danger back-to-menu" style="margin-top: 15px;">Назад</button>
     </div>
 </div>
 
@@ -205,12 +302,14 @@
     <div class="modal-box">
         <h2 style="color: #d4af37;">Как играть</h2>
         <div class="instruction-text">
-            • <span>Онлайн без серверов:</span><br>
-            Один создает игру и кидает другу код. Другой вставляет его и отправляет ответный код обратно.<br><br>
             • <span>Цвета карт:</span><br>
-            🟢 <b>Зеленый</b> - Карта может отбить атаку.<br>
-            🟡 <b>Золотой</b> - Карту можно подкинуть.<br>
-            🔵 <b>Голубой</b> - Карту можно перевести ход.
+            🟢 <b>Зеленый</b> — Карта может отбить атаку.<br>
+            🟡 <b>Золотой</b> — Карту можно подкинуть.<br>
+            🔵 <b>Голубой</b> — Карту можно перевести (удерживайте карту 0.5 сек или перетащите в центр).<br><br>
+            • <span>Погоны 🎖️:</span><br>
+            Если вы побеждаете, и вашей последней атакующей картой стала <b>Шестерка (6)</b> — выплата по ставке удваивается!<br><br>
+            • <span>Проездной 🎫:</span><br>
+            В переводном режиме козырь того же номинала можно просто показать кнопкой «Проездной» — ход переведется, а карта останется у вас.
         </div>
         <button class="btn-danger back-to-menu">Понятно</button>
     </div>
@@ -220,16 +319,46 @@
 <div id="settings-screen" class="screen hidden">
     <div class="modal-box">
         <h2 style="color: #d4af37;">Настройки стола</h2>
+
+        <div class="section-label">Режим и колода</div>
         <div class="settings-group">
             <label><input type="radio" name="game-mode" value="podkidnoy" checked> Подкидной</label>
             <label><input type="radio" name="game-mode" value="perevodnoy"> Переводной</label>
         </div>
-        <div id="bot-diff-group" class="settings-group">
-            <label><input type="radio" name="bot-diff" value="easy" checked> Легкий</label>
-            <label><input type="radio" name="bot-diff" value="hard"> Сложный</label>
-            <label><input type="radio" name="bot-diff" value="expert"> Профи 🔥</label>
+        <div class="settings-group">
+            <label><input type="radio" name="deck-size" value="24"> 24 карты</label>
+            <label><input type="radio" name="deck-size" value="36" checked> 36 карт</label>
+            <label><input type="radio" name="deck-size" value="52"> 52 карты</label>
+            <label><input type="checkbox" id="blitz-toggle"> ⚡ Блиц (10с)</label>
         </div>
-        <button id="start-game-btn" class="btn-primary">Продолжить</button>
+
+        <div id="bot-diff-section">
+            <div class="section-label">Сложность и Множитель</div>
+            <div id="bot-diff-group" class="settings-group">
+                <label><input type="radio" name="bot-diff" value="easy" checked> Легкий (x1.5)</label>
+                <label><input type="radio" name="bot-diff" value="hard"> Сложный (x2)</label>
+                <label><input type="radio" name="bot-diff" value="expert"> Профи 🔥 (x3)</label>
+            </div>
+
+            <div class="section-label">Ваша ставка (Баланс: <span id="settings-chips">1000</span> 🪙)</div>
+            <div class="settings-group">
+                <label><input type="radio" name="bet-amount" value="0"> 0</label>
+                <label><input type="radio" name="bet-amount" value="50" checked> 50</label>
+                <label><input type="radio" name="bet-amount" value="250"> 250</label>
+                <label><input type="radio" name="bet-amount" value="500"> 500</label>
+                <label><input type="radio" name="bet-amount" value="allin"> Ва-банк</label>
+            </div>
+        </div>
+
+        <div id="local-mode-section" class="hidden">
+            <div class="section-label">Режим для 2 игроков</div>
+            <div class="settings-group">
+                <label><input type="radio" name="local-view" value="curtain" checked> 🙈 Шторка (По очереди)</label>
+                <label><input type="radio" name="local-view" value="tabletop"> 🔄 Напротив (На столе)</label>
+            </div>
+        </div>
+
+        <button id="start-game-btn" class="btn-primary">Начать партию</button>
         <button class="btn-danger back-to-menu">Назад</button>
     </div>
 </div>
@@ -238,14 +367,65 @@
 <div id="game-over-screen" class="screen hidden" style="z-index: 100;">
     <div class="modal-box">
         <h1 id="game-over-title">Вы победили!</h1>
+        <div id="pogony-banner" class="pogony-badge">🎖️ ПОГОНЫ ПОВЕШЕНЫ! БОНУС x2!</div>
+        <p id="game-over-sub" style="color: #ffd700; font-weight: bold; margin-bottom: 15px; font-size: 1.1rem;"></p>
+        <button id="btn-rematch" class="btn-primary">🔄 Играть ещё раз (Реванш)</button>
         <button id="return-main-menu" class="btn-accent">В главное меню</button>
+    </div>
+</div>
+
+<!-- ШТОРКА ПЕРЕДАЧИ ХОДА (ДЛЯ ИГРЫ ВДВОЕМ) -->
+<div id="curtain-screen" class="screen hidden" style="z-index: 150; background: rgba(5, 12, 8, 0.98);">
+    <div class="modal-box">
+        <h2 id="curtain-title" style="color: #ffd700;">Ход Игрока 2</h2>
+        <p style="color: #ccc; margin-bottom: 20px;">Передайте устройство сопернику и нажмите кнопку ниже, чтобы открыть карты.</p>
+        <button id="btn-curtain-ready" class="btn-accent">Показать мои карты 👀</button>
+    </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО ОТБОЯ (БИТО) -->
+<div id="discard-screen" class="screen hidden" style="z-index: 140; background: rgba(0,0,0,0.75);">
+    <div class="modal-box">
+        <h2 style="color: #d4af37;">Вышедшие карты (Отбой)</h2>
+        <p id="discard-summary" style="color: #ccc; font-size: 0.9rem; margin-bottom: 8px;"></p>
+        <div id="discard-list" class="discard-grid"></div>
+        <button id="btn-close-discard" class="btn-danger" style="margin-top: 10px;">Закрыть</button>
+    </div>
+</div>
+
+<!-- МЕНЮ ПАУЗЫ -->
+<div id="pause-screen" class="screen hidden" style="z-index: 145; background: rgba(0,0,0,0.75);">
+    <div class="modal-box">
+        <h2 style="color: #d4af37;">Пауза</h2>
+        <button id="btn-resume" class="btn-accent">Продолжить игру</button>
+        <button id="btn-restart-quick" class="btn-primary">Начать заново</button>
+        <button id="btn-quit-table" class="btn-danger">Выйти в главное меню</button>
     </div>
 </div>
 
 <!-- ИГРОВОЙ СТОЛ -->
 <div id="game-screen" class="screen hidden">
+    <div class="blitz-bar-wrap" id="blitz-wrap"><div class="blitz-bar" id="blitz-bar"></div></div>
     <div class="game-table">
-        <div class="opponents"><div class="avatar" id="opponent-name">Ожидание...</div><div class="opponent-hand" id="opponent-hand"></div></div>
+        <div class="top-hud">
+            <div class="hud-group">
+                <button id="btn-pause" class="hud-btn">⚙️</button>
+                <button id="btn-sound" class="hud-btn">🔊</button>
+                <span class="hud-chips"><span id="hud-chips-val">1000</span> 🪙</span>
+            </div>
+            <div class="hud-group">
+                <button id="btn-discard" class="hud-btn">🗑️ Отбой (<span id="discard-count">0</span>)</button>
+                <button id="btn-undo" class="hud-btn" disabled>🔙 В рукав</button>
+                <button id="btn-hint" class="hud-btn">💡</button>
+            </div>
+        </div>
+
+        <div class="opponents">
+            <div class="avatar" id="opponent-name">Ожидание...</div>
+            <div id="bot-bubble" class="bot-bubble"></div>
+            <div class="opponent-hand" id="opponent-hand"></div>
+        </div>
+
         <div class="middle-section">
             <div class="deck-area">
                 <div id="trump-indicator" class="trump-indicator">Козырь<br><span id="trump-symbol"></span></div>
@@ -254,10 +434,14 @@
             </div>
             <div class="battlefield" id="battlefield"></div>
         </div>
+
         <div class="player-area">
             <div class="controls">
                 <span id="display-nickname" class="player-name">Игрок</span>
-                <button id="action-btn" class="btn-danger">БИТО</button>
+                <div class="action-btns-wrap">
+                    <button id="proezdnoy-btn" class="btn-info glowing hidden">🎫 Проездной</button>
+                    <button id="action-btn" class="btn-danger">БИТО</button>
+                </div>
             </div>
             <div class="hand" id="player-hand"></div>
         </div>
@@ -271,8 +455,8 @@
         // ---------- Вспомогательное ----------
         function $(id) { return document.getElementById(id); }
         function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+        function cloneObj(o) { return JSON.parse(JSON.stringify(o)); }
 
-        // Поддержка passive-опций (на старых iOS третий аргумент — это просто capture)
         var passiveSupported = false;
         try {
             var testOpts = Object.defineProperty({}, 'passive', { get: function () { passiveSupported = true; } });
@@ -281,11 +465,10 @@
         } catch (e) {}
         var moveOpts = passiveSupported ? { passive: false } : false;
 
-        // Запрет «резинового» скролла страницы (кроме окон меню)
         document.addEventListener('touchmove', function (e) {
             var t = e.target;
             while (t && t !== document.body) {
-                if (t.className && typeof t.className === 'string' && t.className.indexOf('modal-box') !== -1) return;
+                if (t.className && typeof t.className === 'string' && (t.className.indexOf('modal-box') !== -1 || t.className.indexOf('discard-grid') !== -1)) return;
                 t = t.parentNode;
             }
             e.preventDefault();
@@ -300,47 +483,197 @@
             setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 2000);
         }
 
+        // ---------- Звуковой синтезатор (Web Audio API, 0 КБ внешних файлов) ----------
+        var soundEnabled = true;
+        var audioCtx = null;
+        function getAudioCtx() {
+            if (!soundEnabled) return null;
+            if (!audioCtx) {
+                var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    try { audioCtx = new AudioContextClass(); } catch (e) {}
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended' && audioCtx.resume) {
+                try { audioCtx.resume(); } catch (e) {}
+            }
+            return audioCtx;
+        }
+
+        function playTone(freq, type, duration, vol, delay) {
+            var ctx = getAudioCtx(); if (!ctx) return;
+            try {
+                var start = ctx.currentTime + (delay || 0);
+                var osc = ctx.createOscillator();
+                var gain = ctx.createGain();
+                osc.type = type || 'sine';
+                osc.frequency.setValueAtTime(freq, start);
+                gain.gain.setValueAtTime(vol || 0.12, start);
+                gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(start); osc.stop(start + duration);
+            } catch (e) {}
+        }
+
+        function playCardSound() { playTone(160, 'triangle', 0.08, 0.2, 0); playTone(95, 'sine', 0.06, 0.15, 0.02); }
+        function playChipSound() { playTone(2100, 'sine', 0.09, 0.1, 0); playTone(2800, 'sine', 0.12, 0.1, 0.05); }
+        function playWinSound() {
+            playTone(523.25, 'triangle', 0.18, 0.15, 0);
+            playTone(659.25, 'triangle', 0.18, 0.15, 0.12);
+            playTone(783.99, 'triangle', 0.18, 0.15, 0.24);
+            playTone(1046.5, 'triangle', 0.4, 0.2, 0.36);
+        }
+        function playLoseSound() {
+            playTone(392.0, 'sawtooth', 0.22, 0.1, 0);
+            playTone(349.23, 'sawtooth', 0.22, 0.1, 0.18);
+            playTone(293.66, 'sawtooth', 0.4, 0.12, 0.36);
+        }
+
+        $('btn-sound').onclick = function () {
+            soundEnabled = !soundEnabled;
+            $('btn-sound').textContent = soundEnabled ? '🔊' : '🔇';
+            showToast(soundEnabled ? 'Звук включен' : 'Звук выключен');
+        };
+
+        // ---------- Экраны ----------
         var screens = {
             auth: $('auth-screen'), settings: $('settings-screen'),
             game: $('game-screen'), gameOver: $('game-over-screen'),
             profile: $('profile-screen'), rules: $('rules-screen'),
-            host: $('host-screen'), join: $('join-screen')
+            host: $('host-screen'), join: $('join-screen'),
+            shop: $('shop-screen'), curtain: $('curtain-screen'),
+            discard: $('discard-screen'), pause: $('pause-screen')
         };
 
         function showScreen(screenName) {
             Object.keys(screens).forEach(function (k) { screens[k].classList.add('hidden'); });
             screens[screenName].classList.remove('hidden');
+            updateBalancesUI();
         }
 
-        each(document.querySelectorAll('.back-to-menu'), function (btn) { btn.onclick = function () { showScreen('auth'); }; });
+        each(document.querySelectorAll('.back-to-menu'), function (btn) { btn.onclick = function () { clearAllTimers(); showScreen('auth'); }; });
         $('show-rules').onclick = function () { showScreen('rules'); };
-        $('return-main-menu').onclick = function () { showScreen('auth'); };
+        $('return-main-menu').onclick = function () { clearAllTimers(); showScreen('auth'); };
 
-        // ---------- Статистика ----------
-        var stats = { wins: 0, losses: 0 };
+        // ---------- Статистика, Фишки и Магазин ----------
+        var stats = {
+            wins: 0, losses: 0, pogony: 0, chips: 1000,
+            owned: ['felt-green', 'back-classic', 'face-light'],
+            felt: 'felt-green', back: 'back-classic', face: 'face-light'
+        };
+
+        var shopCatalog = [
+            { id: 'felt-green', cat: 'felt', title: 'Изумрудное сукно', sub: 'Стол по умолчанию', price: 0 },
+            { id: 'felt-ruby', cat: 'felt', title: 'Королевский рубин', sub: 'Бордовый бархат', price: 300 },
+            { id: 'felt-ocean', cat: 'felt', title: 'Покерный синий', sub: 'Глубокий океан', price: 500 },
+            { id: 'felt-vip', cat: 'felt', title: 'Черный Оникс VIP', sub: 'Элитный темный стол', price: 1000 },
+            { id: 'back-classic', cat: 'back', title: 'Классическая рубашка', sub: 'Бордовая с золотом', price: 0 },
+            { id: 'back-gold', cat: 'back', title: 'Золотой слиток', sub: 'Рубашка карт', price: 400 },
+            { id: 'back-cyber', cat: 'back', title: 'Неоновая сеть', sub: 'Рубашка карт', price: 600 },
+            { id: 'back-carbon', cat: 'back', title: 'Темный карбон', sub: 'Рубашка карт', price: 800 },
+            { id: 'face-light', cat: 'face', title: 'Светлая классика', sub: 'Лицевая сторона', price: 0 },
+            { id: 'face-dark', cat: 'face', title: 'Ночной режим 🌙', sub: 'Темные карты для глаз', price: 450 },
+            { id: 'face-imperial', cat: 'face', title: 'Имперское золото', sub: 'Золотистый пергамент', price: 900 }
+        ];
+
         function loadStats() {
             try {
                 var saved = localStorage.getItem('durak_stats');
-                if (saved) stats = JSON.parse(saved);
+                if (saved) {
+                    var parsed = JSON.parse(saved);
+                    stats.wins = parsed.wins || 0;
+                    stats.losses = parsed.losses || 0;
+                    stats.pogony = parsed.pogony || 0;
+                    stats.chips = typeof parsed.chips === 'number' ? parsed.chips : 1000;
+                    stats.owned = parsed.owned || ['felt-green', 'back-classic', 'face-light'];
+                    stats.felt = parsed.felt || 'felt-green';
+                    stats.back = parsed.back || 'back-classic';
+                    stats.face = parsed.face || 'face-light';
+                }
             } catch (e) {}
+            applyVisualTheme();
+            updateBalancesUI();
+        }
+
+        function saveStatsData() {
+            try { localStorage.setItem('durak_stats', JSON.stringify(stats)); } catch (e) {}
+            updateBalancesUI();
+        }
+
+        function updateBalancesUI() {
+            $('menu-chips').textContent = stats.chips;
+            $('shop-chips').textContent = stats.chips;
+            $('settings-chips').textContent = stats.chips;
+            $('hud-chips-val').textContent = stats.chips;
+            $('stat-chips').textContent = stats.chips + ' 🪙';
             $('stat-wins').textContent = stats.wins;
             $('stat-losses').textContent = stats.losses;
+            $('stat-pogony').textContent = stats.pogony + ' 🎖️';
             var total = stats.wins + stats.losses;
             $('stat-rate').textContent = total > 0 ? Math.round((stats.wins / total) * 100) + '%' : '0%';
+
+            if (stats.chips < 50) $('btn-bailout').classList.remove('hidden');
+            else $('btn-bailout').classList.add('hidden');
         }
-        function saveStat(isWin) {
-            if (isWin) stats.wins++; else stats.losses++;
-            try { localStorage.setItem('durak_stats', JSON.stringify(stats)); } catch (e) {}
-            loadStats();
+
+        $('btn-bailout').onclick = function () {
+            stats.chips += 250;
+            playChipSound();
+            saveStatsData();
+            showToast('Получено +250 🪙 от казино!');
+        };
+
+        function applyVisualTheme() {
+            document.body.className = stats.felt + ' ' + stats.back + ' ' + stats.face;
         }
+
+        function renderShop() {
+            var container = $('shop-list');
+            container.innerHTML = '';
+            shopCatalog.forEach(function (item) {
+                var isOwned = stats.owned.indexOf(item.id) !== -1;
+                var isEquipped = (stats[item.cat] === item.id);
+                var row = document.createElement('div');
+                row.className = 'shop-item';
+
+                var info = document.createElement('div');
+                info.innerHTML = '<div class="shop-item-title">' + item.title + '</div><div class="shop-item-sub">' + item.sub + '</div>';
+
+                var btn = document.createElement('button');
+                if (isEquipped) {
+                    btn.className = 'btn-secondary'; btn.textContent = 'Выбрано ✓'; btn.disabled = true;
+                } else if (isOwned) {
+                    btn.className = 'btn-accent'; btn.textContent = 'Применить';
+                    btn.onclick = function () {
+                        stats[item.cat] = item.id;
+                        applyVisualTheme(); saveStatsData(); renderShop();
+                    };
+                } else {
+                    btn.className = 'btn-primary'; btn.textContent = item.price + ' 🪙';
+                    btn.onclick = function () {
+                        if (stats.chips < item.price) { showToast('Недостаточно фишек!'); return; }
+                        stats.chips -= item.price;
+                        stats.owned.push(item.id);
+                        stats[item.cat] = item.id;
+                        playChipSound();
+                        applyVisualTheme(); saveStatsData(); renderShop();
+                        showToast('Куплено: ' + item.title);
+                    };
+                }
+                row.appendChild(info); row.appendChild(btn);
+                container.appendChild(row);
+            });
+        }
+
+        $('show-shop').onclick = function () { renderShop(); showScreen('shop'); };
         $('show-profile').onclick = function () { loadStats(); showScreen('profile'); };
         loadStats();
 
         // ---------- Меню и Офлайн-режим ----------
-        var pendingGameType = 'bot';
-        var isOnlineGame = false, isHost = false, peer = null, conn = null;
+        var pendingGameType = 'bot'; // 'bot', 'local', 'host'
+        var isOnlineGame = false, isLocalTwoPlayer = false, localViewMode = 'curtain';
+        var isHost = false, peer = null, conn = null;
 
-        // Безопасная подгрузка PeerJS только при наличии интернета (для полной автономности офлайн)
         var webrtcOK = !!(window.RTCPeerConnection || window.webkitRTCPeerConnection);
         var peerScriptLoading = false;
 
@@ -361,17 +694,13 @@
 
         function onlineAvailable() {
             if (typeof navigator.onLine === 'boolean' && !navigator.onLine) {
-                showToast('Нет подключения к интернету');
-                return false;
+                showToast('Нет подключения к интернету'); return false;
             }
             if (!webrtcOK) {
-                showToast('Онлайн недоступен на этом устройстве');
-                return false;
+                showToast('Онлайн недоступен на этом устройстве'); return false;
             }
             if (typeof Peer === 'undefined') {
-                loadPeerJS();
-                showToast('Модуль сети загружается или нет интернета');
-                return false;
+                loadPeerJS(); showToast('Модуль сети загружается или нет интернета'); return false;
             }
             return true;
         }
@@ -383,12 +712,21 @@
             return true;
         }
 
-        // Игра с ботом не требует ввода ника и интернета
         $('show-bot-settings').onclick = function () {
             var n = $('nickname').value.trim();
             $('display-nickname').textContent = n.length >= 2 ? n : 'Игрок';
             pendingGameType = 'bot';
-            $('bot-diff-group').style.display = 'flex';
+            $('bot-diff-section').classList.remove('hidden');
+            $('local-mode-section').classList.add('hidden');
+            showScreen('settings');
+        };
+
+        $('show-local-settings').onclick = function () {
+            var n = $('nickname').value.trim();
+            $('display-nickname').textContent = n.length >= 2 ? n : 'Игрок 1';
+            pendingGameType = 'local';
+            $('bot-diff-section').classList.add('hidden');
+            $('local-mode-section').classList.remove('hidden');
             showScreen('settings');
         };
 
@@ -396,7 +734,8 @@
             if (!onlineAvailable()) return;
             if (!checkNick()) return;
             pendingGameType = 'host';
-            $('bot-diff-group').style.display = 'none';
+            $('bot-diff-section').classList.add('hidden');
+            $('local-mode-section').classList.add('hidden');
             showScreen('settings');
         };
 
@@ -408,42 +747,76 @@
 
         $('start-game-btn').onclick = function () {
             gameMode = document.querySelector('input[name="game-mode"]:checked').value;
+            deckSize = parseInt(document.querySelector('input[name="deck-size"]:checked').value, 10);
+            blitzEnabled = $('blitz-toggle').checked;
+
             if (pendingGameType === 'bot') {
                 difficulty = document.querySelector('input[name="bot-diff"]:checked').value;
-                isOnlineGame = false;
+                var betVal = document.querySelector('input[name="bet-amount"]:checked').value;
+                currentBet = betVal === 'allin' ? stats.chips : parseInt(betVal, 10);
+                if (currentBet > stats.chips) currentBet = stats.chips;
+                if (currentBet > 0) {
+                    stats.chips -= currentBet;
+                    saveStatsData();
+                    playChipSound();
+                }
+                isOnlineGame = false; isLocalTwoPlayer = false;
                 startGameBot();
+            } else if (pendingGameType === 'local') {
+                localViewMode = document.querySelector('input[name="local-view"]:checked').value;
+                currentBet = 0;
+                isOnlineGame = false; isLocalTwoPlayer = true;
+                startGameLocal();
             } else {
-                isOnlineGame = true; isHost = true;
+                currentBet = 0;
+                isOnlineGame = true; isLocalTwoPlayer = false; isHost = true;
                 initHostConnection();
             }
+        };
+
+        $('btn-rematch').onclick = function () {
+            if (isOnlineGame) { showScreen('auth'); return; }
+            if (isLocalTwoPlayer) { startGameLocal(); return; }
+            if (currentBet > stats.chips) currentBet = stats.chips;
+            if (currentBet > 0) { stats.chips -= currentBet; saveStatsData(); playChipSound(); }
+            startGameBot();
+        };
+
+        // ---------- Пауза и верхняя панель ----------
+        $('btn-pause').onclick = function () { screens.pause.classList.remove('hidden'); };
+        $('btn-resume').onclick = function () { screens.pause.classList.add('hidden'); };
+        $('btn-restart-quick').onclick = function () {
+            screens.pause.classList.add('hidden');
+            if (isLocalTwoPlayer) startGameLocal();
+            else if (!isOnlineGame) startGameBot();
+        };
+        $('btn-quit-table').onclick = function () {
+            clearAllTimers();
+            screens.pause.classList.add('hidden');
+            showScreen('auth');
         };
 
         // ---------- Онлайн (обмен ключами вручную) ----------
         function initHostConnection() {
             showScreen('host');
             $('host-offer').value = "Генерация кода...";
-
             try {
                 peer = new Peer(null, { debug: 1 });
-
                 peer.on('connection', function (connection) {
                     conn = connection; setupConn();
                     showToast("Друг подключился!");
                     setTimeout(startOnlineHostGame, 500);
                 });
-
                 peer.on('open', function () {
                     var localData = { peerId: peer.id };
                     $('host-offer').value = btoa(JSON.stringify(localData));
                 });
-            } catch (e) {
-                showToast('Ошибка инициализации');
-            }
+            } catch (e) { showToast('Ошибка инициализации'); }
         }
 
         $('btn-copy-offer').onclick = function () {
-            var box = $('host-offer');
-            box.select(); try { document.execCommand('copy'); } catch (e) {}
+            var box = $('host-offer'); box.select();
+            try { document.execCommand('copy'); } catch (e) {}
             showToast("Код скопирован!");
         };
 
@@ -458,42 +831,33 @@
                     showToast("Соединение установлено!");
                     setTimeout(startOnlineHostGame, 500);
                 });
-            } catch (e) {
-                showToast('Неверный код ответа');
-            }
+            } catch (e) { showToast('Неверный код ответа'); }
         };
 
         $('btn-generate-answer').onclick = function () {
             var offerStr = $('join-offer').value.trim();
             if (!offerStr) return showToast('Вставьте код друга');
-
             try {
                 var offerData = JSON.parse(atob(offerStr));
                 showToast("Создание ответа...");
-
                 peer = new Peer(null, { debug: 1 });
                 peer.on('open', function () {
                     conn = peer.connect(offerData.peerId);
-
                     conn.on('open', function () {
-                        isOnlineGame = true; isHost = false; setupConn();
+                        isOnlineGame = true; isLocalTwoPlayer = false; isHost = false; setupConn();
                         conn.send({ type: 'CLIENT_INFO', name: $('nickname').value });
                         showToast("Успешно подключено к другу!");
                     });
-
                     var answerData = { peerId: peer.id };
                     $('join-answer').value = btoa(JSON.stringify(answerData));
                 });
-
                 peer.on('error', function () { showToast('Ошибка соединения'); });
-            } catch (e) {
-                showToast('Неверный код друга');
-            }
+            } catch (e) { showToast('Неверный код друга'); }
         };
 
         $('btn-copy-answer').onclick = function () {
-            var box = $('join-answer');
-            box.select(); try { document.execCommand('copy'); } catch (e) {}
+            var box = $('join-answer'); box.select();
+            try { document.execCommand('copy'); } catch (e) {}
             showToast("Ответ скопирован!");
         };
 
@@ -505,9 +869,7 @@
                     deck = data.deck; trumpSuit = data.trumpSuit; gameMode = data.gameMode;
                     isPlayerTurn = !data.hostStarts;
                     $('opponent-name').textContent = data.hostName;
-                    tablePairs = []; playerHand = []; botHand = [];
-                    isGameOver = false; botPassed = false; botTaking = false; tricksPlayed = 0;
-                    opponentPassed = false; opponentTaking = false;
+                    resetRoundVars();
                     setupTableUI(); dealCards(true); showScreen('game');
                 } else if (data.type === 'MOVE') {
                     remoteActionExecute(data.card, data.forceTranslate);
@@ -521,40 +883,72 @@
             });
         }
 
-        // ---------- Игра ----------
+        // ---------- Игровая логика ----------
         var suits = ['♠', '♣', '♦', '♥'];
-        var values = ['6', '7', '8', '9', '10', 'В', 'Д', 'К', 'Т'];
-        var weights = { '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'В': 11, 'Д': 12, 'К': 13, 'Т': 14 };
+        var allValues36 = ['6', '7', '8', '9', '10', 'В', 'Д', 'К', 'Т'];
+        var allValues24 = ['9', '10', 'В', 'Д', 'К', 'Т'];
+        var allValues52 = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'В', 'Д', 'К', 'Т'];
+        var weights = { '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'В': 11, 'Д': 12, 'К': 13, 'Т': 14 };
 
-        var deck = [], playerHand = [], botHand = [];
+        var deck = [], playerHand = [], botHand = [], discardPile = [];
         var tablePairs = []; var trumpSuit = '';
-        var isPlayerTurn = true, gameMode = 'podkidnoy', difficulty = 'easy';
+        var isPlayerTurn = true, gameMode = 'podkidnoy', difficulty = 'easy', deckSize = 36;
+        var currentBet = 0, blitzEnabled = false, blitzInterval = null, blitzTimeLeft = 10;
         var isGameOver = false, tricksPlayed = 0;
         var botPassed = false, botTaking = false, opponentPassed = false, opponentTaking = false;
+        var playerTaking = false, proezdnoyUsed = false, discardPeekPaid = false;
+        var undoSnapshot = null, botTimerId = null, lastPlayerAttackCards = [];
+        var currentLocalActor = 1, lastCurtainActor = 1;
+
+        function clearAllTimers() {
+            if (botTimerId) { clearTimeout(botTimerId); botTimerId = null; }
+            if (blitzInterval) { clearInterval(blitzInterval); blitzInterval = null; }
+        }
+
+        function scheduleBot(fn, delay) {
+            if (botTimerId) clearTimeout(botTimerId);
+            botTimerId = setTimeout(function () { botTimerId = null; fn(); }, delay || 950);
+        }
+
+        function resetRoundVars() {
+            clearAllTimers();
+            tablePairs = []; playerHand = []; botHand = []; discardPile = [];
+            isGameOver = false; botPassed = false; botTaking = false; tricksPlayed = 0;
+            opponentPassed = false; opponentTaking = false; playerTaking = false;
+            proezdnoyUsed = false; discardPeekPaid = false; undoSnapshot = null;
+            lastPlayerAttackCards = [];
+            $('battlefield').innerHTML = '';
+            $('discard-count').textContent = '0';
+            $('btn-undo').disabled = true;
+        }
 
         function buildDeck() {
             deck = [];
-            suits.forEach(function (s) { values.forEach(function (v) { deck.push({ s: s, v: v, w: weights[v] }); }); });
+            var vals = deckSize === 24 ? allValues24 : (deckSize === 52 ? allValues52 : allValues36);
+            suits.forEach(function (s) { vals.forEach(function (v) { deck.push({ s: s, v: v, w: weights[v] }); }); });
             deck.sort(function () { return Math.random() - 0.5; });
             trumpSuit = deck[0].s;
         }
 
         function startGameBot() {
-            playerHand = []; botHand = []; tablePairs = [];
-            isGameOver = false; botPassed = false; botTaking = false; tricksPlayed = 0;
-            $('battlefield').innerHTML = '';
-            $('opponent-name').textContent = difficulty === 'expert' ? 'Крупье (Профи)' : 'Крупье (Бот)';
+            resetRoundVars();
+            $('opponent-name').textContent = difficulty === 'expert' ? 'Крупье (Профи 🔥)' : (difficulty === 'hard' ? 'Крупье (Сложный)' : 'Крупье (Бот)');
+            buildDeck();
+            setupTableUI(); showScreen('game'); dealCards(true);
+            sayBotBubble('Делайте ваши ходы, господа!');
+        }
+
+        function startGameLocal() {
+            resetRoundVars();
+            $('opponent-name').textContent = 'Игрок 2';
             buildDeck();
             setupTableUI(); showScreen('game'); dealCards(true);
         }
 
         function startOnlineHostGame() {
-            playerHand = []; botHand = []; tablePairs = [];
-            isGameOver = false; botPassed = false; botTaking = false; tricksPlayed = 0;
-            opponentPassed = false; opponentTaking = false;
+            resetRoundVars();
             buildDeck();
             var hostStarts = Math.random() > 0.5;
-
             conn.send({ type: 'START', deck: deck, trumpSuit: trumpSuit, gameMode: gameMode, hostName: $('nickname').value, hostStarts: hostStarts });
             isPlayerTurn = hostStarts;
             $('opponent-name').textContent = "Игрок";
@@ -568,6 +962,79 @@
             var tSym = $('trump-symbol');
             tSym.textContent = trumpSuit;
             tSym.style.color = (trumpSuit === '♥' || trumpSuit === '♦') ? '#d32f2f' : '#fff';
+            $('blitz-wrap').style.display = blitzEnabled ? 'block' : 'none';
+        }
+
+        // Реплики крупье
+        var bubbleTimer = null;
+        function sayBotBubble(text) {
+            if (isOnlineGame || isLocalTwoPlayer) return;
+            var b = $('bot-bubble');
+            b.textContent = text;
+            b.classList.add('visible');
+            if (bubbleTimer) clearTimeout(bubbleTimer);
+            bubbleTimer = setTimeout(function () { b.classList.remove('visible'); }, 2600);
+        }
+
+        // Определение активного игрока в локальном режиме на двоих (1 = нижний, 2 = верхний)
+        function getLocalActiveActor() {
+            if (!isLocalTwoPlayer) return 1;
+            var hasUndefended = tablePairs.some(function (p) { return !p.defend; });
+            if (isPlayerTurn) {
+                if (tablePairs.length === 0) return 1;
+                if (botTaking) return 1;
+                if (hasUndefended) return 2;
+                return 1;
+            } else {
+                if (tablePairs.length === 0) return 2;
+                if (playerTaking) return 2;
+                if (hasUndefended) return 1;
+                return 2;
+            }
+        }
+
+        function checkCurtainTransition() {
+            if (!isLocalTwoPlayer || isGameOver) return;
+            var nextActor = getLocalActiveActor();
+            if (localViewMode === 'curtain' && nextActor !== lastCurtainActor) {
+                lastCurtainActor = nextActor;
+                currentLocalActor = nextActor;
+                $('curtain-title').textContent = nextActor === 1 ? ('Ход: ' + $('display-nickname').textContent) : 'Ход: Игрок 2';
+                screens.curtain.classList.remove('hidden');
+                renderHands();
+            } else {
+                currentLocalActor = nextActor;
+                renderHands();
+            }
+        }
+
+        $('btn-curtain-ready').onclick = function () {
+            screens.curtain.classList.add('hidden');
+            renderHands();
+            resetBlitzTimer();
+        };
+
+        // Блиц-таймер (10 сек)
+        function resetBlitzTimer() {
+            if (!blitzEnabled || isGameOver) return;
+            if (blitzInterval) clearInterval(blitzInterval);
+            blitzTimeLeft = 10;
+            $('blitz-bar').style.width = '100%';
+            blitzInterval = setInterval(function () {
+                if (!screens.curtain.classList.contains('hidden') || !screens.pause.classList.contains('hidden')) return;
+                blitzTimeLeft -= 0.2;
+                var pct = Math.max(0, (blitzTimeLeft / 10) * 100);
+                $('blitz-bar').style.width = pct + '%';
+                if (blitzTimeLeft <= 0) {
+                    clearInterval(blitzInterval);
+                    showToast('⚡ Время вышло!');
+                    if (!$('action-btn').disabled) {
+                        $('action-btn').click();
+                    } else if (isPlayerTurn && tablePairs.length === 0 && playerHand.length > 0) {
+                        executeLocalAction(playerHand[0], false);
+                    }
+                }
+            }, 200);
         }
 
         function dealCards(isFirstDeal) {
@@ -587,14 +1054,18 @@
                 playerHand.forEach(function (c) { if (c.s === trumpSuit && c.w < minP) minP = c.w; });
                 botHand.forEach(function (c) { if (c.s === trumpSuit && c.w < minB) minB = c.w; });
                 isPlayerTurn = minP <= minB;
+                currentLocalActor = isPlayerTurn ? 1 : 2;
+                lastCurtainActor = currentLocalActor;
             }
 
             updateDeckUI(); renderHands(); checkWin();
 
             if (!isGameOver) {
                 updateTurnState();
-                if (isFirstDeal) showToast(isPlayerTurn ? "Ваш ход!" : (isOnlineGame ? "Соперник ходит" : "Крупье ходит"));
-                if (!isOnlineGame && !isPlayerTurn && tablePairs.length === 0) setTimeout(botAttack, 1000);
+                if (isFirstDeal) showToast(isPlayerTurn ? "Ваш ход!" : (isOnlineGame ? "Соперник ходит" : (isLocalTwoPlayer ? "Ходит Игрок 2" : "Крупье ходит")));
+                if (!isOnlineGame && !isLocalTwoPlayer && !isPlayerTurn && tablePairs.length === 0) scheduleBot(botAttack, 1000);
+                checkCurtainTransition();
+                resetBlitzTimer();
             }
         }
 
@@ -610,10 +1081,96 @@
             }
         }
 
-        // ---------- Перетаскивание карт ----------
-        var lastTouchTime = 0; // чтобы игнорировать эмулированные mouse-события после touch (iOS)
+        // ---------- Сохранение и отмена хода ("В рукав") ----------
+        function saveUndoState() {
+            if (isOnlineGame) return;
+            undoSnapshot = {
+                playerHand: cloneObj(playerHand),
+                botHand: cloneObj(botHand),
+                tablePairs: cloneObj(tablePairs),
+                isPlayerTurn: isPlayerTurn,
+                botTaking: botTaking,
+                botPassed: botPassed,
+                playerTaking: playerTaking,
+                proezdnoyUsed: proezdnoyUsed
+            };
+            $('btn-undo').disabled = false;
+        }
 
-        function attachDragAndDropHandlers(el, card) {
+        $('btn-undo').onclick = function () {
+            if (!undoSnapshot || isOnlineGame) return;
+            var cost = isLocalTwoPlayer ? 0 : 30;
+            if (stats.chips < cost) { showToast('Нужно 30 🪙 для возврата карты!'); return; }
+            clearAllTimers();
+            if (cost > 0) { stats.chips -= cost; saveStatsData(); }
+            playerHand = undoSnapshot.playerHand;
+            botHand = undoSnapshot.botHand;
+            tablePairs = undoSnapshot.tablePairs;
+            isPlayerTurn = undoSnapshot.isPlayerTurn;
+            botTaking = undoSnapshot.botTaking;
+            botPassed = undoSnapshot.botPassed;
+            playerTaking = undoSnapshot.playerTaking;
+            proezdnoyUsed = undoSnapshot.proezdnoyUsed;
+            undoSnapshot = null;
+            $('btn-undo').disabled = true;
+            playCardSound();
+            renderTable(); renderHands(); updateTurnState();
+            showToast('Карта спрятана в рукав! 🔙');
+        };
+
+        // ---------- Трекер отбоя ("Бито") ----------
+        $('btn-discard').onclick = function () {
+            if (!isLocalTwoPlayer && !isOnlineGame && difficulty !== 'easy' && !discardPeekPaid && discardPile.length > 0) {
+                if (stats.chips < 50) { showToast('Подсмотреть отбой на этой сложности стоит 50 🪙'); return; }
+                stats.chips -= 50; discardPeekPaid = true; saveStatsData();
+                showToast('Оплачено 50 🪙 за просмотр отбоя');
+            }
+            var list = $('discard-list'); list.innerHTML = '';
+            var trumpsOut = discardPile.filter(function (c) { return c.s === trumpSuit; }).length;
+            $('discard-summary').textContent = 'Всего вышло карт: ' + discardPile.length + ' (Козырей в отбое: ' + trumpsOut + ')';
+            if (discardPile.length === 0) {
+                list.innerHTML = '<div style="color:#888; padding:15px;">В отбое пока пусто</div>';
+            } else {
+                var sorted = discardPile.slice().sort(function (a, b) {
+                    if (a.s !== b.s) return suits.indexOf(a.s) - suits.indexOf(b.s);
+                    return a.w - b.w;
+                });
+                sorted.forEach(function (c) {
+                    var m = document.createElement('span');
+                    m.className = 'discard-mini';
+                    m.style.color = (c.s === '♥' || c.s === '♦') ? '#d32f2f' : '#111';
+                    if (c.s === trumpSuit) m.style.border = '2px solid #ffd700';
+                    m.textContent = c.v + c.s;
+                    list.appendChild(m);
+                });
+            }
+            screens.discard.classList.remove('hidden');
+        };
+        $('btn-close-discard').onclick = function () { screens.discard.classList.add('hidden'); };
+
+        // ---------- Подсказка лучшего хода ("💡") ----------
+        $('btn-hint').onclick = function () {
+            var activeActor = getLocalActiveActor();
+            var container = activeActor === 2 ? $('opponent-hand') : $('player-hand');
+            var enabledEls = [];
+            each(container.children, function (el) {
+                el.classList.remove('hint-glow');
+                if (!el.classList.contains('disabled') && !el.classList.contains('card-back')) enabledEls.push(el);
+            });
+            if (enabledEls.length === 0) {
+                showToast('Свободных ходов нет — жмите кнопку действия!');
+                return;
+            }
+            // Выбираем самую младшую некозырную из доступных (так как рука уже отсортирована по возрастанию и козырям в конце)
+            var bestEl = enabledEls[0];
+            bestEl.classList.add('hint-glow');
+            showToast('Рекомендуемый ход: ' + bestEl.getAttribute('data-value') + bestEl.getAttribute('data-suit'));
+        };
+
+        // ---------- Перетаскивание карт ----------
+        var lastTouchTime = 0;
+
+        function attachDragAndDropHandlers(el, card, ownerActor) {
             var startX = 0, startY = 0, initLeft = 0, initTop = 0;
             var isDragging = false, longPressTriggered = false, longPressTimer = null, dragRAF = null;
 
@@ -625,7 +1182,7 @@
             function onStart(e) {
                 if (e.type === 'touchstart') lastTouchTime = Date.now();
                 else if (Date.now() - lastTouchTime < 800) return;
-                if (el.classList.contains('disabled')) return;
+                if (el.classList.contains('disabled') || el.classList.contains('card-back')) return;
                 longPressTriggered = false; isDragging = false;
                 var pt = getXY(e);
                 startX = pt.x; startY = pt.y;
@@ -637,7 +1194,9 @@
                         if (!isDragging) {
                             longPressTriggered = true;
                             if (navigator.vibrate) navigator.vibrate(50);
-                            el.classList.remove('holding'); executeLocalAction(card, true);
+                            el.classList.remove('holding');
+                            if (ownerActor === 2) executePlayer2LocalAction(card, true);
+                            else executeLocalAction(card, true);
                         }
                     }, 500);
                 }
@@ -666,7 +1225,7 @@
                 }
             }
 
-            function onEnd(e) {
+            function onEnd() {
                 clearTimeout(longPressTimer); el.classList.remove('holding');
                 if (dragRAF) cancelAnimationFrame(dragRAF);
                 document.removeEventListener('mousemove', onMove, moveOpts);
@@ -675,8 +1234,14 @@
                 document.removeEventListener('touchend', onEnd, false);
 
                 if (longPressTriggered) return;
-                if (!isDragging) { executeLocalAction(card, false); }
-                else { el.classList.remove('dragging'); checkDropZone(el, card); }
+                if (!isDragging) {
+                    if (ownerActor === 2) executePlayer2LocalAction(card, false);
+                    else executeLocalAction(card, false);
+                } else {
+                    el.classList.remove('dragging');
+                    if (ownerActor === 2) executePlayer2LocalAction(card, false);
+                    else checkDropZone(el, card);
+                }
             }
 
             el.onmousedown = function (e) { onStart(e); };
@@ -702,10 +1267,13 @@
                         droppedOnDefenseTarget = true;
                         var attackCard = tablePairs[i].attack;
                         if ((card.s === attackCard.s && card.w > attackCard.w) || (card.s === trumpSuit && attackCard.s !== trumpSuit)) {
+                            saveUndoState();
                             if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: false });
                             playerHand.splice(idx, 1); tablePairs[i].defend = card; success = true;
+                            playCardSound();
                             renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
-                            if (!isOnlineGame && !tablePairs.some(function (p) { return !p.defend; })) setTimeout(botAttack, 1000);
+                            if (!isOnlineGame && !isLocalTwoPlayer && !tablePairs.some(function (p) { return !p.defend; })) scheduleBot(botAttack, 1000);
+                            checkCurtainTransition();
                             break;
                         }
                     }
@@ -728,9 +1296,14 @@
 
         function renderHands() {
             sortHand(playerHand);
+            sortHand(botHand);
             var pContainer = $('player-hand');
             var bContainer = $('opponent-hand');
             pContainer.innerHTML = ''; bContainer.innerHTML = '';
+
+            var activeActor = getLocalActiveActor();
+            var hidePlayer1 = isLocalTwoPlayer && localViewMode === 'curtain' && activeActor !== 1;
+            var showPlayer2Face = isLocalTwoPlayer && ((localViewMode === 'curtain' && activeActor === 2) || localViewMode === 'tabletop');
 
             var pWidth = pContainer.clientWidth || window.innerWidth * 0.9;
             var overlapP = -40; var totalWidthP = playerHand.length * 75;
@@ -738,21 +1311,38 @@
 
             playerHand.forEach(function (card, i) {
                 var el = document.createElement('div');
-                el.className = 'card'; el.setAttribute("data-value", card.v); el.setAttribute("data-suit", card.s);
-                el.innerHTML = card.v + card.s;
+                if (hidePlayer1) {
+                    el.className = 'card card-back';
+                } else {
+                    el.className = 'card'; el.setAttribute("data-value", card.v); el.setAttribute("data-suit", card.s);
+                    el.innerHTML = card.v + card.s;
+                    attachDragAndDropHandlers(el, card, 1);
+                }
                 if (i > 0) el.style.marginLeft = overlapP + 'px';
                 el.style.zIndex = i;
-                attachDragAndDropHandlers(el, card); pContainer.appendChild(el);
+                pContainer.appendChild(el);
             });
 
             var bWidth = bContainer.clientWidth || window.innerWidth * 0.9;
-            var overlapB = -45; var totalWidthB = botHand.length * 60;
+            var cardW = showPlayer2Face ? 70 : 60;
+            var overlapB = showPlayer2Face ? -38 : -45;
+            var totalWidthB = botHand.length * cardW;
             if (totalWidthB > 0 && botHand.length > 1 && totalWidthB + (botHand.length - 1) * overlapB > bWidth) overlapB = Math.floor((bWidth - totalWidthB) / (botHand.length - 1));
 
-            botHand.forEach(function (_, i) {
-                var el = document.createElement('div'); el.className = 'card card-back';
+            botHand.forEach(function (card, i) {
+                var el = document.createElement('div');
+                if (showPlayer2Face) {
+                    el.className = 'card' + (localViewMode === 'tabletop' ? ' rotated-180' : '');
+                    el.setAttribute("data-value", card.v); el.setAttribute("data-suit", card.s);
+                    el.innerHTML = card.v + card.s;
+                    el.style.width = '70px'; el.style.height = '100px';
+                    attachDragAndDropHandlers(el, card, 2);
+                } else {
+                    el.className = 'card card-back';
+                    el.style.width = '60px'; el.style.height = '85px';
+                }
                 if (i > 0) el.style.marginLeft = overlapB + 'px';
-                el.style.zIndex = i; el.style.width = '60px'; el.style.height = '85px';
+                el.style.zIndex = i;
                 bContainer.appendChild(el);
             });
             validatePlayerHand();
@@ -770,12 +1360,24 @@
         function updateTurnState() {
             var btn = $('action-btn');
             btn.classList.remove("glowing");
+            var activeActor = getLocalActiveActor();
 
-            if (isPlayerTurn) {
+            if (isLocalTwoPlayer && activeActor === 2) {
+                if (!isPlayerTurn) {
+                    if (playerTaking) {
+                        btn.textContent = "ОТДАТЬ (И2)"; btn.className = "btn-accent glowing"; btn.disabled = false;
+                    } else {
+                        btn.textContent = "БИТО (И2)"; btn.className = "btn-danger"; btn.disabled = tablePairs.length === 0 || tablePairs.some(function (p) { return !p.defend; });
+                        if (!btn.disabled) btn.classList.add("glowing");
+                    }
+                } else {
+                    btn.textContent = "ВЗЯТЬ (И2)"; btn.className = "btn-primary"; btn.disabled = tablePairs.length === 0;
+                }
+            } else if (isPlayerTurn) {
                 if (botTaking || opponentTaking) {
                     btn.textContent = "ОТДАТЬ"; btn.className = "btn-accent glowing"; btn.disabled = false;
                 } else {
-                    btn.textContent = "БИТО"; btn.className = "btn-danger"; btn.disabled = tablePairs.length === 0;
+                    btn.textContent = "БИТО"; btn.className = "btn-danger"; btn.disabled = tablePairs.length === 0 || tablePairs.some(function (p) { return !p.defend; });
                     if (tablePairs.length > 0 && tablePairs.every(function (p) { return p.defend; })) btn.classList.add("glowing");
                 }
             } else {
@@ -793,26 +1395,39 @@
         function validatePlayerHand() {
             var cardsElements = $('player-hand').children;
             var tableVals = getTableValues();
+            var activeActor = getLocalActiveActor();
+            var maxPairs = (tricksPlayed === 0) ? 5 : 6;
+
+            // Проверка доступности «Проездного»
+            var showProezdnoy = false;
+            if (!isPlayerTurn && activeActor === 1 && gameMode === 'perevodnoy' && !proezdnoyUsed && tricksPlayed > 0 && tablePairs.length > 0 && noneDefended() && (tablePairs.length + 1) <= botHand.length) {
+                var attVal = tablePairs[0].attack.v;
+                if (playerHand.some(function (c) { return c.v === attVal && c.s === trumpSuit; })) showProezdnoy = true;
+            }
+            if (showProezdnoy) $('proezdnoy-btn').classList.remove('hidden');
+            else $('proezdnoy-btn').classList.add('hidden');
 
             playerHand.forEach(function (card, i) {
-                var el = cardsElements[i]; if (!el) return;
+                var el = cardsElements[i]; if (!el || el.classList.contains('card-back')) return;
                 var canPlay = false, canTranslate = false, canToss = false, canDefend = false;
 
-                if (isPlayerTurn) {
-                    if (tablePairs.length === 0) { canPlay = true; canToss = true; }
-                    else if (tableVals.indexOf(card.v) !== -1) {
-                        if (tablePairs.length < 6 && tablePairs.filter(function (p) { return !p.defend; }).length < botHand.length) { canPlay = true; canToss = true; }
-                    }
-                } else {
-                    var undefendedPairs = tablePairs.filter(function (p) { return !p.defend; });
-                    for (var k = 0; k < undefendedPairs.length; k++) {
-                        var attackCard = undefendedPairs[k].attack;
-                        if ((card.s === attackCard.s && card.w > attackCard.w) || (card.s === trumpSuit && attackCard.s !== trumpSuit)) { canPlay = true; canDefend = true; }
-                        if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && card.v === attackCard.v && (tablePairs.length + 1) <= botHand.length) { canPlay = true; canTranslate = true; }
+                if (!isLocalTwoPlayer || activeActor === 1) {
+                    if (isPlayerTurn) {
+                        if (tablePairs.length === 0) { canPlay = true; canToss = true; }
+                        else if (tableVals.indexOf(card.v) !== -1) {
+                            if (tablePairs.length < maxPairs && tablePairs.filter(function (p) { return !p.defend; }).length < botHand.length) { canPlay = true; canToss = true; }
+                        }
+                    } else {
+                        var undefendedPairs = tablePairs.filter(function (p) { return !p.defend; });
+                        for (var k = 0; k < undefendedPairs.length; k++) {
+                            var attackCard = undefendedPairs[k].attack;
+                            if ((card.s === attackCard.s && card.w > attackCard.w) || (card.s === trumpSuit && attackCard.s !== trumpSuit)) { canPlay = true; canDefend = true; }
+                            if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && card.v === attackCard.v && (tablePairs.length + 1) <= botHand.length) { canPlay = true; canTranslate = true; }
+                        }
                     }
                 }
 
-                if (botPassed || opponentPassed) canPlay = false;
+                if (botPassed || opponentPassed || playerTaking) canPlay = false;
 
                 el.classList.remove('disabled'); el.classList.remove('can-translate'); el.classList.remove('can-toss'); el.classList.remove('can-defend');
                 if (canPlay) {
@@ -821,7 +1436,50 @@
                     else if (canToss) el.classList.add('can-toss');
                 } else { el.classList.add('disabled'); }
             });
+
+            // Валидация карт Игрока 2 в локальном режиме на двоих
+            if (isLocalTwoPlayer) {
+                var bElements = $('opponent-hand').children;
+                botHand.forEach(function (card, j) {
+                    var bel = bElements[j]; if (!bel || bel.classList.contains('card-back')) return;
+                    var canP2 = false, canTrans2 = false, canToss2 = false, canDef2 = false;
+                    if (activeActor === 2) {
+                        if (!isPlayerTurn) {
+                            if (tablePairs.length === 0) { canP2 = true; canToss2 = true; }
+                            else if (tableVals.indexOf(card.v) !== -1 && tablePairs.length < maxPairs && tablePairs.filter(function (p) { return !p.defend; }).length < playerHand.length) {
+                                canP2 = true; canToss2 = true;
+                            }
+                        } else {
+                            var undef2 = tablePairs.filter(function (p) { return !p.defend; });
+                            for (var m = 0; m < undef2.length; m++) {
+                                var att2 = undef2[m].attack;
+                                if ((card.s === att2.s && card.w > att2.w) || (card.s === trumpSuit && att2.s !== trumpSuit)) { canP2 = true; canDef2 = true; }
+                                if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && card.v === att2.v && (tablePairs.length + 1) <= playerHand.length) { canP2 = true; canTrans2 = true; }
+                            }
+                        }
+                    }
+                    bel.classList.remove('disabled'); bel.classList.remove('can-translate'); bel.classList.remove('can-toss'); bel.classList.remove('can-defend');
+                    if (canP2) {
+                        if (canTrans2) bel.classList.add('can-translate');
+                        else if (canDef2) bel.classList.add('can-defend');
+                        else if (canToss2) bel.classList.add('can-toss');
+                    } else { bel.classList.add('disabled'); }
+                });
+            }
         }
+
+        // Кнопка «Проездной»
+        $('proezdnoy-btn').onclick = function () {
+            if (proezdnoyUsed || isPlayerTurn) return;
+            proezdnoyUsed = true;
+            isPlayerTurn = true;
+            playChipSound();
+            showToast('🎫 ПРОЕЗДНОЙ! Ход переведен без потери козыря!');
+            sayBotBubble('Хитро! Проездной предъявил...');
+            renderHands(); updateTurnState();
+            if (!isOnlineGame && !isLocalTwoPlayer) scheduleBot(botDefend, 1000);
+            checkCurtainTransition();
+        };
 
         function getTableValues() {
             var vals = []; tablePairs.forEach(function (p) { vals.push(p.attack.v); if (p.defend) vals.push(p.defend.v); });
@@ -830,20 +1488,29 @@
 
         function executeLocalAction(card, forceTranslate) {
             var idx = playerHand.indexOf(card); if (idx === -1) return;
+            saveUndoState();
             if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: forceTranslate });
 
             if (isPlayerTurn) {
+                if (tablePairs.length === 0) lastPlayerAttackCards = [];
+                lastPlayerAttackCards.push(card);
+                if (card.s === trumpSuit && deck.length > 6) sayBotBubble('С козырей зашел? Смело...');
                 playerHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
+                playCardSound();
                 renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
-                if (!isOnlineGame && !botTaking) setTimeout(botDefend, 1000);
+                if (!isOnlineGame && !isLocalTwoPlayer && !botTaking) scheduleBot(botDefend, 1000);
+                checkCurtainTransition();
             } else {
                 if (forceTranslate && gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && (tablePairs.length + 1) <= botHand.length) {
                     var canTrans = tablePairs.some(function (p) { return p.attack.v === card.v; });
                     if (canTrans) {
                         playerHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
                         isPlayerTurn = true; showToast("Вы перевели! ↪️");
+                        sayBotBubble('Красиво перевел!');
+                        playCardSound();
                         renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
-                        if (!isOnlineGame) setTimeout(botDefend, 1000);
+                        if (!isOnlineGame && !isLocalTwoPlayer) scheduleBot(botDefend, 1000);
+                        checkCurtainTransition();
                         return;
                     }
                 }
@@ -854,15 +1521,63 @@
                 }
                 if (targetPair) {
                     playerHand.splice(idx, 1); targetPair.defend = card;
+                    playCardSound();
                     renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
-                    if (!isOnlineGame && !tablePairs.some(function (q) { return !q.defend; })) setTimeout(botAttack, 1000);
+                    if (!isOnlineGame && !isLocalTwoPlayer && !tablePairs.some(function (q) { return !q.defend; })) scheduleBot(botAttack, 1000);
+                    checkCurtainTransition();
                 } else if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && tablePairs.some(function (q) { return q.attack.v === card.v; }) && (tablePairs.length + 1) <= botHand.length) {
                     playerHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
                     isPlayerTurn = true; showToast("Вы перевели! ↪️");
+                    sayBotBubble('Перевод принят!');
+                    playCardSound();
                     renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
-                    if (!isOnlineGame) setTimeout(botDefend, 1000);
+                    if (!isOnlineGame && !isLocalTwoPlayer) scheduleBot(botDefend, 1000);
+                    checkCurtainTransition();
                 }
             }
+            resetBlitzTimer();
+        }
+
+        // Действие Игрока 2 в локальном режиме на одном устройстве
+        function executePlayer2LocalAction(card, forceTranslate) {
+            var idx = botHand.indexOf(card); if (idx === -1) return;
+            saveUndoState();
+
+            if (!isPlayerTurn) {
+                botHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
+                playCardSound();
+                renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
+                checkCurtainTransition();
+            } else {
+                if (forceTranslate && gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && (tablePairs.length + 1) <= playerHand.length) {
+                    if (tablePairs.some(function (p) { return p.attack.v === card.v; })) {
+                        botHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
+                        isPlayerTurn = false; showToast("Игрок 2 перевел! ↪️");
+                        playCardSound();
+                        renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
+                        checkCurtainTransition();
+                        return;
+                    }
+                }
+                var target = null;
+                for (var i = 0; i < tablePairs.length; i++) {
+                    var p = tablePairs[i];
+                    if (!p.defend && ((card.s === p.attack.s && card.w > p.attack.w) || (card.s === trumpSuit && p.attack.s !== trumpSuit))) { target = p; break; }
+                }
+                if (target) {
+                    botHand.splice(idx, 1); target.defend = card;
+                    playCardSound();
+                    renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
+                    checkCurtainTransition();
+                } else if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && tablePairs.some(function (q) { return q.attack.v === card.v; }) && (tablePairs.length + 1) <= playerHand.length) {
+                    botHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
+                    isPlayerTurn = false; showToast("Игрок 2 перевел! ↪️");
+                    playCardSound();
+                    renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
+                    checkCurtainTransition();
+                }
+            }
+            resetBlitzTimer();
         }
 
         function remoteActionExecute(card, forceTranslate) {
@@ -882,6 +1597,7 @@
                     botHand.splice(idx, 1); if (undefended) undefended.defend = card; showToast("Соперник отбился");
                 }
             }
+            playCardSound();
             renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
         }
 
@@ -912,7 +1628,9 @@
         function botSaysBito() { botPassed = true; showToast("Крупье говорит БИТО"); updateTurnState(); }
 
         function botAttack() {
-            if (isPlayerTurn || botHand.length === 0 || tablePairs.length >= 6) {
+            if (isLocalTwoPlayer || isOnlineGame) return;
+            var maxPairs = (tricksPlayed === 0) ? 5 : 6;
+            if (isPlayerTurn || botHand.length === 0 || tablePairs.length >= maxPairs) {
                 if (tablePairs.length > 0 && tablePairs.every(function (p) { return p.defend; })) botSaysBito();
                 return;
             }
@@ -945,11 +1663,14 @@
             if (cardToPlayIdx !== -1 && tablePairs.filter(function (p) { return !p.defend; }).length < playerHand.length) {
                 var card = botHand.splice(cardToPlayIdx, 1)[0];
                 tablePairs.push({ attack: card, defend: null });
+                if (tablePairs.length >= 3) sayBotBubble('Держи ещё подарочек! 🎁');
+                playCardSound();
                 renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
             } else if (tablePairs.length > 0 && tablePairs.every(function (p) { return p.defend; })) { botSaysBito(); }
         }
 
         function botDefend() {
+            if (isLocalTwoPlayer || isOnlineGame) return;
             var undefended = null;
             for (var i = 0; i < tablePairs.length; i++) { if (!tablePairs[i].defend) { undefended = tablePairs[i]; break; } }
             if (!undefended) { updateTurnState(); return; }
@@ -962,8 +1683,10 @@
             }
 
             if (isTranslating) {
-                showToast("Крупье перевел!"); var tcard = botHand.splice(defendIdx, 1)[0];
+                showToast("Крупье перевел!"); sayBotBubble('Лови обратно! ↪️');
+                var tcard = botHand.splice(defendIdx, 1)[0];
                 tablePairs.push({ attack: tcard, defend: null }); isPlayerTurn = false;
+                playCardSound();
                 renderTable(); renderHands(); validatePlayerHand(); updateTurnState(); return;
             }
 
@@ -981,15 +1704,32 @@
 
             if (defendIdx !== -1) {
                 undefended.defend = botHand.splice(defendIdx, 1)[0];
+                playCardSound();
                 renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
-                setTimeout(botDefend, 800);
+                scheduleBot(botDefend, 800);
             } else {
-                showToast("Крупье берет карты"); botTaking = true; updateTurnState();
+                showToast("Крупье берет карты"); sayBotBubble('Пожалуй, приберегу козыри...');
+                botTaking = true; updateTurnState();
             }
         }
 
         $('action-btn').addEventListener('click', function () {
             if (tablePairs.length === 0) return;
+            var activeActor = getLocalActiveActor();
+
+            if (isLocalTwoPlayer && activeActor === 2) {
+                if (!isPlayerTurn) {
+                    if (playerTaking) {
+                        playerTaking = false; applyEndTurn(false, 'local');
+                    } else {
+                        showToast("БИТО"); applyEndTurn(true, null);
+                    }
+                } else {
+                    showToast("Игрок 2 берет карты");
+                    botTaking = true; updateTurnState(); checkCurtainTransition();
+                }
+                return;
+            }
 
             if (isPlayerTurn) {
                 if (botTaking || opponentTaking) {
@@ -1007,8 +1747,9 @@
                     if (isOnlineGame) conn.send({ type: 'END_TURN', isBito: true, taker: null });
                     applyEndTurn(true, null);
                 } else {
-                    showToast("Вы взяли карты");
+                    showToast("Вы берете карты");
                     if (isOnlineGame) { conn.send({ type: 'OPPONENT_TAKES' }); opponentTaking = true; updateTurnState(); }
+                    else if (isLocalTwoPlayer) { playerTaking = true; updateTurnState(); checkCurtainTransition(); }
                     else applyEndTurn(false, 'local');
                 }
             }
@@ -1016,9 +1757,16 @@
 
         function applyEndTurn(isBito, taker) {
             botPassed = false; botTaking = false; opponentPassed = false; opponentTaking = false;
+            playerTaking = false; proezdnoyUsed = false; discardPeekPaid = false;
+            undoSnapshot = null; $('btn-undo').disabled = true;
             tricksPlayed++;
 
             if (isBito) {
+                tablePairs.forEach(function (p) {
+                    discardPile.push(p.attack);
+                    if (p.defend) discardPile.push(p.defend);
+                });
+                $('discard-count').textContent = discardPile.length;
                 tablePairs = []; isPlayerTurn = !isPlayerTurn;
             } else {
                 var cardsToTake = [];
@@ -1031,21 +1779,51 @@
             $('battlefield').innerHTML = ''; dealCards();
 
             if (!isGameOver) {
-                showToast(isPlayerTurn ? "Ваш ход!" : (isOnlineGame ? "Ход соперника" : "Ход Крупье"));
-                if (!isOnlineGame && !isPlayerTurn) setTimeout(botAttack, 1000);
+                showToast(isPlayerTurn ? "Ваш ход!" : (isOnlineGame ? "Ход соперника" : (isLocalTwoPlayer ? "Ходит Игрок 2" : "Ход Крупье")));
+                if (!isOnlineGame && !isLocalTwoPlayer && !isPlayerTurn) scheduleBot(botAttack, 1000);
+                checkCurtainTransition();
+                resetBlitzTimer();
             }
         }
 
         function checkWin() {
             if (deck.length === 0) {
-                if (playerHand.length === 0 && botHand.length === 0) gameOver("Ничья!");
-                else if (playerHand.length === 0) { if (!isOnlineGame) saveStat(true); gameOver("Победа! 🏆"); }
-                else if (botHand.length === 0) { if (!isOnlineGame) saveStat(false); gameOver("Поражение! 💀"); }
+                if (playerHand.length === 0 && botHand.length === 0) {
+                    if (!isOnlineGame && !isLocalTwoPlayer && currentBet > 0) {
+                        stats.chips += currentBet; saveStatsData();
+                    }
+                    gameOver("Ничья! 🤝", "Ставка возвращена", false);
+                } else if (playerHand.length === 0) {
+                    var isPogony = isPlayerTurn && lastPlayerAttackCards.length > 0 && lastPlayerAttackCards.every(function (c) { return c.v === '6'; });
+                    var mult = difficulty === 'expert' ? 3 : (difficulty === 'hard' ? 2 : 1.5);
+                    var winAmount = Math.round(currentBet * mult * (isPogony ? 2 : 1));
+                    if (!isOnlineGame && !isLocalTwoPlayer) {
+                        stats.wins++;
+                        if (isPogony) stats.pogony++;
+                        stats.chips += winAmount;
+                        saveStatsData();
+                    }
+                    playWinSound();
+                    var sub = isLocalTwoPlayer ? ("Победил " + $('display-nickname').textContent + "!") : (winAmount > 0 ? ("Выигрыш: +" + winAmount + " 🪙") : "Чистая победа!");
+                    gameOver("Победа! 🏆", sub, isPogony);
+                } else if (botHand.length === 0) {
+                    if (!isOnlineGame && !isLocalTwoPlayer) {
+                        stats.losses++; saveStatsData();
+                    }
+                    playLoseSound();
+                    var loseSub = isLocalTwoPlayer ? "Победил Игрок 2!" : (currentBet > 0 ? ("Проиграна ставка: " + currentBet + " 🪙") : "Крупье оказался сильнее");
+                    gameOver(isLocalTwoPlayer ? "Победа Игрока 2! 🏆" : "Поражение! 💀", loseSub, false);
+                }
             }
         }
 
-        function gameOver(msg) {
-            isGameOver = true; $('game-over-title').textContent = msg; showScreen('gameOver');
+        function gameOver(msg, subMsg, isPogony) {
+            isGameOver = true;
+            clearAllTimers();
+            $('game-over-title').textContent = msg;
+            $('game-over-sub').textContent = subMsg || '';
+            $('pogony-banner').style.display = isPogony ? 'block' : 'none';
+            showScreen('gameOver');
         }
     });
 </script>
