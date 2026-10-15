@@ -103,7 +103,8 @@
     .scanner-wrap video { width: 100%; height: 100%; object-fit: cover; }
     .scanner-laser { position: absolute; top: 50%; left: 8%; width: 84%; height: 2px; background: #ff0055; box-shadow: 0 0 10px 2px #ff0055; }
 
-    #toast-container { position: absolute; top: 14%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 2000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; }
+    #toast-container { position: absolute; top: 18%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 2000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; -webkit-transition: -webkit-transform 0.35s, top 0.35s; transition: transform 0.35s, top 0.35s; }
+    #toast-container.face-top-player { top: 24%; -webkit-transform: translateX(-50%) rotate(180deg); transform: translateX(-50%) rotate(180deg); }
     .toast { background: linear-gradient(to right, rgba(15,15,15,0.95), rgba(35,35,35,0.95)); color: #d4af37; padding: 8px 20px; margin-bottom: 8px; border-radius: 20px; font-weight: bold; border: 1px solid #d4af37; box-shadow: 0 10px 20px rgba(0,0,0,0.6); text-align: center; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
 
     /* Верхняя панель стола */
@@ -116,8 +117,10 @@
     .blitz-bar-wrap { width: 100%; height: 4px; background: rgba(0,0,0,0.4); position: absolute; top: 0; left: 0; z-index: 40; display: none; }
     .blitz-bar { height: 100%; width: 100%; background: linear-gradient(90deg, #ff5252, #ffd700, #00ff64); -webkit-transition: width 0.2s linear; transition: width 0.2s linear; }
 
-    .game-table { width: 100%; height: 100%; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-justify-content: space-between; justify-content: space-between; padding: 6px 5px 15px 5px; position: relative; }
-    .opponents { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin-top: 2px; z-index: 15; position: relative; }
+    .game-table { width: 100%; height: 100%; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-justify-content: space-between; justify-content: space-between; padding: 6px 5px 12px 5px; position: relative; }
+    .opponents { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin-top: 2px; z-index: 15; position: relative; -webkit-transition: -webkit-transform 0.35s; transition: transform 0.35s; }
+    /* В режиме «Напротив» верхняя зона полностью развернута лицом ко второму игроку */
+    .opponents.tabletop-p2-zone { -webkit-transform: rotate(180deg); transform: rotate(180deg); margin-top: 0; }
     .avatar { background: rgba(0, 0, 0, 0.85); padding: 4px 18px; border-radius: 20px; font-weight: 600; border: 1px solid #d4af37; margin-bottom: -12px; z-index: 2; color: #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.5); font-size: 0.9rem; }
 
     /* Реплики крупье */
@@ -129,11 +132,12 @@
     }
     .bot-bubble.visible { opacity: 1; }
 
-    .opponent-hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 85px; width: 100%; max-width: 92vw; }
-    .hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 118px; width: 100%; max-width: 96vw; }
+    .opponent-hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 95px; width: 100%; max-width: 95vw; }
+    .hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 115px; width: 100%; max-width: 96vw; }
 
     .middle-section { -webkit-flex-grow: 1; flex-grow: 1; position: relative; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; width: 100%; }
-    .deck-area { position: absolute; left: 10px; top: 50%; -webkit-transform: translateY(-50%) scale(0.75); transform: translateY(-50%) scale(0.75); display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
+    .deck-area { position: absolute; left: 10px; top: 50%; -webkit-transform: translateY(-50%) scale(0.75); transform: translateY(-50%) scale(0.75); display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-transition: -webkit-transform 0.4s; transition: transform 0.4s; }
+    .deck-area.face-top-player { -webkit-transform: translateY(-50%) scale(0.75) rotate(180deg); transform: translateY(-50%) scale(0.75) rotate(180deg); }
 
     /* Стили рубашек карт */
     .card-back, .deck-back {
@@ -166,18 +170,20 @@
     }
     .trump-indicator span { font-size: 2.8rem; margin-top: 5px; }
 
-    .battlefield { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; -webkit-flex-wrap: wrap; flex-wrap: wrap; width: 100%; max-width: 72%; margin-left: 18%; min-height: 120px; padding: 10px; }
+    .battlefield { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; -webkit-flex-wrap: wrap; flex-wrap: wrap; width: 100%; max-width: 72%; margin-left: 18%; min-height: 120px; padding: 10px; -webkit-transition: -webkit-transform 0.4s; transition: transform 0.4s; }
+    .battlefield.face-top-player { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
 
     .attack-pair { position: relative; width: 75px; height: 110px; margin: 7px; }
     .attack-pair .card { position: absolute; left: 0; top: 0; margin: 0 !important; }
     .attack-pair .defend-card { top: 15px; left: 15px; z-index: 2; box-shadow: -5px 5px 15px rgba(0,0,0,0.8); }
 
-    .player-area { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; z-index: 10; padding-bottom: 12px; }
+    .player-area { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; z-index: 10; padding-bottom: 8px; }
     .controls { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; width: 100%; max-width: 440px; margin-bottom: 5px; padding: 0 12px; -webkit-align-items: center; align-items: center; }
-    .player-name { font-weight: 600; background: rgba(0,0,0,0.8); padding: 5px 14px; border-radius: 12px; border: 1px solid #d4af37; color: #d4af37; font-size: 0.9rem; }
+    .player-name { font-weight: 600; background: rgba(0,0,0,0.8); padding: 5px 14px; border-radius: 12px; border: 1px solid #d4af37; color: #d4af37; font-size: 0.9rem; -webkit-transition: box-shadow 0.3s, border-color 0.3s; transition: box-shadow 0.3s, border-color 0.3s; }
+    .player-name.active-turn-badge { border-color: #00ff64; color: #00ff64; box-shadow: 0 0 12px rgba(0, 255, 100, 0.5); }
     .action-btns-wrap { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
-    #action-btn { width: auto; padding: 9px 18px; margin: 0; min-width: 125px; font-size: 0.95rem; }
-    #proezdnoy-btn { width: auto; padding: 9px 12px; margin: 0 6px 0 0; font-size: 0.85rem; }
+    #action-btn, #p2-action-btn { width: auto; padding: 9px 18px; margin: 0; min-width: 125px; font-size: 0.95rem; }
+    #proezdnoy-btn, #p2-proezdnoy-btn { width: auto; padding: 9px 12px; margin: 0 6px 0 0; font-size: 0.85rem; }
 
     .card {
         width: 75px; height: 110px;
@@ -217,6 +223,7 @@
 
     .holding { -webkit-transform: scale(1.1) translateY(-15px); transform: scale(1.1) translateY(-15px); box-shadow: 0 15px 30px rgba(0,0,0,0.8); z-index: 50 !important; }
     .dragging { opacity: 0.95; cursor: grabbing; box-shadow: 0 20px 40px rgba(0,0,0,0.9) !important; -webkit-transition: none !important; transition: none !important; z-index: 9999 !important; -webkit-transform: scale(1.05); transform: scale(1.05); }
+    .dragging.rotated-180 { -webkit-transform: rotate(180deg) scale(1.05); transform: rotate(180deg) scale(1.05); }
 
     .pogony-badge {
         display: none; background: linear-gradient(135deg, #ffd700, #b8860b); color: #111;
@@ -465,7 +472,7 @@
 <div id="curtain-screen" class="screen hidden" style="z-index: 150; background: rgba(5, 12, 8, 0.98);">
     <div class="modal-box">
         <h2 id="curtain-title" style="color: #ffd700;">Ход Игрока 2</h2>
-        <p style="color: #ccc; margin-bottom: 20px;">Передайте устройство сопернику и нажмите кнопку ниже, чтобы открыть карты.</p>
+        <p style="color: #ccc; margin-bottom: 20px;">Передайте устройство сопернику и нажмите кнопку ниже, чтобы открыть карты прямо перед собой.</p>
         <button id="btn-curtain-ready" class="btn-accent">Показать мои карты 👀</button>
     </div>
 </div>
@@ -507,14 +514,23 @@
             </div>
         </div>
 
-        <div class="opponents">
+        <!-- Верхняя зона (Бот / Сетевой соперник / Игрок 2 в режиме «Напротив») -->
+        <div class="opponents" id="top-opponent-area">
             <div class="avatar" id="opponent-name">Ожидание...</div>
+            <!-- Собственная панель управления Игрока 2 для режима «Напротив» (развернута лицом к Игроку 2) -->
+            <div class="controls hidden" id="p2-controls">
+                <span id="p2-display-name" class="player-name">Игрок 2</span>
+                <div class="action-btns-wrap">
+                    <button id="p2-proezdnoy-btn" class="btn-info glowing hidden">🎫 Проездной</button>
+                    <button id="p2-action-btn" class="btn-danger">БИТО</button>
+                </div>
+            </div>
             <div id="bot-bubble" class="bot-bubble"></div>
             <div class="opponent-hand" id="opponent-hand"></div>
         </div>
 
         <div class="middle-section">
-            <div class="deck-area">
+            <div class="deck-area" id="deck-area-wrap">
                 <div id="trump-indicator" class="trump-indicator">Козырь<br><span id="trump-symbol"></span></div>
                 <div class="card trump-card" id="trump-card"></div>
                 <div class="card deck-back" id="deck-top"><span id="deck-count">36</span></div>
@@ -522,6 +538,7 @@
             <div class="battlefield" id="battlefield"></div>
         </div>
 
+        <!-- Нижняя зона (Активный игрок в режиме «Шторка» или Игрок 1) -->
         <div class="player-area">
             <div class="controls">
                 <span id="display-nickname" class="player-name">Игрок</span>
@@ -574,7 +591,6 @@
 
         // ---------- Автономный генератор стандартных QR-кодов (ISO/IEC 18004, 0 КБ внешних библиотек) ----------
         var QRGenerator = (function () {
-            // Таблица параметров для версий 1..14 (Уровень коррекции L): [totalDataBytes, ecBytesPerBlock, g1Blocks, g1DataBytes, g2Blocks, g2DataBytes]
             var V_INFO = [
                 null,
                 [19, 7, 1, 19, 0, 0], [34, 10, 1, 34, 0, 0], [55, 15, 1, 55, 0, 0],
@@ -646,7 +662,7 @@
                 function pushBits(val, len) {
                     for (var i = len - 1; i >= 0; i--) bits.push((val >> i) & 1);
                 }
-                pushBits(4, 4); // Byte mode
+                pushBits(4, 4);
                 pushBits(bytes.length, ver <= 9 ? 8 : 16);
                 for (var b = 0; b < bytes.length; b++) pushBits(bytes[b], 8);
                 var maxBits = totalData * 8;
@@ -759,7 +775,7 @@
                                     darkBit = (finalBytes[bitIdx >> 3] >> (7 - (bitIdx & 7))) & 1;
                                     bitIdx++;
                                 }
-                                if ((ry + rx) % 2 === 0) darkBit ^= 1; // Mask 0
+                                if ((ry + rx) % 2 === 0) darkBit ^= 1;
                                 mat[ry][rx] = darkBit;
                             }
                         }
@@ -767,7 +783,6 @@
                     upward = !upward;
                 }
 
-                // Format bits для Level L + Mask 0 = 0x77C4
                 var fmt = 0x77C4;
                 for (var fb = 0; fb <= 5; fb++) setFunc(8, fb, (fmt >> fb) & 1);
                 setFunc(8, 7, (fmt >> 6) & 1); setFunc(8, 8, (fmt >> 7) & 1); setFunc(7, 8, (fmt >> 8) & 1);
@@ -857,6 +872,7 @@
 
         function showScreen(screenName) {
             if (screenName !== 'wifi') stopQRScanner();
+            if (screenName !== 'game') $('toast-container').classList.remove('face-top-player');
             Object.keys(screens).forEach(function (k) { screens[k].classList.add('hidden'); });
             screens[screenName].classList.remove('hidden');
             updateBalancesUI();
@@ -986,6 +1002,7 @@
         var pendingGameType = 'bot'; // 'bot', 'local', 'host', 'wifi'
         var isOnlineGame = false, isLocalTwoPlayer = false, localViewMode = 'curtain';
         var isHost = false, peer = null, conn = null;
+        var player1BaseName = 'Игрок 1', player2BaseName = 'Игрок 2';
 
         var RTCPeer = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
         var webrtcOK = !!RTCPeer;
@@ -1023,6 +1040,7 @@
             var n = $('nickname').value.trim();
             var finalNick = n.length >= 2 ? n : (fallback || 'Игрок');
             $('display-nickname').textContent = finalNick;
+            player1BaseName = finalNick;
             return finalNick;
         }
 
@@ -1030,6 +1048,7 @@
             var n = $('nickname').value.trim();
             if (n.length < 2) { alert("Минимум 2 символа в нике!"); return false; }
             $('display-nickname').textContent = n;
+            player1BaseName = n;
             return true;
         }
 
@@ -1143,7 +1162,6 @@
         var myRoomId = 'room_' + Math.floor(Math.random() * 900000 + 100000);
         var currentHostOfferToken = '';
 
-        // Сжатие локального WebRTC SDP до ~110 символов для маленького и чёткого QR-кода
         function packWifiToken(desc, nick) {
             var sdp = desc.sdp || '';
             var u = (sdp.match(/a=ice-ufrag:([^\r\n]+)/) || [,''])[1];
@@ -1353,7 +1371,6 @@
             }
         }
 
-        // Авторадар столов (BroadcastChannel для мгновенного обнаружения)
         function broadcastPresence() {
             if (!lanChannel || !currentHostOfferToken) return;
             lanChannel.postMessage({
@@ -1401,7 +1418,6 @@
             });
         }
 
-        // Кнопки управления в Wi-Fi лобби
         $('btn-wifi-copy-offer').onclick = function () {
             if (!currentHostOfferToken) return;
             $('wifi-host-code').value = currentHostOfferToken;
@@ -1647,7 +1663,6 @@
             $('btn-undo').disabled = true;
         }
 
-        // Честное перемешивание колоды по алгоритму Фишера — Йетса
         function buildDeck() {
             deck = [];
             var vals = deckSize === 24 ? allValues24 : (deckSize === 52 ? allValues52 : allValues36);
@@ -1671,7 +1686,10 @@
 
         function startGameLocal() {
             resetRoundVars();
-            $('opponent-name').textContent = 'Игрок 2';
+            player1BaseName = getPlayerNickname('Игрок 1');
+            player2BaseName = 'Игрок 2';
+            $('opponent-name').textContent = player2BaseName;
+            $('p2-display-name').textContent = player2BaseName;
             buildDeck();
             setupTableUI(); showScreen('game'); dealCards(true);
         }
@@ -1706,6 +1724,50 @@
             tSym.textContent = trumpSuit;
             tSym.style.color = (trumpSuit === '♥' || trumpSuit === '♦') ? '#d32f2f' : '#fff';
             $('blitz-wrap').style.display = blitzEnabled ? 'block' : 'none';
+
+            // Настройка верхней зоны в зависимости от режима
+            var topArea = $('top-opponent-area');
+            var p2Controls = $('p2-controls');
+            var oppAvatar = $('opponent-name');
+            if (isLocalTwoPlayer && localViewMode === 'tabletop') {
+                topArea.classList.add('tabletop-p2-zone');
+                p2Controls.classList.remove('hidden');
+                oppAvatar.classList.add('hidden');
+            } else {
+                topArea.classList.remove('tabletop-p2-zone');
+                p2Controls.classList.add('hidden');
+                oppAvatar.classList.remove('hidden');
+            }
+            syncOrientationForActivePlayer();
+        }
+
+        // Поворот центра стола, колоды и уведомлений лицом к активному игроку
+        function syncOrientationForActivePlayer() {
+            var activeActor = getLocalActiveActor();
+            var bf = $('battlefield');
+            var deckWrap = $('deck-area-wrap');
+            var toastBox = $('toast-container');
+
+            if (isLocalTwoPlayer && localViewMode === 'tabletop' && activeActor === 2) {
+                bf.classList.add('face-top-player');
+                deckWrap.classList.add('face-top-player');
+                toastBox.classList.add('face-top-player');
+            } else {
+                bf.classList.remove('face-top-player');
+                deckWrap.classList.remove('face-top-player');
+                toastBox.classList.remove('face-top-player');
+            }
+
+            // В режиме «Шторка» активный игрок всегда сидит снизу, поэтому меняем подписи имён местами
+            if (isLocalTwoPlayer && localViewMode === 'curtain') {
+                if (activeActor === 2) {
+                    $('display-nickname').textContent = player2BaseName;
+                    $('opponent-name').textContent = player1BaseName;
+                } else {
+                    $('display-nickname').textContent = player1BaseName;
+                    $('opponent-name').textContent = player2BaseName;
+                }
+            }
         }
 
         var bubbleTimer = null;
@@ -1737,10 +1799,11 @@
         function checkCurtainTransition() {
             if (!isLocalTwoPlayer || isGameOver) return;
             var nextActor = getLocalActiveActor();
+            syncOrientationForActivePlayer();
             if (localViewMode === 'curtain' && nextActor !== lastCurtainActor) {
                 lastCurtainActor = nextActor;
                 currentLocalActor = nextActor;
-                $('curtain-title').textContent = nextActor === 1 ? ('Ход: ' + $('display-nickname').textContent) : 'Ход: Игрок 2';
+                $('curtain-title').textContent = nextActor === 1 ? ('Ход: ' + player1BaseName) : ('Ход: ' + player2BaseName);
                 screens.curtain.classList.remove('hidden');
                 renderHands();
             } else {
@@ -1751,11 +1814,12 @@
 
         $('btn-curtain-ready').onclick = function () {
             screens.curtain.classList.add('hidden');
+            syncOrientationForActivePlayer();
             renderHands();
+            updateTurnState();
             resetBlitzTimer();
         };
 
-        // Проверка: наш ли сейчас черёд действовать (для корректной работы Блиц-таймера)
         function isLocalPlayerActionNeeded() {
             if (isLocalTwoPlayer) return true;
             var hasUndefended = tablePairs.some(function (p) { return !p.defend; });
@@ -1784,8 +1848,14 @@
                 if (blitzTimeLeft <= 0) {
                     clearInterval(blitzInterval);
                     showToast('⚡ Время вышло!');
-                    if (!$('action-btn').disabled) {
+                    var activeActor = getLocalActiveActor();
+                    if (isLocalTwoPlayer && localViewMode === 'tabletop' && activeActor === 2) {
+                        if (!$('p2-action-btn').disabled) $('p2-action-btn').click();
+                        else if (!isPlayerTurn && tablePairs.length === 0 && botHand.length > 0) executePlayer2LocalAction(botHand[0], false);
+                    } else if (!$('action-btn').disabled) {
                         $('action-btn').click();
+                    } else if (activeActor === 2 && !isPlayerTurn && tablePairs.length === 0 && botHand.length > 0) {
+                        executePlayer2LocalAction(botHand[0], false);
                     } else if (isPlayerTurn && tablePairs.length === 0 && playerHand.length > 0) {
                         executeLocalAction(playerHand[0], false);
                     }
@@ -1814,18 +1884,18 @@
                 lastCurtainActor = currentLocalActor;
             }
 
+            syncOrientationForActivePlayer();
             updateDeckUI(); renderHands(); checkWin();
 
             if (!isGameOver) {
                 updateTurnState();
-                if (isFirstDeal) showToast(isPlayerTurn ? "Ваш ход!" : (isOnlineGame ? "Соперник ходит" : (isLocalTwoPlayer ? "Ходит Игрок 2" : "Крупье ходит")));
+                if (isFirstDeal) showToast(isPlayerTurn ? ("Ходит " + player1BaseName) : (isOnlineGame ? "Соперник ходит" : (isLocalTwoPlayer ? ("Ходит " + player2BaseName) : "Крупье ходит")));
                 if (!isOnlineGame && !isLocalTwoPlayer && !isPlayerTurn && tablePairs.length === 0) scheduleBot(botAttack, 1000);
                 checkCurtainTransition();
                 resetBlitzTimer();
             }
         }
 
-        // Исправлено отображение последней карты в колоде (открытого козыря)
         function updateDeckUI() {
             $('deck-count').textContent = deck.length;
             if (deck.length === 0) {
@@ -1876,6 +1946,7 @@
             undoSnapshot = null;
             $('btn-undo').disabled = true;
             playCardSound();
+            syncOrientationForActivePlayer();
             renderTable(); renderHands(); updateTurnState();
             showToast('Карта спрятана в рукав! 🔙');
         };
@@ -1913,7 +1984,8 @@
         // ---------- Подсказка лучшего хода ("💡") ----------
         $('btn-hint').onclick = function () {
             var activeActor = getLocalActiveActor();
-            var container = activeActor === 2 ? $('opponent-hand') : $('player-hand');
+            var isTopContainer = (isLocalTwoPlayer && localViewMode === 'tabletop' && activeActor === 2);
+            var container = isTopContainer ? $('opponent-hand') : $('player-hand');
             var enabledEls = [];
             each(container.children, function (el) {
                 el.classList.remove('hint-glow');
@@ -1928,10 +2000,10 @@
             showToast('Рекомендуемый ход: ' + bestEl.getAttribute('data-value') + bestEl.getAttribute('data-suit'));
         };
 
-        // ---------- Перетаскивание карт (Drag & Drop с поддержкой обоих игроков) ----------
+        // ---------- Перетаскивание карт (Drag & Drop с правильной ориентацией для обоих игроков) ----------
         var lastTouchTime = 0;
 
-        function attachDragAndDropHandlers(el, card, ownerActor) {
+        function attachDragAndDropHandlers(el, card, ownerActor, isInsideRotatedParent) {
             var startX = 0, startY = 0, initLeft = 0, initTop = 0;
             var isDragging = false, longPressTriggered = false, longPressTimer = null, dragRAF = null;
 
@@ -1974,7 +2046,14 @@
 
                 if (!isDragging && (Math.abs(clientX - startX) > 5 || Math.abs(clientY - startY) > 5)) {
                     isDragging = true; clearTimeout(longPressTimer); el.classList.remove('holding');
-                    el.style.position = 'fixed'; el.style.margin = '0'; el.classList.add('dragging');
+                    // Чтобы при перетаскивании из перевернутого контейнера координаты не инвертировались, переносим карту в body с сохранением поворота 180°
+                    if (isInsideRotatedParent && el.parentNode !== document.body) {
+                        document.body.appendChild(el);
+                        el.classList.add('rotated-180');
+                    }
+                    el.style.position = 'fixed'; el.style.margin = '0';
+                    el.style.left = initLeft + 'px'; el.style.top = initTop + 'px';
+                    el.classList.add('dragging');
                 }
                 if (isDragging) {
                     e.preventDefault();
@@ -2000,7 +2079,9 @@
                     else executeLocalAction(card, false);
                 } else {
                     el.classList.remove('dragging');
-                    checkDropZone(el, card, ownerActor);
+                    var rectNow = el.getBoundingClientRect();
+                    if (el.parentNode === document.body) el.parentNode.removeChild(el);
+                    checkDropZone(rectNow, card, ownerActor, isInsideRotatedParent);
                 }
             }
 
@@ -2008,18 +2089,17 @@
             el.ontouchstart = function (e) { onStart(e); };
         }
 
-        function checkDropZone(el, card, ownerActor) {
+        function checkDropZone(elRect, card, ownerActor, isTopZoneDrop) {
             var handArr = ownerActor === 2 ? botHand : playerHand;
             var opponentArr = ownerActor === 2 ? playerHand : botHand;
             var idx = handArr.indexOf(card);
             if (idx === -1) { renderHands(); return; }
 
-            var elRect = el.getBoundingClientRect();
             var center = { x: elRect.left + elRect.width / 2, y: elRect.top + elRect.height / 2 };
             var success = false;
             var bfRect = $('battlefield').getBoundingClientRect();
             var isActorAttacking = (ownerActor === 1 && isPlayerTurn) || (ownerActor === 2 && !isPlayerTurn);
-            var inBattlefieldZone = (ownerActor === 2) ? (center.y > bfRect.top - 50) : (center.y < bfRect.bottom + 60);
+            var inBattlefieldZone = isTopZoneDrop ? (center.y > bfRect.top - 50) : (center.y < bfRect.bottom + 60);
 
             if (!isActorAttacking) {
                 var droppedOnDefenseTarget = false;
@@ -2068,41 +2148,47 @@
             pContainer.innerHTML = ''; bContainer.innerHTML = '';
 
             var activeActor = getLocalActiveActor();
-            var hidePlayer1 = isLocalTwoPlayer && localViewMode === 'curtain' && activeActor !== 1;
-            var showPlayer2Face = isLocalTwoPlayer && ((localViewMode === 'curtain' && activeActor === 2) || localViewMode === 'tabletop');
+            var isCurtainSwap = (isLocalTwoPlayer && localViewMode === 'curtain' && activeActor === 2);
+            var isTabletop = (isLocalTwoPlayer && localViewMode === 'tabletop');
+
+            // В режиме «Шторка» активный игрок всегда рендерится снизу прямо перед глазами!
+            var bottomCards = isCurtainSwap ? botHand : playerHand;
+            var bottomActor = isCurtainSwap ? 2 : 1;
+            var topCards = isCurtainSwap ? playerHand : botHand;
 
             var pWidth = pContainer.clientWidth || window.innerWidth * 0.9;
-            var overlapP = -40; var totalWidthP = playerHand.length * 75;
-            if (totalWidthP > 0 && playerHand.length > 1 && totalWidthP + (playerHand.length - 1) * overlapP > pWidth) overlapP = Math.floor((pWidth - totalWidthP) / (playerHand.length - 1));
+            var overlapP = -40; var totalWidthP = bottomCards.length * 75;
+            if (totalWidthP > 0 && bottomCards.length > 1 && totalWidthP + (bottomCards.length - 1) * overlapP > pWidth) {
+                overlapP = Math.floor((pWidth - totalWidthP) / (bottomCards.length - 1));
+            }
 
-            playerHand.forEach(function (card, i) {
+            bottomCards.forEach(function (card, i) {
                 var el = document.createElement('div');
-                if (hidePlayer1) {
-                    el.className = 'card card-back';
-                } else {
-                    el.className = 'card'; el.setAttribute("data-value", card.v); el.setAttribute("data-suit", card.s);
-                    el.innerHTML = card.v + card.s;
-                    attachDragAndDropHandlers(el, card, 1);
-                }
+                el.className = 'card'; el.setAttribute("data-value", card.v); el.setAttribute("data-suit", card.s);
+                el.innerHTML = card.v + card.s;
+                attachDragAndDropHandlers(el, card, bottomActor, false);
                 if (i > 0) el.style.marginLeft = overlapP + 'px';
                 el.style.zIndex = i;
                 pContainer.appendChild(el);
             });
 
             var bWidth = bContainer.clientWidth || window.innerWidth * 0.9;
-            var cardW = showPlayer2Face ? 70 : 60;
-            var overlapB = showPlayer2Face ? -38 : -45;
-            var totalWidthB = botHand.length * cardW;
-            if (totalWidthB > 0 && botHand.length > 1 && totalWidthB + (botHand.length - 1) * overlapB > bWidth) overlapB = Math.floor((bWidth - totalWidthB) / (botHand.length - 1));
+            var cardW = isTabletop ? 70 : 60;
+            var overlapB = isTabletop ? -38 : -45;
+            var totalWidthB = topCards.length * cardW;
+            if (totalWidthB > 0 && topCards.length > 1 && totalWidthB + (topCards.length - 1) * overlapB > bWidth) {
+                overlapB = Math.floor((bWidth - totalWidthB) / (topCards.length - 1));
+            }
 
-            botHand.forEach(function (card, i) {
+            topCards.forEach(function (card, i) {
                 var el = document.createElement('div');
-                if (showPlayer2Face) {
-                    el.className = 'card' + (localViewMode === 'tabletop' ? ' rotated-180' : '');
+                if (isTabletop) {
+                    // В режиме «Напротив» весь блок #top-opponent-area уже повернут на 180° лицом к Игроку 2
+                    el.className = 'card';
                     el.setAttribute("data-value", card.v); el.setAttribute("data-suit", card.s);
                     el.innerHTML = card.v + card.s;
                     el.style.width = '70px'; el.style.height = '100px';
-                    attachDragAndDropHandlers(el, card, 2);
+                    attachDragAndDropHandlers(el, card, 2, true);
                 } else {
                     el.className = 'card card-back';
                     el.style.width = '60px'; el.style.height = '85px';
@@ -2123,78 +2209,101 @@
             });
         }
 
-        function updateTurnState() {
-            var btn = $('action-btn');
+        function configureActionButtonForActor(btn, actor, activeActor) {
             btn.classList.remove("glowing");
-            var activeActor = getLocalActiveActor();
+            var isMyTurnToAct = (!isLocalTwoPlayer && actor === 1) || (isLocalTwoPlayer && activeActor === actor);
+            if (!isMyTurnToAct) {
+                btn.textContent = "ОЖИДАНИЕ"; btn.className = "btn-secondary"; btn.disabled = true;
+                return;
+            }
+            var isAttacking = (actor === 1 && isPlayerTurn) || (actor === 2 && !isPlayerTurn);
+            var oppTaking = (actor === 1) ? (botTaking || opponentTaking) : playerTaking;
+            var oppPassed = (actor === 1) ? (botPassed || opponentPassed) : false;
 
-            if (isLocalTwoPlayer && activeActor === 2) {
-                if (!isPlayerTurn) {
-                    if (playerTaking) {
-                        btn.textContent = "ОТДАТЬ (И2)"; btn.className = "btn-accent glowing"; btn.disabled = false;
-                    } else {
-                        btn.textContent = "БИТО (И2)"; btn.className = "btn-danger"; btn.disabled = tablePairs.length === 0 || tablePairs.some(function (p) { return !p.defend; });
-                        if (!btn.disabled) btn.classList.add("glowing");
-                    }
-                } else {
-                    btn.textContent = "ВЗЯТЬ (И2)"; btn.className = "btn-primary"; btn.disabled = tablePairs.length === 0;
-                }
-            } else if (isPlayerTurn) {
-                if (botTaking || opponentTaking) {
+            if (isAttacking) {
+                if (oppTaking) {
                     btn.textContent = "ОТДАТЬ"; btn.className = "btn-accent glowing"; btn.disabled = false;
                 } else {
-                    btn.textContent = "БИТО"; btn.className = "btn-danger"; btn.disabled = tablePairs.length === 0 || tablePairs.some(function (p) { return !p.defend; });
-                    if (tablePairs.length > 0 && tablePairs.every(function (p) { return p.defend; })) btn.classList.add("glowing");
+                    btn.textContent = "БИТО"; btn.className = "btn-danger";
+                    btn.disabled = tablePairs.length === 0 || tablePairs.some(function (p) { return !p.defend; });
+                    if (!btn.disabled) btn.classList.add("glowing");
                 }
             } else {
-                if (botPassed || opponentPassed) {
+                if (oppPassed) {
                     btn.textContent = "БИТО (Подтв.)"; btn.className = "btn-danger glowing"; btn.disabled = false;
-                } else if (playerTaking && isOnlineGame) {
+                } else if (actor === 1 && playerTaking && isOnlineGame) {
                     btn.textContent = "БЕРУ..."; btn.className = "btn-secondary"; btn.disabled = true;
                 } else {
                     btn.textContent = "ВЗЯТЬ"; btn.className = "btn-primary"; btn.disabled = tablePairs.length === 0;
                 }
             }
+        }
+
+        function updateTurnState() {
+            syncOrientationForActivePlayer();
+            var activeActor = getLocalActiveActor();
+            var isCurtainSwap = (isLocalTwoPlayer && localViewMode === 'curtain' && activeActor === 2);
+            var bottomActor = isCurtainSwap ? 2 : 1;
+
+            configureActionButtonForActor($('action-btn'), bottomActor, activeActor);
+
+            if (isLocalTwoPlayer && localViewMode === 'tabletop') {
+                configureActionButtonForActor($('p2-action-btn'), 2, activeActor);
+                $('display-nickname').classList.toggle('active-turn-badge', activeActor === 1);
+                $('p2-display-name').classList.toggle('active-turn-badge', activeActor === 2);
+            } else {
+                $('display-nickname').classList.remove('active-turn-badge');
+                $('p2-display-name').classList.remove('active-turn-badge');
+            }
+
             validatePlayerHand();
         }
 
         function noneDefended() { return tablePairs.every(function (p) { return !p.defend; }); }
 
-        function validatePlayerHand() {
-            var cardsElements = $('player-hand').children;
-            var tableVals = getTableValues();
-            var activeActor = getLocalActiveActor();
-            var maxPairs = (tricksPlayed === 0) ? 5 : 6;
+        function canActorUseProezdnoy(actor, activeActor) {
+            if (proezdnoyUsed || gameMode !== 'perevodnoy' || tricksPlayed === 0 || tablePairs.length === 0 || !noneDefended()) return false;
+            if (isLocalTwoPlayer && activeActor !== actor) return false;
+            var isDefending = (actor === 1 && !isPlayerTurn) || (actor === 2 && isPlayerTurn);
+            if (!isDefending) return false;
+            var myHand = actor === 2 ? botHand : playerHand;
+            var oppHand = actor === 2 ? playerHand : botHand;
+            if ((tablePairs.length + 1) > oppHand.length) return false;
+            var attVal = tablePairs[0].attack.v;
+            return myHand.some(function (c) { return c.v === attVal && c.s === trumpSuit; });
+        }
 
-            var showProezdnoy = false;
-            if (!isPlayerTurn && activeActor === 1 && gameMode === 'perevodnoy' && !proezdnoyUsed && tricksPlayed > 0 && tablePairs.length > 0 && noneDefended() && (tablePairs.length + 1) <= botHand.length) {
-                var attVal = tablePairs[0].attack.v;
-                if (playerHand.some(function (c) { return c.v === attVal && c.s === trumpSuit; })) showProezdnoy = true;
-            }
-            if (showProezdnoy) $('proezdnoy-btn').classList.remove('hidden');
-            else $('proezdnoy-btn').classList.add('hidden');
+        function validateHandContainer(container, handArr, oppHandArr, actor, activeActor, maxPairs, tableVals) {
+            var cardsElements = container.children;
+            var isActorActive = (!isLocalTwoPlayer && actor === 1) || (isLocalTwoPlayer && activeActor === actor);
+            var isActorAttacking = (actor === 1 && isPlayerTurn) || (actor === 2 && !isPlayerTurn);
+            var actorBlocked = (actor === 1 && (botPassed || opponentPassed || playerTaking)) || (actor === 2 && botTaking);
 
-            playerHand.forEach(function (card, i) {
+            handArr.forEach(function (card, i) {
                 var el = cardsElements[i]; if (!el || el.classList.contains('card-back')) return;
                 var canPlay = false, canTranslate = false, canToss = false, canDefend = false;
 
-                if (!isLocalTwoPlayer || activeActor === 1) {
-                    if (isPlayerTurn) {
+                if (isActorActive && !actorBlocked) {
+                    if (isActorAttacking) {
                         if (tablePairs.length === 0) { canPlay = true; canToss = true; }
                         else if (tableVals.indexOf(card.v) !== -1) {
-                            if (tablePairs.length < maxPairs && tablePairs.filter(function (p) { return !p.defend; }).length < botHand.length) { canPlay = true; canToss = true; }
+                            if (tablePairs.length < maxPairs && tablePairs.filter(function (p) { return !p.defend; }).length < oppHandArr.length) {
+                                canPlay = true; canToss = true;
+                            }
                         }
                     } else {
                         var undefendedPairs = tablePairs.filter(function (p) { return !p.defend; });
                         for (var k = 0; k < undefendedPairs.length; k++) {
                             var attackCard = undefendedPairs[k].attack;
-                            if ((card.s === attackCard.s && card.w > attackCard.w) || (card.s === trumpSuit && attackCard.s !== trumpSuit)) { canPlay = true; canDefend = true; }
-                            if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && card.v === attackCard.v && (tablePairs.length + 1) <= botHand.length) { canPlay = true; canTranslate = true; }
+                            if ((card.s === attackCard.s && card.w > attackCard.w) || (card.s === trumpSuit && attackCard.s !== trumpSuit)) {
+                                canPlay = true; canDefend = true;
+                            }
+                            if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && card.v === attackCard.v && (tablePairs.length + 1) <= oppHandArr.length) {
+                                canPlay = true; canTranslate = true;
+                            }
                         }
                     }
                 }
-
-                if (botPassed || opponentPassed || playerTaking) canPlay = false;
 
                 el.classList.remove('disabled'); el.classList.remove('can-translate'); el.classList.remove('can-toss'); el.classList.remove('can-defend');
                 if (canPlay) {
@@ -2203,51 +2312,58 @@
                     else if (canToss) el.classList.add('can-toss');
                 } else { el.classList.add('disabled'); }
             });
+        }
 
-            if (isLocalTwoPlayer) {
-                var bElements = $('opponent-hand').children;
-                botHand.forEach(function (card, j) {
-                    var bel = bElements[j]; if (!bel || bel.classList.contains('card-back')) return;
-                    var canP2 = false, canTrans2 = false, canToss2 = false, canDef2 = false;
-                    if (activeActor === 2) {
-                        if (!isPlayerTurn) {
-                            if (tablePairs.length === 0) { canP2 = true; canToss2 = true; }
-                            else if (tableVals.indexOf(card.v) !== -1 && tablePairs.length < maxPairs && tablePairs.filter(function (p) { return !p.defend; }).length < playerHand.length) {
-                                canP2 = true; canToss2 = true;
-                            }
-                        } else {
-                            var undef2 = tablePairs.filter(function (p) { return !p.defend; });
-                            for (var m = 0; m < undef2.length; m++) {
-                                var att2 = undef2[m].attack;
-                                if ((card.s === att2.s && card.w > att2.w) || (card.s === trumpSuit && att2.s !== trumpSuit)) { canP2 = true; canDef2 = true; }
-                                if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && card.v === att2.v && (tablePairs.length + 1) <= playerHand.length) { canP2 = true; canTrans2 = true; }
-                            }
-                        }
-                    }
-                    if (botTaking) canP2 = false;
-                    bel.classList.remove('disabled'); bel.classList.remove('can-translate'); bel.classList.remove('can-toss'); bel.classList.remove('can-defend');
-                    if (canP2) {
-                        if (canTrans2) bel.classList.add('can-translate');
-                        else if (canDef2) bel.classList.add('can-defend');
-                        else if (canToss2) bel.classList.add('can-toss');
-                    } else { bel.classList.add('disabled'); }
-                });
+        function validatePlayerHand() {
+            var tableVals = getTableValues();
+            var activeActor = getLocalActiveActor();
+            var maxPairs = (tricksPlayed === 0) ? 5 : 6;
+            var isCurtainSwap = (isLocalTwoPlayer && localViewMode === 'curtain' && activeActor === 2);
+            var bottomActor = isCurtainSwap ? 2 : 1;
+
+            if (canActorUseProezdnoy(bottomActor, activeActor)) $('proezdnoy-btn').classList.remove('hidden');
+            else $('proezdnoy-btn').classList.add('hidden');
+
+            if (isLocalTwoPlayer && localViewMode === 'tabletop' && canActorUseProezdnoy(2, activeActor)) {
+                $('p2-proezdnoy-btn').classList.remove('hidden');
+            } else {
+                $('p2-proezdnoy-btn').classList.add('hidden');
+            }
+
+            if (isCurtainSwap) {
+                validateHandContainer($('player-hand'), botHand, playerHand, 2, activeActor, maxPairs, tableVals);
+            } else {
+                validateHandContainer($('player-hand'), playerHand, botHand, 1, activeActor, maxPairs, tableVals);
+            }
+
+            if (isLocalTwoPlayer && localViewMode === 'tabletop') {
+                validateHandContainer($('opponent-hand'), botHand, playerHand, 2, activeActor, maxPairs, tableVals);
             }
         }
 
-        // Кнопка «Проездной» (исправлена синхронизация по сети/Wi-Fi)
-        $('proezdnoy-btn').onclick = function () {
-            if (proezdnoyUsed || isPlayerTurn) return;
+        function triggerProezdnoyForActor(actor) {
+            if (proezdnoyUsed) return;
             proezdnoyUsed = true;
-            isPlayerTurn = true;
-            if (isOnlineGame && conn) conn.send({ type: 'PROEZDNOY' });
+            isPlayerTurn = (actor === 1);
+            if (isOnlineGame && conn && actor === 1) conn.send({ type: 'PROEZDNOY' });
             playChipSound();
             showToast('🎫 ПРОЕЗДНОЙ! Ход переведен без потери козыря!');
             sayBotBubble('Хитро! Проездной предъявил...');
+            syncOrientationForActivePlayer();
             renderHands(); updateTurnState();
-            if (!isOnlineGame && !isLocalTwoPlayer) scheduleBot(botDefend, 1000);
+            if (!isOnlineGame && !isLocalTwoPlayer && actor === 1) scheduleBot(botDefend, 1000);
             checkCurtainTransition();
             resetBlitzTimer();
+        }
+
+        $('proezdnoy-btn').onclick = function () {
+            var activeActor = getLocalActiveActor();
+            var isCurtainSwap = (isLocalTwoPlayer && localViewMode === 'curtain' && activeActor === 2);
+            triggerProezdnoyForActor(isCurtainSwap ? 2 : 1);
+        };
+
+        $('p2-proezdnoy-btn').onclick = function () {
+            triggerProezdnoyForActor(2);
         };
 
         function getTableValues() {
@@ -2275,7 +2391,7 @@
                     if (canTrans) {
                         if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: true });
                         playerHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
-                        isPlayerTurn = true; showToast("Вы перевели! ↪️");
+                        isPlayerTurn = true; showToast("Перевод хода! ↪️");
                         sayBotBubble('Красиво перевел!');
                         playCardSound();
                         renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
@@ -2300,7 +2416,7 @@
                 } else if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && tablePairs.some(function (q) { return q.attack.v === card.v; }) && (tablePairs.length + 1) <= botHand.length) {
                     if (isOnlineGame) conn.send({ type: 'MOVE', card: card, forceTranslate: true });
                     playerHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
-                    isPlayerTurn = true; showToast("Вы перевели! ↪️");
+                    isPlayerTurn = true; showToast("Перевод хода! ↪️");
                     sayBotBubble('Перевод принят!');
                     playCardSound();
                     renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
@@ -2326,7 +2442,7 @@
                 if (forceTranslate && gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && (tablePairs.length + 1) <= playerHand.length) {
                     if (tablePairs.some(function (p) { return p.attack.v === card.v; })) {
                         botHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
-                        isPlayerTurn = false; showToast("Игрок 2 перевел! ↪️");
+                        isPlayerTurn = false; showToast("Перевод хода! ↪️");
                         playCardSound();
                         renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
                         checkCurtainTransition();
@@ -2346,7 +2462,7 @@
                     checkCurtainTransition();
                 } else if (gameMode === 'perevodnoy' && tricksPlayed > 0 && noneDefended() && tablePairs.some(function (q) { return q.attack.v === card.v; }) && (tablePairs.length + 1) <= playerHand.length) {
                     botHand.splice(idx, 1); tablePairs.push({ attack: card, defend: null });
-                    isPlayerTurn = false; showToast("Игрок 2 перевел! ↪️");
+                    isPlayerTurn = false; showToast("Перевод хода! ↪️");
                     playCardSound();
                     renderTable(); renderHands(); validatePlayerHand(); updateTurnState();
                     checkCurtainTransition();
@@ -2492,11 +2608,10 @@
             }
         }
 
-        $('action-btn').addEventListener('click', function () {
+        function handleActorActionClick(actor) {
             if (tablePairs.length === 0) return;
-            var activeActor = getLocalActiveActor();
 
-            if (isLocalTwoPlayer && activeActor === 2) {
+            if (actor === 2) {
                 if (!isPlayerTurn) {
                     if (playerTaking) {
                         playerTaking = false; applyEndTurn(false, 'local');
@@ -2504,7 +2619,7 @@
                         showToast("БИТО"); applyEndTurn(true, null);
                     }
                 } else {
-                    showToast("Игрок 2 берет карты");
+                    showToast(player2BaseName + " берет карты");
                     botTaking = true; updateTurnState(); checkCurtainTransition();
                 }
                 return;
@@ -2526,7 +2641,7 @@
                     if (isOnlineGame) conn.send({ type: 'END_TURN', isBito: true, taker: null });
                     applyEndTurn(true, null);
                 } else {
-                    showToast("Вы берете карты");
+                    showToast((isLocalTwoPlayer ? player1BaseName : "Вы") + " берете карты");
                     if (isOnlineGame) {
                         playerTaking = true;
                         conn.send({ type: 'OPPONENT_TAKES' });
@@ -2538,6 +2653,16 @@
                     }
                 }
             }
+        }
+
+        $('action-btn').addEventListener('click', function () {
+            var activeActor = getLocalActiveActor();
+            var isCurtainSwap = (isLocalTwoPlayer && localViewMode === 'curtain' && activeActor === 2);
+            handleActorActionClick(isCurtainSwap ? 2 : 1);
+        });
+
+        $('p2-action-btn').addEventListener('click', function () {
+            handleActorActionClick(2);
         });
 
         function applyEndTurn(isBito, taker) {
@@ -2564,7 +2689,7 @@
             $('battlefield').innerHTML = ''; dealCards();
 
             if (!isGameOver) {
-                showToast(isPlayerTurn ? "Ваш ход!" : (isOnlineGame ? "Ход соперника" : (isLocalTwoPlayer ? "Ходит Игрок 2" : "Ход Крупье")));
+                showToast(isPlayerTurn ? ("Ходит " + player1BaseName) : (isOnlineGame ? "Ход соперника" : (isLocalTwoPlayer ? ("Ходит " + player2BaseName) : "Ход Крупье")));
                 if (!isOnlineGame && !isLocalTwoPlayer && !isPlayerTurn) scheduleBot(botAttack, 1000);
                 checkCurtainTransition();
                 resetBlitzTimer();
@@ -2589,15 +2714,15 @@
                         saveStatsData();
                     }
                     playWinSound();
-                    var sub = isLocalTwoPlayer ? ("Победил " + $('display-nickname').textContent + "!") : (winAmount > 0 ? ("Выигрыш: +" + winAmount + " 🪙") : "Чистая победа!");
+                    var sub = isLocalTwoPlayer ? ("Победил " + player1BaseName + "!") : (winAmount > 0 ? ("Выигрыш: +" + winAmount + " 🪙") : "Чистая победа!");
                     gameOver("Победа! 🏆", sub, isPogony);
                 } else if (botHand.length === 0) {
                     if (!isOnlineGame && !isLocalTwoPlayer) {
                         stats.losses++; saveStatsData();
                     }
-                    playLoseSound();
-                    var loseSub = isLocalTwoPlayer ? "Победил Игрок 2!" : (currentBet > 0 ? ("Проиграна ставка: " + currentBet + " 🪙") : "Соперник оказался сильнее");
-                    gameOver(isLocalTwoPlayer ? "Победа Игрока 2! 🏆" : "Поражение! 💀", loseSub, false);
+                    if (isLocalTwoPlayer) playWinSound(); else playLoseSound();
+                    var loseSub = isLocalTwoPlayer ? ("Победил " + player2BaseName + "!") : (currentBet > 0 ? ("Проиграна ставка: " + currentBet + " 🪙") : "Соперник оказался сильнее");
+                    gameOver(isLocalTwoPlayer ? ("Победа: " + player2BaseName + "! 🏆") : "Поражение! 💀", loseSub, false);
                 }
             }
         }
@@ -2605,6 +2730,7 @@
         function gameOver(msg, subMsg, isPogony) {
             isGameOver = true;
             clearAllTimers();
+            $('toast-container').classList.remove('face-top-player');
             $('game-over-title').textContent = msg;
             $('game-over-sub').textContent = subMsg || '';
             $('pogony-banner').style.display = isPogony ? 'block' : 'none';
