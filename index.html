@@ -37,26 +37,26 @@
 
     .modal-box {
         background: linear-gradient(135deg, rgba(20, 30, 20, 0.96), rgba(10, 15, 10, 0.96));
-        padding: 18px; border-radius: 20px; text-align: center;
+        padding: 16px; border-radius: 20px; text-align: center;
         box-shadow: 0 30px 60px rgba(0,0,0,0.85), 0 0 0 2px rgba(212, 175, 55, 0.35);
         -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); width: 92%; max-width: 420px;
-        max-height: 90%; overflow-y: auto; -webkit-overflow-scrolling: touch;
+        max-height: 92%; overflow-y: auto; -webkit-overflow-scrolling: touch;
     }
-    .modal-box h1 { margin-bottom: 8px; font-size: 2rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
-    .modal-box h2 { margin-bottom: 8px; font-size: 1.3rem; color: #eee; }
-    .section-label { font-size: 0.75rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin: 10px 0 5px 0; font-weight: bold; }
+    .modal-box h1 { margin-bottom: 6px; font-size: 1.9rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
+    .modal-box h2 { margin-bottom: 6px; font-size: 1.25rem; color: #eee; }
+    .section-label { font-size: 0.74rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 4px 0; font-weight: bold; }
 
     .balance-badge {
         display: inline-block; background: rgba(0,0,0,0.65); border: 1px solid #d4af37;
         color: #ffd700; padding: 5px 14px; border-radius: 20px; font-weight: bold;
-        font-size: 0.92rem; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        font-size: 0.9rem; margin-bottom: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
     input[type="text"], textarea { -webkit-appearance: none; width: 100%; padding: 10px; margin-bottom: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 0.95rem; text-align: center; font-weight: bold; resize: none; -webkit-user-select: text; user-select: text; }
-    textarea { height: 52px; text-align: left; font-size: 0.76rem; font-family: monospace; }
+    textarea { height: 48px; text-align: left; font-size: 0.75rem; font-family: monospace; }
     input:focus, textarea:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
 
-    button { -webkit-appearance: none; width: 100%; border: none; padding: 11px; font-size: 0.92rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 7px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 0.6px; }
+    button { -webkit-appearance: none; width: 100%; border: none; padding: 11px; font-size: 0.9rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 7px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 0.5px; }
     button:active { transform: scale(0.96); }
     button:disabled { opacity: 0.45; pointer-events: none; -webkit-filter: grayscale(1); filter: grayscale(1); }
 
@@ -70,12 +70,12 @@
     .glowing { -webkit-animation: pulseBtn 1.5s infinite; animation: pulseBtn 1.5s infinite; box-shadow: 0 0 15px #d4af37; opacity: 1 !important; border-color: #ffe55c; color: #ffe55c; }
     @-webkit-keyframes pulseBtn {
         0% { -webkit-transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
-        50% { -webkit-transform: scale(1.04); box-shadow: 0 0 25px rgba(212,175,55,1); }
+        50% { -webkit-transform: scale(1.03); box-shadow: 0 0 25px rgba(212,175,55,1); }
         100% { -webkit-transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
     }
     @keyframes pulseBtn {
         0% { transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
-        50% { transform: scale(1.04); box-shadow: 0 0 25px rgba(212,175,55,1); }
+        50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(212,175,55,1); }
         100% { transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
     }
 
@@ -84,11 +84,11 @@
     .settings-group label input { margin-bottom: 3px; }
 
     .menu-row { display: -webkit-flex; display: flex; margin-bottom: 7px; }
-    .menu-row button { -webkit-flex: 1 1 0; flex: 1 1 0; width: auto; margin-bottom: 0; font-size: 0.8rem; padding: 10px 6px; }
+    .menu-row button { -webkit-flex: 1 1 0; flex: 1 1 0; width: auto; margin-bottom: 0; font-size: 0.78rem; padding: 10px 6px; }
     .menu-row button + button { margin-left: 7px; }
 
     .stat-line { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); font-size: 0.95rem; }
-    .instruction-text { text-align: left; font-size: 0.85rem; color: #ccc; line-height: 1.4; margin-bottom: 12px; }
+    .instruction-text { text-align: left; font-size: 0.84rem; color: #ccc; line-height: 1.4; margin-bottom: 12px; }
     .instruction-text span { color: #d4af37; font-weight: bold; }
 
     .shop-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(0,0,0,0.45); padding: 8px 12px; border-radius: 10px; margin-bottom: 7px; border: 1px solid rgba(212,175,55,0.25); }
@@ -97,10 +97,37 @@
     .shop-item button { width: auto; margin: 0; padding: 7px 12px; font-size: 0.76rem; }
 
     .pin-display { background: rgba(0,0,0,0.7); border: 2px dashed #96c93d; border-radius: 14px; padding: 10px; margin: 8px 0; font-size: 2.1rem; font-weight: 900; color: #96c93d; letter-spacing: 6px; text-shadow: 0 0 10px rgba(150,201,61,0.5); }
-    .step-card { background: rgba(0,0,0,0.45); border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 10px; margin-bottom: 8px; text-align: left; }
-    .step-card-title { color: #ffd700; font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; }
 
-    #toast-container { position: absolute; top: 15%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 2000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; -webkit-transition: -webkit-transform 0.35s, top 0.35s; transition: transform 0.35s, top 0.35s; }
+    /* Компактный QR-блок и полноэкранный сканер */
+    .qr-card { background: rgba(0,0,0,0.55); border: 1px solid rgba(212,175,55,0.35); border-radius: 14px; padding: 10px; margin-bottom: 8px; }
+    .qr-wrap { background: #ffffff; padding: 8px; border-radius: 12px; display: inline-block; margin: 6px auto; box-shadow: 0 6px 20px rgba(0,0,0,0.6); }
+    .qr-wrap canvas { display: block; width: 175px; height: 175px; image-rendering: pixelated; }
+    .step-badge { display: inline-block; background: #d4af37; color: #111; font-weight: 900; font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; margin-bottom: 4px; text-transform: uppercase; }
+    .guide-box { background: rgba(0, 176, 155, 0.12); border: 1px solid rgba(150, 201, 61, 0.4); border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; text-align: left; font-size: 0.78rem; color: #ddd; line-height: 1.35; }
+    .guide-box b { color: #96c93d; }
+
+    .camera-modal {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.95); z-index: 3000;
+        display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column;
+        -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center;
+        padding: 16px;
+    }
+    .camera-view {
+        position: relative; width: 260px; height: 260px; border-radius: 18px;
+        overflow: hidden; border: 3px solid #96c93d; background: #000; margin: 12px 0;
+        box-shadow: 0 0 30px rgba(150,201,61,0.4);
+    }
+    .camera-view video { width: 100%; height: 100%; object-fit: cover; }
+    .scan-line {
+        position: absolute; left: 8%; width: 84%; height: 3px; background: #00ff64;
+        box-shadow: 0 0 12px 2px #00ff64; top: 50%;
+        -webkit-animation: scanMove 2s infinite ease-in-out; animation: scanMove 2s infinite ease-in-out;
+    }
+    @-webkit-keyframes scanMove { 0% { top: 12%; } 50% { top: 88%; } 100% { top: 12%; } }
+    @keyframes scanMove { 0% { top: 12%; } 50% { top: 88%; } 100% { top: 12%; } }
+
+    #toast-container { position: absolute; top: 15%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 4000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; -webkit-transition: -webkit-transform 0.35s, top 0.35s; transition: transform 0.35s, top 0.35s; }
     #toast-container.face-top-player { top: 22%; -webkit-transform: translateX(-50%) rotate(180deg); transform: translateX(-50%) rotate(180deg); }
     .toast { background: linear-gradient(to right, rgba(15,15,15,0.95), rgba(35,35,35,0.95)); color: #d4af37; padding: 7px 18px; margin-bottom: 6px; border-radius: 20px; font-weight: bold; border: 1px solid #d4af37; box-shadow: 0 8px 16px rgba(0,0,0,0.6); text-align: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; white-space: nowrap; }
 
@@ -287,7 +314,22 @@
 <body class="felt-green back-classic face-light">
     <div id="toast-container"></div>
 
-<!-- ГЛАВНОЕ МЕНЮ (ЧЕТКОЕ РАЗДЕЛЕНИЕ ОФЛАЙН И ОНЛАЙН) -->
+<!-- МОДАЛЬНОЕ ОКНО КАМЕРЫ-СКАНЕРА QR -->
+<div id="camera-modal" class="camera-modal hidden">
+    <h2 id="camera-title" style="color: #96c93d;">📷 Наведите на QR-код</h2>
+    <p style="color: #ccc; font-size: 0.82rem; text-align: center; max-width: 300px;">
+        Держите экран второго телефона в рамке, сканирование произойдет автоматически
+    </p>
+    <div class="camera-view">
+        <video id="qr-video" playsinline muted></video>
+        <div class="scan-line"></div>
+    </div>
+    <input type="file" id="qr-file-input" accept="image/*" capture="environment" class="hidden">
+    <button id="btn-camera-photo-fallback" class="btn-secondary" style="max-width: 260px;">📸 Сфотографировать QR (если не ловит)</button>
+    <button id="btn-camera-close" class="btn-danger" style="max-width: 260px;">Отмена</button>
+</div>
+
+<!-- ГЛАВНОЕ МЕНЮ -->
 <div id="auth-screen" class="screen">
     <div class="modal-box">
         <h1>Durak Casino</h1>
@@ -302,7 +344,7 @@
         <button id="show-bot-settings" class="btn-accent">🤖 Играть с Ботом</button>
         <div class="menu-row">
             <button id="show-local-settings" class="btn-info">👥 Вдвоем (1 экран)</button>
-            <button id="btn-offline-wifi" class="btn-wifi">📡 По точке доступа</button>
+            <button id="btn-offline-wifi" class="btn-wifi">📷 По QR (Точка доступа)</button>
         </div>
 
         <div class="section-label">🌐 Онлайн-игра (Через интернет)</div>
@@ -344,62 +386,65 @@
     </div>
 </div>
 
-<!-- ОФЛАЙН WI-FI ЛОББИ (ТОЧКА ДОСТУПА БЕЗ ИНТЕРНЕТА И SIM) -->
+<!-- ОФЛАЙН WI-FI ЛОББИ ЧЕРЕЗ QR-СКАНЕР (БЕЗ ДЛИННЫХ КОДОВ И БЕЗ ИНТЕРНЕТА) -->
 <div id="offline-wifi-screen" class="screen hidden">
     <div class="modal-box">
-        <h2 style="color: #96c93d;">📡 Точка доступа (Без сети)</h2>
-        <p style="color: #ccc; font-size: 0.78rem; margin-bottom: 10px;">
-            Работает без интернета и мобильных данных: один раздает Wi-Fi, второй подключается к нему.
-        </p>
+        <h2 style="color: #96c93d;">📷 Подключение по QR</h2>
+        <div class="guide-box">
+            <b>Как подключиться без интернета:</b><br>
+            1. <b>Игрок 1</b> включает Точку доступа Wi-Fi, <b>Игрок 2</b> подключается к ней.<br>
+            2. <b>Игрок 2</b> жмет «Я Гость» и сканирует QR с экрана Игрока 1.<br>
+            3. <b>Игрок 1</b> жмет «Сканировать ответ» и наводит камеру на экран Игрока 2!
+        </div>
 
         <div class="menu-row">
-            <button id="btn-off-tab-host" class="btn-accent">Я создаю стол</button>
-            <button id="btn-off-tab-join" class="btn-secondary">Я подключаюсь</button>
+            <button id="btn-off-tab-host" class="btn-accent">1. Я Хост (Создать)</button>
+            <button id="btn-off-tab-join" class="btn-secondary">2. Я Гость (Войти)</button>
         </div>
 
-        <!-- Пошаговый мастер Хоста -->
+        <!-- ЭКРАН ХОСТА -->
         <div id="off-host-panel">
-            <div class="step-card">
-                <div class="step-card-title">Шаг 1. Отправьте приглашение другу</div>
-                <textarea id="air-offer-out" readonly placeholder="Подготовка локального ключа..."></textarea>
-                <div class="menu-row">
-                    <button id="btn-air-share-offer" class="btn-wifi">📤 Передать / AirDrop</button>
-                    <button id="btn-air-copy-offer" class="btn-secondary">📋 Копировать</button>
+            <div class="qr-card">
+                <span class="step-badge">Шаг 1 для Хоста</span>
+                <p style="font-size: 0.8rem; color: #eee;">Покажите этот QR-код другу:</p>
+                <div class="qr-wrap">
+                    <canvas id="qr-canvas-offer" width="180" height="180"></canvas>
                 </div>
+                <p id="qr-offer-status" style="font-size: 0.74rem; color: #96c93d;">QR-код готов к сканированию</p>
             </div>
 
-            <div class="step-card">
-                <div class="step-card-title">Шаг 2. Примите ответ от друга</div>
-                <textarea id="air-answer-in" placeholder="Вставьте ответный код друга..."></textarea>
-                <div class="menu-row">
-                    <button id="btn-air-paste-answer" class="btn-secondary">📋 Вставить</button>
-                    <button id="btn-air-connect" class="btn-primary">Начать игру ⚡</button>
+            <div class="qr-card">
+                <span class="step-badge">Шаг 2 для Хоста</span>
+                <p style="font-size: 0.8rem; color: #eee; margin-bottom: 6px;">Когда у друга появится ответный QR, отсканируйте его:</p>
+                <button id="btn-scan-guest-qr" class="btn-wifi glowing">📷 Сканировать ответ друга</button>
+                <div class="menu-row" style="margin-top: 4px;">
+                    <button id="btn-air-share-offer" class="btn-secondary" style="font-size:0.72rem; padding:7px;">📤 Отправить текст</button>
+                    <button id="btn-air-paste-answer" class="btn-secondary" style="font-size:0.72rem; padding:7px;">📋 Вставить ответ</button>
                 </div>
             </div>
         </div>
 
-        <!-- Пошаговый мастер Гостя -->
+        <!-- ЭКРАН ГОСТЯ -->
         <div id="off-join-panel" class="hidden">
-            <div class="step-card">
-                <div class="step-card-title">Шаг 1. Вставьте код приглашения Хоста</div>
-                <textarea id="air-offer-in" placeholder="Вставьте код Хоста сюда..."></textarea>
-                <div class="menu-row">
-                    <button id="btn-air-paste-offer" class="btn-secondary">📋 Вставить</button>
-                    <button id="btn-air-make-answer" class="btn-primary">Создать ответ ⚡</button>
-                </div>
+            <div class="qr-card" id="guest-step1-card">
+                <span class="step-badge">Шаг 1 для Гостя</span>
+                <p style="font-size: 0.8rem; color: #eee; margin-bottom: 8px;">Нажмите кнопку и наведите камеру на QR-код Хоста:</p>
+                <button id="btn-scan-host-qr" class="btn-wifi glowing">📷 Сканировать QR Хоста</button>
+                <button id="btn-air-paste-offer" class="btn-secondary" style="font-size:0.72rem; padding:7px; margin-top:4px;">📋 Или вставить из буфера</button>
             </div>
 
-            <div class="step-card hidden" id="off-join-step2">
-                <div class="step-card-title">Шаг 2. Передайте этот ответ Хосту</div>
-                <textarea id="air-answer-out" readonly placeholder="Ваш ответ появится здесь..."></textarea>
-                <div class="menu-row">
-                    <button id="btn-air-share-answer" class="btn-wifi">📤 Передать / AirDrop</button>
-                    <button id="btn-air-copy-answer" class="btn-secondary">📋 Копировать</button>
+            <div class="qr-card hidden" id="guest-step2-card">
+                <span class="step-badge">Шаг 2 для Гостя</span>
+                <p style="font-size: 0.82rem; color: #ffd700; font-weight: bold;">Покажите этот ответный QR Хосту!</p>
+                <div class="qr-wrap">
+                    <canvas id="qr-canvas-answer" width="180" height="180"></canvas>
                 </div>
+                <p style="font-size: 0.74rem; color: #aaa; margin-bottom: 6px;">Как только Хост его отсканирует, игра начнется автоматически</p>
+                <button id="btn-air-share-answer" class="btn-secondary" style="font-size:0.72rem; padding:7px;">📤 Или отправить ответ текстом</button>
             </div>
         </div>
 
-        <button class="btn-danger back-to-menu" style="margin-top: 6px;">Назад в меню</button>
+        <button class="btn-danger back-to-menu" style="margin-top: 4px;">Назад в меню</button>
     </div>
 </div>
 
@@ -431,11 +476,11 @@
     <div class="modal-box">
         <h2 style="color: #d4af37;">Как играть</h2>
         <div class="instruction-text">
-            • <span>Офлайн-режимы ✈️:</span><br>
-            1) <b>С Ботом</b> или <b>Вдвоем на 1 экране</b> — работают мгновенно в любых условиях.<br>
-            2) <b>По точке доступа:</b> один включает раздачу Wi-Fi (даже без SIM-карты), второй подключается к ней, и игроки обмениваются ключом через AirDrop, Заметки или локальное сообщение.<br><br>
-            • <span>Онлайн-режим 🌐:</span><br>
-            Вход по короткому 4-значному ПИН-коду через интернет.<br><br>
+            • <span>Игра по Точке доступа (QR без интернета) 📷:</span><br>
+            1) <b>Игрок 1</b> раздает Wi-Fi (Точка доступа) со своего телефона, <b>Игрок 2</b> подключается к этому Wi-Fi.<br>
+            2) <b>Игрок 1</b> открывает «По QR (Точка доступа)» — на его экране сразу появляется QR-код.<br>
+            3) <b>Игрок 2</b> открывает вкладку «2. Я Гость», нажимает «Сканировать QR Хоста» и наводит камеру на экран Игрока 1.<br>
+            4) У <b>Игрока 2</b> появляется ответный QR-код — <b>Игрок 1</b> нажимает «Сканировать ответ друга», наводит камеру, и партия сразу запускается!<br><br>
             • <span>Цвета карт:</span><br>
             🟢 <b>Зеленый</b> — отбить атаку.<br>
             🟡 <b>Золотой</b> — подкинуть.<br>
@@ -626,70 +671,216 @@
             t.className = 'toast';
             t.textContent = msg;
             c.appendChild(t);
-            setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 2200);
+            setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 2300);
         }
 
-        function copyTextFromEl(el, successMsg) {
-            var val = el.value ? el.value.trim() : '';
-            if (!val) return;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(val).then(function () {
-                    showToast(successMsg || 'Скопировано!');
-                }).catch(function () {
-                    el.select();
-                    try { document.execCommand('copy'); } catch (e) {}
-                    showToast(successMsg || 'Скопировано!');
-                });
-            } else {
-                el.select();
-                try { document.execCommand('copy'); } catch (e) {}
-                showToast(successMsg || 'Скопировано!');
-            }
-        }
-
-        function shareOrCopyText(el, titleText) {
-            var val = el.value ? el.value.trim() : '';
-            if (!val) { showToast('Ключ еще создается...'); return; }
-            if (navigator.share) {
-                navigator.share({ title: titleText || 'Ключ Дурак', text: val }).catch(function () {});
-            } else {
-                copyTextFromEl(el, 'Ключ скопирован!');
-            }
-        }
-
-        function pasteTextIntoEl(el, afterPaste) {
-            if (navigator.clipboard && navigator.clipboard.readText) {
-                navigator.clipboard.readText().then(function (txt) {
-                    if (txt) {
-                        el.value = txt.trim();
-                        if (afterPaste) afterPaste(txt.trim());
-                    } else {
-                        showToast('Буфер обмена пуст');
+        // ---------- АВТОНОМНЫЙ ГЕНЕРАТОР QR-КОДОВ (0 КБ ВНЕШНИХ ФАЙЛОВ) ----------
+        var QRGenerator = (function () {
+            var V_INFO = [
+                null,
+                [19, 7, 1, 19, 0, 0], [34, 10, 1, 34, 0, 0], [55, 15, 1, 55, 0, 0],
+                [80, 20, 1, 80, 0, 0], [108, 26, 1, 108, 0, 0], [136, 18, 2, 68, 0, 0],
+                [156, 20, 2, 78, 0, 0], [194, 24, 2, 97, 0, 0], [232, 30, 2, 116, 0, 0],
+                [274, 18, 2, 68, 2, 69], [324, 20, 4, 81, 0, 0], [370, 24, 2, 92, 2, 93],
+                [428, 26, 4, 107, 0, 0], [461, 30, 3, 115, 1, 116]
+            ];
+            var ALIGN_POS = [
+                null, [], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34],
+                [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50],
+                [6, 30, 54], [6, 32, 58], [6, 34, 62], [6, 26, 46, 66]
+            ];
+            var VER_BITS = [0,0,0,0,0,0,0, 0x07C94, 0x085BC, 0x09A99, 0x0A4D3, 0x0BBF6, 0x0C762, 0x0D847, 0x0E60D];
+            var EXP = new Array(256), LOG = new Array(256);
+            (function () {
+                var x = 1;
+                for (var i = 0; i < 255; i++) {
+                    EXP[i] = x; LOG[x] = i;
+                    x <<= 1; if (x & 0x100) x ^= 0x11D;
+                }
+                EXP[255] = EXP[0];
+            })();
+            function gfMul(a, b) { return (a === 0 || b === 0) ? 0 : EXP[(LOG[a] + LOG[b]) % 255]; }
+            function rsEncode(data, ecLen) {
+                var gen = [1];
+                for (var i = 0; i < ecLen; i++) {
+                    var next = new Array(gen.length + 1);
+                    for (var k = 0; k < next.length; k++) next[k] = 0;
+                    for (var j = 0; j < gen.length; j++) {
+                        next[j] ^= gen[j];
+                        next[j + 1] ^= gfMul(gen[j], EXP[i]);
                     }
-                }).catch(function () {
-                    el.focus();
-                    showToast('Удерживайте поле и нажмите «Вставить»');
-                });
-            } else {
-                el.focus();
-                showToast('Удерживайте поле и нажмите «Вставить»');
+                    gen = next;
+                }
+                var msg = data.slice();
+                for (var m = 0; m < ecLen; m++) msg.push(0);
+                for (var d = 0; d < data.length; d++) {
+                    var coef = msg[d];
+                    if (coef !== 0) {
+                        for (var g = 0; g < gen.length; g++) msg[d + g] ^= gfMul(gen[g], coef);
+                    }
+                }
+                return msg.slice(data.length);
             }
-        }
+            function utf8Bytes(str) {
+                var out = [], s = unescape(encodeURIComponent(str));
+                for (var i = 0; i < s.length; i++) out.push(s.charCodeAt(i));
+                return out;
+            }
+            function drawToCanvas(text, canvas) {
+                if (!canvas || !text) return;
+                var bytes = utf8Bytes(text);
+                var ver = 1;
+                while (ver <= 14) {
+                    var cap = V_INFO[ver][0] - (ver <= 9 ? 2 : 3);
+                    if (bytes.length <= cap) break;
+                    ver++;
+                }
+                if (ver > 14) return;
+                var vInfo = V_INFO[ver];
+                var totalData = vInfo[0], ecLen = vInfo[1];
+                var bits = [];
+                function pushBits(val, len) {
+                    for (var i = len - 1; i >= 0; i--) bits.push((val >> i) & 1);
+                }
+                pushBits(4, 4);
+                pushBits(bytes.length, ver <= 9 ? 8 : 16);
+                for (var b = 0; b < bytes.length; b++) pushBits(bytes[b], 8);
+                var maxBits = totalData * 8;
+                for (var t = 0; t < 4 && bits.length < maxBits; t++) bits.push(0);
+                while (bits.length % 8 !== 0) bits.push(0);
 
-        $('btn-emoji-toggle').onclick = function () {
-            $('emoji-bar').classList.toggle('hidden');
-        };
-        each($('emoji-bar').querySelectorAll('button'), function (b) {
-            b.onclick = function () {
-                var msg = b.getAttribute('data-emo');
-                $('emoji-bar').classList.add('hidden');
-                showToast('Вы: ' + msg);
-                if (isOnlineGame && conn) conn.send({ type: 'CHAT_EMOJI', text: msg });
-                else if (!isLocalTwoPlayer) setTimeout(function () { sayBotBubble('Азартно играешь! 😉'); }, 700);
-            };
-        });
+                var codewords = [];
+                for (var c = 0; c < bits.length; c += 8) {
+                    var byteVal = 0;
+                    for (var bit = 0; bit < 8; bit++) byteVal = (byteVal << 1) | bits[c + bit];
+                    codewords.push(byteVal);
+                }
+                var padIdx = 0;
+                while (codewords.length < totalData) {
+                    codewords.push((padIdx % 2 === 0) ? 0xEC : 0x11);
+                    padIdx++;
+                }
 
-        // ---------- Звуковой синтезатор (Web Audio API) ----------
+                var dBlocks = [], ecBlocks = [], offset = 0;
+                var g1Count = vInfo[2], g1Size = vInfo[3], g2Count = vInfo[4], g2Size = vInfo[5];
+                for (var i1 = 0; i1 < g1Count; i1++) {
+                    var blk1 = codewords.slice(offset, offset + g1Size); offset += g1Size;
+                    dBlocks.push(blk1); ecBlocks.push(rsEncode(blk1, ecLen));
+                }
+                for (var i2 = 0; i2 < g2Count; i2++) {
+                    var blk2 = codewords.slice(offset, offset + g2Size); offset += g2Size;
+                    dBlocks.push(blk2); ecBlocks.push(rsEncode(blk2, ecLen));
+                }
+
+                var finalBytes = [];
+                var maxD = Math.max(g1Size, g2Size);
+                for (var col = 0; col < maxD; col++) {
+                    for (var r = 0; r < dBlocks.length; r++) {
+                        if (col < dBlocks[r].length) finalBytes.push(dBlocks[r][col]);
+                    }
+                }
+                for (var ecol = 0; ecol < ecLen; ecol++) {
+                    for (var er = 0; er < ecBlocks.length; er++) finalBytes.push(ecBlocks[er][ecol]);
+                }
+
+                var size = ver * 4 + 17;
+                var mat = new Array(size), isFunc = new Array(size);
+                for (var y = 0; y < size; y++) {
+                    mat[y] = new Array(size); isFunc[y] = new Array(size);
+                }
+                function setFunc(rx, ry, val) {
+                    if (rx >= 0 && rx < size && ry >= 0 && ry < size) {
+                        mat[ry][rx] = val ? 1 : 0; isFunc[ry][rx] = true;
+                    }
+                }
+                function placeFinder(ox, oy) {
+                    for (var dy = -1; dy <= 7; dy++) {
+                        for (var dx = -1; dx <= 7; dx++) {
+                            var dark = (dx >= 0 && dx <= 6 && (dy === 0 || dy === 6)) ||
+                                       (dy >= 0 && dy <= 6 && (dx === 0 || dx === 6)) ||
+                                       (dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4);
+                            setFunc(ox + dx, oy + dy, dark);
+                        }
+                    }
+                }
+                placeFinder(0, 0); placeFinder(size - 7, 0); placeFinder(0, size - 7);
+                for (var ti = 8; ti < size - 8; ti++) {
+                    setFunc(ti, 6, ti % 2 === 0); setFunc(6, ti, ti % 2 === 0);
+                }
+                var ap = ALIGN_POS[ver];
+                for (var ay = 0; ay < ap.length; ay++) {
+                    for (var ax = 0; ax < ap.length; ax++) {
+                        var cx = ap[ax], cy = ap[ay];
+                        if ((cx < 9 && cy < 9) || (cx > size - 10 && cy < 9) || (cx < 9 && cy > size - 10)) continue;
+                        for (var ady = -2; ady <= 2; ady++) {
+                            for (var adx = -2; adx <= 2; adx++) {
+                                var aDark = Math.max(Math.abs(adx), Math.abs(ady)) !== 1;
+                                setFunc(cx + adx, cy + ady, aDark);
+                            }
+                        }
+                    }
+                }
+                for (var fi = 0; fi < 9; fi++) {
+                    if (fi !== 6) { setFunc(8, fi, false); setFunc(fi, 8, false); }
+                }
+                for (var fi2 = 0; fi2 < 8; fi2++) {
+                    setFunc(size - 1 - fi2, 8, false); setFunc(8, size - 1 - fi2, false);
+                }
+                setFunc(8, size - 8, true);
+                if (ver >= 7) {
+                    var vBits = VER_BITS[ver];
+                    for (var vb = 0; vb < 18; vb++) {
+                        var vBit = (vBits >> vb) & 1;
+                        var vx = Math.floor(vb / 3), vy = size - 11 + (vb % 3);
+                        setFunc(vx, vy, vBit); setFunc(vy, vx, vBit);
+                    }
+                }
+                var bitIdx = 0, totalFinalBits = finalBytes.length * 8;
+                var upward = true;
+                for (var right = size - 1; right >= 1; right -= 2) {
+                    if (right === 6) right = 5;
+                    for (var vert = 0; vert < size; vert++) {
+                        var ry = upward ? (size - 1 - vert) : vert;
+                        for (var lr = 0; lr < 2; lr++) {
+                            var rx = right - lr;
+                            if (!isFunc[ry][rx]) {
+                                var darkBit = 0;
+                                if (bitIdx < totalFinalBits) {
+                                    darkBit = (finalBytes[bitIdx >> 3] >> (7 - (bitIdx & 7))) & 1;
+                                    bitIdx++;
+                                }
+                                if ((ry + rx) % 2 === 0) darkBit ^= 1;
+                                mat[ry][rx] = darkBit;
+                            }
+                        }
+                    }
+                    upward = !upward;
+                }
+                var fmt = 0x77C4;
+                for (var fb = 0; fb <= 5; fb++) setFunc(8, fb, (fmt >> fb) & 1);
+                setFunc(8, 7, (fmt >> 6) & 1); setFunc(8, 8, (fmt >> 7) & 1); setFunc(7, 8, (fmt >> 8) & 1);
+                for (var fb2 = 9; fb2 < 15; fb2++) setFunc(14 - fb2, 8, (fmt >> fb2) & 1);
+                for (var fb3 = 0; fb3 < 8; fb3++) setFunc(size - 1 - fb3, 8, (fmt >> fb3) & 1);
+                for (var fb4 = 8; fb4 < 15; fb4++) setFunc(8, size - 15 + fb4, (fmt >> fb4) & 1);
+
+                var ctx = canvas.getContext('2d');
+                var pad = 2;
+                var scale = Math.max(3, Math.floor(180 / (size + pad * 2)));
+                canvas.width = (size + pad * 2) * scale;
+                canvas.height = (size + pad * 2) * scale;
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#000000';
+                for (var py = 0; py < size; py++) {
+                    for (var px = 0; px < size; px++) {
+                        if (mat[py][px]) ctx.fillRect((px + pad) * scale, (py + pad) * scale, scale, scale);
+                    }
+                }
+            }
+            return { draw: drawToCanvas };
+        })();
+
+        // ---------- Звуковой синтезатор ----------
         var soundEnabled = true;
         var audioCtx = null;
         function getAudioCtx() {
@@ -741,6 +932,17 @@
             showToast(soundEnabled ? 'Звук включен' : 'Звук выключен');
         };
 
+        $('btn-emoji-toggle').onclick = function () { $('emoji-bar').classList.toggle('hidden'); };
+        each($('emoji-bar').querySelectorAll('button'), function (b) {
+            b.onclick = function () {
+                var msg = b.getAttribute('data-emo');
+                $('emoji-bar').classList.add('hidden');
+                showToast('Вы: ' + msg);
+                if (isOnlineGame && conn) conn.send({ type: 'CHAT_EMOJI', text: msg });
+                else if (!isLocalTwoPlayer) setTimeout(function () { sayBotBubble('Азартно играешь! 😉'); }, 700);
+            };
+        });
+
         var screens = {
             auth: $('auth-screen'), settings: $('settings-screen'),
             game: $('game-screen'), gameOver: $('game-over-screen'),
@@ -751,6 +953,7 @@
         };
 
         function showScreen(screenName) {
+            closeCameraModal();
             if (screenName !== 'game') $('toast-container').classList.remove('face-top-player');
             Object.keys(screens).forEach(function (k) { screens[k].classList.add('hidden'); });
             screens[screenName].classList.remove('hidden');
@@ -758,7 +961,7 @@
         }
 
         each(document.querySelectorAll('.back-to-menu'), function (btn) {
-            btn.onclick = function () { clearAllTimers(); showScreen('auth'); };
+            btn.onclick = function () { clearAllTimers(); closeCameraModal(); showScreen('auth'); };
         });
         $('show-rules').onclick = function () { showScreen('rules'); };
         $('return-main-menu').onclick = function () { clearAllTimers(); showScreen('auth'); };
@@ -884,21 +1087,33 @@
         var RTCPeer = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
         var webrtcOK = !!RTCPeer;
         var peerScriptLoading = false;
+        var jsQRScriptLoading = false;
 
-        function loadPeerJS() {
-            if (!webrtcOK || typeof Peer !== 'undefined' || peerScriptLoading) return;
+        // Подгрузка PeerJS (для интернет-игры) и jsQR (для 100% работы камеры на iOS и Android)
+        function loadExternalHelpers() {
             if (typeof navigator.onLine === 'boolean' && !navigator.onLine) return;
-            peerScriptLoading = true;
-            var s = document.createElement('script');
-            s.src = 'https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js';
-            s.async = true;
-            s.onload = function () { peerScriptLoading = false; };
-            s.onerror = function () { peerScriptLoading = false; };
-            document.head.appendChild(s);
+            if (webrtcOK && typeof Peer === 'undefined' && !peerScriptLoading) {
+                peerScriptLoading = true;
+                var s = document.createElement('script');
+                s.src = 'https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js';
+                s.async = true;
+                s.onload = function () { peerScriptLoading = false; };
+                s.onerror = function () { peerScriptLoading = false; };
+                document.head.appendChild(s);
+            }
+            if (typeof jsQR === 'undefined' && !jsQRScriptLoading) {
+                jsQRScriptLoading = true;
+                var q = document.createElement('script');
+                q.src = 'https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js';
+                q.async = true;
+                q.onload = function () { jsQRScriptLoading = false; };
+                q.onerror = function () { jsQRScriptLoading = false; };
+                document.head.appendChild(q);
+            }
         }
 
-        loadPeerJS();
-        window.addEventListener('online', loadPeerJS, false);
+        loadExternalHelpers();
+        window.addEventListener('online', loadExternalHelpers, false);
 
         function getPlayerNickname(fallback) {
             var n = $('nickname').value.trim();
@@ -935,12 +1150,12 @@
 
         $('btn-online-pin').onclick = function () {
             if (typeof navigator.onLine === 'boolean' && !navigator.onLine) {
-                showToast('Нет интернета — выберите «📡 По точке доступа»');
+                showToast('Нет интернета — выберите «📷 По QR (Точка доступа)»');
                 return;
             }
             if (typeof Peer === 'undefined') {
-                loadPeerJS();
-                showToast('Подключение к сети... Попробуйте через секунду');
+                loadExternalHelpers();
+                showToast('Загрузка сетевого модуля... Повторите через секунду');
                 return;
             }
             getPlayerNickname('Игрок');
@@ -1093,9 +1308,205 @@
             }
         };
 
-        // ---------- 2. ОФЛАЙН ПО ТОЧКЕ ДОСТУПА WI-FI (БЕЗ ИНТЕРНЕТА И SIM) ----------
+        // ---------- 2. УЛЬТРА-КОМПАКТНЫЙ ОФЛАЙН WI-FI ПО QR-СКАНЕРУ (ДО 140 БАЙТ ДЛЯ ЛЕГКОГО ЧТЕНИЯ КАМЕРОЙ) ----------
         var wifiPC = null, wifiDC = null;
+        var currentCompactOffer = '';
+        var currentCompactAnswer = '';
 
+        // Сжимаем WebRTC SDP в короткую строку ~110 символов (вмещается в легкий QR-код и поддерживает IPv4, IPv6 и .local mDNS)
+        function packCompactSDP(desc, nick) {
+            var sdp = desc.sdp || '';
+            var u = (sdp.match(/a=ice-ufrag:([^\r\n]+)/) || [,''])[1];
+            var p = (sdp.match(/a=ice-pwd:([^\r\n]+)/) || [,''])[1];
+            var fHex = (sdp.match(/a=fingerprint:sha-256\s+([^\r\n]+)/i) || [,''])[1].replace(/:/g, '');
+            var sctp = (sdp.match(/a=sctp-port:(\d+)/) || [,'5000'])[1];
+            var cands = [];
+            var lines = sdp.split(/\r?\n/);
+            for (var i = 0; i < lines.length; i++) {
+                if (lines[i].indexOf('a=candidate:') === 0) {
+                    var parts = lines[i].substring(12).trim().split(/\s+/);
+                    var proto = (parts[2] || '').toLowerCase();
+                    var comp = parts[1];
+                    var ip = parts[4];
+                    var port = parts[5];
+                    var typ = parts[7];
+                    if (proto === 'udp' && comp === '1' && ip && port && typ === 'host') {
+                        var item = ip + ';' + port;
+                        if (cands.indexOf(item) === -1) cands.push(item);
+                    }
+                }
+            }
+            var raw = [
+                desc.type === 'offer' ? 'O' : 'A',
+                u, p, fHex, sctp,
+                cands.slice(0, 4).join(','),
+                encodeURIComponent((nick || 'Игрок').substring(0, 10))
+            ].join('|');
+            return raw;
+        }
+
+        function unpackCompactSDP(token) {
+            var clean = token.trim();
+            // Поддержка если пользователь случайно скопировал старый формат Base64
+            if (clean.indexOf('|') === -1) {
+                try { clean = fromBase64UTF8(clean); } catch (e) {}
+            }
+            var parts = clean.split('|');
+            if (parts.length < 6) throw new Error('Неверный QR-код');
+            var type = parts[0] === 'O' ? 'offer' : 'answer';
+            var u = parts[1], p = parts[2], fHex = parts[3], sctp = parts[4] || '5000';
+            var cands = parts[5] ? parts[5].split(',') : [];
+            var nick = decodeURIComponent(parts[6] || 'Игрок');
+            var fp = fHex.match(/.{1,2}/g).join(':');
+            var setup = type === 'offer' ? 'actpass' : 'active';
+
+            var sdpLines = [
+                'v=0',
+                'o=- 4611731400430051336 2 IN IP4 127.0.0.1',
+                's=-',
+                't=0 0',
+                'a=group:BUNDLE 0',
+                'a=msid-semantic: WMS',
+                'm=application 9 UDP/DTLS/SCTP webrtc-datachannel',
+                'c=IN IP4 0.0.0.0',
+                'a=ice-ufrag:' + u,
+                'a=ice-pwd:' + p,
+                'a=ice-options:trickle',
+                'a=fingerprint:sha-256 ' + fp,
+                'a=setup:' + setup,
+                'a=mid:0',
+                'a=sctp-port:' + sctp,
+                'a=max-message-size:262144'
+            ];
+            for (var i = 0; i < cands.length; i++) {
+                var hp = cands[i].split(';');
+                if (hp.length === 2 && hp[0] && hp[1]) {
+                    var prio = 2122260223 - i * 100;
+                    sdpLines.push('a=candidate:' + (i + 1) + ' 1 udp ' + prio + ' ' + hp[0] + ' ' + hp[1] + ' typ host generation 0');
+                }
+            }
+            sdpLines.push('');
+            return { type: type, sdp: sdpLines.join('\r\n'), nick: nick };
+        }
+
+        // ---------- УНИВЕРСАЛЬНЫЙ КАМЕРА-СКАНЕР QR (BarcodeDetector + jsQR + Фото-фоллбэк) ----------
+        var cameraStream = null, cameraLoopTimer = null, activeScanCallback = null;
+        var scanWorkCanvas = document.createElement('canvas');
+        var scanWorkCtx = scanWorkCanvas.getContext('2d', { willReadFrequently: true });
+
+        function openCameraScanner(titleText, onScanSuccess) {
+            activeScanCallback = onScanSuccess;
+            $('camera-title').textContent = titleText || '📷 Наведите на QR-код';
+            $('camera-modal').classList.remove('hidden');
+
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                showToast('Видео-поток недоступен — нажмите «📸 Сфотографировать QR»');
+                return;
+            }
+
+            var video = $('qr-video');
+            navigator.mediaDevices.getUserMedia({
+                video: { facingMode: { ideal: 'environment' }, width: { ideal: 640 }, height: { ideal: 640 } },
+                audio: false
+            }).then(function (stream) {
+                cameraStream = stream;
+                video.srcObject = stream;
+                video.setAttribute('playsinline', 'true');
+                video.play();
+
+                var nativeDetector = null;
+                if (typeof window.BarcodeDetector !== 'undefined') {
+                    try { nativeDetector = new BarcodeDetector({ formats: ['qr_code'] }); } catch (e) {}
+                }
+
+                cameraLoopTimer = setInterval(function () {
+                    if (!video || video.readyState !== video.HAVE_ENOUGH_DATA) return;
+                    var vw = video.videoWidth || 320, vh = video.videoHeight || 320;
+                    scanWorkCanvas.width = vw; scanWorkCanvas.height = vh;
+                    scanWorkCtx.drawImage(video, 0, 0, vw, vh);
+
+                    // 1. Пробуем jsQR (работает и на iPhone Safari, и на Android)
+                    if (typeof window.jsQR === 'function') {
+                        try {
+                            var imgData = scanWorkCtx.getImageData(0, 0, vw, vh);
+                            var qrCode = window.jsQR(imgData.data, vw, vh, { inversionAttempts: 'dontInvert' });
+                            if (qrCode && qrCode.data) {
+                                finishScanSuccess(qrCode.data);
+                                return;
+                            }
+                        } catch (e) {}
+                    }
+
+                    // 2. Пробуем встроенный BarcodeDetector (работает офлайн в Chrome / Android / новых iOS)
+                    if (nativeDetector) {
+                        nativeDetector.detect(scanWorkCanvas).then(function (codes) {
+                            if (codes && codes.length > 0 && codes[0].rawValue) {
+                                finishScanSuccess(codes[0].rawValue);
+                            }
+                        }).catch(function () {});
+                    }
+                }, 200);
+            }).catch(function () {
+                showToast('Разрешите доступ к камере или нажмите «📸 Сфотографировать QR»');
+            });
+        }
+
+        function finishScanSuccess(rawText) {
+            if (!activeScanCallback) return;
+            var cb = activeScanCallback;
+            activeScanCallback = null;
+            closeCameraModal();
+            playChipSound();
+            if (navigator.vibrate) navigator.vibrate(60);
+            cb(rawText.trim());
+        }
+
+        function closeCameraModal() {
+            if (cameraLoopTimer) { clearInterval(cameraLoopTimer); cameraLoopTimer = null; }
+            if (cameraStream) {
+                cameraStream.getTracks().forEach(function (t) { t.stop(); });
+                cameraStream = null;
+            }
+            $('camera-modal').classList.add('hidden');
+        }
+
+        $('btn-camera-close').onclick = function () {
+            activeScanCallback = null;
+            closeCameraModal();
+        };
+
+        // Фоллбэк: если браузер не дает видеопоток, можно сфотографировать QR стандартной камерой
+        $('btn-camera-photo-fallback').onclick = function () {
+            $('qr-file-input').click();
+        };
+
+        $('qr-file-input').onchange = function (ev) {
+            var file = ev.target.files && ev.target.files[0];
+            if (!file) return;
+            var img = new Image();
+            img.onload = function () {
+                var w = Math.min(800, img.width), h = Math.round(img.height * (w / img.width));
+                scanWorkCanvas.width = w; scanWorkCanvas.height = h;
+                scanWorkCtx.drawImage(img, 0, 0, w, h);
+                if (typeof window.jsQR === 'function') {
+                    var imgData = scanWorkCtx.getImageData(0, 0, w, h);
+                    var qr = window.jsQR(imgData.data, w, h);
+                    if (qr && qr.data) { finishScanSuccess(qr.data); return; }
+                }
+                if (typeof window.BarcodeDetector !== 'undefined') {
+                    var det = new BarcodeDetector({ formats: ['qr_code'] });
+                    det.detect(scanWorkCanvas).then(function (codes) {
+                        if (codes && codes.length > 0) finishScanSuccess(codes[0].rawValue);
+                        else showToast('QR-код не найден на фото, поднесите ближе');
+                    }).catch(function () { showToast('Не удалось распознать фото'); });
+                } else {
+                    showToast('QR не распознан — поднесите камеру ближе');
+                }
+            };
+            img.src = URL.createObjectURL(file);
+        };
+
+        // ---------- ЛОГИКА ОФЛАЙН WI-FI ЛОББИ ----------
         function openOfflineWifiScreen() {
             showScreen('offlineWifi');
             switchOfflineWifiTab('host');
@@ -1113,7 +1524,8 @@
                 $('btn-off-tab-join').className = 'btn-accent';
                 $('off-host-panel').classList.add('hidden');
                 $('off-join-panel').classList.remove('hidden');
-                $('off-join-step2').classList.add('hidden');
+                $('guest-step1-card').classList.remove('hidden');
+                $('guest-step2-card').classList.add('hidden');
             }
         }
 
@@ -1138,115 +1550,148 @@
                 }
             };
             dc.onopen = function () {
+                closeCameraModal();
                 isOnlineGame = true; isLocalTwoPlayer = false;
                 if (isHost) {
-                    showToast('Прямая связь по Wi-Fi установлена! 📡');
+                    showToast('Связь по Wi-Fi установлена! 📡');
                     setTimeout(startOnlineHostGame, 400);
                 } else {
                     conn.send({ type: 'CLIENT_INFO', name: getPlayerNickname('Гость') });
-                    showToast('Подключено напрямую без интернета! 📡');
+                    showToast('Подключено напрямую! 📡');
                 }
             };
         }
 
         function initPureOfflineHost() {
             isHost = true;
-            $('air-offer-out').value = 'Генерация локального ключа...';
-            $('air-answer-in').value = '';
+            currentCompactOffer = '';
+            $('qr-offer-status').textContent = 'Генерация QR-кода...';
             if (wifiPC) { try { wifiPC.close(); } catch (e) {} }
             wifiPC = new RTCPeer({ iceServers: [] });
             var dc = wifiPC.createDataChannel('durak_air_lan');
             bindRawDataChannel(dc);
 
             var done = false;
-            function exportFullOffer() {
+            function exportOfferQR() {
                 if (done || !wifiPC.localDescription) return;
                 done = true;
-                var payload = {
-                    sdp: wifiPC.localDescription,
-                    name: getPlayerNickname('Хост')
-                };
-                $('air-offer-out').value = toBase64UTF8(JSON.stringify(payload));
+                currentCompactOffer = packCompactSDP(wifiPC.localDescription, getPlayerNickname('Хост'));
+                QRGenerator.draw(currentCompactOffer, $('qr-canvas-offer'));
+                $('qr-offer-status').textContent = '✅ QR готов! Покажите его Гостю';
             }
 
             wifiPC.onicecandidate = function (e) {
-                if (!e.candidate) exportFullOffer();
+                if (!e.candidate) exportOfferQR();
             };
             wifiPC.createOffer().then(function (offer) {
                 return wifiPC.setLocalDescription(offer);
             }).then(function () {
-                setTimeout(exportFullOffer, 700);
+                setTimeout(exportOfferQR, 600);
             });
         }
 
-        $('btn-air-share-offer').onclick = function () { shareOrCopyText($('air-offer-out'), 'Приглашение в Дурак'); };
-        $('btn-air-copy-offer').onclick = function () { copyTextFromEl($('air-offer-out'), 'Приглашение скопировано!'); };
-
-        $('btn-air-paste-offer').onclick = function () {
-            pasteTextIntoEl($('air-offer-in'), function () {
-                $('btn-air-make-answer').click();
-            });
-        };
-
-        $('btn-air-make-answer').onclick = function () {
-            var str = $('air-offer-in').value.trim();
-            if (!str) { showToast('Сначала вставьте код приглашения Хоста'); return; }
+        function processScannedHostOffer(offerStr) {
             try {
-                var data = JSON.parse(fromBase64UTF8(str));
+                var info = unpackCompactSDP(offerStr);
+                if (info.type !== 'offer') { showToast('Это не QR-код Хоста!'); return; }
                 isHost = false;
-                $('opponent-name').textContent = data.name || 'Хост';
+                $('opponent-name').textContent = info.nick || 'Хост';
                 if (wifiPC) { try { wifiPC.close(); } catch (e) {} }
                 wifiPC = new RTCPeer({ iceServers: [] });
                 wifiPC.ondatachannel = function (ev) { bindRawDataChannel(ev.channel); };
 
                 var done = false;
-                function exportFullAnswer() {
+                function exportAnswerQR() {
                     if (done || !wifiPC.localDescription) return;
                     done = true;
-                    var ansPayload = {
-                        sdp: wifiPC.localDescription,
-                        name: getPlayerNickname('Гость')
-                    };
-                    $('off-join-step2').classList.remove('hidden');
-                    $('air-answer-out').value = toBase64UTF8(JSON.stringify(ansPayload));
-                    showToast('Ответ создан — передайте его Хосту!');
+                    currentCompactAnswer = packCompactSDP(wifiPC.localDescription, getPlayerNickname('Гость'));
+                    $('guest-step1-card').classList.add('hidden');
+                    $('guest-step2-card').classList.remove('hidden');
+                    QRGenerator.draw(currentCompactAnswer, $('qr-canvas-answer'));
+                    showToast('✅ Ответный QR готов — покажите Хосту!');
                 }
 
                 wifiPC.onicecandidate = function (e) {
-                    if (!e.candidate) exportFullAnswer();
+                    if (!e.candidate) exportAnswerQR();
                 };
 
-                wifiPC.setRemoteDescription(new RTCSessionDescription(data.sdp)).then(function () {
+                wifiPC.setRemoteDescription(new RTCSessionDescription({ type: 'offer', sdp: info.sdp })).then(function () {
                     return wifiPC.createAnswer();
                 }).then(function (ans) {
                     return wifiPC.setLocalDescription(ans);
                 }).then(function () {
-                    setTimeout(exportFullAnswer, 700);
+                    setTimeout(exportAnswerQR, 600);
                 });
             } catch (e) {
-                showToast('Неверный формат ключа Хоста');
+                showToast('Не удалось прочитать QR-код Хоста');
+            }
+        }
+
+        function processScannedGuestAnswer(answerStr) {
+            try {
+                var info = unpackCompactSDP(answerStr);
+                if (info.type !== 'answer') { showToast('Это не ответный QR-код Гостя!'); return; }
+                $('opponent-name').textContent = info.nick || 'Гость';
+                wifiPC.setRemoteDescription(new RTCSessionDescription({ type: 'answer', sdp: info.sdp }));
+                showToast('Соединение с ' + info.nick + '...');
+            } catch (e) {
+                showToast('Не удалось прочитать ответ Гостя');
+            }
+        }
+
+        // Кнопки запуска камеры
+        $('btn-scan-host-qr').onclick = function () {
+            openCameraScanner('📷 Наведите на QR-код Хоста', processScannedHostOffer);
+        };
+
+        $('btn-scan-guest-qr').onclick = function () {
+            openCameraScanner('📷 Наведите на ответный QR Гостя', processScannedGuestAnswer);
+        };
+
+        // Запасные кнопки быстрой отправки/вставки в 1 клик (если камера закрыта или играют дистанционно)
+        $('btn-air-share-offer').onclick = function () {
+            if (!currentCompactOffer) return;
+            if (navigator.share) navigator.share({ text: currentCompactOffer }).catch(function () {});
+            else if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(currentCompactOffer);
+                showToast('Код скопирован!');
             }
         };
 
-        $('btn-air-share-answer').onclick = function () { shareOrCopyText($('air-answer-out'), 'Ответ для входа в Дурак'); };
-        $('btn-air-copy-answer').onclick = function () { copyTextFromEl($('air-answer-out'), 'Ответ скопирован!'); };
-
-        $('btn-air-paste-answer').onclick = function () {
-            pasteTextIntoEl($('air-answer-in'), function () {
-                $('btn-air-connect').click();
-            });
+        $('btn-air-share-answer').onclick = function () {
+            if (!currentCompactAnswer) return;
+            if (navigator.share) navigator.share({ text: currentCompactAnswer }).catch(function () {});
+            else if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(currentCompactAnswer);
+                showToast('Ответ скопирован!');
+            }
         };
 
-        $('btn-air-connect').onclick = function () {
-            var str = $('air-answer-in').value.trim();
-            if (!str) { showToast('Вставьте ответный код друга'); return; }
-            try {
-                var data = JSON.parse(fromBase64UTF8(str));
-                $('opponent-name').textContent = data.name || 'Гость';
-                wifiPC.setRemoteDescription(new RTCSessionDescription(data.sdp));
-                showToast('Установка прямой Wi-Fi связи...');
-            } catch (e) {
-                showToast('Неверный код ответа');
+        $('btn-air-paste-offer').onclick = function () {
+            if (navigator.clipboard && navigator.clipboard.readText) {
+                navigator.clipboard.readText().then(function (txt) {
+                    if (txt) processScannedHostOffer(txt);
+                }).catch(function () {
+                    var manual = prompt('Вставьте код Хоста:');
+                    if (manual) processScannedHostOffer(manual);
+                });
+            } else {
+                var manual = prompt('Вставьте код Хоста:');
+                if (manual) processScannedHostOffer(manual);
+            }
+        };
+
+        $('btn-air-paste-answer').onclick = function () {
+            if (navigator.clipboard && navigator.clipboard.readText) {
+                navigator.clipboard.readText().then(function (txt) {
+                    if (txt) processScannedGuestAnswer(txt);
+                }).catch(function () {
+                    var manual = prompt('Вставьте ответ Гостя:');
+                    if (manual) processScannedGuestAnswer(manual);
+                });
+            } else {
+                var manual = prompt('Вставьте ответ Гостя:');
+                if (manual) processScannedGuestAnswer(manual);
             }
         };
 
