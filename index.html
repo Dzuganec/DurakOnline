@@ -2,18 +2,18 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Дурак Онлайн - Казино</title>
 <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
 
-    html, body { width: 100%; height: 100%; }
+    html, body { width: 100%; height: 100%; overflow: hidden; position: fixed; top: 0; left: 0; }
     body {
         background-color: #0b381a;
         background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
-        color: #ffffff; overflow: hidden;
-        height: 100vh; height: 100dvh;
+        color: #ffffff;
         touch-action: none;
         -webkit-user-select: none; user-select: none;
         -webkit-touch-callout: none;
@@ -26,31 +26,37 @@
     body.felt-ocean { background-color: #0b2545; }
     body.felt-vip { background-color: #141414; }
 
-    .screen { width: 100vw; height: 100vh; height: 100dvh; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; transition: opacity 0.35s; position: absolute; top: 0; left: 0; }
-    .hidden { opacity: 0; pointer-events: none; z-index: -1; }
+    .screen {
+        width: 100%; height: 100%;
+        display: -webkit-flex; display: flex;
+        -webkit-justify-content: center; justify-content: center;
+        -webkit-align-items: center; align-items: center;
+        transition: opacity 0.3s; position: absolute; top: 0; left: 0;
+    }
+    .hidden { opacity: 0; pointer-events: none; z-index: -1 !important; display: none !important; }
 
     .modal-box {
         background: linear-gradient(135deg, rgba(20, 30, 20, 0.96), rgba(10, 15, 10, 0.96));
-        padding: 20px; border-radius: 20px; text-align: center;
+        padding: 18px; border-radius: 20px; text-align: center;
         box-shadow: 0 30px 60px rgba(0,0,0,0.85), 0 0 0 2px rgba(212, 175, 55, 0.35);
-        -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); width: 92%; max-width: 430px;
-        max-height: 92vh; overflow-y: auto; -webkit-overflow-scrolling: touch;
+        -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); width: 92%; max-width: 420px;
+        max-height: 90%; overflow-y: auto; -webkit-overflow-scrolling: touch;
     }
-    .modal-box h1 { margin-bottom: 10px; font-size: 2.1rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
-    .modal-box h2 { margin-bottom: 10px; font-size: 1.35rem; color: #eee; }
-    .section-label { font-size: 0.78rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 5px 0; font-weight: bold; }
+    .modal-box h1 { margin-bottom: 8px; font-size: 2rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
+    .modal-box h2 { margin-bottom: 8px; font-size: 1.3rem; color: #eee; }
+    .section-label { font-size: 0.76rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 4px 0; font-weight: bold; }
 
     .balance-badge {
         display: inline-block; background: rgba(0,0,0,0.65); border: 1px solid #d4af37;
-        color: #ffd700; padding: 6px 16px; border-radius: 20px; font-weight: bold;
-        font-size: 0.95rem; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        color: #ffd700; padding: 5px 14px; border-radius: 20px; font-weight: bold;
+        font-size: 0.92rem; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
-    input[type="text"], textarea { -webkit-appearance: none; width: 100%; padding: 10px; margin-bottom: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 0.95rem; text-align: center; font-weight: bold; resize: none; -webkit-user-select: text; user-select: text; }
-    textarea { height: 56px; text-align: left; font-size: 0.8rem; font-family: monospace; }
+    input[type="text"], textarea { -webkit-appearance: none; width: 100%; padding: 10px; margin-bottom: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 0.95rem; text-align: center; font-weight: bold; resize: none; -webkit-user-select: text; user-select: text; }
+    textarea { height: 54px; text-align: left; font-size: 0.78rem; font-family: monospace; }
     input:focus, textarea:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
 
-    button { -webkit-appearance: none; width: 100%; border: none; padding: 11px; font-size: 0.95rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 8px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 0.7px; }
+    button { -webkit-appearance: none; width: 100%; border: none; padding: 11px; font-size: 0.92rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 7px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 0.6px; }
     button:active { transform: scale(0.96); }
     button:disabled { opacity: 0.45; pointer-events: none; -webkit-filter: grayscale(1); filter: grayscale(1); }
 
@@ -73,61 +79,97 @@
         100% { transform: scale(1); box-shadow: 0 0 10px rgba(212,175,55,0.5); }
     }
 
-    .settings-group { display: -webkit-flex; display: flex; -webkit-justify-content: space-around; justify-content: space-around; -webkit-flex-wrap: wrap; flex-wrap: wrap; margin-bottom: 10px; background: rgba(0,0,0,0.4); padding: 6px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-    .settings-group label { font-size: 0.82rem; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin: 4px 6px; cursor: pointer; color: #ccc; }
-    .settings-group label input { margin-bottom: 4px; }
+    .settings-group { display: -webkit-flex; display: flex; -webkit-justify-content: space-around; justify-content: space-around; -webkit-flex-wrap: wrap; flex-wrap: wrap; margin-bottom: 8px; background: rgba(0,0,0,0.4); padding: 6px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+    .settings-group label { font-size: 0.8rem; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin: 3px 5px; cursor: pointer; color: #ccc; }
+    .settings-group label input { margin-bottom: 3px; }
 
-    .menu-row { display: -webkit-flex; display: flex; margin-bottom: 8px; }
-    .menu-row button { -webkit-flex: 1 1 0; flex: 1 1 0; width: auto; margin-bottom: 0; font-size: 0.82rem; padding: 10px 6px; }
-    .menu-row button + button { margin-left: 8px; }
+    .menu-row { display: -webkit-flex; display: flex; margin-bottom: 7px; }
+    .menu-row button { -webkit-flex: 1 1 0; flex: 1 1 0; width: auto; margin-bottom: 0; font-size: 0.8rem; padding: 10px 6px; }
+    .menu-row button + button { margin-left: 7px; }
 
-    .stat-line { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); font-size: 1rem; }
-    .instruction-text { text-align: left; font-size: 0.88rem; color: #ccc; line-height: 1.45; margin-bottom: 14px; }
+    .stat-line { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); font-size: 0.95rem; }
+    .instruction-text { text-align: left; font-size: 0.85rem; color: #ccc; line-height: 1.4; margin-bottom: 12px; }
     .instruction-text span { color: #d4af37; font-weight: bold; }
 
     .shop-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(0,0,0,0.45); padding: 8px 12px; border-radius: 10px; margin-bottom: 7px; border: 1px solid rgba(212,175,55,0.25); }
-    .shop-item-title { text-align: left; font-size: 0.88rem; font-weight: bold; color: #eee; }
-    .shop-item-sub { font-size: 0.74rem; color: #aaa; }
-    .shop-item button { width: auto; margin: 0; padding: 7px 14px; font-size: 0.78rem; }
+    .shop-item-title { text-align: left; font-size: 0.86rem; font-weight: bold; color: #eee; }
+    .shop-item-sub { font-size: 0.72rem; color: #aaa; }
+    .shop-item button { width: auto; margin: 0; padding: 7px 12px; font-size: 0.76rem; }
 
-    /* Wi-Fi ПИН-код стиль */
-    .pin-display { background: rgba(0,0,0,0.7); border: 2px dashed #96c93d; border-radius: 14px; padding: 12px; margin: 10px 0; font-size: 2.2rem; font-weight: 900; color: #96c93d; letter-spacing: 6px; text-shadow: 0 0 10px rgba(150,201,61,0.5); }
-    .radar-box { background: rgba(0,0,0,0.5); border: 1px dashed rgba(0, 255, 100, 0.5); border-radius: 12px; padding: 8px 10px; margin-bottom: 10px; text-align: left; }
-    .radar-title { font-size: 0.78rem; color: #00ff64; font-weight: bold; text-transform: uppercase; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: space-between; justify-content: space-between; }
-    .radar-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(255,255,255,0.08); padding: 6px 10px; border-radius: 8px; margin-top: 6px; font-size: 0.85rem; }
+    .pin-display { background: rgba(0,0,0,0.7); border: 2px dashed #96c93d; border-radius: 14px; padding: 10px; margin: 8px 0; font-size: 2rem; font-weight: 900; color: #96c93d; letter-spacing: 6px; text-shadow: 0 0 10px rgba(150,201,61,0.5); }
+    .radar-box { background: rgba(0,0,0,0.5); border: 1px dashed rgba(0, 255, 100, 0.5); border-radius: 12px; padding: 8px 10px; margin-bottom: 8px; text-align: left; }
+    .radar-title { font-size: 0.75rem; color: #00ff64; font-weight: bold; text-transform: uppercase; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: space-between; justify-content: space-between; }
+    .radar-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(255,255,255,0.08); padding: 6px 10px; border-radius: 8px; margin-top: 5px; font-size: 0.82rem; }
     .radar-item button { width: auto; margin: 0; padding: 5px 12px; font-size: 0.75rem; }
 
-    #toast-container { position: absolute; top: 18%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 2000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; -webkit-transition: -webkit-transform 0.35s, top 0.35s; transition: transform 0.35s, top 0.35s; }
-    #toast-container.face-top-player { top: 24%; -webkit-transform: translateX(-50%) rotate(180deg); transform: translateX(-50%) rotate(180deg); }
-    .toast { background: linear-gradient(to right, rgba(15,15,15,0.95), rgba(35,35,35,0.95)); color: #d4af37; padding: 8px 20px; margin-bottom: 8px; border-radius: 20px; font-weight: bold; border: 1px solid #d4af37; box-shadow: 0 10px 20px rgba(0,0,0,0.6); text-align: center; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
+    #toast-container { position: absolute; top: 15%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 2000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; -webkit-transition: -webkit-transform 0.35s, top 0.35s; transition: transform 0.35s, top 0.35s; }
+    #toast-container.face-top-player { top: 22%; -webkit-transform: translateX(-50%) rotate(180deg); transform: translateX(-50%) rotate(180deg); }
+    .toast { background: linear-gradient(to right, rgba(15,15,15,0.95), rgba(35,35,35,0.95)); color: #d4af37; padding: 7px 18px; margin-bottom: 6px; border-radius: 20px; font-weight: bold; border: 1px solid #d4af37; box-shadow: 0 8px 16px rgba(0,0,0,0.6); text-align: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; white-space: nowrap; }
 
-    .top-hud { width: 100%; display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; padding: 4px 10px; z-index: 30; }
+    /* Игровой стол: жесткая фиксация верха и низа, чтобы карты никогда не уезжали за экран */
+    .game-table {
+        width: 100%; height: 100%;
+        display: -webkit-flex; display: flex;
+        -webkit-flex-direction: column; flex-direction: column;
+        -webkit-justify-content: space-between; justify-content: space-between;
+        padding: calc(env(safe-area-inset-top, 4px) + 4px) 4px calc(env(safe-area-inset-bottom, 6px) + 6px) 4px;
+        position: relative; overflow: hidden;
+    }
+
+    .top-hud {
+        -webkit-flex-shrink: 0; flex-shrink: 0;
+        width: 100%; display: -webkit-flex; display: flex;
+        -webkit-justify-content: space-between; justify-content: space-between;
+        -webkit-align-items: center; align-items: center;
+        padding: 2px 6px; z-index: 30;
+    }
     .hud-group { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
-    .hud-btn { width: auto; margin: 0 3px; padding: 6px 10px; font-size: 0.8rem; border-radius: 10px; background: rgba(0,0,0,0.75); color: #d4af37; border: 1px solid rgba(212,175,55,0.5); text-transform: none; }
-    .hud-chips { background: rgba(0,0,0,0.8); color: #ffd700; padding: 5px 10px; border-radius: 10px; font-size: 0.8rem; font-weight: bold; border: 1px solid #d4af37; margin-left: 4px; }
+    .hud-btn { width: auto; margin: 0 2px; padding: 5px 8px; font-size: 0.76rem; border-radius: 9px; background: rgba(0,0,0,0.78); color: #d4af37; border: 1px solid rgba(212,175,55,0.5); text-transform: none; }
+    .hud-chips { background: rgba(0,0,0,0.8); color: #ffd700; padding: 4px 8px; border-radius: 9px; font-size: 0.76rem; font-weight: bold; border: 1px solid #d4af37; margin-left: 3px; }
 
     .blitz-bar-wrap { width: 100%; height: 4px; background: rgba(0,0,0,0.4); position: absolute; top: 0; left: 0; z-index: 40; display: none; }
     .blitz-bar { height: 100%; width: 100%; background: linear-gradient(90deg, #ff5252, #ffd700, #00ff64); -webkit-transition: width 0.2s linear; transition: width 0.2s linear; }
 
-    .game-table { width: 100%; height: 100%; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-justify-content: space-between; justify-content: space-between; padding: 6px 5px 12px 5px; position: relative; }
-    .opponents { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; margin-top: 2px; z-index: 15; position: relative; -webkit-transition: -webkit-transform 0.35s; transition: transform 0.35s; }
-    .opponents.tabletop-p2-zone { -webkit-transform: rotate(180deg); transform: rotate(180deg); margin-top: 0; }
-    .avatar { background: rgba(0, 0, 0, 0.85); padding: 4px 18px; border-radius: 20px; font-weight: 600; border: 1px solid #d4af37; margin-bottom: -12px; z-index: 2; color: #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.5); font-size: 0.9rem; }
+    .opponents {
+        -webkit-flex-shrink: 0; flex-shrink: 0;
+        display: -webkit-flex; display: flex;
+        -webkit-flex-direction: column; flex-direction: column;
+        -webkit-align-items: center; align-items: center;
+        margin-top: 0; z-index: 15; position: relative;
+        -webkit-transition: -webkit-transform 0.35s; transition: transform 0.35s;
+    }
+    .opponents.tabletop-p2-zone { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
+    .avatar { background: rgba(0, 0, 0, 0.85); padding: 3px 14px; border-radius: 16px; font-weight: 600; border: 1px solid #d4af37; margin-bottom: -10px; z-index: 2; color: #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.5); font-size: 0.82rem; }
 
     .bot-bubble {
-        position: absolute; top: 28px; background: #fff; color: #111; padding: 5px 12px;
-        border-radius: 12px; font-size: 0.8rem; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+        position: absolute; top: 24px; background: #fff; color: #111; padding: 4px 10px;
+        border-radius: 10px; font-size: 0.76rem; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.6);
         z-index: 25; pointer-events: none; opacity: 0; -webkit-transition: opacity 0.3s; transition: opacity 0.3s;
         border: 2px solid #d4af37; white-space: nowrap;
     }
     .bot-bubble.visible { opacity: 1; }
 
-    .opponent-hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 95px; width: 100%; max-width: 95vw; }
-    .hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 115px; width: 100%; max-width: 96vw; }
+    .opponent-hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 72px; width: 100%; max-width: 95vw; }
+    .hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 106px; width: 100%; max-width: 96vw; }
 
-    .middle-section { -webkit-flex-grow: 1; flex-grow: 1; position: relative; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; width: 100%; }
-    .deck-area { position: absolute; left: 10px; top: 50%; -webkit-transform: translateY(-50%) scale(0.75); transform: translateY(-50%) scale(0.75); display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-transition: -webkit-transform 0.4s; transition: transform 0.4s; }
-    .deck-area.face-top-player { -webkit-transform: translateY(-50%) scale(0.75) rotate(180deg); transform: translateY(-50%) scale(0.75) rotate(180deg); }
+    /* Центральная секция: никогда не выталкивает карты игрока */
+    .middle-section {
+        -webkit-flex: 1 1 auto; flex: 1 1 auto;
+        min-height: 0; max-height: 100%;
+        position: relative;
+        display: -webkit-flex; display: flex;
+        -webkit-justify-content: center; justify-content: center;
+        -webkit-align-items: center; align-items: center;
+        width: 100%; overflow: visible;
+    }
+    .deck-area {
+        position: absolute; left: 4px; top: 50%;
+        -webkit-transform: translateY(-50%) scale(0.62); transform: translateY(-50%) scale(0.62);
+        -webkit-transform-origin: left center; transform-origin: left center;
+        display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center;
+        z-index: 5; -webkit-transition: -webkit-transform 0.4s; transition: transform 0.4s;
+    }
+    .deck-area.face-top-player { -webkit-transform: translateY(-50%) scale(0.62) rotate(180deg); transform: translateY(-50%) scale(0.62) rotate(180deg); }
 
     .card-back, .deck-back {
         background: repeating-linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3) 10px, rgba(0,0,0,0.5) 10px, rgba(0,0,0,0.5) 20px), #600000 !important;
@@ -148,8 +190,8 @@
     .card-back::before, .card-back::after, .deck-back::before, .deck-back::after { content: none !important; }
 
     .deck-back { z-index: 2; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; width: 75px; height: 110px; border-radius: 8px; }
-    #deck-count { color: #d4af37; font-size: 1.8rem; background: rgba(0,0,0,0.8); padding: 5px 12px; border-radius: 50%; border: 1px solid #d4af37; box-shadow: 0 0 10px rgba(0,0,0,0.8); font-weight: bold; }
-    .trump-card { position: absolute; -webkit-transform: rotate(90deg) translateX(45px); transform: rotate(90deg) translateX(45px); z-index: 1; }
+    #deck-count { color: #d4af37; font-size: 1.8rem; background: rgba(0,0,0,0.85); padding: 5px 12px; border-radius: 50%; border: 1px solid #d4af37; box-shadow: 0 0 10px rgba(0,0,0,0.8); font-weight: bold; }
+    .trump-card { position: absolute; -webkit-transform: rotate(90deg) translateX(42px); transform: rotate(90deg) translateX(42px); z-index: 1; }
 
     .trump-indicator {
         display: none; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center;
@@ -159,30 +201,58 @@
     }
     .trump-indicator span { font-size: 2.8rem; margin-top: 5px; }
 
-    .battlefield { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; -webkit-flex-wrap: wrap; flex-wrap: wrap; width: 100%; max-width: 72%; margin-left: 18%; min-height: 120px; padding: 10px; -webkit-transition: -webkit-transform 0.4s; transition: transform 0.4s; }
+    /* Поле боя: вмещает 3 пары в ряд (максимум 2 ряда даже при 6 картах) и масштабируется */
+    .battlefield {
+        display: -webkit-flex; display: flex;
+        -webkit-justify-content: center; justify-content: center;
+        -webkit-align-items: center; align-items: center;
+        -webkit-flex-wrap: wrap; flex-wrap: wrap;
+        width: 82%; max-width: 340px;
+        margin-left: 14%;
+        padding: 4px; z-index: 6;
+        -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s;
+    }
+    .battlefield.compact-grid {
+        -webkit-transform: scale(0.84); transform: scale(0.84);
+    }
     .battlefield.face-top-player { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
+    .battlefield.face-top-player.compact-grid { -webkit-transform: rotate(180deg) scale(0.84); transform: rotate(180deg) scale(0.84); }
 
-    .attack-pair { position: relative; width: 75px; height: 110px; margin: 7px; }
-    .attack-pair .card { position: absolute; left: 0; top: 0; margin: 0 !important; }
-    .attack-pair .defend-card { top: 15px; left: 15px; z-index: 2; box-shadow: -5px 5px 15px rgba(0,0,0,0.8); }
+    .attack-pair { position: relative; width: 72px; height: 104px; margin: 4px 10px 10px 4px; }
+    .attack-pair .card { position: absolute; left: 0; top: 0; margin: 0 !important; width: 70px; height: 100px; }
+    .attack-pair .defend-card { top: 12px; left: 12px; z-index: 2; box-shadow: -4px 4px 12px rgba(0,0,0,0.8); }
 
-    .player-area { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; z-index: 10; padding-bottom: 8px; }
-    .controls { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; width: 100%; max-width: 440px; margin-bottom: 5px; padding: 0 12px; -webkit-align-items: center; align-items: center; }
-    .player-name { font-weight: 600; background: rgba(0,0,0,0.8); padding: 5px 14px; border-radius: 12px; border: 1px solid #d4af37; color: #d4af37; font-size: 0.9rem; -webkit-transition: box-shadow 0.3s, border-color 0.3s; transition: box-shadow 0.3s, border-color 0.3s; }
+    .player-area {
+        -webkit-flex-shrink: 0; flex-shrink: 0;
+        display: -webkit-flex; display: flex;
+        -webkit-flex-direction: column; flex-direction: column;
+        -webkit-align-items: center; align-items: center;
+        z-index: 20; width: 100%;
+    }
+    .controls { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; width: 100%; max-width: 440px; margin-bottom: 4px; padding: 0 10px; -webkit-align-items: center; align-items: center; position: relative; }
+    .player-name { font-weight: 600; background: rgba(0,0,0,0.85); padding: 5px 12px; border-radius: 12px; border: 1px solid #d4af37; color: #d4af37; font-size: 0.85rem; }
     .player-name.active-turn-badge { border-color: #00ff64; color: #00ff64; box-shadow: 0 0 12px rgba(0, 255, 100, 0.5); }
     .action-btns-wrap { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
-    #action-btn, #p2-action-btn { width: auto; padding: 9px 18px; margin: 0; min-width: 125px; font-size: 0.95rem; }
-    #proezdnoy-btn, #p2-proezdnoy-btn { width: auto; padding: 9px 12px; margin: 0 6px 0 0; font-size: 0.85rem; }
+    #action-btn, #p2-action-btn { width: auto; padding: 8px 16px; margin: 0; min-width: 115px; font-size: 0.9rem; }
+    #proezdnoy-btn, #p2-proezdnoy-btn { width: auto; padding: 8px 10px; margin: 0 5px 0 0; font-size: 0.8rem; }
+
+    /* Панель быстрых эмодзи */
+    .emoji-bar {
+        position: absolute; bottom: 44px; left: 10px; background: rgba(15,20,15,0.96);
+        border: 1px solid #d4af37; border-radius: 14px; padding: 5px 8px;
+        display: -webkit-flex; display: flex; z-index: 95; box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+    }
+    .emoji-bar button { width: auto; margin: 0 3px; padding: 5px 8px; font-size: 1.1rem; background: rgba(255,255,255,0.1); border-radius: 8px; }
 
     .card {
-        width: 75px; height: 110px;
+        width: 72px; height: 104px;
         background: linear-gradient(135deg, #fff, #e6e6e6);
         border-radius: 8px; box-shadow: -3px 5px 15px rgba(0,0,0,0.6);
         display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center;
-        font-size: 1.8rem; font-weight: 900; cursor: pointer;
+        font-size: 1.7rem; font-weight: 900; cursor: pointer;
         position: relative;
-        -webkit-transition: -webkit-transform 0.3s, left 0.3s, top 0.3s, margin 0.3s, box-shadow 0.2s;
-        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), left 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), margin 0.3s, box-shadow 0.2s;
+        -webkit-transition: -webkit-transform 0.25s, left 0.25s, top 0.25s, margin 0.25s, box-shadow 0.2s;
+        transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), margin 0.25s, box-shadow 0.2s;
         -webkit-user-select: none; user-select: none; border: 1px solid #ccc; -webkit-flex-shrink: 0; flex-shrink: 0;
     }
 
@@ -198,25 +268,25 @@
 
     .card[data-suit="♥"], .card[data-suit="♦"] { color: #d32f2f; }
     .card[data-suit="♠"], .card[data-suit="♣"] { color: #1a1a1a; }
-    .card::before { content: attr(data-value) "\A" attr(data-suit); white-space: pre; position: absolute; top: 4px; left: 6px; font-size: 0.9rem; line-height: 0.9; }
-    .card::after { content: attr(data-value) "\A" attr(data-suit); white-space: pre; position: absolute; bottom: 4px; right: 6px; font-size: 0.9rem; line-height: 0.9; -webkit-transform: rotate(180deg); transform: rotate(180deg); }
+    .card::before { content: attr(data-value) "\A" attr(data-suit); white-space: pre; position: absolute; top: 4px; left: 5px; font-size: 0.85rem; line-height: 0.9; }
+    .card::after { content: attr(data-value) "\A" attr(data-suit); white-space: pre; position: absolute; bottom: 4px; right: 5px; font-size: 0.85rem; line-height: 0.9; -webkit-transform: rotate(180deg); transform: rotate(180deg); }
 
     .card.rotated-180 { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
     .card.disabled { -webkit-filter: brightness(0.4) grayscale(0.6); filter: brightness(0.4) grayscale(0.6); pointer-events: none; }
 
-    .card.can-translate { box-shadow: 0 0 20px 5px rgba(0, 198, 255, 0.8), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #00c6ff; }
-    .card.can-toss { box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.8), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #ffd700; }
-    .card.can-defend { box-shadow: 0 0 20px 5px rgba(0, 255, 100, 0.7), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #00ff64; }
-    .card.hint-glow { box-shadow: 0 0 28px 10px #ff00ff !important; border: 2px solid #ff80ff !important; -webkit-transform: translateY(-14px) scale(1.06); transform: translateY(-14px) scale(1.06); z-index: 90 !important; }
+    .card.can-translate { box-shadow: 0 0 18px 4px rgba(0, 198, 255, 0.85), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #00c6ff; }
+    .card.can-toss { box-shadow: 0 0 18px 4px rgba(255, 215, 0, 0.85), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #ffd700; }
+    .card.can-defend { box-shadow: 0 0 18px 4px rgba(0, 255, 100, 0.75), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #00ff64; }
+    .card.hint-glow { box-shadow: 0 0 26px 8px #ff00ff !important; border: 2px solid #ff80ff !important; -webkit-transform: translateY(-12px) scale(1.05); transform: translateY(-12px) scale(1.05); z-index: 90 !important; }
 
-    .holding { -webkit-transform: scale(1.1) translateY(-15px); transform: scale(1.1) translateY(-15px); box-shadow: 0 15px 30px rgba(0,0,0,0.8); z-index: 50 !important; }
+    .holding { -webkit-transform: scale(1.08) translateY(-12px); transform: scale(1.08) translateY(-12px); box-shadow: 0 15px 30px rgba(0,0,0,0.8); z-index: 50 !important; }
     .dragging { opacity: 0.95; cursor: grabbing; box-shadow: 0 20px 40px rgba(0,0,0,0.9) !important; -webkit-transition: none !important; transition: none !important; z-index: 9999 !important; -webkit-transform: scale(1.05); transform: scale(1.05); }
     .dragging.rotated-180 { -webkit-transform: rotate(180deg) scale(1.05); transform: rotate(180deg) scale(1.05); }
 
     .pogony-badge {
         display: none; background: linear-gradient(135deg, #ffd700, #b8860b); color: #111;
-        padding: 10px 16px; border-radius: 14px; font-weight: 900; font-size: 1.05rem;
-        margin-bottom: 14px; box-shadow: 0 0 25px rgba(255,215,0,0.8);
+        padding: 10px 16px; border-radius: 14px; font-weight: 900; font-size: 1rem;
+        margin-bottom: 12px; box-shadow: 0 0 25px rgba(255,215,0,0.8);
     }
     .discard-grid { display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: center; justify-content: center; margin: 10px 0; max-height: 45vh; overflow-y: auto; }
     .discard-mini { padding: 4px 8px; margin: 3px; border-radius: 6px; background: #fff; font-weight: bold; font-size: 0.9rem; }
@@ -237,8 +307,8 @@
         <input type="text" id="nickname" placeholder="Ваш никнейм (необязательно)" maxlength="12">
 
         <button id="show-bot-settings" class="btn-accent">Играть с Ботом 🤖</button>
-        <button id="btn-wifi-lobby" class="btn-wifi">📡 Игра по Wi-Fi (Без интернета)</button>
-        <button id="show-local-settings" class="btn-info">👥 На двоих (1 устройство)</button>
+        <button id="btn-wifi-lobby" class="btn-wifi">📡 По Wi-Fi / Точке доступа</button>
+        <button id="show-local-settings" class="btn-info">👥 На двоих (1 телефон)</button>
 
         <div class="menu-row">
             <button id="btn-host" class="btn-primary">Онлайн: Создать 🌐</button>
@@ -252,45 +322,73 @@
     </div>
 </div>
 
-<!-- ЛОББИ ИГРЫ ПО WI-FI (С ПОМОЩЬЮ 4-ЗНАЧНОГО ПИН-КОДА И РАДАРА) -->
+<!-- УНИВЕРСАЛЬНОЕ WI-FI ЛОББИ (ПИН-КОД + ПОЛНЫЙ АВТОНОМНЫЙ РЕЖИМ ДЛЯ САМОЛЕТА/ЛЕСА) -->
 <div id="wifi-screen" class="screen hidden">
     <div class="modal-box">
-        <h2 style="color: #96c93d;">📡 Wi-Fi Лобби (Офлайн)</h2>
-        <p style="color: #ccc; font-size: 0.8rem; margin-bottom: 8px;">
-            Один раздает Wi-Fi с телефона, второй подключается. Без интернета, без камер и без сложных кодов!
-        </p>
+        <h2 style="color: #96c93d;">📡 Игра по Wi-Fi</h2>
+        <div class="menu-row" style="margin-bottom: 10px;">
+            <button id="btn-wifi-mode-pin" class="btn-wifi">⚡ По ПИН-коду (4 цифры)</button>
+            <button id="btn-wifi-mode-air" class="btn-secondary">✈️ Полный Офлайн (Без SIM)</button>
+        </div>
 
-        <!-- Авторадар столов рядом -->
-        <div class="radar-box">
-            <div class="radar-title">
-                <span>🟢 Столы в вашей Wi-Fi сети:</span>
-                <span id="radar-status" style="font-size: 0.72rem; color: #aaa;">Поиск...</span>
+        <!-- РЕЖИМ 1: БЫСТРЫЙ ПИН-КОД -->
+        <div id="wifi-pin-section">
+            <div class="radar-box">
+                <div class="radar-title">
+                    <span>🟢 Открытые столы рядом:</span>
+                    <span id="radar-status" style="font-size: 0.72rem; color: #aaa;">Поиск...</span>
+                </div>
+                <div id="radar-list">
+                    <div style="font-size: 0.76rem; color: #888; margin-top: 4px;">Назовите другу 4 цифры ПИН-кода ниже!</div>
+                </div>
             </div>
-            <div id="radar-list">
-                <div style="font-size: 0.78rem; color: #888; margin-top: 4px;">Ищем столы рядом... Или создайте свой ниже!</div>
+
+            <div class="menu-row">
+                <button id="btn-wifi-tab-host" class="btn-accent">Я создаю стол</button>
+                <button id="btn-wifi-tab-join" class="btn-secondary">Ввести ПИН друга</button>
+            </div>
+
+            <div id="wifi-host-panel">
+                <p style="color: #ffd700; font-size: 0.82rem; font-weight: bold;">Ваш ПИН-код стола:</p>
+                <div class="pin-display" id="wifi-pin-code">----</div>
+            </div>
+
+            <div id="wifi-join-panel" class="hidden">
+                <input type="text" id="wifi-join-pin" placeholder="Введите 4 цифры ПИН" maxlength="6" style="font-size: 1.35rem; letter-spacing: 4px;">
+                <button id="btn-wifi-connect-pin" class="btn-primary">Подключиться ⚡</button>
             </div>
         </div>
 
-        <div class="menu-row">
-            <button id="btn-wifi-tab-host" class="btn-accent">Создать стол</button>
-            <button id="btn-wifi-tab-join" class="btn-secondary">Войти по ПИН</button>
+        <!-- РЕЖИМ 2: ЧИСТЫЙ ЛОКАЛЬНЫЙ WEBRTC БЕЗ ИНТЕРНЕТА И МОБИЛЬНЫХ ДАННЫХ -->
+        <div id="wifi-airplane-section" class="hidden">
+            <p style="color: #ccc; font-size: 0.76rem; margin-bottom: 8px;">
+                Работает при <b>полностью выключенных мобильных данных</b> через локальную точку доступа Wi-Fi.
+            </p>
+            <div class="menu-row">
+                <button id="btn-air-host-tab" class="btn-accent">1. Создать (Хост)</button>
+                <button id="btn-air-join-tab" class="btn-secondary">2. Войти (Гость)</button>
+            </div>
+
+            <div id="air-host-box">
+                <p style="color:#ffd700; font-size:0.78rem; margin-bottom:4px;">Шаг 1: Скопируйте ключ и передайте Гостю (AirDrop / Заметки / SMS):</p>
+                <textarea id="air-offer-out" readonly placeholder="Сбор локальных IP Wi-Fi..."></textarea>
+                <button id="btn-air-copy-offer" class="btn-secondary">📋 Скопировать ключ Хоста</button>
+                <p style="color:#00c6ff; font-size:0.78rem; margin:6px 0 4px 0;">Шаг 2: Вставьте ответный ключ от Гостя:</p>
+                <textarea id="air-answer-in" placeholder="Вставьте ответ Гостя сюда..."></textarea>
+                <button id="btn-air-connect" class="btn-primary">Соединить напрямую 📡</button>
+            </div>
+
+            <div id="air-join-box" class="hidden">
+                <p style="color:#00c6ff; font-size:0.78rem; margin-bottom:4px;">Шаг 1: Вставьте ключ от Хоста:</p>
+                <textarea id="air-offer-in" placeholder="Вставьте ключ Хоста сюда..."></textarea>
+                <button id="btn-air-make-answer" class="btn-primary">Создать ответный ключ</button>
+                <p style="color:#ffd700; font-size:0.78rem; margin:6px 0 4px 0;">Шаг 2: Скопируйте ответ и отправьте Хосту:</p>
+                <textarea id="air-answer-out" readonly placeholder="Здесь появится ваш ответ..."></textarea>
+                <button id="btn-air-copy-answer" class="btn-secondary">📋 Скопировать ответ</button>
+            </div>
         </div>
 
-        <!-- Панель ХОСТА -->
-        <div id="wifi-host-panel">
-            <p style="color: #ffd700; font-size: 0.85rem; font-weight: bold; margin: 4px 0;">Ваш 4-значный ПИН-код стола:</p>
-            <div class="pin-display" id="wifi-pin-code">----</div>
-            <p style="color: #aaa; font-size: 0.78rem; margin-bottom: 8px;">Сообщите этот пин-код другу или подождите подключения в радаре выше.</p>
-        </div>
-
-        <!-- Панель ГОСТЯ -->
-        <div id="wifi-join-panel" class="hidden">
-            <p style="color: #00c6ff; font-size: 0.85rem; font-weight: bold; margin: 6px 0;">Введите 4-значный ПИН-код друга:</p>
-            <input type="text" id="wifi-join-pin" placeholder="Напр: 4829" maxlength="6" style="font-size: 1.4rem; letter-spacing: 4px;">
-            <button id="btn-wifi-connect-pin" class="btn-primary">Подключиться по ПИН ⚡</button>
-        </div>
-
-        <button class="btn-danger back-to-menu" style="margin-top: 10px;">Назад в меню</button>
+        <button class="btn-danger back-to-menu" style="margin-top: 8px;">Назад в меню</button>
     </div>
 </div>
 
@@ -308,11 +406,11 @@
 <div id="host-screen" class="screen hidden">
     <div class="modal-box">
         <h2 style="color: #d4af37;">Онлайн через Интернет</h2>
-        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 10px;">Скопируйте ваш код и отправьте другу:</p>
+        <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Скопируйте ваш код и отправьте другу:</p>
         <textarea id="host-offer" readonly placeholder="Генерация ключа..."></textarea>
-        <button id="btn-copy-offer" class="btn-secondary" style="margin-top: 5px;">Скопировать код</button>
+        <button id="btn-copy-offer" class="btn-secondary">Скопировать код</button>
 
-        <p style="color: #ccc; font-size: 0.9rem; margin: 15px 0 10px 0;">Вставьте ответ от друга сюда:</p>
+        <p style="color: #ccc; font-size: 0.85rem; margin: 10px 0 6px 0;">Вставьте ответ от друга сюда:</p>
         <textarea id="host-answer" placeholder="Вставьте ответ друга..."></textarea>
         <button id="btn-connect-host" class="btn-primary">Подключить друга</button>
         <button class="btn-danger back-to-menu">Отмена</button>
@@ -323,14 +421,14 @@
 <div id="join-screen" class="screen hidden">
     <div class="modal-box">
         <h2 style="color: #d4af37;">Вход через Интернет</h2>
-        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 10px;">Вставьте код, который прислал друг:</p>
+        <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Вставьте код, который прислал друг:</p>
         <textarea id="join-offer" placeholder="Вставьте код друга..."></textarea>
         <button id="btn-generate-answer" class="btn-primary">Сгенерировать ответ</button>
 
-        <p style="color: #ccc; font-size: 0.9rem; margin: 15px 0 10px 0;">Скопируйте этот ответ и отправьте другу:</p>
+        <p style="color: #ccc; font-size: 0.85rem; margin: 10px 0 6px 0;">Скопируйте этот ответ и отправьте другу:</p>
         <textarea id="join-answer" readonly placeholder="Ваш ответ появится здесь..."></textarea>
-        <button id="btn-copy-answer" class="btn-secondary" style="margin-top: 5px;">Скопировать ответ</button>
-        <button class="btn-danger back-to-menu" style="margin-top: 10px;">Отмена</button>
+        <button id="btn-copy-answer" class="btn-secondary">Скопировать ответ</button>
+        <button class="btn-danger back-to-menu" style="margin-top: 8px;">Отмена</button>
     </div>
 </div>
 
@@ -352,8 +450,9 @@
     <div class="modal-box">
         <h2 style="color: #d4af37;">Как играть</h2>
         <div class="instruction-text">
-            • <span>Игра по Wi-Fi без интернета 📡:</span><br>
-            Один включает точку доступа, второй подключается к ней. Хост нажимает «Создать стол» и видит 4-значный ПИН-код. Гость вводит его во вкладке «Войти по ПИН» (или выбирает стол в радаре сети) — готово!<br><br>
+            • <span>Игра по Wi-Fi 📡:</span><br>
+            1) <b>По ПИН-коду:</b> мгновенный вход по 4 цифрам.<br>
+            2) <b>Полный Офлайн (Без SIM):</b> работает даже с выключенной сотовой связью через точку доступа.<br><br>
             • <span>Цвета карт:</span><br>
             🟢 <b>Зеленый</b> — Карта может отбить атаку.<br>
             🟡 <b>Золотой</b> — Карту можно подкинуть.<br>
@@ -422,7 +521,7 @@
     </div>
 </div>
 
-<!-- ШТОРКА ПЕРЕДАЧИ ХОДА (ДЛЯ ИГРЫ ВДВОЕМ) -->
+<!-- ШТОРКА ПЕРЕДАЧИ ХОДА -->
 <div id="curtain-screen" class="screen hidden" style="z-index: 150; background: rgba(5, 12, 8, 0.98);">
     <div class="modal-box">
         <h2 id="curtain-title" style="color: #ffd700;">Ход Игрока 2</h2>
@@ -492,7 +591,17 @@
 
         <div class="player-area">
             <div class="controls">
-                <span id="display-nickname" class="player-name">Игрок</span>
+                <div style="display:flex; align-items:center;">
+                    <span id="display-nickname" class="player-name">Игрок</span>
+                    <button id="btn-emoji-toggle" class="hud-btn" style="margin-left:5px; padding:5px 8px;">💬</button>
+                </div>
+                <div id="emoji-bar" class="emoji-bar hidden">
+                    <button data-emo="😎 Красиво!">😎</button>
+                    <button data-emo="⏳ Думай быстрее!">⏳</button>
+                    <button data-emo="🎖️ С погонами!">🎖️</button>
+                    <button data-emo="😂 Ха-ха!">😂</button>
+                    <button data-emo="🤝 Спасибо за игру!">🤝</button>
+                </div>
                 <div class="action-btns-wrap">
                     <button id="proezdnoy-btn" class="btn-info glowing hidden">🎫 Проездной</button>
                     <button id="action-btn" class="btn-danger">БИТО</button>
@@ -536,6 +645,20 @@
             c.appendChild(t);
             setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 2200);
         }
+
+        // ---------- Быстрые эмодзи-реплики ----------
+        $('btn-emoji-toggle').onclick = function () {
+            $('emoji-bar').classList.toggle('hidden');
+        };
+        each($('emoji-bar').querySelectorAll('button'), function (b) {
+            b.onclick = function () {
+                var msg = b.getAttribute('data-emo');
+                $('emoji-bar').classList.add('hidden');
+                showToast('Вы: ' + msg);
+                if (isOnlineGame && conn) conn.send({ type: 'CHAT_EMOJI', text: msg });
+                else if (!isLocalTwoPlayer) setTimeout(function () { sayBotBubble('Азартно играешь! 😉'); }, 700);
+            };
+        });
 
         // ---------- Звуковой синтезатор (Web Audio API) ----------
         var soundEnabled = true;
@@ -751,7 +874,7 @@
 
         function onlineAvailable() {
             if (typeof navigator.onLine === 'boolean' && !navigator.onLine) {
-                showToast('Нет интернета — используйте режим по Wi-Fi 📡'); return false;
+                showToast('Нет интернета — выберите режим Wi-Fi 📡'); return false;
             }
             if (!webrtcOK) {
                 showToast('Сеть недоступна на этом устройстве'); return false;
@@ -851,25 +974,30 @@
             }
         };
 
-        $('btn-rematch').onclick = function () {
+        // Исправлено: Реванш и перезапуск теперь работают у ОБОИХ игроков (и у Хоста, и у Гостя)
+        function triggerRematchOrRestart() {
             if (isOnlineGame) {
-                if (isHost && conn) startOnlineHostGame();
-                else showToast('Ожидание перезапуска от Хоста...');
+                if (isHost && conn) {
+                    startOnlineHostGame();
+                } else if (conn) {
+                    conn.send({ type: 'REQUEST_REMATCH' });
+                    showToast('Запрос новой партии отправлен Хосту...');
+                }
                 return;
             }
             if (isLocalTwoPlayer) { startGameLocal(); return; }
             if (currentBet > stats.chips) currentBet = stats.chips;
             if (currentBet > 0) { stats.chips -= currentBet; saveStatsData(); playChipSound(); }
             startGameBot();
-        };
+        }
+
+        $('btn-rematch').onclick = triggerRematchOrRestart;
 
         $('btn-pause').onclick = function () { screens.pause.classList.remove('hidden'); };
         $('btn-resume').onclick = function () { screens.pause.classList.add('hidden'); };
         $('btn-restart-quick').onclick = function () {
             screens.pause.classList.add('hidden');
-            if (isLocalTwoPlayer) startGameLocal();
-            else if (!isOnlineGame) startGameBot();
-            else if (isHost && conn) startOnlineHostGame();
+            triggerRematchOrRestart();
         };
         $('btn-quit-table').onclick = function () {
             clearAllTimers();
@@ -877,11 +1005,28 @@
             showScreen('auth');
         };
 
-        // ---------- УДОБНАЯ ИГРА ПО WI-FI ЧЕРЕЗ 4-ЗНАЧНЫЙ ПИН-КОД (100% РАБОТАЕТ БЕЗ ИНТЕРНЕТА) ----------
+        // ---------- ДВОЙНОЙ РЕЖИМ WI-FI: 1) БЫСТРЫЙ ПИН-КОД + 2) ПОЛНЫЙ ОФЛАЙН БЕЗ МОБИЛЬНЫХ ДАННЫХ ----------
         var wifiPC = null, wifiDC = null;
-        var lanChannel = (typeof BroadcastChannel !== 'undefined') ? new BroadcastChannel('durak_wifi_pin_v2') : null;
+        var lanChannel = (typeof BroadcastChannel !== 'undefined') ? new BroadcastChannel('durak_wifi_pin_v3') : null;
         var activeWifiPin = '';
         var activeWifiPeer = null;
+        var discoveredRooms = {};
+
+        $('btn-wifi-mode-pin').onclick = function () {
+            $('btn-wifi-mode-pin').className = 'btn-wifi';
+            $('btn-wifi-mode-air').className = 'btn-secondary';
+            $('wifi-pin-section').classList.remove('hidden');
+            $('wifi-airplane-section').classList.add('hidden');
+            switchWifiPinTab('host');
+        };
+
+        $('btn-wifi-mode-air').onclick = function () {
+            $('btn-wifi-mode-pin').className = 'btn-secondary';
+            $('btn-wifi-mode-air').className = 'btn-wifi';
+            $('wifi-pin-section').classList.add('hidden');
+            $('wifi-airplane-section').classList.remove('hidden');
+            initPureOfflineHost();
+        };
 
         function switchWifiPinTab(tab) {
             if (tab === 'host') {
@@ -903,34 +1048,42 @@
 
         function openWifiPinLobby() {
             showScreen('wifi');
-            switchWifiPinTab('host');
+            if (typeof navigator.onLine === 'boolean' && !navigator.onLine) {
+                $('btn-wifi-mode-air').click();
+            } else {
+                $('btn-wifi-mode-pin').click();
+            }
         }
 
         function createWifiPinHost() {
             isHost = true;
             activeWifiPin = Math.floor(Math.random() * 9000 + 1000).toString();
             $('wifi-pin-code').textContent = activeWifiPin;
+            broadcastWifiRoom(activeWifiPin);
 
+            if (typeof Peer === 'undefined') {
+                $('wifi-pin-code').textContent = activeWifiPin;
+                return;
+            }
             if (activeWifiPeer) { try { activeWifiPeer.destroy(); } catch (e) {} }
-            // Используем уникальный префикс пин-кода в PeerJS ID, чтобы устройства в одной точке доступа находили друг друга
-            var hostPeerId = 'durak_wifi_' + activeWifiPin;
-            activeWifiPeer = new Peer(hostPeerId, { debug: 0 });
+            var hostPeerId = 'durak_wifi_room_' + activeWifiPin;
+            try {
+                activeWifiPeer = new Peer(hostPeerId, {
+                    debug: 0,
+                    config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] }
+                });
 
-            activeWifiPeer.on('open', function () {
-                showToast('Стол создан! ПИН: ' + activeWifiPin);
-                broadcastWifiRoom(activeWifiPin);
-            });
+                activeWifiPeer.on('open', function () {
+                    showToast('Стол создан! ПИН: ' + activeWifiPin);
+                    broadcastWifiRoom(activeWifiPin);
+                });
 
-            activeWifiPeer.on('connection', function (c) {
-                conn = c; setupConn();
-                showToast('Гость подключился по ПИН-коду!');
-                setTimeout(startOnlineHostGame, 500);
-            });
-
-            activeWifiPeer.on('error', function () {
-                // Если пин занят, пробуем другой
-                setTimeout(createWifiPinHost, 1000);
-            });
+                activeWifiPeer.on('connection', function (c) {
+                    conn = c; setupConn();
+                    showToast('Гость подключился по ПИН-коду!');
+                    setTimeout(startOnlineHostGame, 500);
+                });
+            } catch (e) {}
         }
 
         function broadcastWifiRoom(pin) {
@@ -946,13 +1099,41 @@
         if (lanChannel) {
             lanChannel.onmessage = function (ev) {
                 var d = ev.data;
-                if (!d || d.type !== 'WIFI_ROOM') return;
-                discoveredRooms[d.pin] = d;
-                renderPinRadar();
+                if (!d) return;
+                if (d.type === 'WIFI_ROOM' && d.pin !== activeWifiPin) {
+                    discoveredRooms[d.pin] = d;
+                    renderPinRadar();
+                } else if (d.type === 'LOCAL_CHANNEL_CONNECT' && isHost && d.pin === activeWifiPin) {
+                    bindBroadcastChannelAsConn(d.guestName);
+                }
             };
         }
 
-        var discoveredRooms = {};
+        // Если оба игрока открыли игру в локальном канале — соединяем напрямую без серверов
+        function bindBroadcastChannelAsConn(remotePlayerName) {
+            var listeners = {};
+            conn = {
+                send: function (obj) {
+                    if (lanChannel) lanChannel.postMessage({ type: 'BC_GAME_PACKET', payload: obj });
+                },
+                on: function (ev, cb) { listeners[ev] = cb; }
+            };
+            setupConn();
+            var origHandler = lanChannel.onmessage;
+            lanChannel.onmessage = function (ev) {
+                if (ev.data && ev.data.type === 'BC_GAME_PACKET') {
+                    if (listeners.data) listeners.data(ev.data.payload);
+                } else if (origHandler) {
+                    origHandler(ev);
+                }
+            };
+            if (isHost) {
+                $('opponent-name').textContent = remotePlayerName || 'Гость';
+                showToast('Подключено напрямую! ⚡');
+                setTimeout(startOnlineHostGame, 400);
+            }
+        }
+
         function renderPinRadar() {
             var list = $('radar-list');
             var keys = Object.keys(discoveredRooms);
@@ -963,7 +1144,8 @@
                 var r = discoveredRooms[k];
                 var div = document.createElement('div');
                 div.className = 'radar-item';
-                div.innerHTML = '<span>👤 <b>' + r.hostName + '</b> (ПИН: <b>' + r.pin + '</b>)</span>';
+                var span = document.createElement('span');
+                span.innerHTML = '👤 <b>' + r.hostName + '</b> (ПИН: <b>' + r.pin + '</b>)';
                 var btn = document.createElement('button');
                 btn.className = 'btn-wifi';
                 btn.textContent = 'Войти ⚡';
@@ -971,7 +1153,7 @@
                     $('wifi-join-pin').value = r.pin;
                     connectWifiByPin(r.pin);
                 };
-                div.appendChild(div); // исправлено добавление кнопки
+                div.appendChild(span);
                 div.appendChild(btn);
                 list.appendChild(div);
             });
@@ -979,11 +1161,30 @@
 
         function connectWifiByPin(pin) {
             isHost = false;
-            var targetPeerId = 'durak_wifi_' + pin.trim();
-            showToast('Подключение к столу ' + pin + '...');
-            
+            var cleanPin = pin.trim();
+            showToast('Подключение к столу ' + cleanPin + '...');
+
+            if (discoveredRooms[cleanPin] && lanChannel) {
+                bindBroadcastChannelAsConn(discoveredRooms[cleanPin].hostName);
+                lanChannel.postMessage({
+                    type: 'LOCAL_CHANNEL_CONNECT',
+                    pin: cleanPin,
+                    guestName: getPlayerNickname('Гость')
+                });
+                return;
+            }
+
+            if (typeof Peer === 'undefined') {
+                showToast('Мобильные данные отключены — откройте вкладку «✈️ Полный Офлайн»');
+                return;
+            }
+
+            var targetPeerId = 'durak_wifi_room_' + cleanPin;
             if (activeWifiPeer) { try { activeWifiPeer.destroy(); } catch (e) {} }
-            activeWifiPeer = new Peer(null, { debug: 0 });
+            activeWifiPeer = new Peer(null, {
+                debug: 0,
+                config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] }
+            });
 
             activeWifiPeer.on('open', function () {
                 var c = activeWifiPeer.connect(targetPeerId);
@@ -993,7 +1194,7 @@
                     showToast('Успешно подключено по ПИН-коду! 📡');
                 });
                 c.on('error', function () {
-                    showToast('Не удалось подключиться к столу ' + pin);
+                    showToast('Не удалось найти ПИН ' + cleanPin);
                 });
             });
         }
@@ -1002,6 +1203,144 @@
             var pin = $('wifi-join-pin').value.trim();
             if (pin.length < 4) { showToast('Введите 4 цифры ПИН-кода'); return; }
             connectWifiByPin(pin);
+        };
+
+        // ---------- РЕЖИМ 2: ЧИСТЫЙ ЛОКАЛЬНЫЙ WEBRTC БЕЗ ИНТЕРНЕТА (СОХРАНЯЕТ ПОЛНЫЙ SDP ТОЧКИ ДОСТУПА) ----------
+        $('btn-air-host-tab').onclick = function () {
+            $('btn-air-host-tab').className = 'btn-accent';
+            $('btn-air-join-tab').className = 'btn-secondary';
+            $('air-host-box').classList.remove('hidden');
+            $('air-join-box').classList.add('hidden');
+            initPureOfflineHost();
+        };
+
+        $('btn-air-join-tab').onclick = function () {
+            $('btn-air-host-tab').className = 'btn-secondary';
+            $('btn-air-join-tab').className = 'btn-accent';
+            $('air-host-box').classList.add('hidden');
+            $('air-join-box').classList.remove('hidden');
+        };
+
+        function bindRawDataChannel(dc) {
+            wifiDC = dc;
+            var listeners = {};
+            conn = {
+                send: function (obj) {
+                    if (wifiDC && wifiDC.readyState === 'open') {
+                        try { wifiDC.send(JSON.stringify(obj)); } catch (e) {}
+                    }
+                },
+                on: function (ev, cb) { listeners[ev] = cb; }
+            };
+            setupConn();
+            dc.onmessage = function (e) {
+                if (listeners.data) {
+                    try { listeners.data(JSON.parse(e.data)); } catch (err) {}
+                }
+            };
+            dc.onopen = function () {
+                isOnlineGame = true; isLocalTwoPlayer = false;
+                if (isHost) {
+                    showToast('Прямая связь по Wi-Fi установлена! ✈️');
+                    setTimeout(startOnlineHostGame, 400);
+                } else {
+                    conn.send({ type: 'CLIENT_INFO', name: getPlayerNickname('Гость') });
+                    showToast('Подключено напрямую без интернета! ✈️');
+                }
+            };
+        }
+
+        function initPureOfflineHost() {
+            isHost = true;
+            $('air-offer-out').value = 'Сбор локальных адресов Wi-Fi...';
+            if (wifiPC) { try { wifiPC.close(); } catch (e) {} }
+            wifiPC = new RTCPeer({ iceServers: [] });
+            var dc = wifiPC.createDataChannel('durak_air_lan');
+            bindRawDataChannel(dc);
+
+            var done = false;
+            function exportFullOffer() {
+                if (done || !wifiPC.localDescription) return;
+                done = true;
+                var payload = {
+                    sdp: wifiPC.localDescription,
+                    name: getPlayerNickname('Хост')
+                };
+                $('air-offer-out').value = toBase64UTF8(JSON.stringify(payload));
+            }
+
+            wifiPC.onicecandidate = function (e) {
+                if (!e.candidate) exportFullOffer();
+            };
+            wifiPC.createOffer().then(function (offer) {
+                return wifiPC.setLocalDescription(offer);
+            }).then(function () {
+                setTimeout(exportFullOffer, 800);
+            });
+        }
+
+        $('btn-air-copy-offer').onclick = function () {
+            $('air-offer-out').select();
+            try { document.execCommand('copy'); } catch (e) {}
+            showToast('Ключ Хоста скопирован!');
+        };
+
+        $('btn-air-make-answer').onclick = function () {
+            var str = $('air-offer-in').value.trim();
+            if (!str) { showToast('Вставьте ключ Хоста'); return; }
+            try {
+                var data = JSON.parse(fromBase64UTF8(str));
+                isHost = false;
+                $('opponent-name').textContent = data.name || 'Хост';
+                if (wifiPC) { try { wifiPC.close(); } catch (e) {} }
+                wifiPC = new RTCPeer({ iceServers: [] });
+                wifiPC.ondatachannel = function (ev) { bindRawDataChannel(ev.channel); };
+
+                var done = false;
+                function exportFullAnswer() {
+                    if (done || !wifiPC.localDescription) return;
+                    done = true;
+                    var ansPayload = {
+                        sdp: wifiPC.localDescription,
+                        name: getPlayerNickname('Гость')
+                    };
+                    $('air-answer-out').value = toBase64UTF8(JSON.stringify(ansPayload));
+                    showToast('Ответ готов — скопируйте и отправьте Хосту!');
+                }
+
+                wifiPC.onicecandidate = function (e) {
+                    if (!e.candidate) exportFullAnswer();
+                };
+
+                wifiPC.setRemoteDescription(new RTCSessionDescription(data.sdp)).then(function () {
+                    return wifiPC.createAnswer();
+                }).then(function (ans) {
+                    return wifiPC.setLocalDescription(ans);
+                }).then(function () {
+                    setTimeout(exportFullAnswer, 800);
+                });
+            } catch (e) {
+                showToast('Ошибка чтения ключа Хоста');
+            }
+        };
+
+        $('btn-air-copy-answer').onclick = function () {
+            $('air-answer-out').select();
+            try { document.execCommand('copy'); } catch (e) {}
+            showToast('Ответ скопирован!');
+        };
+
+        $('btn-air-connect').onclick = function () {
+            var str = $('air-answer-in').value.trim();
+            if (!str) { showToast('Вставьте ответ Гостя'); return; }
+            try {
+                var data = JSON.parse(fromBase64UTF8(str));
+                $('opponent-name').textContent = data.name || 'Гость';
+                wifiPC.setRemoteDescription(new RTCSessionDescription(data.sdp));
+                showToast('Установка прямой связи...');
+            } catch (e) {
+                showToast('Неверный ключ ответа');
+            }
         };
 
         // ---------- Онлайн через Интернет (PeerJS) ----------
@@ -1073,6 +1412,14 @@
             conn.on('data', function (data) {
                 if (data.type === 'CLIENT_INFO') {
                     if (isHost) $('opponent-name').textContent = data.name;
+                } else if (data.type === 'REQUEST_REMATCH') {
+                    if (isHost) {
+                        showToast('Соперник запустил новую партию! 🔄');
+                        startOnlineHostGame();
+                    }
+                } else if (data.type === 'CHAT_EMOJI') {
+                    playChipSound();
+                    showToast(($('opponent-name').textContent || 'Соперник') + ': ' + data.text);
                 } else if (data.type === 'START') {
                     deck = data.deck; trumpSuit = data.trumpSuit; gameMode = data.gameMode;
                     deckSize = data.deckSize || 36; blitzEnabled = !!data.blitzEnabled;
@@ -1132,6 +1479,7 @@
             proezdnoyUsed = false; discardPeekPaid = false; undoSnapshot = null;
             lastPlayerAttackCards = [];
             $('battlefield').innerHTML = '';
+            $('battlefield').classList.remove('compact-grid');
             $('discard-count').textContent = '0';
             $('btn-undo').disabled = true;
         }
@@ -1620,8 +1968,8 @@
             var bottomActor = isCurtainSwap ? 2 : 1;
             var topCards = isCurtainSwap ? playerHand : botHand;
 
-            var pWidth = pContainer.clientWidth || window.innerWidth * 0.9;
-            var overlapP = -40; var totalWidthP = bottomCards.length * 75;
+            var pWidth = pContainer.clientWidth || window.innerWidth * 0.92;
+            var overlapP = -38; var totalWidthP = bottomCards.length * 72;
             if (totalWidthP > 0 && bottomCards.length > 1 && totalWidthP + (bottomCards.length - 1) * overlapP > pWidth) {
                 overlapP = Math.floor((pWidth - totalWidthP) / (bottomCards.length - 1));
             }
@@ -1637,8 +1985,8 @@
             });
 
             var bWidth = bContainer.clientWidth || window.innerWidth * 0.9;
-            var cardW = isTabletop ? 70 : 60;
-            var overlapB = isTabletop ? -38 : -45;
+            var cardW = isTabletop ? 66 : 54;
+            var overlapB = isTabletop ? -36 : -40;
             var totalWidthB = topCards.length * cardW;
             if (totalWidthB > 0 && topCards.length > 1 && totalWidthB + (topCards.length - 1) * overlapB > bWidth) {
                 overlapB = Math.floor((bWidth - totalWidthB) / (topCards.length - 1));
@@ -1650,11 +1998,11 @@
                     el.className = 'card';
                     el.setAttribute("data-value", card.v); el.setAttribute("data-suit", card.s);
                     el.innerHTML = card.v + card.s;
-                    el.style.width = '70px'; el.style.height = '100px';
+                    el.style.width = '66px'; el.style.height = '94px';
                     attachDragAndDropHandlers(el, card, 2, true);
                 } else {
                     el.className = 'card card-back';
-                    el.style.width = '60px'; el.style.height = '85px';
+                    el.style.width = '54px'; el.style.height = '76px';
                 }
                 if (i > 0) el.style.marginLeft = overlapB + 'px';
                 el.style.zIndex = i;
@@ -1965,8 +2313,10 @@
             return d;
         }
 
+        // Автоматическое масштабирование стола при 4+ парах карт, чтобы рука никогда не уезжала
         function renderTable() {
             var bf = $('battlefield'); bf.innerHTML = '';
+            bf.classList.toggle('compact-grid', tablePairs.length > 3);
             tablePairs.forEach(function (pair) {
                 var wrap = document.createElement('div'); wrap.className = 'attack-pair';
                 wrap.appendChild(makeCardEl('card', pair.attack));
@@ -2148,7 +2498,9 @@
                 tablePairs = [];
             }
 
-            $('battlefield').innerHTML = ''; dealCards();
+            $('battlefield').innerHTML = '';
+            $('battlefield').classList.remove('compact-grid');
+            dealCards();
 
             if (!isGameOver) {
                 showToast(isPlayerTurn ? ("Ходит " + player1BaseName) : (isOnlineGame ? "Ход соперника" : (isLocalTwoPlayer ? ("Ходит " + player2BaseName) : "Ход Крупье")));
