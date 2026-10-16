@@ -1,26 +1,33 @@
-var CACHE_NAME = 'durak-casino-v3';
-var ASSETS = [
+var CACHE_NAME = 'durak-pwa-v5';
+var URLS_TO_CACHE = [
     './',
     './index.html',
     'https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js',
     'https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js'
 ];
 
-// При первом открытии сохраняем игру и библиотеки сканера/сети в память телефона навсегда
 self.addEventListener('install', function (event) {
     self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
             return Promise.all(
-                ASSETS.map(function (url) {
-                    return cache.add(url).catch(function () {});
+                URLS_TO_CACHE.map(function (url) {
+                    return fetch(url, { cache: 'reload' }).then(function (res) {
+                        if (!res || !res.ok) return;
+                        // Очищаем флаг redirected, чтобы Chrome не блокировал страницу в офлайне
+                        var cleanResponse = res.redirected ? new Response(res.body, {
+                            status: res.status,
+                            statusText: res.statusText,
+                            headers: res.headers
+                        }) : res;
+                        return cache.put(url, cleanResponse);
+                    }).catch(function () {});
                 })
             );
         })
     );
 });
 
-// Удаляем старый кэш при обновлении версии
 self.addEventListener('activate', function (event) {
     event.waitUntil(
         caches.keys().then(function (keys) {
@@ -35,23 +42,30 @@ self.addEventListener('activate', function (event) {
     );
 });
 
-// Отдаем игру мгновенно из памяти телефона даже в авиарежиме и без интернета!
 self.addEventListener('fetch', function (event) {
     if (event.request.method !== 'GET') return;
+
+    // Для переходов по странице всегда отдаем живой HTML из кэша Service Worker
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request).then(function (networkRes) {
+                var clone = networkRes.clone();
+                caches.open(CACHE_NAME).then(function (cache) {
+                    cache.put('./index.html', clone);
+                });
+                return networkRes;
+            }).catch(function () {
+                return caches.match('./index.html').then(function (res) {
+                    return res || caches.match('./');
+                });
+            })
+        );
+        return;
+    }
+
     event.respondWith(
         caches.match(event.request, { ignoreSearch: true }).then(function (cached) {
-            var networkFetch = fetch(event.request).then(function (response) {
-                if (response && response.status === 200) {
-                    var copy = response.clone();
-                    caches.open(CACHE_NAME).then(function (cache) {
-                        cache.put(event.request, copy);
-                    });
-                }
-                return response;
-            }).catch(function () {
-                return cached || caches.match('./index.html') || caches.match('./');
-            });
-            return cached || networkFetch;
+            return cached || fetch(event.request);
         })
     );
 });
