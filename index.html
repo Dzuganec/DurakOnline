@@ -516,12 +516,10 @@
                 <label><input type="radio" name="bot-diff" value="hard"> Сложный (x2)</label>
                 <label><input type="radio" name="bot-diff" value="expert"> Профи 🔥 (x3)</label>
             </div>
-        </div>
 
-        <div id="bet-section">
             <div class="section-label">Ваша ставка (Баланс: <span id="settings-chips">1000</span> 🪙)</div>
             <div class="settings-group">
-                <label><input type="radio" name="bet-amount" value="0"> 0 (+100 бонус)</label>
+                <label><input type="radio" name="bet-amount" value="0"> 0</label>
                 <label><input type="radio" name="bet-amount" value="50" checked> 50</label>
                 <label><input type="radio" name="bet-amount" value="250"> 250</label>
                 <label><input type="radio" name="bet-amount" value="500"> 500</label>
@@ -1135,7 +1133,6 @@
             getPlayerNickname('Игрок');
             pendingGameType = 'bot';
             $('bot-diff-section').classList.remove('hidden');
-            $('bet-section').classList.remove('hidden');
             $('local-mode-section').classList.add('hidden');
             showScreen('settings');
         };
@@ -1144,7 +1141,6 @@
             getPlayerNickname('Игрок 1');
             pendingGameType = 'local';
             $('bot-diff-section').classList.add('hidden');
-            $('bet-section').classList.remove('hidden');
             $('local-mode-section').classList.remove('hidden');
             showScreen('settings');
         };
@@ -1154,7 +1150,6 @@
             getPlayerNickname('Игрок');
             pendingGameType = 'offline-wifi';
             $('bot-diff-section').classList.add('hidden');
-            $('bet-section').classList.remove('hidden');
             $('local-mode-section').classList.add('hidden');
             showScreen('settings');
         };
@@ -1172,21 +1167,9 @@
             getPlayerNickname('Игрок');
             pendingGameType = 'online-pin';
             $('bot-diff-section').classList.add('hidden');
-            $('bet-section').classList.remove('hidden');
             $('local-mode-section').classList.add('hidden');
             showScreen('settings');
         };
-
-        function deductSelectedBet() {
-            var betVal = document.querySelector('input[name="bet-amount"]:checked').value;
-            currentBet = betVal === 'allin' ? stats.chips : parseInt(betVal, 10);
-            if (currentBet > stats.chips) currentBet = stats.chips;
-            if (currentBet > 0) {
-                stats.chips -= currentBet;
-                saveStatsData();
-                playChipSound();
-            }
-        }
 
         $('start-game-btn').onclick = function () {
             gameMode = document.querySelector('input[name="game-mode"]:checked').value;
@@ -1195,20 +1178,27 @@
 
             if (pendingGameType === 'bot') {
                 difficulty = document.querySelector('input[name="bot-diff"]:checked').value;
-                deductSelectedBet();
+                var betVal = document.querySelector('input[name="bet-amount"]:checked').value;
+                currentBet = betVal === 'allin' ? stats.chips : parseInt(betVal, 10);
+                if (currentBet > stats.chips) currentBet = stats.chips;
+                if (currentBet > 0) {
+                    stats.chips -= currentBet;
+                    saveStatsData();
+                    playChipSound();
+                }
                 isOnlineGame = false; isLocalTwoPlayer = false;
                 startGameBot();
             } else if (pendingGameType === 'local') {
                 localViewMode = document.querySelector('input[name="local-view"]:checked').value;
-                deductSelectedBet();
+                currentBet = 0;
                 isOnlineGame = false; isLocalTwoPlayer = true;
                 startGameLocal();
             } else if (pendingGameType === 'offline-wifi') {
-                deductSelectedBet();
+                currentBet = 0;
                 isOnlineGame = true; isLocalTwoPlayer = false;
                 openOfflineWifiScreen();
             } else if (pendingGameType === 'online-pin') {
-                deductSelectedBet();
+                currentBet = 0;
                 isOnlineGame = true; isLocalTwoPlayer = false;
                 openOnlinePinScreen();
             }
@@ -1217,20 +1207,16 @@
         function triggerRematchOrRestart() {
             if (isOnlineGame) {
                 if (isHost && conn) {
-                    if (currentBet > stats.chips) currentBet = stats.chips;
-                    if (currentBet > 0) { stats.chips -= currentBet; saveStatsData(); playChipSound(); }
                     startOnlineHostGame();
                 } else if (conn) {
-                    if (currentBet > stats.chips) currentBet = stats.chips;
-                    if (currentBet > 0) { stats.chips -= currentBet; saveStatsData(); playChipSound(); }
                     conn.send({ type: 'REQUEST_REMATCH' });
                     showToast('Запрос новой партии отправлен Хосту...');
                 }
                 return;
             }
+            if (isLocalTwoPlayer) { startGameLocal(); return; }
             if (currentBet > stats.chips) currentBet = stats.chips;
             if (currentBet > 0) { stats.chips -= currentBet; saveStatsData(); playChipSound(); }
-            if (isLocalTwoPlayer) { startGameLocal(); return; }
             startGameBot();
         }
 
@@ -2809,36 +2795,32 @@
             }
         }
 
-        // ИСПРАВЛЕНО: Фишки и победы теперь начисляются во ВСЕХ режимах (с Ботом, по QR, Онлайн и Вдвоем)
         function checkWin() {
             if (deck.length === 0) {
                 if (playerHand.length === 0 && botHand.length === 0) {
-                    if (currentBet > 0) {
-                        stats.chips += currentBet;
-                        saveStatsData();
+                    if (!isOnlineGame && !isLocalTwoPlayer && currentBet > 0) {
+                        stats.chips += currentBet; saveStatsData();
                     }
                     gameOver("Ничья! 🤝", "Ставка возвращена", false);
                 } else if (playerHand.length === 0) {
                     var isPogony = lastPlayerAttackCards.length > 0 && lastPlayerAttackCards.every(function (c) { return c.v === '6'; });
-                    var mult = (isOnlineGame || isLocalTwoPlayer) ? 2 : (difficulty === 'expert' ? 3 : (difficulty === 'hard' ? 2 : 1.5));
-                    var baseProfit = currentBet > 0 ? Math.round(currentBet * mult) : 100;
-                    var netBonus = baseProfit * (isPogony ? 2 : 1);
-                    var totalPayout = currentBet + netBonus;
-
-                    stats.wins++;
-                    if (isPogony) stats.pogony++;
-                    stats.chips += totalPayout;
-                    saveStatsData();
-
+                    var mult = difficulty === 'expert' ? 3 : (difficulty === 'hard' ? 2 : 1.5);
+                    var winAmount = Math.round(currentBet * mult * (isPogony ? 2 : 1));
+                    if (!isOnlineGame && !isLocalTwoPlayer) {
+                        stats.wins++;
+                        if (isPogony) stats.pogony++;
+                        stats.chips += winAmount;
+                        saveStatsData();
+                    }
                     playWinSound();
-                    var sub = (isLocalTwoPlayer ? ("Победил " + player1BaseName + "! ") : "") + "Начислено: +" + netBonus + " 🪙 (Баланс: " + stats.chips + " 🪙)";
+                    var sub = isLocalTwoPlayer ? ("Победил " + player1BaseName + "!") : (winAmount > 0 ? ("Выигрыш: +" + winAmount + " 🪙") : "Чистая победа!");
                     gameOver("Победа! 🏆", sub, isPogony);
                 } else if (botHand.length === 0) {
-                    stats.losses++;
-                    saveStatsData();
-
+                    if (!isOnlineGame && !isLocalTwoPlayer) {
+                        stats.losses++; saveStatsData();
+                    }
                     if (isLocalTwoPlayer) playWinSound(); else playLoseSound();
-                    var loseSub = isLocalTwoPlayer ? ("Победил " + player2BaseName + "!") : (currentBet > 0 ? ("Потеряна ставка: -" + currentBet + " 🪙") : "Соперник оказался сильнее");
+                    var loseSub = isLocalTwoPlayer ? ("Победил " + player2BaseName + "!") : (currentBet > 0 ? ("Проиграна ставка: " + currentBet + " 🪙") : "Соперник оказался сильнее");
                     gameOver(isLocalTwoPlayer ? ("Победа: " + player2BaseName + "! 🏆") : "Поражение! 💀", loseSub, false);
                 }
             }
