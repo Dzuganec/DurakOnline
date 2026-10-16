@@ -44,7 +44,7 @@
     }
     .modal-box h1 { margin-bottom: 8px; font-size: 2rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
     .modal-box h2 { margin-bottom: 8px; font-size: 1.3rem; color: #eee; }
-    .section-label { font-size: 0.76rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 4px 0; font-weight: bold; }
+    .section-label { font-size: 0.75rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin: 10px 0 5px 0; font-weight: bold; }
 
     .balance-badge {
         display: inline-block; background: rgba(0,0,0,0.65); border: 1px solid #d4af37;
@@ -53,7 +53,7 @@
     }
 
     input[type="text"], textarea { -webkit-appearance: none; width: 100%; padding: 10px; margin-bottom: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; color: #d4af37; font-size: 0.95rem; text-align: center; font-weight: bold; resize: none; -webkit-user-select: text; user-select: text; }
-    textarea { height: 54px; text-align: left; font-size: 0.78rem; font-family: monospace; }
+    textarea { height: 52px; text-align: left; font-size: 0.76rem; font-family: monospace; }
     input:focus, textarea:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
 
     button { -webkit-appearance: none; width: 100%; border: none; padding: 11px; font-size: 0.92rem; font-weight: bold; border-radius: 12px; cursor: pointer; margin-bottom: 7px; text-transform: uppercase; transition: transform 0.1s, filter 0.3s; letter-spacing: 0.6px; }
@@ -96,17 +96,14 @@
     .shop-item-sub { font-size: 0.72rem; color: #aaa; }
     .shop-item button { width: auto; margin: 0; padding: 7px 12px; font-size: 0.76rem; }
 
-    .pin-display { background: rgba(0,0,0,0.7); border: 2px dashed #96c93d; border-radius: 14px; padding: 10px; margin: 8px 0; font-size: 2rem; font-weight: 900; color: #96c93d; letter-spacing: 6px; text-shadow: 0 0 10px rgba(150,201,61,0.5); }
-    .radar-box { background: rgba(0,0,0,0.5); border: 1px dashed rgba(0, 255, 100, 0.5); border-radius: 12px; padding: 8px 10px; margin-bottom: 8px; text-align: left; }
-    .radar-title { font-size: 0.75rem; color: #00ff64; font-weight: bold; text-transform: uppercase; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: space-between; justify-content: space-between; }
-    .radar-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(255,255,255,0.08); padding: 6px 10px; border-radius: 8px; margin-top: 5px; font-size: 0.82rem; }
-    .radar-item button { width: auto; margin: 0; padding: 5px 12px; font-size: 0.75rem; }
+    .pin-display { background: rgba(0,0,0,0.7); border: 2px dashed #96c93d; border-radius: 14px; padding: 10px; margin: 8px 0; font-size: 2.1rem; font-weight: 900; color: #96c93d; letter-spacing: 6px; text-shadow: 0 0 10px rgba(150,201,61,0.5); }
+    .step-card { background: rgba(0,0,0,0.45); border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 10px; margin-bottom: 8px; text-align: left; }
+    .step-card-title { color: #ffd700; font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; }
 
     #toast-container { position: absolute; top: 15%; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); z-index: 2000; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; pointer-events: none; -webkit-transition: -webkit-transform 0.35s, top 0.35s; transition: transform 0.35s, top 0.35s; }
     #toast-container.face-top-player { top: 22%; -webkit-transform: translateX(-50%) rotate(180deg); transform: translateX(-50%) rotate(180deg); }
     .toast { background: linear-gradient(to right, rgba(15,15,15,0.95), rgba(35,35,35,0.95)); color: #d4af37; padding: 7px 18px; margin-bottom: 6px; border-radius: 20px; font-weight: bold; border: 1px solid #d4af37; box-shadow: 0 8px 16px rgba(0,0,0,0.6); text-align: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; white-space: nowrap; }
 
-    /* Игровой стол: жесткая фиксация верха и низа, чтобы карты никогда не уезжали за экран */
     .game-table {
         width: 100%; height: 100%;
         display: -webkit-flex; display: flex;
@@ -152,7 +149,6 @@
     .opponent-hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 72px; width: 100%; max-width: 95vw; }
     .hand { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; height: 106px; width: 100%; max-width: 96vw; }
 
-    /* Центральная секция: никогда не выталкивает карты игрока */
     .middle-section {
         -webkit-flex: 1 1 auto; flex: 1 1 auto;
         min-height: 0; max-height: 100%;
@@ -201,7 +197,6 @@
     }
     .trump-indicator span { font-size: 2.8rem; margin-top: 5px; }
 
-    /* Поле боя: вмещает 3 пары в ряд (максимум 2 ряда даже при 6 картах) и масштабируется */
     .battlefield {
         display: -webkit-flex; display: flex;
         -webkit-justify-content: center; justify-content: center;
@@ -212,9 +207,7 @@
         padding: 4px; z-index: 6;
         -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s;
     }
-    .battlefield.compact-grid {
-        -webkit-transform: scale(0.84); transform: scale(0.84);
-    }
+    .battlefield.compact-grid { -webkit-transform: scale(0.84); transform: scale(0.84); }
     .battlefield.face-top-player { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
     .battlefield.face-top-player.compact-grid { -webkit-transform: rotate(180deg) scale(0.84); transform: rotate(180deg) scale(0.84); }
 
@@ -236,7 +229,6 @@
     #action-btn, #p2-action-btn { width: auto; padding: 8px 16px; margin: 0; min-width: 115px; font-size: 0.9rem; }
     #proezdnoy-btn, #p2-proezdnoy-btn { width: auto; padding: 8px 10px; margin: 0 5px 0 0; font-size: 0.8rem; }
 
-    /* Панель быстрых эмодзи */
     .emoji-bar {
         position: absolute; bottom: 44px; left: 10px; background: rgba(15,20,15,0.96);
         border: 1px solid #d4af37; border-radius: 14px; padding: 5px 8px;
@@ -295,7 +287,7 @@
 <body class="felt-green back-classic face-light">
     <div id="toast-container"></div>
 
-<!-- ГЛАВНОЕ МЕНЮ -->
+<!-- ГЛАВНОЕ МЕНЮ (ЧЕТКОЕ РАЗДЕЛЕНИЕ ОФЛАЙН И ОНЛАЙН) -->
 <div id="auth-screen" class="screen">
     <div class="modal-box">
         <h1>Durak Casino</h1>
@@ -306,15 +298,17 @@
 
         <input type="text" id="nickname" placeholder="Ваш никнейм (необязательно)" maxlength="12">
 
-        <button id="show-bot-settings" class="btn-accent">Играть с Ботом 🤖</button>
-        <button id="btn-wifi-lobby" class="btn-wifi">📡 По Wi-Fi / Точке доступа</button>
-        <button id="show-local-settings" class="btn-info">👥 На двоих (1 телефон)</button>
-
+        <div class="section-label">✈️ Офлайн-игра (Без интернета)</div>
+        <button id="show-bot-settings" class="btn-accent">🤖 Играть с Ботом</button>
         <div class="menu-row">
-            <button id="btn-host" class="btn-primary">Онлайн: Создать 🌐</button>
-            <button id="btn-join-menu" class="btn-primary">Онлайн: Войти 🌐</button>
+            <button id="show-local-settings" class="btn-info">👥 Вдвоем (1 экран)</button>
+            <button id="btn-offline-wifi" class="btn-wifi">📡 По точке доступа</button>
         </div>
-        <div class="menu-row">
+
+        <div class="section-label">🌐 Онлайн-игра (Через интернет)</div>
+        <button id="btn-online-pin" class="btn-primary">🌐 Игра с другом по ПИН-коду</button>
+
+        <div class="menu-row" style="margin-top: 10px;">
             <button id="show-shop" class="btn-secondary">🛒 Магазин</button>
             <button id="show-profile" class="btn-secondary">📊 Профиль</button>
             <button id="show-rules" class="btn-secondary">📖 Правила</button>
@@ -322,73 +316,90 @@
     </div>
 </div>
 
-<!-- УНИВЕРСАЛЬНОЕ WI-FI ЛОББИ (ПИН-КОД + ПОЛНЫЙ АВТОНОМНЫЙ РЕЖИМ ДЛЯ САМОЛЕТА/ЛЕСА) -->
-<div id="wifi-screen" class="screen hidden">
+<!-- ОНЛАЙН-ЛОББИ ЧЕРЕЗ ИНТЕРНЕТ (ПО 4-ЗНАЧНОМУ ПИН-КОДУ) -->
+<div id="online-screen" class="screen hidden">
     <div class="modal-box">
-        <h2 style="color: #96c93d;">📡 Игра по Wi-Fi</h2>
-        <div class="menu-row" style="margin-bottom: 10px;">
-            <button id="btn-wifi-mode-pin" class="btn-wifi">⚡ По ПИН-коду (4 цифры)</button>
-            <button id="btn-wifi-mode-air" class="btn-secondary">✈️ Полный Офлайн (Без SIM)</button>
+        <h2 style="color: #ff5252;">🌐 Онлайн по ПИН-коду</h2>
+        <p style="color: #ccc; font-size: 0.8rem; margin-bottom: 10px;">
+            Требуется интернет. Назовите другу 4 цифры ПИН-кода для мгновенного входа.
+        </p>
+
+        <div class="menu-row">
+            <button id="btn-on-tab-host" class="btn-accent">Создать комнату</button>
+            <button id="btn-on-tab-join" class="btn-secondary">Ввести ПИН друга</button>
         </div>
 
-        <!-- РЕЖИМ 1: БЫСТРЫЙ ПИН-КОД -->
-        <div id="wifi-pin-section">
-            <div class="radar-box">
-                <div class="radar-title">
-                    <span>🟢 Открытые столы рядом:</span>
-                    <span id="radar-status" style="font-size: 0.72rem; color: #aaa;">Поиск...</span>
+        <div id="online-host-panel">
+            <p style="color: #ffd700; font-size: 0.85rem; font-weight: bold;">ПИН-код вашей комнаты:</p>
+            <div class="pin-display" id="online-pin-code">----</div>
+            <p id="online-host-status" style="color: #aaa; font-size: 0.8rem;">Ожидание подключения друга...</p>
+        </div>
+
+        <div id="online-join-panel" class="hidden">
+            <input type="text" id="online-join-pin" placeholder="Введите 4 цифры ПИН" maxlength="6" style="font-size: 1.4rem; letter-spacing: 4px; margin-top: 6px;">
+            <button id="btn-online-connect" class="btn-primary">Подключиться ⚡</button>
+        </div>
+
+        <button class="btn-danger back-to-menu" style="margin-top: 10px;">Назад в меню</button>
+    </div>
+</div>
+
+<!-- ОФЛАЙН WI-FI ЛОББИ (ТОЧКА ДОСТУПА БЕЗ ИНТЕРНЕТА И SIM) -->
+<div id="offline-wifi-screen" class="screen hidden">
+    <div class="modal-box">
+        <h2 style="color: #96c93d;">📡 Точка доступа (Без сети)</h2>
+        <p style="color: #ccc; font-size: 0.78rem; margin-bottom: 10px;">
+            Работает без интернета и мобильных данных: один раздает Wi-Fi, второй подключается к нему.
+        </p>
+
+        <div class="menu-row">
+            <button id="btn-off-tab-host" class="btn-accent">Я создаю стол</button>
+            <button id="btn-off-tab-join" class="btn-secondary">Я подключаюсь</button>
+        </div>
+
+        <!-- Пошаговый мастер Хоста -->
+        <div id="off-host-panel">
+            <div class="step-card">
+                <div class="step-card-title">Шаг 1. Отправьте приглашение другу</div>
+                <textarea id="air-offer-out" readonly placeholder="Подготовка локального ключа..."></textarea>
+                <div class="menu-row">
+                    <button id="btn-air-share-offer" class="btn-wifi">📤 Передать / AirDrop</button>
+                    <button id="btn-air-copy-offer" class="btn-secondary">📋 Копировать</button>
                 </div>
-                <div id="radar-list">
-                    <div style="font-size: 0.76rem; color: #888; margin-top: 4px;">Назовите другу 4 цифры ПИН-кода ниже!</div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-card-title">Шаг 2. Примите ответ от друга</div>
+                <textarea id="air-answer-in" placeholder="Вставьте ответный код друга..."></textarea>
+                <div class="menu-row">
+                    <button id="btn-air-paste-answer" class="btn-secondary">📋 Вставить</button>
+                    <button id="btn-air-connect" class="btn-primary">Начать игру ⚡</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Пошаговый мастер Гостя -->
+        <div id="off-join-panel" class="hidden">
+            <div class="step-card">
+                <div class="step-card-title">Шаг 1. Вставьте код приглашения Хоста</div>
+                <textarea id="air-offer-in" placeholder="Вставьте код Хоста сюда..."></textarea>
+                <div class="menu-row">
+                    <button id="btn-air-paste-offer" class="btn-secondary">📋 Вставить</button>
+                    <button id="btn-air-make-answer" class="btn-primary">Создать ответ ⚡</button>
                 </div>
             </div>
 
-            <div class="menu-row">
-                <button id="btn-wifi-tab-host" class="btn-accent">Я создаю стол</button>
-                <button id="btn-wifi-tab-join" class="btn-secondary">Ввести ПИН друга</button>
-            </div>
-
-            <div id="wifi-host-panel">
-                <p style="color: #ffd700; font-size: 0.82rem; font-weight: bold;">Ваш ПИН-код стола:</p>
-                <div class="pin-display" id="wifi-pin-code">----</div>
-            </div>
-
-            <div id="wifi-join-panel" class="hidden">
-                <input type="text" id="wifi-join-pin" placeholder="Введите 4 цифры ПИН" maxlength="6" style="font-size: 1.35rem; letter-spacing: 4px;">
-                <button id="btn-wifi-connect-pin" class="btn-primary">Подключиться ⚡</button>
+            <div class="step-card hidden" id="off-join-step2">
+                <div class="step-card-title">Шаг 2. Передайте этот ответ Хосту</div>
+                <textarea id="air-answer-out" readonly placeholder="Ваш ответ появится здесь..."></textarea>
+                <div class="menu-row">
+                    <button id="btn-air-share-answer" class="btn-wifi">📤 Передать / AirDrop</button>
+                    <button id="btn-air-copy-answer" class="btn-secondary">📋 Копировать</button>
+                </div>
             </div>
         </div>
 
-        <!-- РЕЖИМ 2: ЧИСТЫЙ ЛОКАЛЬНЫЙ WEBRTC БЕЗ ИНТЕРНЕТА И МОБИЛЬНЫХ ДАННЫХ -->
-        <div id="wifi-airplane-section" class="hidden">
-            <p style="color: #ccc; font-size: 0.76rem; margin-bottom: 8px;">
-                Работает при <b>полностью выключенных мобильных данных</b> через локальную точку доступа Wi-Fi.
-            </p>
-            <div class="menu-row">
-                <button id="btn-air-host-tab" class="btn-accent">1. Создать (Хост)</button>
-                <button id="btn-air-join-tab" class="btn-secondary">2. Войти (Гость)</button>
-            </div>
-
-            <div id="air-host-box">
-                <p style="color:#ffd700; font-size:0.78rem; margin-bottom:4px;">Шаг 1: Скопируйте ключ и передайте Гостю (AirDrop / Заметки / SMS):</p>
-                <textarea id="air-offer-out" readonly placeholder="Сбор локальных IP Wi-Fi..."></textarea>
-                <button id="btn-air-copy-offer" class="btn-secondary">📋 Скопировать ключ Хоста</button>
-                <p style="color:#00c6ff; font-size:0.78rem; margin:6px 0 4px 0;">Шаг 2: Вставьте ответный ключ от Гостя:</p>
-                <textarea id="air-answer-in" placeholder="Вставьте ответ Гостя сюда..."></textarea>
-                <button id="btn-air-connect" class="btn-primary">Соединить напрямую 📡</button>
-            </div>
-
-            <div id="air-join-box" class="hidden">
-                <p style="color:#00c6ff; font-size:0.78rem; margin-bottom:4px;">Шаг 1: Вставьте ключ от Хоста:</p>
-                <textarea id="air-offer-in" placeholder="Вставьте ключ Хоста сюда..."></textarea>
-                <button id="btn-air-make-answer" class="btn-primary">Создать ответный ключ</button>
-                <p style="color:#ffd700; font-size:0.78rem; margin:6px 0 4px 0;">Шаг 2: Скопируйте ответ и отправьте Хосту:</p>
-                <textarea id="air-answer-out" readonly placeholder="Здесь появится ваш ответ..."></textarea>
-                <button id="btn-air-copy-answer" class="btn-secondary">📋 Скопировать ответ</button>
-            </div>
-        </div>
-
-        <button class="btn-danger back-to-menu" style="margin-top: 8px;">Назад в меню</button>
+        <button class="btn-danger back-to-menu" style="margin-top: 6px;">Назад в меню</button>
     </div>
 </div>
 
@@ -399,36 +410,6 @@
         <div class="balance-badge">Баланс: <span id="shop-chips">1000</span> 🪙</div>
         <div id="shop-list"></div>
         <button class="btn-danger back-to-menu" style="margin-top: 10px;">Назад</button>
-    </div>
-</div>
-
-<!-- МЕНЮ СОЗДАНИЯ (ИНТЕРНЕТ-ХОСТ) -->
-<div id="host-screen" class="screen hidden">
-    <div class="modal-box">
-        <h2 style="color: #d4af37;">Онлайн через Интернет</h2>
-        <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Скопируйте ваш код и отправьте другу:</p>
-        <textarea id="host-offer" readonly placeholder="Генерация ключа..."></textarea>
-        <button id="btn-copy-offer" class="btn-secondary">Скопировать код</button>
-
-        <p style="color: #ccc; font-size: 0.85rem; margin: 10px 0 6px 0;">Вставьте ответ от друга сюда:</p>
-        <textarea id="host-answer" placeholder="Вставьте ответ друга..."></textarea>
-        <button id="btn-connect-host" class="btn-primary">Подключить друга</button>
-        <button class="btn-danger back-to-menu">Отмена</button>
-    </div>
-</div>
-
-<!-- МЕНЮ ПОДКЛЮЧЕНИЯ (ИНТЕРНЕТ-ГОСТЬ) -->
-<div id="join-screen" class="screen hidden">
-    <div class="modal-box">
-        <h2 style="color: #d4af37;">Вход через Интернет</h2>
-        <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Вставьте код, который прислал друг:</p>
-        <textarea id="join-offer" placeholder="Вставьте код друга..."></textarea>
-        <button id="btn-generate-answer" class="btn-primary">Сгенерировать ответ</button>
-
-        <p style="color: #ccc; font-size: 0.85rem; margin: 10px 0 6px 0;">Скопируйте этот ответ и отправьте другу:</p>
-        <textarea id="join-answer" readonly placeholder="Ваш ответ появится здесь..."></textarea>
-        <button id="btn-copy-answer" class="btn-secondary">Скопировать ответ</button>
-        <button class="btn-danger back-to-menu" style="margin-top: 8px;">Отмена</button>
     </div>
 </div>
 
@@ -450,13 +431,15 @@
     <div class="modal-box">
         <h2 style="color: #d4af37;">Как играть</h2>
         <div class="instruction-text">
-            • <span>Игра по Wi-Fi 📡:</span><br>
-            1) <b>По ПИН-коду:</b> мгновенный вход по 4 цифрам.<br>
-            2) <b>Полный Офлайн (Без SIM):</b> работает даже с выключенной сотовой связью через точку доступа.<br><br>
+            • <span>Офлайн-режимы ✈️:</span><br>
+            1) <b>С Ботом</b> или <b>Вдвоем на 1 экране</b> — работают мгновенно в любых условиях.<br>
+            2) <b>По точке доступа:</b> один включает раздачу Wi-Fi (даже без SIM-карты), второй подключается к ней, и игроки обмениваются ключом через AirDrop, Заметки или локальное сообщение.<br><br>
+            • <span>Онлайн-режим 🌐:</span><br>
+            Вход по короткому 4-значному ПИН-коду через интернет.<br><br>
             • <span>Цвета карт:</span><br>
-            🟢 <b>Зеленый</b> — Карта может отбить атаку.<br>
-            🟡 <b>Золотой</b> — Карту можно подкинуть.<br>
-            🔵 <b>Голубой</b> — Карту можно перевести (удерживайте карту 0.5 сек или перетащите в центр).
+            🟢 <b>Зеленый</b> — отбить атаку.<br>
+            🟡 <b>Золотой</b> — подкинуть.<br>
+            🔵 <b>Голубой</b> — перевести (удерживайте 0.5 сек или перетащите в центр).
         </div>
         <button class="btn-danger back-to-menu">Понятно</button>
     </div>
@@ -646,7 +629,53 @@
             setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 2200);
         }
 
-        // ---------- Быстрые эмодзи-реплики ----------
+        function copyTextFromEl(el, successMsg) {
+            var val = el.value ? el.value.trim() : '';
+            if (!val) return;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(val).then(function () {
+                    showToast(successMsg || 'Скопировано!');
+                }).catch(function () {
+                    el.select();
+                    try { document.execCommand('copy'); } catch (e) {}
+                    showToast(successMsg || 'Скопировано!');
+                });
+            } else {
+                el.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                showToast(successMsg || 'Скопировано!');
+            }
+        }
+
+        function shareOrCopyText(el, titleText) {
+            var val = el.value ? el.value.trim() : '';
+            if (!val) { showToast('Ключ еще создается...'); return; }
+            if (navigator.share) {
+                navigator.share({ title: titleText || 'Ключ Дурак', text: val }).catch(function () {});
+            } else {
+                copyTextFromEl(el, 'Ключ скопирован!');
+            }
+        }
+
+        function pasteTextIntoEl(el, afterPaste) {
+            if (navigator.clipboard && navigator.clipboard.readText) {
+                navigator.clipboard.readText().then(function (txt) {
+                    if (txt) {
+                        el.value = txt.trim();
+                        if (afterPaste) afterPaste(txt.trim());
+                    } else {
+                        showToast('Буфер обмена пуст');
+                    }
+                }).catch(function () {
+                    el.focus();
+                    showToast('Удерживайте поле и нажмите «Вставить»');
+                });
+            } else {
+                el.focus();
+                showToast('Удерживайте поле и нажмите «Вставить»');
+            }
+        }
+
         $('btn-emoji-toggle').onclick = function () {
             $('emoji-bar').classList.toggle('hidden');
         };
@@ -716,10 +745,9 @@
             auth: $('auth-screen'), settings: $('settings-screen'),
             game: $('game-screen'), gameOver: $('game-over-screen'),
             profile: $('profile-screen'), rules: $('rules-screen'),
-            host: $('host-screen'), join: $('join-screen'),
             shop: $('shop-screen'), curtain: $('curtain-screen'),
             discard: $('discard-screen'), pause: $('pause-screen'),
-            wifi: $('wifi-screen')
+            online: $('online-screen'), offlineWifi: $('offline-wifi-screen')
         };
 
         function showScreen(screenName) {
@@ -850,7 +878,7 @@
 
         var pendingGameType = 'bot';
         var isOnlineGame = false, isLocalTwoPlayer = false, localViewMode = 'curtain';
-        var isHost = false, peer = null, conn = null;
+        var isHost = false, conn = null;
         var player1BaseName = 'Игрок 1', player2BaseName = 'Игрок 2';
 
         var RTCPeer = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
@@ -872,33 +900,12 @@
         loadPeerJS();
         window.addEventListener('online', loadPeerJS, false);
 
-        function onlineAvailable() {
-            if (typeof navigator.onLine === 'boolean' && !navigator.onLine) {
-                showToast('Нет интернета — выберите режим Wi-Fi 📡'); return false;
-            }
-            if (!webrtcOK) {
-                showToast('Сеть недоступна на этом устройстве'); return false;
-            }
-            if (typeof Peer === 'undefined') {
-                loadPeerJS(); showToast('Модуль интернета загружается...'); return false;
-            }
-            return true;
-        }
-
         function getPlayerNickname(fallback) {
             var n = $('nickname').value.trim();
             var finalNick = n.length >= 2 ? n : (fallback || 'Игрок');
             $('display-nickname').textContent = finalNick;
             player1BaseName = finalNick;
             return finalNick;
-        }
-
-        function checkNick() {
-            var n = $('nickname').value.trim();
-            if (n.length < 2) { alert("Минимум 2 символа в нике!"); return false; }
-            $('display-nickname').textContent = n;
-            player1BaseName = n;
-            return true;
         }
 
         $('show-bot-settings').onclick = function () {
@@ -917,28 +924,30 @@
             showScreen('settings');
         };
 
-        $('btn-wifi-lobby').onclick = function () {
+        $('btn-offline-wifi').onclick = function () {
             if (!webrtcOK) { showToast('WebRTC не поддерживается браузером'); return; }
             getPlayerNickname('Игрок');
-            pendingGameType = 'wifi';
+            pendingGameType = 'offline-wifi';
             $('bot-diff-section').classList.add('hidden');
             $('local-mode-section').classList.add('hidden');
             showScreen('settings');
         };
 
-        $('btn-host').onclick = function () {
-            if (!onlineAvailable()) return;
-            if (!checkNick()) return;
-            pendingGameType = 'host';
+        $('btn-online-pin').onclick = function () {
+            if (typeof navigator.onLine === 'boolean' && !navigator.onLine) {
+                showToast('Нет интернета — выберите «📡 По точке доступа»');
+                return;
+            }
+            if (typeof Peer === 'undefined') {
+                loadPeerJS();
+                showToast('Подключение к сети... Попробуйте через секунду');
+                return;
+            }
+            getPlayerNickname('Игрок');
+            pendingGameType = 'online-pin';
             $('bot-diff-section').classList.add('hidden');
             $('local-mode-section').classList.add('hidden');
             showScreen('settings');
-        };
-
-        $('btn-join-menu').onclick = function () {
-            if (!onlineAvailable()) return;
-            if (!checkNick()) return;
-            showScreen('join');
         };
 
         $('start-game-btn').onclick = function () {
@@ -963,18 +972,17 @@
                 currentBet = 0;
                 isOnlineGame = false; isLocalTwoPlayer = true;
                 startGameLocal();
-            } else if (pendingGameType === 'wifi') {
+            } else if (pendingGameType === 'offline-wifi') {
                 currentBet = 0;
                 isOnlineGame = true; isLocalTwoPlayer = false;
-                openWifiPinLobby();
-            } else {
+                openOfflineWifiScreen();
+            } else if (pendingGameType === 'online-pin') {
                 currentBet = 0;
-                isOnlineGame = true; isLocalTwoPlayer = false; isHost = true;
-                initHostConnection();
+                isOnlineGame = true; isLocalTwoPlayer = false;
+                openOnlinePinScreen();
             }
         };
 
-        // Исправлено: Реванш и перезапуск теперь работают у ОБОИХ игроков (и у Хоста, и у Гостя)
         function triggerRematchOrRestart() {
             if (isOnlineGame) {
                 if (isHost && conn) {
@@ -1005,221 +1013,112 @@
             showScreen('auth');
         };
 
-        // ---------- ДВОЙНОЙ РЕЖИМ WI-FI: 1) БЫСТРЫЙ ПИН-КОД + 2) ПОЛНЫЙ ОФЛАЙН БЕЗ МОБИЛЬНЫХ ДАННЫХ ----------
-        var wifiPC = null, wifiDC = null;
-        var lanChannel = (typeof BroadcastChannel !== 'undefined') ? new BroadcastChannel('durak_wifi_pin_v3') : null;
-        var activeWifiPin = '';
-        var activeWifiPeer = null;
-        var discoveredRooms = {};
+        // ---------- 1. ОНЛАЙН ЧЕРЕЗ ИНТЕРНЕТ ПО 4-ЗНАЧНОМУ ПИН-КОДУ ----------
+        var activeOnlinePeer = null;
+        var activeOnlinePin = '';
 
-        $('btn-wifi-mode-pin').onclick = function () {
-            $('btn-wifi-mode-pin').className = 'btn-wifi';
-            $('btn-wifi-mode-air').className = 'btn-secondary';
-            $('wifi-pin-section').classList.remove('hidden');
-            $('wifi-airplane-section').classList.add('hidden');
-            switchWifiPinTab('host');
-        };
+        function openOnlinePinScreen() {
+            showScreen('online');
+            switchOnlineTab('host');
+        }
 
-        $('btn-wifi-mode-air').onclick = function () {
-            $('btn-wifi-mode-pin').className = 'btn-secondary';
-            $('btn-wifi-mode-air').className = 'btn-wifi';
-            $('wifi-pin-section').classList.add('hidden');
-            $('wifi-airplane-section').classList.remove('hidden');
-            initPureOfflineHost();
-        };
-
-        function switchWifiPinTab(tab) {
+        function switchOnlineTab(tab) {
             if (tab === 'host') {
-                $('btn-wifi-tab-host').className = 'btn-accent';
-                $('btn-wifi-tab-join').className = 'btn-secondary';
-                $('wifi-host-panel').classList.remove('hidden');
-                $('wifi-join-panel').classList.add('hidden');
-                createWifiPinHost();
+                $('btn-on-tab-host').className = 'btn-accent';
+                $('btn-on-tab-join').className = 'btn-secondary';
+                $('online-host-panel').classList.remove('hidden');
+                $('online-join-panel').classList.add('hidden');
+                createOnlinePinRoom();
             } else {
-                $('btn-wifi-tab-host').className = 'btn-secondary';
-                $('btn-wifi-tab-join').className = 'btn-accent';
-                $('wifi-host-panel').classList.add('hidden');
-                $('wifi-join-panel').classList.remove('hidden');
+                $('btn-on-tab-host').className = 'btn-secondary';
+                $('btn-on-tab-join').className = 'btn-accent';
+                $('online-host-panel').classList.add('hidden');
+                $('online-join-panel').classList.remove('hidden');
             }
         }
 
-        $('btn-wifi-tab-host').onclick = function () { switchWifiPinTab('host'); };
-        $('btn-wifi-tab-join').onclick = function () { switchWifiPinTab('join'); };
+        $('btn-on-tab-host').onclick = function () { switchOnlineTab('host'); };
+        $('btn-on-tab-join').onclick = function () { switchOnlineTab('join'); };
 
-        function openWifiPinLobby() {
-            showScreen('wifi');
-            if (typeof navigator.onLine === 'boolean' && !navigator.onLine) {
-                $('btn-wifi-mode-air').click();
-            } else {
-                $('btn-wifi-mode-pin').click();
-            }
-        }
-
-        function createWifiPinHost() {
+        function createOnlinePinRoom() {
             isHost = true;
-            activeWifiPin = Math.floor(Math.random() * 9000 + 1000).toString();
-            $('wifi-pin-code').textContent = activeWifiPin;
-            broadcastWifiRoom(activeWifiPin);
+            activeOnlinePin = Math.floor(Math.random() * 9000 + 1000).toString();
+            $('online-pin-code').textContent = activeOnlinePin;
+            $('online-host-status').textContent = 'Создание комнаты...';
 
-            if (typeof Peer === 'undefined') {
-                $('wifi-pin-code').textContent = activeWifiPin;
-                return;
-            }
-            if (activeWifiPeer) { try { activeWifiPeer.destroy(); } catch (e) {} }
-            var hostPeerId = 'durak_wifi_room_' + activeWifiPin;
+            if (activeOnlinePeer) { try { activeOnlinePeer.destroy(); } catch (e) {} }
             try {
-                activeWifiPeer = new Peer(hostPeerId, {
+                activeOnlinePeer = new Peer('durak_online_pin_' + activeOnlinePin, {
                     debug: 0,
                     config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] }
                 });
-
-                activeWifiPeer.on('open', function () {
-                    showToast('Стол создан! ПИН: ' + activeWifiPin);
-                    broadcastWifiRoom(activeWifiPin);
+                activeOnlinePeer.on('open', function () {
+                    $('online-host-status').textContent = 'Комната открыта! Ждем подключения друга...';
                 });
-
-                activeWifiPeer.on('connection', function (c) {
+                activeOnlinePeer.on('connection', function (c) {
                     conn = c; setupConn();
-                    showToast('Гость подключился по ПИН-коду!');
+                    showToast('Друг подключился! 🌐');
                     setTimeout(startOnlineHostGame, 500);
                 });
-            } catch (e) {}
-        }
-
-        function broadcastWifiRoom(pin) {
-            if (!lanChannel) return;
-            lanChannel.postMessage({
-                type: 'WIFI_ROOM',
-                pin: pin,
-                hostName: getPlayerNickname('Хост'),
-                mode: gameMode === 'perevodnoy' ? 'Переводной' : 'Подкидной'
-            });
-        }
-
-        if (lanChannel) {
-            lanChannel.onmessage = function (ev) {
-                var d = ev.data;
-                if (!d) return;
-                if (d.type === 'WIFI_ROOM' && d.pin !== activeWifiPin) {
-                    discoveredRooms[d.pin] = d;
-                    renderPinRadar();
-                } else if (d.type === 'LOCAL_CHANNEL_CONNECT' && isHost && d.pin === activeWifiPin) {
-                    bindBroadcastChannelAsConn(d.guestName);
-                }
-            };
-        }
-
-        // Если оба игрока открыли игру в локальном канале — соединяем напрямую без серверов
-        function bindBroadcastChannelAsConn(remotePlayerName) {
-            var listeners = {};
-            conn = {
-                send: function (obj) {
-                    if (lanChannel) lanChannel.postMessage({ type: 'BC_GAME_PACKET', payload: obj });
-                },
-                on: function (ev, cb) { listeners[ev] = cb; }
-            };
-            setupConn();
-            var origHandler = lanChannel.onmessage;
-            lanChannel.onmessage = function (ev) {
-                if (ev.data && ev.data.type === 'BC_GAME_PACKET') {
-                    if (listeners.data) listeners.data(ev.data.payload);
-                } else if (origHandler) {
-                    origHandler(ev);
-                }
-            };
-            if (isHost) {
-                $('opponent-name').textContent = remotePlayerName || 'Гость';
-                showToast('Подключено напрямую! ⚡');
-                setTimeout(startOnlineHostGame, 400);
+                activeOnlinePeer.on('error', function () {
+                    setTimeout(createOnlinePinRoom, 800);
+                });
+            } catch (e) {
+                $('online-host-status').textContent = 'Ошибка сети. Проверьте интернет.';
             }
         }
 
-        function renderPinRadar() {
-            var list = $('radar-list');
-            var keys = Object.keys(discoveredRooms);
-            if (keys.length === 0) return;
-            $('radar-status').textContent = 'Найдено: ' + keys.length;
-            list.innerHTML = '';
-            keys.forEach(function (k) {
-                var r = discoveredRooms[k];
-                var div = document.createElement('div');
-                div.className = 'radar-item';
-                var span = document.createElement('span');
-                span.innerHTML = '👤 <b>' + r.hostName + '</b> (ПИН: <b>' + r.pin + '</b>)';
-                var btn = document.createElement('button');
-                btn.className = 'btn-wifi';
-                btn.textContent = 'Войти ⚡';
-                btn.onclick = function () {
-                    $('wifi-join-pin').value = r.pin;
-                    connectWifiByPin(r.pin);
-                };
-                div.appendChild(span);
-                div.appendChild(btn);
-                list.appendChild(div);
-            });
-        }
-
-        function connectWifiByPin(pin) {
-            isHost = false;
-            var cleanPin = pin.trim();
-            showToast('Подключение к столу ' + cleanPin + '...');
-
-            if (discoveredRooms[cleanPin] && lanChannel) {
-                bindBroadcastChannelAsConn(discoveredRooms[cleanPin].hostName);
-                lanChannel.postMessage({
-                    type: 'LOCAL_CHANNEL_CONNECT',
-                    pin: cleanPin,
-                    guestName: getPlayerNickname('Гость')
-                });
-                return;
-            }
-
-            if (typeof Peer === 'undefined') {
-                showToast('Мобильные данные отключены — откройте вкладку «✈️ Полный Офлайн»');
-                return;
-            }
-
-            var targetPeerId = 'durak_wifi_room_' + cleanPin;
-            if (activeWifiPeer) { try { activeWifiPeer.destroy(); } catch (e) {} }
-            activeWifiPeer = new Peer(null, {
-                debug: 0,
-                config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] }
-            });
-
-            activeWifiPeer.on('open', function () {
-                var c = activeWifiPeer.connect(targetPeerId);
-                c.on('open', function () {
-                    conn = c; setupConn();
-                    conn.send({ type: 'CLIENT_INFO', name: getPlayerNickname('Гость') });
-                    showToast('Успешно подключено по ПИН-коду! 📡');
-                });
-                c.on('error', function () {
-                    showToast('Не удалось найти ПИН ' + cleanPin);
-                });
-            });
-        }
-
-        $('btn-wifi-connect-pin').onclick = function () {
-            var pin = $('wifi-join-pin').value.trim();
+        $('btn-online-connect').onclick = function () {
+            var pin = $('online-join-pin').value.trim();
             if (pin.length < 4) { showToast('Введите 4 цифры ПИН-кода'); return; }
-            connectWifiByPin(pin);
+            isHost = false;
+            showToast('Подключение к комнате ' + pin + '...');
+            if (activeOnlinePeer) { try { activeOnlinePeer.destroy(); } catch (e) {} }
+            try {
+                activeOnlinePeer = new Peer(null, {
+                    debug: 0,
+                    config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] }
+                });
+                activeOnlinePeer.on('open', function () {
+                    var c = activeOnlinePeer.connect('durak_online_pin_' + pin);
+                    c.on('open', function () {
+                        conn = c; setupConn();
+                        conn.send({ type: 'CLIENT_INFO', name: getPlayerNickname('Гость') });
+                        showToast('Успешно подключено! 🌐');
+                    });
+                    c.on('error', function () { showToast('Комната ' + pin + ' не найдена'); });
+                });
+            } catch (e) {
+                showToast('Ошибка подключения');
+            }
         };
 
-        // ---------- РЕЖИМ 2: ЧИСТЫЙ ЛОКАЛЬНЫЙ WEBRTC БЕЗ ИНТЕРНЕТА (СОХРАНЯЕТ ПОЛНЫЙ SDP ТОЧКИ ДОСТУПА) ----------
-        $('btn-air-host-tab').onclick = function () {
-            $('btn-air-host-tab').className = 'btn-accent';
-            $('btn-air-join-tab').className = 'btn-secondary';
-            $('air-host-box').classList.remove('hidden');
-            $('air-join-box').classList.add('hidden');
-            initPureOfflineHost();
-        };
+        // ---------- 2. ОФЛАЙН ПО ТОЧКЕ ДОСТУПА WI-FI (БЕЗ ИНТЕРНЕТА И SIM) ----------
+        var wifiPC = null, wifiDC = null;
 
-        $('btn-air-join-tab').onclick = function () {
-            $('btn-air-host-tab').className = 'btn-secondary';
-            $('btn-air-join-tab').className = 'btn-accent';
-            $('air-host-box').classList.add('hidden');
-            $('air-join-box').classList.remove('hidden');
-        };
+        function openOfflineWifiScreen() {
+            showScreen('offlineWifi');
+            switchOfflineWifiTab('host');
+        }
+
+        function switchOfflineWifiTab(tab) {
+            if (tab === 'host') {
+                $('btn-off-tab-host').className = 'btn-accent';
+                $('btn-off-tab-join').className = 'btn-secondary';
+                $('off-host-panel').classList.remove('hidden');
+                $('off-join-panel').classList.add('hidden');
+                initPureOfflineHost();
+            } else {
+                $('btn-off-tab-host').className = 'btn-secondary';
+                $('btn-off-tab-join').className = 'btn-accent';
+                $('off-host-panel').classList.add('hidden');
+                $('off-join-panel').classList.remove('hidden');
+                $('off-join-step2').classList.add('hidden');
+            }
+        }
+
+        $('btn-off-tab-host').onclick = function () { switchOfflineWifiTab('host'); };
+        $('btn-off-tab-join').onclick = function () { switchOfflineWifiTab('join'); };
 
         function bindRawDataChannel(dc) {
             wifiDC = dc;
@@ -1241,18 +1140,19 @@
             dc.onopen = function () {
                 isOnlineGame = true; isLocalTwoPlayer = false;
                 if (isHost) {
-                    showToast('Прямая связь по Wi-Fi установлена! ✈️');
+                    showToast('Прямая связь по Wi-Fi установлена! 📡');
                     setTimeout(startOnlineHostGame, 400);
                 } else {
                     conn.send({ type: 'CLIENT_INFO', name: getPlayerNickname('Гость') });
-                    showToast('Подключено напрямую без интернета! ✈️');
+                    showToast('Подключено напрямую без интернета! 📡');
                 }
             };
         }
 
         function initPureOfflineHost() {
             isHost = true;
-            $('air-offer-out').value = 'Сбор локальных адресов Wi-Fi...';
+            $('air-offer-out').value = 'Генерация локального ключа...';
+            $('air-answer-in').value = '';
             if (wifiPC) { try { wifiPC.close(); } catch (e) {} }
             wifiPC = new RTCPeer({ iceServers: [] });
             var dc = wifiPC.createDataChannel('durak_air_lan');
@@ -1275,19 +1175,22 @@
             wifiPC.createOffer().then(function (offer) {
                 return wifiPC.setLocalDescription(offer);
             }).then(function () {
-                setTimeout(exportFullOffer, 800);
+                setTimeout(exportFullOffer, 700);
             });
         }
 
-        $('btn-air-copy-offer').onclick = function () {
-            $('air-offer-out').select();
-            try { document.execCommand('copy'); } catch (e) {}
-            showToast('Ключ Хоста скопирован!');
+        $('btn-air-share-offer').onclick = function () { shareOrCopyText($('air-offer-out'), 'Приглашение в Дурак'); };
+        $('btn-air-copy-offer').onclick = function () { copyTextFromEl($('air-offer-out'), 'Приглашение скопировано!'); };
+
+        $('btn-air-paste-offer').onclick = function () {
+            pasteTextIntoEl($('air-offer-in'), function () {
+                $('btn-air-make-answer').click();
+            });
         };
 
         $('btn-air-make-answer').onclick = function () {
             var str = $('air-offer-in').value.trim();
-            if (!str) { showToast('Вставьте ключ Хоста'); return; }
+            if (!str) { showToast('Сначала вставьте код приглашения Хоста'); return; }
             try {
                 var data = JSON.parse(fromBase64UTF8(str));
                 isHost = false;
@@ -1304,8 +1207,9 @@
                         sdp: wifiPC.localDescription,
                         name: getPlayerNickname('Гость')
                     };
+                    $('off-join-step2').classList.remove('hidden');
                     $('air-answer-out').value = toBase64UTF8(JSON.stringify(ansPayload));
-                    showToast('Ответ готов — скопируйте и отправьте Хосту!');
+                    showToast('Ответ создан — передайте его Хосту!');
                 }
 
                 wifiPC.onicecandidate = function (e) {
@@ -1317,95 +1221,33 @@
                 }).then(function (ans) {
                     return wifiPC.setLocalDescription(ans);
                 }).then(function () {
-                    setTimeout(exportFullAnswer, 800);
+                    setTimeout(exportFullAnswer, 700);
                 });
             } catch (e) {
-                showToast('Ошибка чтения ключа Хоста');
+                showToast('Неверный формат ключа Хоста');
             }
         };
 
-        $('btn-air-copy-answer').onclick = function () {
-            $('air-answer-out').select();
-            try { document.execCommand('copy'); } catch (e) {}
-            showToast('Ответ скопирован!');
+        $('btn-air-share-answer').onclick = function () { shareOrCopyText($('air-answer-out'), 'Ответ для входа в Дурак'); };
+        $('btn-air-copy-answer').onclick = function () { copyTextFromEl($('air-answer-out'), 'Ответ скопирован!'); };
+
+        $('btn-air-paste-answer').onclick = function () {
+            pasteTextIntoEl($('air-answer-in'), function () {
+                $('btn-air-connect').click();
+            });
         };
 
         $('btn-air-connect').onclick = function () {
             var str = $('air-answer-in').value.trim();
-            if (!str) { showToast('Вставьте ответ Гостя'); return; }
+            if (!str) { showToast('Вставьте ответный код друга'); return; }
             try {
                 var data = JSON.parse(fromBase64UTF8(str));
                 $('opponent-name').textContent = data.name || 'Гость';
                 wifiPC.setRemoteDescription(new RTCSessionDescription(data.sdp));
-                showToast('Установка прямой связи...');
+                showToast('Установка прямой Wi-Fi связи...');
             } catch (e) {
-                showToast('Неверный ключ ответа');
+                showToast('Неверный код ответа');
             }
-        };
-
-        // ---------- Онлайн через Интернет (PeerJS) ----------
-        function initHostConnection() {
-            showScreen('host');
-            $('host-offer').value = "Генерация кода...";
-            try {
-                peer = new Peer(null, { debug: 1 });
-                peer.on('connection', function (connection) {
-                    conn = connection; setupConn();
-                    showToast("Друг подключился!");
-                    setTimeout(startOnlineHostGame, 500);
-                });
-                peer.on('open', function () {
-                    var localData = { peerId: peer.id };
-                    $('host-offer').value = toBase64UTF8(JSON.stringify(localData));
-                });
-            } catch (e) { showToast('Ошибка инициализации'); }
-        }
-
-        $('btn-copy-offer').onclick = function () {
-            var box = $('host-offer'); box.select();
-            try { document.execCommand('copy'); } catch (e) {}
-            showToast("Код скопирован!");
-        };
-
-        $('btn-connect-host').onclick = function () {
-            var answerStr = $('host-answer').value.trim();
-            if (!answerStr) return showToast('Вставьте ответ друга');
-            try {
-                var answerData = JSON.parse(fromBase64UTF8(answerStr));
-                var c = peer.connect(answerData.peerId);
-                c.on('open', function () {
-                    conn = c; setupConn();
-                    showToast("Соединение установлено!");
-                    setTimeout(startOnlineHostGame, 500);
-                });
-            } catch (e) { showToast('Неверный код ответа'); }
-        };
-
-        $('btn-generate-answer').onclick = function () {
-            var offerStr = $('join-offer').value.trim();
-            if (!offerStr) return showToast('Вставьте код друга');
-            try {
-                var offerData = JSON.parse(fromBase64UTF8(offerStr));
-                showToast("Создание ответа...");
-                peer = new Peer(null, { debug: 1 });
-                peer.on('open', function () {
-                    conn = peer.connect(offerData.peerId);
-                    conn.on('open', function () {
-                        isOnlineGame = true; isLocalTwoPlayer = false; isHost = false; setupConn();
-                        conn.send({ type: 'CLIENT_INFO', name: getPlayerNickname('Гость') });
-                        showToast("Успешно подключено к другу!");
-                    });
-                    var answerData = { peerId: peer.id };
-                    $('join-answer').value = toBase64UTF8(JSON.stringify(answerData));
-                });
-                peer.on('error', function () { showToast('Ошибка соединения'); });
-            } catch (e) { showToast('Неверный код друга'); }
-        };
-
-        $('btn-copy-answer').onclick = function () {
-            var box = $('join-answer'); box.select();
-            try { document.execCommand('copy'); } catch (e) {}
-            showToast("Ответ скопирован!");
         };
 
         function setupConn() {
@@ -2313,7 +2155,6 @@
             return d;
         }
 
-        // Автоматическое масштабирование стола при 4+ парах карт, чтобы рука никогда не уезжала
         function renderTable() {
             var bf = $('battlefield'); bf.innerHTML = '';
             bf.classList.toggle('compact-grid', tablePairs.length > 3);
