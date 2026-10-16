@@ -28,6 +28,7 @@
     body.felt-ruby { background-color: #4a0e17; }
     body.felt-ocean { background-color: #0b2545; }
     body.felt-vip { background-color: #141414; }
+    body.felt-purple { background-color: #2b0938; }
 
     .screen {
         width: 100%; height: 100%;
@@ -42,7 +43,7 @@
         background: linear-gradient(135deg, rgba(20, 30, 20, 0.96), rgba(10, 15, 10, 0.96));
         padding: 16px; border-radius: 20px; text-align: center;
         box-shadow: 0 30px 60px rgba(0,0,0,0.85), 0 0 0 2px rgba(212, 175, 55, 0.35);
-        -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); width: 92%; max-width: 420px;
+        -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); width: 92%; max-width: 430px;
         max-height: 92%; overflow-y: auto; -webkit-overflow-scrolling: touch;
     }
     .modal-box h1 { margin-bottom: 6px; font-size: 1.9rem; color: #d4af37; text-shadow: 0 4px 6px rgba(0,0,0,0.8); letter-spacing: 1px; font-family: Georgia, serif; font-style: italic; }
@@ -94,10 +95,42 @@
     .instruction-text { text-align: left; font-size: 0.84rem; color: #ccc; line-height: 1.4; margin-bottom: 12px; }
     .instruction-text span { color: #d4af37; font-weight: bold; }
 
-    .shop-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(0,0,0,0.45); padding: 8px 12px; border-radius: 10px; margin-bottom: 7px; border: 1px solid rgba(212,175,55,0.25); }
-    .shop-item-title { text-align: left; font-size: 0.86rem; font-weight: bold; color: #eee; }
-    .shop-item-sub { font-size: 0.72rem; color: #aaa; }
-    .shop-item button { width: auto; margin: 0; padding: 7px 12px; font-size: 0.76rem; }
+    /* Обновленный магазин с живыми визуальными превью */
+    .shop-tabs { display: -webkit-flex; display: flex; margin-bottom: 10px; background: rgba(0,0,0,0.5); padding: 4px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.3); }
+    .shop-tabs button { -webkit-flex: 1 1 0; flex: 1 1 0; margin: 0 2px; padding: 8px 4px; font-size: 0.72rem; border-radius: 9px; background: transparent; color: #bbb; border: none; }
+    .shop-tabs button.active-tab { background: linear-gradient(135deg, #ffd700, #b8860b); color: #111; box-shadow: 0 2px 8px rgba(218,165,32,0.4); }
+
+    .shop-item { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; background: rgba(0,0,0,0.55); padding: 8px 10px; border-radius: 12px; margin-bottom: 8px; border: 1px solid rgba(212,175,55,0.28); }
+    .shop-left { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; text-align: left; -webkit-flex: 1; flex: 1; margin-right: 8px; }
+    .shop-preview {
+        width: 44px; height: 58px; border-radius: 7px; margin-right: 10px; -webkit-flex-shrink: 0; flex-shrink: 0;
+        display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column;
+        -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center;
+        font-weight: 900; font-size: 1rem; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.7); overflow: hidden;
+    }
+    .prev-felt-green { background: radial-gradient(circle, #145a2b, #0b381a); border: 2px solid #d4af37; color: #d4af37; font-size: 0.75rem; }
+    .prev-felt-ruby { background: radial-gradient(circle, #7a1626, #4a0e17); border: 2px solid #ff8a80; color: #ffd700; font-size: 0.75rem; }
+    .prev-felt-ocean { background: radial-gradient(circle, #16427a, #0b2545); border: 2px solid #80d8ff; color: #80d8ff; font-size: 0.75rem; }
+    .prev-felt-vip { background: radial-gradient(circle, #2e2e2e, #111111); border: 2px solid #ffd700; color: #ffd700; font-size: 0.75rem; }
+    .prev-felt-purple { background: radial-gradient(circle, #53126b, #2b0938); border: 2px solid #ea80fc; color: #ea80fc; font-size: 0.75rem; }
+
+    .prev-back-classic { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3) 5px, rgba(0,0,0,0.5) 5px, rgba(0,0,0,0.5) 10px), #600000; border: 2px solid #d4af37; }
+    .prev-back-gold { background: repeating-linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.25) 5px, rgba(0,0,0,0.15) 5px, rgba(0,0,0,0.15) 10px), linear-gradient(135deg, #ffd700, #996515); border: 2px solid #fff5b8; }
+    .prev-back-cyber { background: repeating-linear-gradient(45deg, rgba(0,198,255,0.3), rgba(0,198,255,0.3) 5px, rgba(10,10,30,0.9) 5px, rgba(10,10,30,0.9) 10px), #05051a; border: 2px solid #00c6ff; }
+    .prev-back-carbon { background: repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 4px, #2e2e2e 4px, #2e2e2e 8px); border: 2px solid #999; }
+    .prev-back-matrix { background: repeating-linear-gradient(90deg, rgba(0,255,100,0.25), rgba(0,255,100,0.25) 4px, #031a09 4px, #031a09 8px); border: 2px solid #00ff64; }
+
+    .prev-face-light { background: linear-gradient(135deg, #fff, #e6e6e6); color: #d32f2f; border: 1px solid #ccc; }
+    .prev-face-dark { background: linear-gradient(135deg, #2b2b2b, #1a1a1a); color: #ff5252; border: 1px solid #666; }
+    .prev-face-imperial { background: linear-gradient(135deg, #fff8dc, #e6c670); color: #b71c1c; border: 1px solid #b8860b; }
+    .prev-face-neon { background: linear-gradient(135deg, #0d0221, #19053b); color: #00f5d4; border: 1px solid #00f5d4; text-shadow: 0 0 6px #00f5d4; }
+
+    .prev-icon-box { background: radial-gradient(circle, rgba(212,175,55,0.25), rgba(0,0,0,0.8)); border: 1px solid #d4af37; font-size: 1.35rem; }
+
+    .shop-item-title { font-size: 0.85rem; font-weight: bold; color: #fff; }
+    .shop-item-sub { font-size: 0.72rem; color: #bbb; margin-top: 2px; line-height: 1.2; }
+    .shop-item-badge { display: inline-block; background: rgba(0,255,100,0.18); color: #00ff64; border: 1px solid #00ff64; padding: 1px 6px; border-radius: 6px; font-size: 0.68rem; font-weight: bold; margin-top: 3px; }
+    .shop-item button { width: auto; margin: 0; padding: 8px 12px; font-size: 0.75rem; -webkit-flex-shrink: 0; flex-shrink: 0; }
 
     .pin-display { background: rgba(0,0,0,0.7); border: 2px dashed #96c93d; border-radius: 14px; padding: 10px; margin: 8px 0; font-size: 2.1rem; font-weight: 900; color: #96c93d; letter-spacing: 6px; text-shadow: 0 0 10px rgba(150,201,61,0.5); }
 
@@ -147,11 +180,11 @@
         width: 100%; display: -webkit-flex; display: flex;
         -webkit-justify-content: space-between; justify-content: space-between;
         -webkit-align-items: center; align-items: center;
-        padding: 2px 6px; z-index: 30;
+        padding: 2px 4px; z-index: 30;
     }
     .hud-group { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
-    .hud-btn { width: auto; margin: 0 2px; padding: 5px 8px; font-size: 0.76rem; border-radius: 9px; background: rgba(0,0,0,0.78); color: #d4af37; border: 1px solid rgba(212,175,55,0.5); text-transform: none; }
-    .hud-chips { background: rgba(0,0,0,0.8); color: #ffd700; padding: 4px 8px; border-radius: 9px; font-size: 0.76rem; font-weight: bold; border: 1px solid #d4af37; margin-left: 3px; }
+    .hud-btn { width: auto; margin: 0 2px; padding: 5px 7px; font-size: 0.72rem; border-radius: 9px; background: rgba(0,0,0,0.78); color: #d4af37; border: 1px solid rgba(212,175,55,0.5); text-transform: none; }
+    .hud-chips { background: rgba(0,0,0,0.8); color: #ffd700; padding: 4px 7px; border-radius: 9px; font-size: 0.74rem; font-weight: bold; border: 1px solid #d4af37; margin-left: 2px; }
 
     .blitz-bar-wrap { width: 100%; height: 4px; background: rgba(0,0,0,0.4); position: absolute; top: 0; left: 0; z-index: 40; display: none; }
     .blitz-bar { height: 100%; width: 100%; background: linear-gradient(90deg, #ff5252, #ffd700, #00ff64); -webkit-transition: width 0.2s linear; transition: width 0.2s linear; }
@@ -212,6 +245,10 @@
         background: repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 6px, #2b2b2b 6px, #2b2b2b 12px) !important;
         border: 3px solid #888 !important;
     }
+    body.back-matrix .card-back, body.back-matrix .deck-back {
+        background: repeating-linear-gradient(90deg, rgba(0,255,100,0.22), rgba(0,255,100,0.22) 6px, #031a09 6px, #031a09 12px) !important;
+        border: 3px solid #00ff64 !important;
+    }
     .card-back::before, .card-back::after, .deck-back::before, .deck-back::after { content: none !important; }
 
     .deck-back { z-index: 2; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; width: 75px; height: 110px; border-radius: 8px; }
@@ -261,9 +298,10 @@
     .emoji-bar {
         position: absolute; bottom: 44px; left: 10px; background: rgba(15,20,15,0.96);
         border: 1px solid #d4af37; border-radius: 14px; padding: 5px 8px;
-        display: -webkit-flex; display: flex; z-index: 95; box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+        display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; max-width: 310px;
+        z-index: 95; box-shadow: 0 8px 20px rgba(0,0,0,0.85);
     }
-    .emoji-bar button { width: auto; margin: 0 3px; padding: 5px 8px; font-size: 1.1rem; background: rgba(255,255,255,0.1); border-radius: 8px; }
+    .emoji-bar button { width: auto; margin: 2px; padding: 5px 8px; font-size: 1.05rem; background: rgba(255,255,255,0.1); border-radius: 8px; }
 
     .card {
         width: 72px; height: 104px;
@@ -287,6 +325,12 @@
         background: linear-gradient(135deg, #fff8dc, #e6c670); border: 1px solid #b8860b;
     }
 
+    body.face-neon .card:not(.card-back):not(.deck-back) {
+        background: linear-gradient(135deg, #0d0221, #19053b); border: 1px solid #00f5d4;
+    }
+    body.face-neon .card[data-suit="♠"], body.face-neon .card[data-suit="♣"] { color: #00f5d4; text-shadow: 0 0 6px rgba(0,245,212,0.5); }
+    body.face-neon .card[data-suit="♥"], body.face-neon .card[data-suit="♦"] { color: #ff007f; text-shadow: 0 0 6px rgba(255,0,127,0.5); }
+
     .card[data-suit="♥"], .card[data-suit="♦"] { color: #d32f2f; }
     .card[data-suit="♠"], .card[data-suit="♣"] { color: #1a1a1a; }
     .card::before { content: attr(data-value) "\A" attr(data-suit); white-space: pre; position: absolute; top: 4px; left: 5px; font-size: 0.85rem; line-height: 0.9; }
@@ -294,6 +338,7 @@
 
     .card.rotated-180 { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
     .card.disabled { -webkit-filter: brightness(0.4) grayscale(0.6); filter: brightness(0.4) grayscale(0.6); pointer-events: none; }
+    .card.xray-card { box-shadow: 0 0 16px 3px rgba(0, 255, 255, 0.85) !important; border: 2px solid #00ffff !important; }
 
     .card.can-translate { box-shadow: 0 0 18px 4px rgba(0, 198, 255, 0.85), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #00c6ff; }
     .card.can-toss { box-shadow: 0 0 18px 4px rgba(255, 215, 0, 0.85), -2px 5px 12px rgba(0,0,0,0.5) !important; border: 2px solid #ffd700; }
@@ -360,7 +405,7 @@
     </div>
 </div>
 
-<!-- ОНЛАЙН-ЛОББИ ЧЕРЕЗ ИНТЕРНЕТ (ПО 4-ЗНАЧНОМУ ПИН-КОДУ) -->
+<!-- ОНЛАЙН-ЛОББИ ЧЕРЕЗ ИНТЕРНЕТ -->
 <div id="online-screen" class="screen hidden">
     <div class="modal-box">
         <h2 style="color: #ff5252;">🌐 Онлайн по ПИН-коду</h2>
@@ -404,7 +449,6 @@
             <button id="btn-off-tab-join" class="btn-secondary">2. Я Гость (Войти)</button>
         </div>
 
-        <!-- ЭКРАН ХОСТА -->
         <div id="off-host-panel">
             <div class="qr-card">
                 <span class="step-badge">Шаг 1 для Хоста</span>
@@ -426,7 +470,6 @@
             </div>
         </div>
 
-        <!-- ЭКРАН ГОСТЯ -->
         <div id="off-join-panel" class="hidden">
             <div class="qr-card" id="guest-step1-card">
                 <span class="step-badge">Шаг 1 для Гостя</span>
@@ -450,13 +493,21 @@
     </div>
 </div>
 
-<!-- МАГАЗИН КАСТОМИЗАЦИИ -->
+<!-- МАГАЗИН КАСТОМИЗАЦИИ, СПОСОБНОСТЕЙ, ЭМОЦИЙ И ТИТУЛОВ -->
 <div id="shop-screen" class="screen hidden">
     <div class="modal-box">
-        <h2 style="color: #d4af37;">Магазин Казино</h2>
+        <h2 style="color: #d4af37;">🛒 Магазин Казино</h2>
         <div class="balance-badge">Баланс: <span id="shop-chips">1000</span> 🪙</div>
+
+        <div class="shop-tabs">
+            <button id="tab-shop-style" class="active-tab">🎨 Стиль</button>
+            <button id="tab-shop-perks">🕵️ Приемы</button>
+            <button id="tab-shop-emotes">😎 Эмоции</button>
+            <button id="tab-shop-vip">👑 Статусы</button>
+        </div>
+
         <div id="shop-list"></div>
-        <button class="btn-danger back-to-menu" style="margin-top: 10px;">Назад</button>
+        <button class="btn-danger back-to-menu" style="margin-top: 8px;">Назад в меню</button>
     </div>
 </div>
 
@@ -464,6 +515,7 @@
 <div id="profile-screen" class="screen hidden">
     <div class="modal-box">
         <h2 style="color: #d4af37;">Статистика</h2>
+        <div class="stat-line"><span>Титул:</span><span id="stat-title" style="color: #96c93d;">Игрок</span></div>
         <div class="stat-line"><span>Фишки:</span><span id="stat-chips" style="color: #ffd700;">1000 🪙</span></div>
         <div class="stat-line"><span>Победы:</span><span id="stat-wins" style="color: #00ff64;">0</span></div>
         <div class="stat-line"><span>Поражения:</span><span id="stat-losses" style="color: #ff5252;">0</span></div>
@@ -478,11 +530,11 @@
     <div class="modal-box">
         <h2 style="color: #d4af37;">Как играть</h2>
         <div class="instruction-text">
-            • <span>Игра по Точке доступа (QR без интернета) 📷:</span><br>
-            1) <b>Игрок 1</b> раздает Wi-Fi (Точка доступа) со своего телефона, <b>Игрок 2</b> подключается к этому Wi-Fi.<br>
-            2) <b>Игрок 1</b> открывает «По QR (Точка доступа)» — на его экране сразу появляется QR-код.<br>
-            3) <b>Игрок 2</b> открывает вкладку «2. Я Гость», нажимает «Сканировать QR Хоста» и наводит камеру на экран Игрока 1.<br>
-            4) У <b>Игрока 2</b> появляется ответный QR-код — <b>Игрок 1</b> нажимает «Сканировать ответ друга», наводит камеру, и партия сразу запускается!<br><br>
+            • <span>Шулерские приемы из Магазина 🕵️:</span><br>
+            👁️ <b>Рентген:</b> переворачивает карты соперника лицом вверх на 5 секунд.<br>
+            🔙 <b>В рукав:</b> отменяет ваш последний ход и возвращает карту в руку.<br>
+            🃏 <b>Пересдача козыря:</b> меняет нижний козырь колоды на более выгодный.<br>
+            🛡️ <b>Страховка ставки:</b> возвращает 50% ставки при поражении.<br><br>
             • <span>Цвета карт:</span><br>
             🟢 <b>Зеленый</b> — отбить атаку.<br>
             🟡 <b>Золотой</b> — подкинуть.<br>
@@ -593,9 +645,11 @@
                 <span class="hud-chips"><span id="hud-chips-val">1000</span> 🪙</span>
             </div>
             <div class="hud-group">
-                <button id="btn-discard" class="hud-btn">🗑️ Отбой (<span id="discard-count">0</span>)</button>
-                <button id="btn-undo" class="hud-btn" disabled>🔙 В рукав</button>
-                <button id="btn-hint" class="hud-btn">💡</button>
+                <button id="btn-xray" class="hud-btn" title="Рентген карт соперника">👁️ <span id="xray-count">1</span></button>
+                <button id="btn-swap-trump" class="hud-btn" title="Сменить козырь">🃏 <span id="swap-count">1</span></button>
+                <button id="btn-undo" class="hud-btn" disabled title="Вернуть карту в руку">🔙 <span id="undo-count">2</span></button>
+                <button id="btn-discard" class="hud-btn" title="Вышедшие карты">🗑️ <span id="discard-count">0</span></button>
+                <button id="btn-hint" class="hud-btn" title="Подсказка хода">💡</button>
             </div>
         </div>
 
@@ -627,13 +681,7 @@
                     <span id="display-nickname" class="player-name">Игрок</span>
                     <button id="btn-emoji-toggle" class="hud-btn" style="margin-left:5px; padding:5px 8px;">💬</button>
                 </div>
-                <div id="emoji-bar" class="emoji-bar hidden">
-                    <button data-emo="😎 Красиво!">😎</button>
-                    <button data-emo="⏳ Думай быстрее!">⏳</button>
-                    <button data-emo="🎖️ С погонами!">🎖️</button>
-                    <button data-emo="😂 Ха-ха!">😂</button>
-                    <button data-emo="🤝 Спасибо за игру!">🤝</button>
-                </div>
+                <div id="emoji-bar" class="emoji-bar hidden"></div>
                 <div class="action-btns-wrap">
                     <button id="proezdnoy-btn" class="btn-info glowing hidden">🎫 Проездной</button>
                     <button id="action-btn" class="btn-danger">БИТО</button>
@@ -942,16 +990,50 @@
             showToast(soundEnabled ? 'Звук включен' : 'Звук выключен');
         };
 
-        $('btn-emoji-toggle').onclick = function () { $('emoji-bar').classList.toggle('hidden'); };
-        each($('emoji-bar').querySelectorAll('button'), function (b) {
-            b.onclick = function () {
-                var msg = b.getAttribute('data-emo');
-                $('emoji-bar').classList.add('hidden');
-                showToast('Вы: ' + msg);
-                if (isOnlineGame && conn) conn.send({ type: 'CHAT_EMOJI', text: msg });
-                else if (!isLocalTwoPlayer) setTimeout(function () { sayBotBubble('Азартно играешь! 😉'); }, 700);
-            };
-        });
+        // ---------- Эмоции и Наборы фраз ----------
+        var baseEmojis = [
+            { icon: '😎', msg: '😎 Красиво!' },
+            { icon: '⏳', msg: '⏳ Думай быстрее!' },
+            { icon: '🎖️', msg: '🎖️ С погонами!' },
+            { icon: '😂', msg: '😂 Ха-ха!' },
+            { icon: '🤝', msg: '🤝 Спасибо за игру!' }
+        ];
+        var packShulerEmojis = [
+            { icon: '🃏', msg: '🃏 Туз в рукаве!' },
+            { icon: '🚬', msg: '🚬 Закурил у стола...' },
+            { icon: '💸', msg: '💸 Гони фишки на бочку!' },
+            { icon: '🤡', msg: '🤡 Ну ты и кадр!' }
+        ];
+        var packRoyalEmojis = [
+            { icon: '👑', msg: '👑 Дорогу Королю!' },
+            { icon: '🥂', msg: '🥂 Шампанского за мой счет!' },
+            { icon: '💎', msg: '💎 Бриллиантовый ход!' },
+            { icon: '🔥', msg: '🔥 Стол горит!' }
+        ];
+
+        function rebuildEmojiBar() {
+            var bar = $('emoji-bar');
+            bar.innerHTML = '';
+            var list = baseEmojis.slice();
+            if (stats.owned.indexOf('emote-shuler') !== -1) list = list.concat(packShulerEmojis);
+            if (stats.owned.indexOf('emote-royal') !== -1) list = list.concat(packRoyalEmojis);
+            list.forEach(function (item) {
+                var b = document.createElement('button');
+                b.textContent = item.icon;
+                b.onclick = function () {
+                    bar.classList.add('hidden');
+                    showToast('Вы: ' + item.msg);
+                    if (isOnlineGame && conn) conn.send({ type: 'CHAT_EMOJI', text: item.msg });
+                    else if (!isLocalTwoPlayer) setTimeout(function () { sayBotBubble('Ого, какие эмоции! 😉'); }, 650);
+                };
+                bar.appendChild(b);
+            });
+        }
+
+        $('btn-emoji-toggle').onclick = function () {
+            rebuildEmojiBar();
+            $('emoji-bar').classList.toggle('hidden');
+        };
 
         var screens = {
             auth: $('auth-screen'), settings: $('settings-screen'),
@@ -976,24 +1058,59 @@
         $('show-rules').onclick = function () { showScreen('rules'); };
         $('return-main-menu').onclick = function () { clearAllTimers(); showScreen('auth'); };
 
+        // ---------- Статистика, Инвентарь приемов и Магазин с превью ----------
         var stats = {
             wins: 0, losses: 0, pogony: 0, chips: 1000,
-            owned: ['felt-green', 'back-classic', 'face-light'],
-            felt: 'felt-green', back: 'back-classic', face: 'face-light'
+            owned: ['felt-green', 'back-classic', 'face-light', 'title-none'],
+            felt: 'felt-green', back: 'back-classic', face: 'face-light', title: 'title-none',
+            inv: { xray: 1, undo: 2, trumpSwap: 1, shield: 0 }
         };
 
+        var titlePrefixMap = {
+            'title-none': '',
+            'title-21': '🎲 Катала ',
+            'title-shuler': '🃏 Шулер ',
+            'title-magnat': '💎 Магнат ',
+            'title-boss': '👑 Босс Казино '
+        };
+
+        var currentShopTab = 'style';
+
         var shopCatalog = [
-            { id: 'felt-green', cat: 'felt', title: 'Изумрудное сукно', sub: 'Стол по умолчанию', price: 0 },
-            { id: 'felt-ruby', cat: 'felt', title: 'Королевский рубин', sub: 'Бордовый бархат', price: 300 },
-            { id: 'felt-ocean', cat: 'felt', title: 'Покерный синий', sub: 'Глубокий океан', price: 500 },
-            { id: 'felt-vip', cat: 'felt', title: 'Черный Оникс VIP', sub: 'Элитный темный стол', price: 1000 },
-            { id: 'back-classic', cat: 'back', title: 'Классическая рубашка', sub: 'Бордовая с золотом', price: 0 },
-            { id: 'back-gold', cat: 'back', title: 'Золотой слиток', sub: 'Рубашка карт', price: 400 },
-            { id: 'back-cyber', cat: 'back', title: 'Неоновая сеть', sub: 'Рубашка карт', price: 600 },
-            { id: 'back-carbon', cat: 'back', title: 'Темный карбон', sub: 'Рубашка карт', price: 800 },
-            { id: 'face-light', cat: 'face', title: 'Светлая классика', sub: 'Лицевая сторона', price: 0 },
-            { id: 'face-dark', cat: 'face', title: 'Ночной режим 🌙', sub: 'Темные карты для глаз', price: 450 },
-            { id: 'face-imperial', cat: 'face', title: 'Имперское золото', sub: 'Золотистый пергамент', price: 900 }
+            // Вкладка: СТИЛЬ (Столы, рубашки, лица с реальными мини-превью)
+            { id: 'felt-green', tab: 'style', cat: 'felt', title: 'Изумрудное сукно', sub: 'Классический стол казино', price: 0, prevClass: 'prev-felt-green', prevText: '♣♦' },
+            { id: 'felt-ruby', tab: 'style', cat: 'felt', title: 'Королевский рубин', sub: 'Бордовый бархатный стол', price: 300, prevClass: 'prev-felt-ruby', prevText: '♥♠' },
+            { id: 'felt-ocean', tab: 'style', cat: 'felt', title: 'Покерный океан', sub: 'Глубокий синий стол', price: 500, prevClass: 'prev-felt-ocean', prevText: '♠♦' },
+            { id: 'felt-purple', tab: 'style', cat: 'felt', title: 'Аметист Лаунж', sub: 'Пурпурный ночной клуб', price: 750, prevClass: 'prev-felt-purple', prevText: '♥♣' },
+            { id: 'felt-vip', tab: 'style', cat: 'felt', title: 'Черный Оникс VIP', sub: 'Элитный стол хайроллеров', price: 1000, prevClass: 'prev-felt-vip', prevText: 'VIP' },
+
+            { id: 'back-classic', tab: 'style', cat: 'back', title: 'Бордовая классика', sub: 'Рубашка карт по умолчанию', price: 0, prevClass: 'prev-back-classic', prevText: '' },
+            { id: 'back-gold', tab: 'style', cat: 'back', title: 'Золотой слиток', sub: 'Переливающееся золото', price: 400, prevClass: 'prev-back-gold', prevText: '' },
+            { id: 'back-cyber', tab: 'style', cat: 'back', title: 'Неоновая сеть', sub: 'Киберпанк рубашка', price: 600, prevClass: 'prev-back-cyber', prevText: '' },
+            { id: 'back-carbon', tab: 'style', cat: 'back', title: 'Темный карбон', sub: 'Матовое углеволокно', price: 800, prevClass: 'prev-back-carbon', prevText: '' },
+            { id: 'back-matrix', tab: 'style', cat: 'back', title: 'Код Матрицы', sub: 'Изумрудные цифровые линии', price: 950, prevClass: 'prev-back-matrix', prevText: '' },
+
+            { id: 'face-light', tab: 'style', cat: 'face', title: 'Светлая классика', sub: 'Белые карты', price: 0, prevClass: 'prev-face-light', prevText: 'Т♥' },
+            { id: 'face-dark', tab: 'style', cat: 'face', title: 'Ночной режим 🌙', sub: 'Темные карты для глаз', price: 450, prevClass: 'prev-face-dark', prevText: 'Т♥' },
+            { id: 'face-imperial', tab: 'style', cat: 'face', title: 'Имперское золото', sub: 'Золотистый пергамент', price: 900, prevClass: 'prev-face-imperial', prevText: 'Т♦' },
+            { id: 'face-neon', tab: 'style', cat: 'face', title: 'Кибер-Неон ⚡', sub: 'Светящиеся масти в темноте', price: 1200, prevClass: 'prev-face-neon', prevText: 'Т♠' },
+
+            // Вкладка: ПРИЕМЫ (Расходуемые суперспособности в бою)
+            { id: 'perk-xray', tab: 'perks', cat: 'consumable', invKey: 'xray', addCount: 1, title: '👁️ Рентген карт соперника', sub: 'Показывает все карты противника лицом вверх на 5 сек!', price: 150, prevClass: 'prev-icon-box', prevText: '👁️' },
+            { id: 'perk-undo', tab: 'perks', cat: 'consumable', invKey: 'undo', addCount: 3, title: '🔙 Рукав шулера (+3 шт.)', sub: 'Позволяет отменить ход и вернуть карту в руку', price: 100, prevClass: 'prev-icon-box', prevText: '🔙' },
+            { id: 'perk-swap', tab: 'perks', cat: 'consumable', invKey: 'trumpSwap', addCount: 2, title: '🃏 Пересдача козыря (+2 шт.)', sub: 'Меняет козырную масть прямо во время партии', price: 120, prevClass: 'prev-icon-box', prevText: '🃏' },
+            { id: 'perk-shield', tab: 'perks', cat: 'consumable', invKey: 'shield', addCount: 1, title: '🛡️ Страховка ставки', sub: 'При поражении спасает и возвращает 50% вашей ставки', price: 200, prevClass: 'prev-icon-box', prevText: '🛡️' },
+
+            // Вкладка: ЭМОЦИИ (Наборы анимированных фраз)
+            { id: 'emote-shuler', tab: 'emotes', cat: 'emote', title: '🃏 Пакет «Дворовый Шулер»', sub: 'Добавляет: 🃏 Туз в рукаве, 🚬 Перекур, 💸 Гони фишки, 🤡 Кадр', price: 350, prevClass: 'prev-icon-box', prevText: '🃏🚬' },
+            { id: 'emote-royal', tab: 'emotes', cat: 'emote', title: '👑 Пакет «Король Казино»', sub: 'Добавляет: 👑 Дорогу Королю, 🥂 Шампанского, 💎 Алмаз, 🔥 Огонь', price: 600, prevClass: 'prev-icon-box', prevText: '👑🥂' },
+
+            // Вкладка: СТАТУСЫ И ПОСТОЯННЫЕ БОНУСЫ
+            { id: 'title-none', tab: 'vip', cat: 'title', title: 'Без титула', sub: 'Стандартное имя за столом', price: 0, prevClass: 'prev-icon-box', prevText: '👤' },
+            { id: 'title-21', tab: 'vip', cat: 'title', title: 'Титул «🎲 Катала»', sub: 'Приставка к вашему нику за столом и по сети', price: 500, prevClass: 'prev-icon-box', prevText: '🎲' },
+            { id: 'title-shuler', tab: 'vip', cat: 'title', title: 'Титул «🃏 Шулер»', sub: 'Внушает уважение соперникам', price: 1000, prevClass: 'prev-icon-box', prevText: '🃏' },
+            { id: 'title-magnat', tab: 'vip', cat: 'title', title: 'Титул «💎 Магнат»', sub: 'Для богатых игроков казино', price: 2500, prevClass: 'prev-icon-box', prevText: '💎' },
+            { id: 'title-boss', tab: 'vip', cat: 'title', title: 'Титул «👑 Босс Казино»', sub: 'Высший статус владельца клуба +25% к выигрышам навсегда!', price: 5000, prevClass: 'prev-icon-box', prevText: '👑' }
         ];
 
         function loadStats() {
@@ -1005,10 +1122,17 @@
                     stats.losses = parsed.losses || 0;
                     stats.pogony = parsed.pogony || 0;
                     stats.chips = typeof parsed.chips === 'number' ? parsed.chips : 1000;
-                    stats.owned = parsed.owned || ['felt-green', 'back-classic', 'face-light'];
+                    stats.owned = parsed.owned || ['felt-green', 'back-classic', 'face-light', 'title-none'];
                     stats.felt = parsed.felt || 'felt-green';
                     stats.back = parsed.back || 'back-classic';
                     stats.face = parsed.face || 'face-light';
+                    stats.title = parsed.title || 'title-none';
+                    if (parsed.inv) {
+                        stats.inv.xray = typeof parsed.inv.xray === 'number' ? parsed.inv.xray : 1;
+                        stats.inv.undo = typeof parsed.inv.undo === 'number' ? parsed.inv.undo : 2;
+                        stats.inv.trumpSwap = typeof parsed.inv.trumpSwap === 'number' ? parsed.inv.trumpSwap : 1;
+                        stats.inv.shield = typeof parsed.inv.shield === 'number' ? parsed.inv.shield : 0;
+                    }
                 }
             } catch (e) {}
             applyVisualTheme();
@@ -1029,8 +1153,14 @@
             $('stat-wins').textContent = stats.wins;
             $('stat-losses').textContent = stats.losses;
             $('stat-pogony').textContent = stats.pogony + ' 🎖️';
+            var pref = titlePrefixMap[stats.title] || '';
+            $('stat-title').textContent = pref ? pref : 'Обычный игрок';
             var total = stats.wins + stats.losses;
             $('stat-rate').textContent = total > 0 ? Math.round((stats.wins / total) * 100) + '%' : '0%';
+
+            $('xray-count').textContent = stats.inv.xray;
+            $('undo-count').textContent = stats.inv.undo;
+            $('swap-count').textContent = stats.inv.trumpSwap;
 
             if (stats.chips < 50) $('btn-bailout').classList.remove('hidden');
             else $('btn-bailout').classList.add('hidden');
@@ -1047,40 +1177,104 @@
             document.body.className = stats.felt + ' ' + stats.back + ' ' + stats.face;
         }
 
+        function switchShopTab(tabName) {
+            currentShopTab = tabName;
+            $('tab-shop-style').className = tabName === 'style' ? 'active-tab' : '';
+            $('tab-shop-perks').className = tabName === 'perks' ? 'active-tab' : '';
+            $('tab-shop-emotes').className = tabName === 'emotes' ? 'active-tab' : '';
+            $('tab-shop-vip').className = tabName === 'vip' ? 'active-tab' : '';
+            renderShop();
+        }
+
+        $('tab-shop-style').onclick = function () { switchShopTab('style'); };
+        $('tab-shop-perks').onclick = function () { switchShopTab('perks'); };
+        $('tab-shop-emotes').onclick = function () { switchShopTab('emotes'); };
+        $('tab-shop-vip').onclick = function () { switchShopTab('vip'); };
+
         function renderShop() {
             var container = $('shop-list');
             container.innerHTML = '';
             shopCatalog.forEach(function (item) {
-                var isOwned = stats.owned.indexOf(item.id) !== -1;
-                var isEquipped = (stats[item.cat] === item.id);
+                if (item.tab !== currentShopTab) return;
+
                 var row = document.createElement('div');
                 row.className = 'shop-item';
 
+                var left = document.createElement('div');
+                left.className = 'shop-left';
+
+                var prev = document.createElement('div');
+                prev.className = 'shop-preview ' + (item.prevClass || '');
+                prev.textContent = item.prevText || '';
+
                 var info = document.createElement('div');
-                info.innerHTML = '<div class="shop-item-title">' + item.title + '</div><div class="shop-item-sub">' + item.sub + '</div>';
+                var badgeHtml = '';
+                if (item.cat === 'consumable') {
+                    var countNow = stats.inv[item.invKey] || 0;
+                    badgeHtml = '<div class="shop-item-badge">В запасе: ' + countNow + ' шт.</div>';
+                }
+                info.innerHTML = '<div class="shop-item-title">' + item.title + '</div><div class="shop-item-sub">' + item.sub + '</div>' + badgeHtml;
+
+                left.appendChild(prev);
+                left.appendChild(info);
 
                 var btn = document.createElement('button');
-                if (isEquipped) {
-                    btn.className = 'btn-secondary'; btn.textContent = 'Выбрано ✓'; btn.disabled = true;
-                } else if (isOwned) {
-                    btn.className = 'btn-accent'; btn.textContent = 'Применить';
-                    btn.onclick = function () {
-                        stats[item.cat] = item.id;
-                        applyVisualTheme(); saveStatsData(); renderShop();
-                    };
-                } else {
-                    btn.className = 'btn-primary'; btn.textContent = item.price + ' 🪙';
+
+                if (item.cat === 'consumable') {
+                    btn.className = 'btn-primary';
+                    btn.textContent = '+' + item.addCount + ' за ' + item.price + ' 🪙';
                     btn.onclick = function () {
                         if (stats.chips < item.price) { showToast('Недостаточно фишек!'); return; }
                         stats.chips -= item.price;
-                        stats.owned.push(item.id);
-                        stats[item.cat] = item.id;
+                        stats.inv[item.invKey] = (stats.inv[item.invKey] || 0) + item.addCount;
                         playChipSound();
-                        applyVisualTheme(); saveStatsData(); renderShop();
+                        saveStatsData();
+                        renderShop();
                         showToast('Куплено: ' + item.title);
                     };
+                } else if (item.cat === 'emote') {
+                    var ownedEmote = stats.owned.indexOf(item.id) !== -1;
+                    if (ownedEmote) {
+                        btn.className = 'btn-secondary'; btn.textContent = 'Куплено ✓'; btn.disabled = true;
+                    } else {
+                        btn.className = 'btn-primary'; btn.textContent = item.price + ' 🪙';
+                        btn.onclick = function () {
+                            if (stats.chips < item.price) { showToast('Недостаточно фишек!'); return; }
+                            stats.chips -= item.price;
+                            stats.owned.push(item.id);
+                            playChipSound();
+                            saveStatsData();
+                            renderShop();
+                            showToast('Эмоции разблокированы! 💬');
+                        };
+                    }
+                } else {
+                    var isOwned = stats.owned.indexOf(item.id) !== -1;
+                    var isEquipped = (stats[item.cat] === item.id);
+                    if (isEquipped) {
+                        btn.className = 'btn-secondary'; btn.textContent = 'Надето ✓'; btn.disabled = true;
+                    } else if (isOwned) {
+                        btn.className = 'btn-accent'; btn.textContent = 'Надеть';
+                        btn.onclick = function () {
+                            stats[item.cat] = item.id;
+                            applyVisualTheme(); saveStatsData(); renderShop();
+                        };
+                    } else {
+                        btn.className = 'btn-primary'; btn.textContent = item.price + ' 🪙';
+                        btn.onclick = function () {
+                            if (stats.chips < item.price) { showToast('Недостаточно фишек!'); return; }
+                            stats.chips -= item.price;
+                            stats.owned.push(item.id);
+                            stats[item.cat] = item.id;
+                            playChipSound();
+                            applyVisualTheme(); saveStatsData(); renderShop();
+                            showToast('Куплено и надето: ' + item.title);
+                        };
+                    }
                 }
-                row.appendChild(info); row.appendChild(btn);
+
+                row.appendChild(left);
+                row.appendChild(btn);
                 container.appendChild(row);
             });
         }
@@ -1093,6 +1287,7 @@
         var isOnlineGame = false, isLocalTwoPlayer = false, localViewMode = 'curtain';
         var isHost = false, conn = null;
         var player1BaseName = 'Игрок 1', player2BaseName = 'Игрок 2';
+        var xrayActive = false, xrayTimer = null;
 
         var RTCPeer = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
         var webrtcOK = !!RTCPeer;
@@ -1125,7 +1320,9 @@
 
         function getPlayerNickname(fallback) {
             var n = $('nickname').value.trim();
-            var finalNick = n.length >= 2 ? n : (fallback || 'Игрок');
+            var rawNick = n.length >= 2 ? n : (fallback || 'Игрок');
+            var pref = titlePrefixMap[stats.title] || '';
+            var finalNick = pref + rawNick;
             $('display-nickname').textContent = finalNick;
             player1BaseName = finalNick;
             return finalNick;
@@ -1248,6 +1445,67 @@
             showScreen('auth');
         };
 
+        // ---------- АКТИВАЦИЯ ПРИЕМОВ ЗА СТОЛОМ (РЕНТГЕН, СМЕНА КОЗЫРЯ, РУКАВ) ----------
+        $('btn-xray').onclick = function () {
+            if (xrayActive) { showToast('Рентген уже активен!'); return; }
+            if (botHand.length === 0) { showToast('У соперника нет карт!'); return; }
+            if (stats.inv.xray <= 0) {
+                if (stats.chips >= 150) {
+                    stats.chips -= 150;
+                    stats.inv.xray = 1;
+                    showToast('Куплен 👁️ Рентген за 150 🪙!');
+                } else {
+                    showToast('Нет зарядов 👁️ Рентгена! Купите в Магазине (150 🪙)');
+                    return;
+                }
+            }
+            stats.inv.xray--;
+            saveStatsData();
+            xrayActive = true;
+            playChipSound();
+            showToast('👁️ РЕНТГЕН АКТИВИРОВАН НА 5 СЕКУНД!');
+            sayBotBubble('Эй! Ты чего подглядываешь?! 😳');
+            renderHands();
+            if (xrayTimer) clearTimeout(xrayTimer);
+            xrayTimer = setTimeout(function () {
+                xrayActive = false;
+                renderHands();
+            }, 5000);
+        };
+
+        $('btn-swap-trump').onclick = function () {
+            if (isOnlineGame) { showToast('Смена козыря доступна только в офлайн-режиме'); return; }
+            if (deck.length < 2) { showToast('В колоде больше нет карт для замены козыря'); return; }
+            if (stats.inv.trumpSwap <= 0) {
+                if (stats.chips >= 120) {
+                    stats.chips -= 120;
+                    stats.inv.trumpSwap = 1;
+                } else {
+                    showToast('Нет зарядов 🃏! Купите в Магазине (120 🪙)');
+                    return;
+                }
+            }
+            stats.inv.trumpSwap--;
+            saveStatsData();
+
+            // Меняем нижнюю карту колоды со случайной картой другой масти из середины колоды
+            var swapIdx = 1;
+            for (var i = 1; i < deck.length; i++) {
+                if (deck[i].s !== trumpSuit) { swapIdx = i; break; }
+            }
+            var tmp = deck[0];
+            deck[0] = deck[swapIdx];
+            deck[swapIdx] = tmp;
+            trumpSuit = deck[0].s;
+
+            playChipSound();
+            setupTableUI();
+            renderHands();
+            updateTurnState();
+            showToast('🃏 Козырь изменен на ' + trumpSuit + '!');
+            sayBotBubble('Ловкость рук и никакого мошенничества?! 🤨');
+        };
+
         // ---------- 1. ОНЛАЙН ЧЕРЕЗ ИНТЕРНЕТ ПО 4-ЗНАЧНОМУ ПИН-КОДУ ----------
         var activeOnlinePeer = null;
         var activeOnlinePin = '';
@@ -1359,7 +1617,7 @@
                 desc.type === 'offer' ? 'O' : 'A',
                 u, p, fHex, sctp,
                 cands.slice(0, 4).join(','),
-                encodeURIComponent((nick || 'Игрок').substring(0, 10))
+                encodeURIComponent((nick || 'Игрок').substring(0, 12))
             ].join('|');
             return raw;
         }
@@ -1764,6 +2022,8 @@
         function clearAllTimers() {
             if (botTimerId) { clearTimeout(botTimerId); botTimerId = null; }
             if (blitzInterval) { clearInterval(blitzInterval); blitzInterval = null; }
+            if (xrayTimer) { clearTimeout(xrayTimer); xrayTimer = null; }
+            xrayActive = false;
         }
 
         function scheduleBot(fn, delay) {
@@ -1782,6 +2042,7 @@
             $('battlefield').classList.remove('compact-grid');
             $('discard-count').textContent = '0';
             $('btn-undo').disabled = true;
+            updateBalancesUI();
         }
 
         function buildDeck() {
@@ -1838,9 +2099,11 @@
         }
 
         function setupTableUI() {
-            var tCard = $('trump-card');
-            tCard.setAttribute("data-value", deck[0].v); tCard.setAttribute("data-suit", deck[0].s);
-            tCard.innerHTML = deck[0].v + deck[0].s;
+            if (deck.length > 0) {
+                var tCard = $('trump-card');
+                tCard.setAttribute("data-value", deck[0].v); tCard.setAttribute("data-suit", deck[0].s);
+                tCard.innerHTML = deck[0].v + deck[0].s;
+            }
             var tSym = $('trump-symbol');
             tSym.textContent = trumpSuit;
             tSym.style.color = (trumpSuit === '♥' || trumpSuit === '♦') ? '#d32f2f' : '#fff';
@@ -2048,10 +2311,19 @@
 
         $('btn-undo').onclick = function () {
             if (!undoSnapshot || isOnlineGame) return;
-            var cost = isLocalTwoPlayer ? 0 : 30;
-            if (stats.chips < cost) { showToast('Нужно 30 🪙 для возврата карты!'); return; }
+            if (!isLocalTwoPlayer) {
+                if (stats.inv.undo > 0) {
+                    stats.inv.undo--;
+                    saveStatsData();
+                } else if (stats.chips >= 35) {
+                    stats.chips -= 35;
+                    saveStatsData();
+                } else {
+                    showToast('Нет зарядов 🔙 В рукав! Купите в Магазине');
+                    return;
+                }
+            }
             clearAllTimers();
-            if (cost > 0) { stats.chips -= cost; saveStatsData(); }
             playerHand = undoSnapshot.playerHand;
             botHand = undoSnapshot.botHand;
             tablePairs = undoSnapshot.tablePairs;
@@ -2065,7 +2337,7 @@
             playCardSound();
             syncOrientationForActivePlayer();
             renderTable(); renderHands(); updateTurnState();
-            showToast('Карта спрятана в рукав! 🔙');
+            showToast('Карта возвращена в рукав! 🔙');
         };
 
         $('btn-discard').onclick = function () {
@@ -2285,8 +2557,9 @@
             });
 
             var bWidth = bContainer.clientWidth || window.innerWidth * 0.9;
-            var cardW = isTabletop ? 66 : 54;
-            var overlapB = isTabletop ? -36 : -40;
+            var showTopFace = isTabletop || xrayActive;
+            var cardW = showTopFace ? 64 : 54;
+            var overlapB = showTopFace ? -34 : -40;
             var totalWidthB = topCards.length * cardW;
             if (totalWidthB > 0 && topCards.length > 1 && totalWidthB + (topCards.length - 1) * overlapB > bWidth) {
                 overlapB = Math.floor((bWidth - totalWidthB) / (topCards.length - 1));
@@ -2300,6 +2573,12 @@
                     el.innerHTML = card.v + card.s;
                     el.style.width = '66px'; el.style.height = '94px';
                     attachDragAndDropHandlers(el, card, 2, true);
+                } else if (xrayActive) {
+                    el.className = 'card xray-card';
+                    el.setAttribute("data-value", card.v); el.setAttribute("data-suit", card.s);
+                    el.innerHTML = card.v + card.s;
+                    el.style.width = '62px'; el.style.height = '88px';
+                    el.style.fontSize = '1.35rem';
                 } else {
                     el.className = 'card card-back';
                     el.style.width = '54px'; el.style.height = '76px';
@@ -2391,7 +2670,7 @@
             var actorBlocked = (actor === 1 && (botPassed || opponentPassed || playerTaking)) || (actor === 2 && botTaking);
 
             handArr.forEach(function (card, i) {
-                var el = cardsElements[i]; if (!el || el.classList.contains('card-back')) return;
+                var el = cardsElements[i]; if (!el || el.classList.contains('card-back') || el.classList.contains('xray-card')) return;
                 var canPlay = false, canTranslate = false, canToss = false, canDefend = false;
 
                 if (isActorActive && !actorBlocked) {
@@ -2809,7 +3088,6 @@
             }
         }
 
-        // ИСПРАВЛЕНО: Фишки и победы теперь начисляются во ВСЕХ режимах (с Ботом, по QR, Онлайн и Вдвоем)
         function checkWin() {
             if (deck.length === 0) {
                 if (playerHand.length === 0 && botHand.length === 0) {
@@ -2821,7 +3099,8 @@
                 } else if (playerHand.length === 0) {
                     var isPogony = lastPlayerAttackCards.length > 0 && lastPlayerAttackCards.every(function (c) { return c.v === '6'; });
                     var mult = (isOnlineGame || isLocalTwoPlayer) ? 2 : (difficulty === 'expert' ? 3 : (difficulty === 'hard' ? 2 : 1.5));
-                    var baseProfit = currentBet > 0 ? Math.round(currentBet * mult) : 100;
+                    var bossMult = (stats.owned.indexOf('title-boss') !== -1) ? 1.25 : 1;
+                    var baseProfit = currentBet > 0 ? Math.round(currentBet * mult * bossMult) : Math.round(100 * bossMult);
                     var netBonus = baseProfit * (isPogony ? 2 : 1);
                     var totalPayout = currentBet + netBonus;
 
@@ -2835,10 +3114,16 @@
                     gameOver("Победа! 🏆", sub, isPogony);
                 } else if (botHand.length === 0) {
                     stats.losses++;
+                    var refund = 0;
+                    if (currentBet > 0 && stats.inv.shield > 0) {
+                        stats.inv.shield--;
+                        refund = Math.round(currentBet * 0.5);
+                        stats.chips += refund;
+                    }
                     saveStatsData();
 
                     if (isLocalTwoPlayer) playWinSound(); else playLoseSound();
-                    var loseSub = isLocalTwoPlayer ? ("Победил " + player2BaseName + "!") : (currentBet > 0 ? ("Потеряна ставка: -" + currentBet + " 🪙") : "Соперник оказался сильнее");
+                    var loseSub = isLocalTwoPlayer ? ("Победил " + player2BaseName + "!") : (refund > 0 ? ("🛡️ Страховка вернула +" + refund + " 🪙!") : (currentBet > 0 ? ("Потеряна ставка: -" + currentBet + " 🪙") : "Соперник оказался сильнее"));
                     gameOver(isLocalTwoPlayer ? ("Победа: " + player2BaseName + "! 🏆") : "Поражение! 💀", loseSub, false);
                 }
             }
